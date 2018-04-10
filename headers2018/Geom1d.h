@@ -49,7 +49,7 @@ public:
 protected:
     
     /// indexes of the nodes of the geometry
-    VecInt fNodeIndices
+	VecInt fNodeIndices;
 };
 
 #endif /* Geom1d_h */

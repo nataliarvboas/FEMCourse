@@ -8,6 +8,7 @@ project (FemSC)
 add_subdirectory(headers)
 add_subdirectory(headers2018)
 add_subdirectory("src vazio")
+add_subdirectory(src_2018)
 add_subdirectory(tinyxml)
 
 
@@ -40,6 +41,31 @@ if(WIN32)
 	set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} /W0")
 	set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /W0")
 endif()
+
+#define se biblioteca Armadillo deve ser usada
+option(USING_ARMADILLO "Biblioteca Armadillo deve ser usada neste projeto" OFF)
+
+if(USING_ARMADILLO)
+	find_package( Armadillo REQUIRED NO_MODULE)
+	include_directories(${ARMADILLO_INCLUDE_DIRS})
+	add_definitions(-DARMADILLO)
+endif(USING_ARMADILLO)
+
+
+#define se biblioteca Eigen3 deve ser usada
+option(USING_EIGEN3 "Biblioteca Eigen3 deve ser usada neste projeto" OFF)
+
+if(USING_EIGEN3)
+	find_package( Eigen3 REQUIRED)
+	include_directories(${EIGEN3_INCLUDE_DIR})
+	add_definitions(-DEIGEN3)
+endif(USING_EIGEN3)
+
+
+if(USING_ARMADILLO)
+	link_libraries(${ARMADILLO_LIBRARIES}) 
+endif(USING_ARMADILLO)
+
 
 
 option(USING_FAD "Whether the FAD package will be linked with the library" OFF)

@@ -9,4 +9,5 @@ add_executable(TestTwoDProblem TestTwoDProblem.cpp ${FemSCSOURCE})
 
 add_executable(TestMatrix Testmatrix.cpp ${FemSCSOURCE})
 
-add_executable(Fem2018 main2018.cpp ${FemSOURCE2018})
+add_executable(Fem2018 main2018.cpp ${FemSOURCE2018} ${SOURCES2018})
+
