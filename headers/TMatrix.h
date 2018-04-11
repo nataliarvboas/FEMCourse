@@ -12,6 +12,7 @@
 #include"TVecNum.h"
 #include <iostream>
 #include <stdio.h>
+#include <vector>
 
 typedef std::vector<double> VecDouble;
 

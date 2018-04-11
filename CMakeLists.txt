@@ -8,6 +8,7 @@ project (FemSC)
 add_subdirectory(headers)
 add_subdirectory(headers2018)
 add_subdirectory("src vazio")
+add_subdirectory(src_2018)
 add_subdirectory(tinyxml)
 
 
@@ -41,9 +42,62 @@ if(WIN32)
 	set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /W0")
 endif()
 
+#define se biblioteca Armadillo deve ser usada
+option(USING_ARMADILLO "Biblioteca Armadillo deve ser usada neste projeto" OFF)
+
+if(USING_ARMADILLO)
+	find_package( Armadillo REQUIRED NO_MODULE)
+	include_directories(${ARMADILLO_INCLUDE_DIRS})
+	add_definitions(-DARMADILLO)
+endif(USING_ARMADILLO)
+
+
+#define se biblioteca Eigen3 deve ser usada
+option(USING_EIGEN3 "Biblioteca Eigen3 deve ser usada neste projeto" OFF)
+
+if(USING_EIGEN3)
+	find_package( Eigen3 REQUIRED)
+	include_directories(${EIGEN3_INCLUDE_DIR})
+	add_definitions(-DEIGEN3)
+endif(USING_EIGEN3)
+
+
+if(USING_ARMADILLO)
+	link_libraries(${ARMADILLO_LIBRARIES}) 
+endif(USING_ARMADILLO)
+
+
 
 option(USING_FAD "Whether the FAD package will be linked with the library" OFF)
 
 if(USING_FAD)
 	add_subdirectory("Fad")
 endif(USING_FAD)
+
+option(USING_PZ "Whether the neoPZ package will be linked with the library" OFF)
+
+if(USING_PZ)
+
+	IF (WIN32)
+		# Prevents timespec redefinition problem with Visual Studio 2015
+		set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DHAVE_STRUCT_TIMESPEC")
+	ELSE (WIN32)
+		set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC")
+		set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-narrowing")#this flag is for preventing errors when casting from double to float
+	ENDIF()
+
+
+	set(CMAKE_CXX_STANDARD 11)
+	set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+	IF (WIN32)
+		find_package( PZ PATHS "C:/Arquivos de Programas/PZ" REQUIRED NO_DEFAULT_PATH)
+	ELSE()
+		find_package( PZ REQUIRED )
+	ENDIF (WIN32)
+
+
+	include_directories(${PZ_INCLUDE_DIRS})
+ 	link_libraries(pz) 
+
+endif(USING_PZ)
