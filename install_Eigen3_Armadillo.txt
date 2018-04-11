@@ -1,0 +1,77 @@
+Instruções de Instalação - Bibliotecas Eigen e Armadillo
+
+Estas instruções se baseiam em uma instalação em Windows, mas é análoga
+para as plataformas Linux e Mac OS.
+Em caso de dúvida, após o passo de descompactação consulte instruções específicas
+contidas no diretório descompactado de cada uma destas bibliotecas.
+
+==========================================================
+Eigen
+
+- download em http://eigen.tuxfamily.org, arquivo eigen-eigen-5a0156e40feb.zip, por exemplo;
+
+- descompactar 
+
+- abrir cmake-gui e apontar o código fonte da Eigen (diretório onde se encontra CMakeLists.txt) (Ex.: /eigen-eigen-5a0156e40feb)
+
+- escolher um diretório diferente para o build dos binários    (Ex.: /eigen-eigen-5a0156e40feb-build)
+
+- mudar CMAKE_PREFIX_PATH para, por exemplo, /INSTALL/Eigen3
+
+- configurar e gerar
+
+- se Windows ou MAC, abrir projeto e modificar para Release (se já não estiver)
+
+- fazer build do target "INSTALL"
+
+- remover diretório de build dos binários
+
+
+
+  Projeto usando Eigen
+
+- cmake não encontra diretório de instalação e variável EIGEN3_DIR: entrar manualmente o caminho completo de 
+  instalação do arquivo Eigen3Config.cmake. Por exemplo: \INSTALL\Eigen3\share\eigen3\cmake
+  
+- configurar (até que não existam mais erros) e gerar projeto;
+
+- abrir projeto e fazer build de meu_programa;
+  
+
+
+==========================================================
+
+
+Armadillo
+
+
+- download em http://arma.sourceforge.net/ , arquivo armadillo-8.400.0.tar.xz, por exemplo;
+
+- descompactar
+
+- abrir cmake-gui e apontar o código fonte da Armadillo (diretório onde se encontra CMakeLists.txt)
+
+- mudar CMAKE_PREFIX_PATH para, por exemplo, /INSTALL/Armadillo
+
+- configurar e gerar
+
+- se Windows ou MAC, abrir projeto e modificar para Release (se já não estiver)
+
+- fazer build do target "INSTALL"
+
+- remover diretório de build dos binários
+
+
+
+  Projeto usando Armadillo
+
+- cmake não encontra diretório de instalação e variável Armadillo_DIR: entrar manualmente o caminho completo de 
+  instalação do arquivo ArmadilloConfig.cmake. Por exemplo: /INSTALL/Armadillo/share/Armadillo/CMake
+  
+- configurar (até que não existam mais erros) e gerar projeto;
+  Obs.: em Windows, se o cmake-gui der erro na linha com a instrução "include(..." do arquivo ArmadilloConfig.cmake, é
+  necessário editar esta linha, acrescentando a letra de drive do caminho. Por exemplo:
+     include("D:/INSTALL/Armadillo/share/Armadillo/CMake/ArmadilloLibraryDepends.cmake")
+
+- abrir projeto e fazer build de meu_programa;
+  
