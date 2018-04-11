@@ -1,6 +1,6 @@
 Instruções de Instalação - Bibliotecas Eigen e Armadillo
 
-Estas instruções se baseiam em uma instalação em Windows, mas é análoga
+Estas instruções se baseiam em uma instalação em Windows, mas são análogas
 para as plataformas Linux e Mac OS.
 Em caso de dúvida, após o passo de descompactação consulte instruções específicas
 contidas no diretório descompactado de cada uma destas bibliotecas.
