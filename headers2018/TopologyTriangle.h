@@ -20,6 +20,12 @@ protected:
     
     const int nCorners = 3;
     
+    /// Number of nodes associated with a side
+    static int NSideNodes(int side);
+    
+    /// local node index of a node associated with a side
+    static int SideNodeIndex(int side, int node);
+    
 };
 
 

@@ -15,7 +15,9 @@ class GeomTetrahedron : public TopologyTetrahedron
 {
 public:
     
-    const int NNodes = 4;
+    const static int NNodes = 4;
+    
+    const static int NSides = 15;
     
     /// Constructor
     GeomTetrahedron();
@@ -47,10 +49,19 @@ public:
     /// Return the index of a node
     int NodeIndex(int node);
     
+    /// Return the neighbour along side
+    GeoElementSide Neighbour(int side);
+    
+    /// Initialize the neighbour data structure
+    void SetNeighbour(int side, GeoElementSide &neighbour);
+    
 protected:
     
     /// indexes of the nodes of the geometry
-    VecInt fNodeIndices
+    VecInt fNodeIndices;
+    
+    /// vector of neighbours
+    GeoElementSide fNeighbours[NSides];
 };
 
 #endif /* GeomTetrahedron_h */
