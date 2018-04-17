@@ -16,9 +16,9 @@ protected:
     
     typedef IntRuleTriangle LocIntRule;
     
-    const int nSides = 7;
+    static const int nSides = 7;
     
-    const int nCorners = 3;
+    static const int nCorners = 3;
     
     /// Number of nodes associated with a side
     static int NSideNodes(int side);

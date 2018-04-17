@@ -87,7 +87,7 @@ void VTKGeoMesh::PrintGMeshVTK(GeoMesh * gmesh, std::string &filename)
     int64_t nelements = gmesh->NumElements();
     GeoElement *gel;
     
-    std::stringstream node, connectivity, type, material;
+    std::stringstream node, connectivity, type, material, elindex;
     
     //Header
     file << "# vtk DataFile Version 3.0" << std::endl;
@@ -107,7 +107,6 @@ void VTKGeoMesh::PrintGMeshVTK(GeoMesh * gmesh, std::string &filename)
             continue;
         }
        
-        ElementType elt = gel->Type();
         int elNnodes = gel->NCornerNodes();
         
         size += (1+elNnodes);
@@ -132,7 +131,7 @@ void VTKGeoMesh::PrintGMeshVTK(GeoMesh * gmesh, std::string &filename)
         type << elType << std::endl;
         
         material << gel->Material() << std::endl;
-        
+        elindex << el << std::endl;
         nVALIDelements++;
     }
     node << std::endl;
@@ -151,7 +150,10 @@ void VTKGeoMesh::PrintGMeshVTK(GeoMesh * gmesh, std::string &filename)
     file << "FIELD FieldData 1" << std::endl;
     file << "material 1 " << nVALIDelements << " int" << std::endl;
     file << material.str();
-    
+    file << "FIELD FieldData 1" << std::endl;
+    file << "elindex 1 " << nVALIDelements << " int" << std::endl;
+    file << elindex.str();
+
     file.close();
 }
 

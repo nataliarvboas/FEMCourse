@@ -26,7 +26,10 @@ public:
     
     GeoElement();
     
-    GeoElement(const VecInt &nodes, int materialid, GeoMesh *mesh);
+    GeoElement(int materialid, GeoMesh *mesh) : GMesh(mesh), MaterialId(materialid)
+    {
+        
+    }
     
     GeoElement(const GeoElement &copy);
     
@@ -63,6 +66,6 @@ public:
     
     virtual void GradX(const VecDouble &xi, Matrix &gradx) = 0;
     
-    
+    virtual void Print(std::ostream &out);
 };
 #endif /* GeoElement_h */

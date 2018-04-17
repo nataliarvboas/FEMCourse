@@ -14,10 +14,6 @@ class GeomQuad : public TopologyQuad
 {
 public:
     
-    const static int NNodes = 4;
-    
-    const static int NSides = 9;
-    
     /// Constructor
     GeomQuad();
     
@@ -64,7 +60,7 @@ protected:
     
     
     /// vector of neighbours
-    GeoElementSide fNeighbours[NSides];
+    GeoElementSide fNeighbours[nSides];
 
 };
 

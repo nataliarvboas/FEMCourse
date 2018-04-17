@@ -17,9 +17,9 @@ protected:
     
     typedef IntRule1d LocIntRule;
 
-    const int nSides = 3;
+    const static int nSides = 3;
     
-    const int nCorners = 2;
+    const static int nCorners = 2;
     
     /// Number of nodes associated with a side
     static int NSideNodes(int side);

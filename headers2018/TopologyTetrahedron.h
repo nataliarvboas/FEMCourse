@@ -16,9 +16,9 @@ protected:
     
     typedef IntRuleTetrahedron LocIntRule;
     
-    const int nSides = 15;
+    const static int nSides = 15;
     
-    const int nCorners = 4;
+    const static int nCorners = 4;
     
     /// Number of nodes associated with a side
     static int NSideNodes(int side);

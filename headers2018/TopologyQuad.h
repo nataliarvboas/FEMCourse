@@ -16,9 +16,9 @@ protected:
     
     typedef IntRuleQuad LocIntRule;
     
-    const int nSides = 9;
+    const static int nSides = 9;
     
-    const int nCorners = 4;
+    const static int nCorners = 4;
     
     /// Number of nodes associated with a side
     static int NSideNodes(int side);

@@ -38,15 +38,17 @@ public:
         return xco;
     }
     
-    double Coord(int co)
+    double Coord(int coo)
     {
-        return xco[co];
+        return xco[coo];
     }
     
     void SetCo(const VecDouble &co)
     {
         xco = co;
     }
+    
+    void Print(std::ostream &out);
     
 };
 #endif /* GeoNode_h */

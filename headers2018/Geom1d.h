@@ -15,9 +15,6 @@ class Geom1d : public Topology1d
 {
 public:
     
-    const static int NNodes = 2;
-    
-    const static int NSides = 3;
     
     /// Constructor
     Geom1d();
@@ -64,7 +61,7 @@ protected:
 	VecInt fNodeIndices;
     
     /// vector of neighbours
-    GeoElementSide fNeighbours[NSides];
+    GeoElementSide fNeighbours[nSides];
 };
 
 #endif /* Geom1d_h */

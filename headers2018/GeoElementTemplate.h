@@ -11,7 +11,7 @@
 #include "GeoElement.h"
 
 template<class TGeom>
-class GeoElementTemplate
+class GeoElementTemplate : public GeoElement
 {
     
 protected:
@@ -45,8 +45,29 @@ public:
         return Geom.NNodes();
     }
     
+    virtual int NodeIndex(int node)
+    {
+        return Geom.NodeIndex(node);
+    }
+    
+    virtual GeoElementSide Neighbour(int side)
+    {
+        return Geom.Neighbour(side);
+    }
+    
+    virtual void SetNeighbour(int side, GeoElementSide &neigh)
+    {
+        Geom.SetNeighbour(side,neigh);
+    }
+    
     /// return the enumerated element type
     virtual ElementType Type();
+    
+    virtual void X(const VecDouble &xi, VecDouble &x);
+    
+    virtual void GradX(const VecDouble &xi, Matrix &gradx);
+    
+    virtual void Print(std::ostream &out);
 };
 
 #endif /* GeoElementTemplate_h */

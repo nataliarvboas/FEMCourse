@@ -14,10 +14,6 @@ class GeomTriangle : public TopologyTriangle
 {
 public:
     
-    const static int NNodes = 3;
-    
-    const static int NSides = 7;
-    
     /// Constructor
     GeomTriangle();
     
@@ -63,7 +59,7 @@ protected:
     VecInt fNodeIndices;
     
     /// vector of neighbours
-    GeoElementSide fNeighbours[NSides];
+    GeoElementSide fNeighbours[nSides];
 };
 
 #endif /* GeomTriangle_h */

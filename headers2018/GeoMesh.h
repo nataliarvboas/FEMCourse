@@ -49,7 +49,7 @@ public:
     
     void BuildConnectivity();
     
-    
+    void Print(std::ostream &out);
     
 };
 #endif /* GeoMesh_h */

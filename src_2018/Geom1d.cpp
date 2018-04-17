@@ -11,7 +11,7 @@
  /// Constructor
 Geom1d::Geom1d() : fNodeIndices()
 {
-    for (int is = 0; is<NSides; is++) {
+    for (int is = 0; is<nSides; is++) {
         fNeighbours[is] = GeoElementSide();
     }
 }
