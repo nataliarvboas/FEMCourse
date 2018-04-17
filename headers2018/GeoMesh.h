@@ -37,15 +37,17 @@ public:
     
     void SetNumElements(int numelements);
     
+    int NumNodes();
+    
+    int NumElements();
+    
     GeoNode &Node(int node);
     
     void SetElement(int elindex, GeoElement *gel);
     
     GeoElement *Element(int elindex);
     
-    void Read GMSh(const std::string &filename);
-    
-    BuildConnectivity();
+    void BuildConnectivity();
     
     
     

@@ -26,6 +26,8 @@ protected:
     /// local node index of a node associated with a side
     static int SideNodeIndex(int side, int node);
     
+    /// return the enumerated element type
+    static ElementType Type();
 };
 
 

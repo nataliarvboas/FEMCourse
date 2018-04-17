@@ -22,7 +22,7 @@ public:
         
     }
     
-    GeoNode(const GeoNode *copy) : xco(copy.xco)
+    GeoNode(const GeoNode &copy) : xco(copy.xco)
     {
         
     }
@@ -36,6 +36,11 @@ public:
     VecDouble Co()
     {
         return xco;
+    }
+    
+    double Coord(int co)
+    {
+        return xco[co];
     }
     
     void SetCo(const VecDouble &co)

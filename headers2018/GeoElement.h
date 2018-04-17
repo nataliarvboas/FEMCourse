@@ -9,11 +9,13 @@
 #define GeoElement_h
 
 #include "DataTypes.h"
-
-class GMesh;
+#include "GeoElementSide.h"
+class GeoMesh;
 
 class GeoElement
 {
+    
+protected:
     // geometric mesh to which the element belongs
     GeoMesh *GMesh;
     
@@ -24,7 +26,7 @@ public:
     
     GeoElement();
     
-    GeoElement(const VecInt &nodes, GeoMesh *mesh);
+    GeoElement(const VecInt &nodes, int materialid, GeoMesh *mesh);
     
     GeoElement(const GeoElement &copy);
     
@@ -32,14 +34,29 @@ public:
     
     /// access methods
     
+    virtual int NCornerNodes() = 0;
+    
+    virtual int NNodes() = 0;
+    
     virtual int NodeIndex(int node) = 0;
     
     virtual GeoElementSide Neighbour(int side) = 0;
     
     virtual void SetNeighbour(int side, GeoElementSide &neigh) = 0;
     
-    virtual Neighbour(int side) = 0;
+    /// return the enumerated element type
+    virtual ElementType Type() = 0;
 
+    void SetMesh(GeoMesh *gmesh)
+    {
+        GMesh = gmesh;
+    }
+    
+    int Material()
+    {
+        return MaterialId;
+    }
+    
     /// mapping functions
     
     virtual void X(const VecDouble &xi, VecDouble &x) = 0;
