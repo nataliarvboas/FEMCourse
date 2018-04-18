@@ -12,13 +12,15 @@
 
 class TopologyQuad
 {
-protected:
+public:
     
     typedef IntRuleQuad LocIntRule;
     
     const static int nSides = 9;
     
     const static int nCorners = 4;
+    
+protected:
     
     /// Number of nodes associated with a side
     static int NSideNodes(int side);

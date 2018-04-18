@@ -8,6 +8,8 @@
 #ifndef Shape1d_h
 #define Shape1d_h
 
+#include "DataTypes.h"
+
 class Shape1d
 {
 public:

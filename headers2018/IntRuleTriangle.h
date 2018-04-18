@@ -11,7 +11,9 @@
 
 #include <stdio.h>
 #include "TVec.h"
-#include "TMatrix.h"
+#include "DataTypes.h"
+#include "IntRule.h"
+
 
 class IntRuleTriangle : public IntRule
 {

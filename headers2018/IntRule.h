@@ -18,10 +18,13 @@ class IntRule
   
 protected:
     
+    //Polynomial order of the integration rule
     int fOrder;
-
+    
+    //Number of integration points for this object
     Matrix fPoints;
     
+    //Weight of the integration point
     VecDouble fWeights;
 
 public:
@@ -29,25 +32,31 @@ public:
     //Default Constructor of integration rule
     IntRule();
     
-    
+    //Constructor of integration rule
     IntRule(int order);
     
+    //Destructor of integration rule
     ~IntRule();
     
+    //operator=
     virtual void operator=(const IntRule &copy);
     
+    //Copy constructor of integration rule
     IntRule(const IntRule &copy);
     
+    //Method to set polynomial order of the integration rule
     virtual void SetOrder(int order)
     {
         fOrder=order;
-        
     }
     
+    //Method to return the number of integration points
     virtual int NPoints() const;
     
-    virtual void Point(int p, TVec<double> &co, double &weight) const;
+    //Function returning coordinates and weights of integration points
+    virtual void Point(int p, VecDouble &co, double &weight) const;
     
+    //Fuction for printing results
     void Print(std::ostream &out) const;
     
 };

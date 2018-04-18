@@ -9,6 +9,7 @@
 #define GeomTriangle_h
 
 #include "TopologyTriangle.h"
+#include "GeoElementSide.h"
 
 class GeomTriangle : public TopologyTriangle
 {

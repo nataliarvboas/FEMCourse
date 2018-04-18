@@ -8,6 +8,8 @@
 #ifndef ShapeTetrahedron_h
 #define ShapeTetrahedron_h
 
+#include "DataTypes.h"
+
 class ShapeTetrahedron
 {
 public:

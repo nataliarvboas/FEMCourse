@@ -20,7 +20,6 @@ protected:
     
 public:
     
-    
     /// constructor
     GeoElementTemplate(const VecInt &nodeindices, int materialid, GeoMesh *gmesh);
     
@@ -37,12 +36,12 @@ public:
 
     virtual int NCornerNodes()
     {
-        return TGeom::NNodes;
+        return TGeom::nCorners;
     }
     
     virtual int NNodes()
     {
-        return Geom.NNodes();
+        return Geom.NumNodes();
     }
     
     virtual int NodeIndex(int node)

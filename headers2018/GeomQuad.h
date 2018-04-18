@@ -9,6 +9,7 @@
 #define GeomQuad_h
 
 #include "TopologyQuad.h"
+#include "GeoElementSide.h"
 
 class GeomQuad : public TopologyQuad
 {

@@ -8,6 +8,8 @@
 #ifndef ShapeTriangle_h
 #define ShapeTriangle_h
 
+#include "DataTypes.h"
+
 class ShapeTriangle
 {
 public:

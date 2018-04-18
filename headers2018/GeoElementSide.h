@@ -11,7 +11,6 @@
 class GeoElement;
 
 class GeoElementSide
-
 {
     // associated element
     GeoElement *fElement;

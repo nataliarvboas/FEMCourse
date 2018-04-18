@@ -10,6 +10,7 @@
 
 #include "DataTypes.h"
 #include "TopologyTetrahedron.h"
+#include "GeoElementSide.h"
 
 class GeomTetrahedron : public TopologyTetrahedron
 {

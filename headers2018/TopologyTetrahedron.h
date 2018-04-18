@@ -12,13 +12,15 @@
 
 class TopologyTetrahedron
 {
-protected:
+public:
     
     typedef IntRuleTetrahedron LocIntRule;
     
     const static int nSides = 15;
     
     const static int nCorners = 4;
+    
+protected:
     
     /// Number of nodes associated with a side
     static int NSideNodes(int side);

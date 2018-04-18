@@ -13,13 +13,15 @@
 
 class Topology1d
 {
-protected:
+public:
     
     typedef IntRule1d LocIntRule;
-
+    
     const static int nSides = 3;
     
     const static int nCorners = 2;
+    
+protected:
     
     /// Number of nodes associated with a side
     static int NSideNodes(int side);

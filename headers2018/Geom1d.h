@@ -38,7 +38,7 @@ public:
     static void GradX(const VecDouble &xi, Matrix &NodeCo, VecDouble &x, Matrix &gradx);
     
     /// return the number of nodes of the template
-    int NumNodes();
+    static int NumNodes();
     
     /// Set the node indices of the element
     void SetNodes(const VecInt &nodes);

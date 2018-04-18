@@ -23,7 +23,7 @@ public:
         
     }
     /// reads the mesh contained in the file and fill the geometric mesh
-    void Read(GeoMesh &gmesh, std::string &filename);
+    void Read(GeoMesh &gmesh, const std::string &filename);
     
 protected:
     

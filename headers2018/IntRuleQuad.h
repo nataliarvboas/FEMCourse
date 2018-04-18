@@ -11,6 +11,7 @@
 
 #include <stdio.h>
 #include "DataTypes.h"
+#include "IntRule.h"
 
 class IntRuleQuad : public IntRule
 {
@@ -24,7 +25,7 @@ public:
   
   virtual void SetOrder(int order);
    
-  void gaulegQuad(const double x1, const double x2, VecDouble&x, VecDouble &w);
+  void gaulegQuad(const double x1, const double x2, VecDouble &x, VecDouble &w);
 
 };
 

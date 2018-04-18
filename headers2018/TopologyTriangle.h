@@ -12,13 +12,15 @@
 
 class TopologyTriangle
 {
-protected:
+public:
     
     typedef IntRuleTriangle LocIntRule;
     
     static const int nSides = 7;
     
     static const int nCorners = 3;
+    
+protected:
     
     /// Number of nodes associated with a side
     static int NSideNodes(int side);

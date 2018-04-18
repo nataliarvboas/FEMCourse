@@ -13,8 +13,9 @@
 
 class VTKGeoMesh
 {
+    public:
     /** @brief Generate an output of all geomesh to VTK */
-    static void PrintGMeshVTK(GeoMesh *gmesh, std::string &filename);
+    static void PrintGMeshVTK(GeoMesh *gmesh, const std::string &filename);
 
 };
 
