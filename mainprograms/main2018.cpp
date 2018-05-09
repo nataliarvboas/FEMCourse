@@ -12,7 +12,8 @@
 #include "TopologyQuad.h"
 #include "TopologyTetrahedron.h"
 #include "DataTypes.h"
-
+#include "ReadGmsh.h"
+#include "VTKGeoMesh.h"
 using std::cout;
 using std::endl;
 using std::cin;
@@ -20,6 +21,12 @@ using std::cin;
 int main ()
 {
     VecDouble vec1;
-  
+    ReadGmsh read;
+    GeoMesh gmesh;
+    read.Read(gmesh,"t1.msh");
+    
+    VTKGeoMesh::PrintGMeshVTK(&gmesh,"teste1.vtk");
+    
+   
     return 0;
 }

@@ -5,6 +5,7 @@
 #include "TMatrix.h"
 #include "tmalha.h"
 #include "TVec.h"
+#include <cstdlib>
 
 #ifdef WIN32
 #define __PRETTY_FUNCTION__ __FUNCTION__
@@ -352,7 +353,7 @@ int TestGetRow()
   cout <<__PRETTY_FUNCTION__ << endl;
   int certo = 0;
   TMatrix a;
-  TVec<double> vec;
+  VecDouble vec;
   
   cout<<"Teste 1: Verificação de GetRow em uma matriz vazia" <<endl;
   try {
@@ -416,7 +417,7 @@ int TestGetCol()
   cout <<__PRETTY_FUNCTION__ << endl;
   
   TMatrix a;
-  TVec<double> vec;
+  VecDouble vec;
   int certo=0;
   
   cout<<"Teste 1: Verificação de GetRow em uma matriz vazia" <<endl;
@@ -916,7 +917,7 @@ int TestVecMatrix ()
 {
   cout <<__PRETTY_FUNCTION__<<endl;
   int certo = 1;
-  TVecNum<double> a, res;
+  VecDouble a, res;
   TMatrix mat;
   
   cout<<"Teste 1: elementos da multiplicacao vazios" <<endl;
@@ -944,8 +945,8 @@ int TestVecMatrix ()
   if(certo==1){cout<<"Teste 2: Ok."<<endl;}
   else cout <<"Teste 2: Errado."<<endl;
   
-  a.Resize(10);
-  for (int i=0; i<a.Size(); i++) {
+  a.resize(10);
+  for (int i=0; i<a.size(); i++) {
     a[i] = rand();
   }
   
@@ -959,7 +960,7 @@ int TestVecMatrix ()
   else cout <<"Teste 3: Errado."<<endl;
   
   cout<<"Teste 4: Teste  de congruencia da multiplicacao"<<endl;
-  a.Resize(3);
+  a.resize(3);
   res = mat*a;
   TVecNum<double> mult(mat.Rows());
   mult.Zero();

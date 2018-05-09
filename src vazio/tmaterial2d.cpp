@@ -6,7 +6,7 @@
 //
 //
 
-#include "TMaterial2d.h"
+#include "tmaterial2d.h"
 
 #include "TMatrix.h"
 
@@ -34,12 +34,12 @@ void TMaterial2d::Print(std::ostream& out) const
 //B -> ''
 
 /**
- * Calcula o valor da contribuição da equação variacional no ponto dado
+ * Calcula o valor da contribuiÃ§Ã£o da equaÃ§Ã£o variacional no ponto dado
  * na matriz de rigidez do elemento e no vetor de carga
- * @param pt [in]: ponto de integração de Gauss
- * @param weight [in]: peso de integração
- * @param phiVal [in] : valor da função teste no ponto dado
- * @param dphi [in] : valor das derivadas da função de forma no ponto de integração
+ * @param pt [in]: ponto de integraÃ§Ã£o de Gauss
+ * @param weight [in]: peso de integraÃ§Ã£o
+ * @param phiVal [in] : valor da funÃ§Ã£o teste no ponto dado
+ * @param dphi [in] : valor das derivadas da funÃ§Ã£o de forma no ponto de integraÃ§Ã£o
  * @param elementK [inout]: matriz de rigidez do elemento
  * @param elementF [inout]: vetor de carga do elemento
  */

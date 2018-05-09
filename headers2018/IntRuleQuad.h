@@ -17,15 +17,19 @@ class IntRuleQuad : public IntRule
 {
     
 
-public:
+    public:
+
+    // Default Constructor of integration rule for quadrilateral elements
+    IntRuleQuad();
+    
+    // Constructor of integration rule for quadrilateral elements
+    IntRuleQuad(int order);
   
-  IntRuleQuad();
+    // Method to set polynomial order of the integration rule for quadrilateral elements
+    virtual void SetOrder(int order);
   
-  IntRuleQuad(int order);
-  
-  virtual void SetOrder(int order);
-   
-  void gaulegQuad(const double x1, const double x2, VecDouble &x, VecDouble &w);
+    // Integration rule 2D (quadrilateral elements) method obtained from Numerical Recipes
+    void gaulegQuad(const double x1, const double x2, VecDouble &x, VecDouble &w);
 
 };
 

@@ -20,7 +20,7 @@
 static void InsertElement(GeoMesh &gmesh, int elindex, std::ifstream & line);
 
 /// reads the mesh contained in the file and fill the geometric mesh
-void ReadGmsh::Read(GeoMesh &gmesh, std::string &file_name)
+void ReadGmsh::Read(GeoMesh &gmesh, const std::string &file_name) 
 {
     
     std::string string_temp;

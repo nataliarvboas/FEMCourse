@@ -5,6 +5,8 @@ cmake_minimum_required (VERSION 2.8.0)
 
 project (FemSC)
 
+set (CMAKE_CXX_STANDARD 11)
+
 add_subdirectory(headers)
 add_subdirectory(headers2018)
 add_subdirectory("src vazio")
