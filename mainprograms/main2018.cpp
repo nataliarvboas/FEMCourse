@@ -27,6 +27,7 @@ int main ()
     
     VTKGeoMesh::PrintGMeshVTK(&gmesh,"teste1.vtk");
     
+    gmesh.Print(std::cout);
    
     return 0;
 }

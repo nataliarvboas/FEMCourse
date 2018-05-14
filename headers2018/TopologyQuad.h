@@ -20,9 +20,10 @@ public:
     // Number of sides associated with quadrilateral elements elements
     const static int nSides = 9;
     
-    // Number of corner nodes associated with quadrilateral elements elements
+    // Number of corner nodes associated with quadrilateral elements
     const static int nCorners = 4;
     
+    // Dimension of quadrilateral elements
     const static int Dimension = 2;
     
     // Number of nodes associated with a side
