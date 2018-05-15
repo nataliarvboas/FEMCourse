@@ -1,0 +1,66 @@
+called: /usr/bin/c++
+	/home/natalia/Documents/GitHub/FEMCourse/mainprograms
+	/usr/bin/c++
+	-I/home/natalia/Documents/GitHub/FEMCourse/headers2018
+	-I/home/natalia/Documents/GitHub/FEMCourse/headers
+	-I/home/natalia/Documents/GitHub/FEMCourse/tinyxml
+	-o
+	CMakeFiles/Fem2018.dir/main2018.cpp.o
+	-c
+	/home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp
+
+called: /usr/bin/c++
+	/home/natalia/Documents/GitHub/FEMCourse/mainprograms
+	/usr/bin/c++
+	-I/home/natalia/Documents/GitHub/FEMCourse/headers2018
+	-I/home/natalia/Documents/GitHub/FEMCourse/headers
+	-I/home/natalia/Documents/GitHub/FEMCourse/tinyxml
+	-o
+	CMakeFiles/Fem2018.dir/__/src_vazio/TMatrix.cpp.o
+	-c
+	/home/natalia/Documents/GitHub/FEMCourse/src vazio/TMatrix.cpp
+
+called: /usr/bin/c++
+	/home/natalia/Documents/GitHub/FEMCourse/mainprograms
+	/usr/bin/c++
+	-I/home/natalia/Documents/GitHub/FEMCourse/headers2018
+	-I/home/natalia/Documents/GitHub/FEMCourse/headers
+	-I/home/natalia/Documents/GitHub/FEMCourse/tinyxml
+	-o
+	CMakeFiles/Fem2018.dir/__/tinyxml/tinyxmlerror.cpp.o
+	-c
+	/home/natalia/Documents/GitHub/FEMCourse/tinyxml/tinyxmlerror.cpp
+
+called: /usr/bin/c++
+	/home/natalia/Documents/GitHub/FEMCourse/mainprograms
+	/usr/bin/c++
+	-I/home/natalia/Documents/GitHub/FEMCourse/headers2018
+	-I/home/natalia/Documents/GitHub/FEMCourse/headers
+	-I/home/natalia/Documents/GitHub/FEMCourse/tinyxml
+	-o
+	CMakeFiles/Fem2018.dir/__/tinyxml/tinyxmlparser.cpp.o
+	-c
+	/home/natalia/Documents/GitHub/FEMCourse/tinyxml/tinyxmlparser.cpp
+
+called: /usr/bin/c++
+	/home/natalia/Documents/GitHub/FEMCourse/mainprograms
+	/usr/bin/c++
+	-I/home/natalia/Documents/GitHub/FEMCourse/headers2018
+	-I/home/natalia/Documents/GitHub/FEMCourse/headers
+	-I/home/natalia/Documents/GitHub/FEMCourse/tinyxml
+	-o
+	CMakeFiles/Fem2018.dir/__/tinyxml/tinyxml.cpp.o
+	-c
+	/home/natalia/Documents/GitHub/FEMCourse/tinyxml/tinyxml.cpp
+
+called: /usr/bin/c++
+	/home/natalia/Documents/GitHub/FEMCourse/mainprograms
+	/usr/bin/c++
+	-I/home/natalia/Documents/GitHub/FEMCourse/headers2018
+	-I/home/natalia/Documents/GitHub/FEMCourse/headers
+	-I/home/natalia/Documents/GitHub/FEMCourse/tinyxml
+	-o
+	CMakeFiles/Fem2018.dir/__/src_2018/IntRuleTriangle.cpp.o
+	-c
+	/home/natalia/Documents/GitHub/FEMCourse/src_2018/IntRuleTriangle.cpp
+

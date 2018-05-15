@@ -1,0 +1,17 @@
+Scanning dependencies of target Fem2018
+[  0%] Building CXX object mainprograms/CMakeFiles/Fem2018.dir/main2018.cpp.o
+[  1%] Building CXX object mainprograms/CMakeFiles/Fem2018.dir/__/src_vazio/TMatrix.cpp.o
+[  2%] Building CXX object mainprograms/CMakeFiles/Fem2018.dir/__/tinyxml/tinyxmlerror.cpp.o
+[  2%] Building CXX object mainprograms/CMakeFiles/Fem2018.dir/__/tinyxml/tinyxmlparser.cpp.o
+[  3%] Building CXX object mainprograms/CMakeFiles/Fem2018.dir/__/tinyxml/tinyxml.cpp.o
+[  4%] Building CXX object mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/IntRuleTriangle.cpp.o
+/home/natalia/Documents/GitHub/FEMCourse/src_2018/IntRuleTriangle.cpp: In constructor ‘IntRuleTriangle::IntRuleTriangle(int)’:
+/home/natalia/Documents/GitHub/FEMCourse/src_2018/IntRuleTriangle.cpp:22:5: error: ‘fIntegtype’ was not declared in this scope
+     fIntegtype = 2;
+     ^
+mainprograms/CMakeFiles/Fem2018.dir/build.make:182: recipe for target 'mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/IntRuleTriangle.cpp.o' failed
+make[2]: *** [mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/IntRuleTriangle.cpp.o] Error 1
+CMakeFiles/Makefile2:185: recipe for target 'mainprograms/CMakeFiles/Fem2018.dir/all' failed
+make[1]: *** [mainprograms/CMakeFiles/Fem2018.dir/all] Error 2
+Makefile:83: recipe for target 'all' failed
+make: *** [all] Error 2

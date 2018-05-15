@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="100">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <df root="." name="0">
+      <df name="CMakeFiles">
+        <df name="3.5.1">
+          <df name="CompilerIdC">
+            <in>CMakeCCompilerId.c</in>
+          </df>
+          <df name="CompilerIdCXX">
+            <in>CMakeCXXCompilerId.cpp</in>
+          </df>
+        </df>
+        <df name="CMakeTmp">
+        </df>
+        <in>feature_tests.c</in>
+        <in>feature_tests.cxx</in>
+      </df>
+      <df name="Fad">
+        <in>fad.h</in>
+        <in>fadfunc.h</in>
+        <in>fadlog.h</in>
+        <in>fadop.h</in>
+      </df>
+      <df name="Gmsh">
+      </df>
+      <df name="headers">
+        <df name="CMakeFiles">
+        </df>
+        <in>TDataTypes.h</in>
+        <in>TIntRule1d.h</in>
+        <in>TIntRuleQuad.h</in>
+        <in>TIntRuleTriangle.h</in>
+        <in>TMatrix.h</in>
+        <in>TVec.h</in>
+        <in>TVecNum.h</in>
+        <in>tanalysis.h</in>
+        <in>telemento.h</in>
+        <in>telemento0d.h</in>
+        <in>telemento1d.h</in>
+        <in>telementoQuad.h</in>
+        <in>telementoTriangle.h</in>
+        <in>tmalha.h</in>
+        <in>tmaterial.h</in>
+        <in>tmaterial1d.h</in>
+        <in>tmaterial2d.h</in>
+        <in>tmaterialbc.h</in>
+        <in>tno.h</in>
+        <in>tpanic.h</in>
+      </df>
+      <df name="headers2018">
+        <df name="CMakeFiles">
+        </df>
+        <in>Analysis.h</in>
+        <in>Assemble.h</in>
+        <in>CompElement.h</in>
+        <in>CompElementTemplate.h</in>
+        <in>CompMesh.h</in>
+        <in>DOF.h</in>
+        <in>DataTypes.h</in>
+        <in>GeoElement.h</in>
+        <in>GeoElementSide.h</in>
+        <in>GeoElementTemplate.h</in>
+        <in>GeoMesh.h</in>
+        <in>GeoNode.h</in>
+        <in>Geom1d.h</in>
+        <in>GeomQuad.h</in>
+        <in>GeomTetrahedron.h</in>
+        <in>GeomTriangle.h</in>
+        <in>IntPointData.h</in>
+        <in>IntRule.h</in>
+        <in>IntRule1d.h</in>
+        <in>IntRuleQuad.h</in>
+        <in>IntRuleTetrahedron.h</in>
+        <in>IntRuleTriangle.h</in>
+        <in>L2Projection.h</in>
+        <in>MathStatement.h</in>
+        <in>Poisson.h</in>
+        <in>ReadGmsh.h</in>
+        <in>Shape1d.h</in>
+        <in>ShapeQuad.h</in>
+        <in>ShapeTetrahedron.h</in>
+        <in>ShapeTriangle.h</in>
+        <in>Topology1d.h</in>
+        <in>TopologyQuad.h</in>
+        <in>TopologyTetrahedron.h</in>
+        <in>TopologyTriangle.h</in>
+        <in>VTKGeoMesh.h</in>
+        <in>tpanic.h</in>
+      </df>
+      <df name="mainprograms">
+        <df name="CMakeFiles">
+          <df name="Fem2018.dir">
+            <df name="__">
+              <df name="src_2018">
+              </df>
+              <df name="src_vazio">
+              </df>
+              <df name="tinyxml">
+              </df>
+            </df>
+          </df>
+          <df name="FemSC.dir">
+            <df name="__">
+              <df name="src_vazio">
+              </df>
+              <df name="tinyxml">
+              </df>
+            </df>
+          </df>
+          <df name="TestIntegrate.dir">
+            <df name="__">
+              <df name="src_vazio">
+              </df>
+              <df name="tinyxml">
+              </df>
+            </df>
+          </df>
+          <df name="TestMatrix.dir">
+            <df name="__">
+              <df name="src_vazio">
+              </df>
+              <df name="tinyxml">
+              </df>
+            </df>
+          </df>
+          <df name="TestOneDProblem.dir">
+            <df name="__">
+              <df name="src_vazio">
+              </df>
+              <df name="tinyxml">
+              </df>
+            </df>
+          </df>
+          <df name="TestTwoDProblem.dir">
+            <df name="__">
+              <df name="src_vazio">
+              </df>
+              <df name="tinyxml">
+              </df>
+            </df>
+          </df>
+        </df>
+        <in>TestIntegrate.cpp</in>
+        <in>TestOneDProblem.cpp</in>
+        <in>TestTwoDProblem.cpp</in>
+        <in>Testmatrix.cpp</in>
+        <in>main.cpp</in>
+        <in>main2018.cpp</in>
+      </df>
+      <df name="src vazio">
+        <df name="CMakeFiles">
+        </df>
+        <in>TIntRule1d.cpp</in>
+        <in>TIntRuleQuad.cpp</in>
+        <in>TIntRuleTriangle.cpp</in>
+        <in>TMatrix.cpp</in>
+        <in>TVec.cpp</in>
+        <in>TVecNum.cpp</in>
+        <in>fem_sc.cpp</in>
+        <in>tanalysis.cpp</in>
+        <in>telemento.cpp</in>
+        <in>telemento0d.cpp</in>
+        <in>telemento1d.cpp</in>
+        <in>telementoQuad.cpp</in>
+        <in>telementoTriangle.cpp</in>
+        <in>tmalha.cpp</in>
+        <in>tmaterial.cpp</in>
+        <in>tmaterial1d.cpp</in>
+        <in>tmaterial2d.cpp</in>
+        <in>tmaterialbc.cpp</in>
+        <in>tno.cpp</in>
+      </df>
+      <df name="src_2018">
+        <df name="CMakeFiles">
+        </df>
+        <in>CompElement.cpp</in>
+        <in>CompElementTemplate.cpp</in>
+        <in>CompMesh.cpp</in>
+        <in>DOF.cpp</in>
+        <in>GeoElement.cpp</in>
+        <in>GeoElementSide.cpp</in>
+        <in>GeoElementTemplate.cpp</in>
+        <in>GeoMesh.cpp</in>
+        <in>GeoNode.cpp</in>
+        <in>Geom1d.cpp</in>
+        <in>GeomQuad.cpp</in>
+        <in>GeomTetrahedron.cpp</in>
+        <in>GeomTriangle.cpp</in>
+        <in>IntRule.cpp</in>
+        <in>IntRule1d.cpp</in>
+        <in>IntRuleQuad.cpp</in>
+        <in>IntRuleTetrahedron.cpp</in>
+        <in>IntRuleTriangle.cpp</in>
+        <in>L2Projection.cpp</in>
+        <in>MathStatement.cpp</in>
+        <in>Poisson.cpp</in>
+        <in>ReadGmsh.cpp</in>
+        <in>Shape1d.cpp</in>
+        <in>ShapeQuad.cpp</in>
+        <in>ShapeTetrahedron.cpp</in>
+        <in>ShapeTriangle.cpp</in>
+        <in>Topology1d.cpp</in>
+        <in>TopologyQuad.cpp</in>
+        <in>TopologyTetrahedron.cpp</in>
+        <in>TopologyTriangle.cpp</in>
+        <in>VTKGeoMesh.cpp</in>
+      </df>
+      <df name="tinyxml">
+        <df name="CMakeFiles">
+        </df>
+        <in>tinyxml.cpp</in>
+        <in>tinyxml.h</in>
+        <in>tinyxmlerror.cpp</in>
+        <in>tinyxmlparser.cpp</in>
+      </df>
+    </df>
+  </logicalFolder>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="Default" type="0">
+      <toolsSet>
+        <developmentServer>localhost</developmentServer>
+        <platform>2</platform>
+      </toolsSet>
+      <compile>
+        <compiledirpicklist>
+          <compiledirpicklistitem>.</compiledirpicklistitem>
+          <compiledirpicklistitem>${AUTO_FOLDER}</compiledirpicklistitem>
+        </compiledirpicklist>
+        <compiledir>${AUTO_FOLDER}</compiledir>
+        <compilecommandpicklist>
+          <compilecommandpicklistitem>${MAKE} ${ITEM_NAME}.o</compilecommandpicklistitem>
+          <compilecommandpicklistitem>${AUTO_COMPILE}</compilecommandpicklistitem>
+        </compilecommandpicklist>
+        <compilecommand>${AUTO_COMPILE}</compilecommand>
+      </compile>
+      <dbx_gdbdebugger version="1">
+        <gdb_pathmaps>
+        </gdb_pathmaps>
+        <gdb_interceptlist>
+          <gdbinterceptoptions gdb_all="false" gdb_unhandled="true" gdb_unexpected="true"/>
+        </gdb_interceptlist>
+        <gdb_signals>
+        </gdb_signals>
+        <gdb_options>
+          <DebugOptions>
+          </DebugOptions>
+        </gdb_options>
+        <gdb_buildfirst gdb_buildfirst_overriden="false" gdb_buildfirst_old="false"/>
+      </dbx_gdbdebugger>
+      <nativedebugger version="1">
+        <engine>gdb</engine>
+      </nativedebugger>
+      <runprofile version="9">
+        <runcommandpicklist>
+          <runcommandpicklistitem>"${OUTPUT_PATH}"</runcommandpicklistitem>
+        </runcommandpicklist>
+        <runcommand>"${OUTPUT_PATH}"</runcommand>
+        <rundir>.</rundir>
+        <buildfirst>false</buildfirst>
+        <terminal-type>0</terminal-type>
+        <remove-instrumentation>0</remove-instrumentation>
+        <environment>
+        </environment>
+      </runprofile>
+    </conf>
+  </confs>
+</configurationDescriptor>

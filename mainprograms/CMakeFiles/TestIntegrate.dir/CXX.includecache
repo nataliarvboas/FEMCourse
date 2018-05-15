@@ -1,0 +1,470 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/natalia/Documents/GitHub/FEMCourse/mainprograms/TestIntegrate.cpp
+iostream
+-
+math.h
+-
+TMatrix.h
+/home/natalia/Documents/GitHub/FEMCourse/mainprograms/TMatrix.h
+TIntRule1d.h
+/home/natalia/Documents/GitHub/FEMCourse/mainprograms/TIntRule1d.h
+TIntRuleQuad.h
+/home/natalia/Documents/GitHub/FEMCourse/mainprograms/TIntRuleQuad.h
+TIntRuleTriangle.h
+/home/natalia/Documents/GitHub/FEMCourse/mainprograms/TIntRuleTriangle.h
+TVec.h
+/home/natalia/Documents/GitHub/FEMCourse/mainprograms/TVec.h
+tpanic.h
+/home/natalia/Documents/GitHub/FEMCourse/mainprograms/tpanic.h
+TMatrix.h
+/home/natalia/Documents/GitHub/FEMCourse/mainprograms/TMatrix.h
+tmalha.h
+/home/natalia/Documents/GitHub/FEMCourse/mainprograms/tmalha.h
+telemento1d.h
+/home/natalia/Documents/GitHub/FEMCourse/mainprograms/telemento1d.h
+telemento0d.h
+/home/natalia/Documents/GitHub/FEMCourse/mainprograms/telemento0d.h
+telementoQuad.h
+/home/natalia/Documents/GitHub/FEMCourse/mainprograms/telementoQuad.h
+telementoTriangle.h
+/home/natalia/Documents/GitHub/FEMCourse/mainprograms/telementoTriangle.h
+tmaterial1d.h
+/home/natalia/Documents/GitHub/FEMCourse/mainprograms/tmaterial1d.h
+tmaterial2d.h
+/home/natalia/Documents/GitHub/FEMCourse/mainprograms/tmaterial2d.h
+tmaterialbc.h
+/home/natalia/Documents/GitHub/FEMCourse/mainprograms/tmaterialbc.h
+tanalysis.h
+/home/natalia/Documents/GitHub/FEMCourse/mainprograms/tanalysis.h
+TIntRule1d.h
+/home/natalia/Documents/GitHub/FEMCourse/mainprograms/TIntRule1d.h
+
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/TIntRule1d.cpp
+TIntRule1d.h
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/TIntRule1d.h
+tpanic.h
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/tpanic.h
+
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/TIntRuleQuad.cpp
+TIntRuleQuad.h
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/TIntRuleQuad.h
+tpanic.h
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/tpanic.h
+TIntRule1d.h
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/TIntRule1d.h
+
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/TIntRuleTriangle.cpp
+TIntRuleTriangle.h
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/TIntRuleTriangle.h
+tpanic.h
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/tpanic.h
+
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/TMatrix.cpp
+TMatrix.h
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/TMatrix.h
+tpanic.h
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/tpanic.h
+iostream
+-
+stdio.h
+-
+math.h
+-
+vector
+-
+
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/TVec.cpp
+iostream
+-
+TVec.h
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/TVec.h
+stdio.h
+-
+math.h
+-
+tpanic.h
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/tpanic.h
+tno.h
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/tno.h
+
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/TVecNum.cpp
+iostream
+-
+TVecNum.h
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/TVecNum.h
+stdio.h
+-
+math.h
+-
+tpanic.h
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/tpanic.h
+
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/fem_sc.cpp
+config.h
+-
+iostream
+-
+cstdlib
+-
+math.h
+-
+tno.h
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/tno.h
+telemento.h
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/telemento.h
+telemento0d.h
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/telemento0d.h
+telemento1d.h
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/telemento1d.h
+tmalha.h
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/tmalha.h
+tanalysis.h
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/tanalysis.h
+tmaterial1d.h
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/tmaterial1d.h
+tmaterialbc.h
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/tmaterialbc.h
+
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/tanalysis.cpp
+tanalysis.h
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/tanalysis.h
+TMatrix.h
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/TMatrix.h
+math.h
+-
+TVec.h
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/TVec.h
+tpanic.h
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/tpanic.h
+
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/telemento.cpp
+telemento.h
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/telemento.h
+tno.h
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/tno.h
+tmalha.h
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/tmalha.h
+TMatrix.h
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/TMatrix.h
+tpanic.h
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/tpanic.h
+
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/telemento0d.cpp
+telemento0d.h
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/telemento0d.h
+tmaterial.h
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/tmaterial.h
+tmalha.h
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/tmalha.h
+TMatrix.h
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/TMatrix.h
+tpanic.h
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/tpanic.h
+
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/telemento1d.cpp
+telemento1d.h
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/telemento1d.h
+tno.h
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/tno.h
+tmalha.h
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/tmalha.h
+tmaterial.h
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/tmaterial.h
+TMatrix.h
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/TMatrix.h
+TIntRule1d.h
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/TIntRule1d.h
+tpanic.h
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/tpanic.h
+math.h
+-
+
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/telementoQuad.cpp
+math.h
+-
+telementoQuad.h
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/telementoQuad.h
+tmaterial.h
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/tmaterial.h
+tmalha.h
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/tmalha.h
+TMatrix.h
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/TMatrix.h
+tpanic.h
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/tpanic.h
+TIntRuleQuad.h
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/TIntRuleQuad.h
+
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/telementoTriangle.cpp
+telementoTriangle.h
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/telementoTriangle.h
+tno.h
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/tno.h
+tmalha.h
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/tmalha.h
+tmaterial.h
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/tmaterial.h
+TMatrix.h
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/TMatrix.h
+TIntRuleTriangle.h
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/TIntRuleTriangle.h
+TIntRule1d.h
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/TIntRule1d.h
+tpanic.h
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/tpanic.h
+math.h
+-
+
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/tmalha.cpp
+tmalha.h
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/tmalha.h
+telemento.h
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/telemento.h
+tmaterial.h
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/tmaterial.h
+telemento1d.h
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/telemento1d.h
+telemento0d.h
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/telemento0d.h
+tmaterialbc.h
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/tmaterialbc.h
+tmaterial1d.h
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/tmaterial1d.h
+TMatrix.h
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/TMatrix.h
+tpanic.h
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/tpanic.h
+
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/tmaterial.cpp
+tmaterial.h
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/tmaterial.h
+
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/tmaterial1d.cpp
+tmaterial1d.h
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/tmaterial1d.h
+TMatrix.h
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/TMatrix.h
+tpanic.h
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/tpanic.h
+
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/tmaterial2d.cpp
+tmaterial2d.h
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/tmaterial2d.h
+TMatrix.h
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/TMatrix.h
+
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/tmaterialbc.cpp
+tmaterialbc.h
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/tmaterialbc.h
+TMatrix.h
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/TMatrix.h
+TVec.h
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/TVec.h
+tpanic.h
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/tpanic.h
+
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/tno.cpp
+tno.h
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/tno.h
+tpanic.h
+/home/natalia/Documents/GitHub/FEMCourse/src vazio/tpanic.h
+
+/home/natalia/Documents/GitHub/FEMCourse/tinyxml/tinyxml.cpp
+ctype.h
+-
+sstream
+-
+iostream
+-
+tinyxml.h
+/home/natalia/Documents/GitHub/FEMCourse/tinyxml/tinyxml.h
+
+/home/natalia/Documents/GitHub/FEMCourse/tinyxml/tinyxml.h
+ctype.h
+-
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+assert.h
+-
+string
+-
+iostream
+-
+sstream
+-
+tinystr.h
+/home/natalia/Documents/GitHub/FEMCourse/tinyxml/tinystr.h
+
+/home/natalia/Documents/GitHub/FEMCourse/tinyxml/tinyxmlerror.cpp
+tinyxml.h
+/home/natalia/Documents/GitHub/FEMCourse/tinyxml/tinyxml.h
+
+/home/natalia/Documents/GitHub/FEMCourse/tinyxml/tinyxmlparser.cpp
+ctype.h
+-
+stddef.h
+-
+tinyxml.h
+/home/natalia/Documents/GitHub/FEMCourse/tinyxml/tinyxml.h
+windows.h
+-
+
+headers/TIntRule1d.h
+cmath
+-
+stdio.h
+-
+TVecNum.h
+headers/TVecNum.h
+
+headers/TIntRuleQuad.h
+stdio.h
+-
+TVec.h
+headers/TVec.h
+TMatrix.h
+headers/TMatrix.h
+
+headers/TIntRuleTriangle.h
+stdio.h
+-
+TVec.h
+headers/TVec.h
+TMatrix.h
+headers/TMatrix.h
+
+headers/TMatrix.h
+TVecNum.h
+headers/TVecNum.h
+iostream
+-
+stdio.h
+-
+vector
+-
+
+headers/TVec.h
+stdio.h
+-
+iostream
+-
+
+headers/TVecNum.h
+stdio.h
+-
+iostream
+-
+TVec.h
+headers/TVec.h
+
+headers/tanalysis.h
+tmalha.h
+headers/tmalha.h
+telemento.h
+headers/telemento.h
+TMatrix.h
+headers/TMatrix.h
+
+headers/telemento.h
+TVec.h
+headers/TVec.h
+TMatrix.h
+headers/TMatrix.h
+iostream
+-
+string
+-
+
+headers/telemento0d.h
+telemento.h
+-
+TVec.h
+headers/TVec.h
+
+headers/telemento1d.h
+telemento.h
+-
+TVec.h
+headers/TVec.h
+
+headers/telementoQuad.h
+telemento.h
+-
+TVec.h
+headers/TVec.h
+tpanic.h
+headers/tpanic.h
+
+headers/telementoTriangle.h
+telemento.h
+-
+TVec.h
+headers/TVec.h
+
+headers/tmalha.h
+TVec.h
+headers/TVec.h
+tno.h
+headers/tno.h
+telemento.h
+headers/telemento.h
+tmaterial.h
+headers/tmaterial.h
+map
+-
+iostream
+-
+fstream
+-
+
+headers/tmaterial.h
+iostream
+-
+TVec.h
+headers/TVec.h
+
+headers/tmaterial1d.h
+TVec.h
+headers/TVec.h
+tmaterial.h
+-
+
+headers/tmaterial2d.h
+stdio.h
+-
+TVec.h
+headers/TVec.h
+tmaterial.h
+-
+
+headers/tmaterialbc.h
+tmaterial.h
+-
+TVec.h
+headers/TVec.h
+
+headers/tno.h
+TVec.h
+headers/TVec.h
+fstream
+-
+iostream
+-
+
+headers2018/tpanic.h
+iostream
+-
+exception
+-
+
