@@ -51,16 +51,16 @@ public:
     virtual CompElement *Clone() const;
     
     // Compute shape functions set at point x
-    virtual void ShapeFunctions(const VecDouble &intpoint, VecDouble &phi, Matrix &dphi);
+    virtual void ShapeFunctions(const VecDouble &intpoint, VecDouble &phi, Matrix &dphi) const;
     
     // Return the number of shape functions
-    virtual int NShapeFunctions();
+    virtual int NShapeFunctions() const;
 
     // Return the number of degree of freedom
-    virtual int NDOF();
+    virtual int NDOF() const;
     
     // Return the number of shape functions stored in the DOF data structure
-    virtual int NShapeFunctions(int doflocindex);
+    virtual int NShapeFunctions(int doflocindex) const;
     
     // Use the Shape template class to compute the number of shape functions
     virtual int ComputeNShapeFunctions(int doflocindex, int order);

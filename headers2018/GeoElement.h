@@ -104,6 +104,9 @@ public:
         return MaterialId;
     }
     
+    // Create a computational element
+    CompElement *CreateCompEl(CompMesh *mesh, int64_t index);
+    
     // Set the element index
     void SetIndex(int index)
     {

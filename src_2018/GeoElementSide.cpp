@@ -121,7 +121,7 @@ void GeoElementSide::Intersect(const std::vector<int> &one, const std::vector<in
     }
 }
 
-void GeoElementSide::ComputeNeighbours(std::vector<GeoElementSide> &compneigh) {
+void GeoElementSide::ComputeNeighbours(std::vector<GeoElementSide> compneigh) {
     if (fSide < fElement->NCornerNodes()) {
         AllNeighbours(compneigh);
         return;

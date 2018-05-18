@@ -32,7 +32,8 @@ int64_t DOF::GetFirstEquation() {
 void DOF::SetFirstEquation(int64_t first) {
     firstequation = first;
 }
-void DOF::SetNShapeStateOrder(int NShape, int NState, int Order){
+
+void DOF::SetNShapeStateOrder(int NShape, int NState, int Order) {
     nshape = NShape;
     nstate = NState;
     order = Order;
@@ -44,4 +45,8 @@ int DOF::GetNShape() const {
 
 int DOF::GetNState() const {
     return nstate;
+}
+
+int DOF::GetOrder() const {
+    return order;
 }

@@ -16,6 +16,23 @@ class Analysis
     
     Matrix GlobalSystem;
     
+    Matrix RightHandSide;
+    
+    Analysis();
+    
+    Analysis(const Analysis &cp);
+    
+    Analysis &operator=(const Analysis &cp);
+    
+    Analysis(CompMesh *cmesh);
+    
+    void SetMesh(CompMesh *cmesh);
+    
+    CompMesh *Mesh() const;
+    
+    void RunSimulation();
+    
+    void PostProcess(std::string &filename, PostProcess &defPostProc) const;
     
 };
 

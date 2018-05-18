@@ -5,6 +5,7 @@
  */
 
 #include "Poisson.h"
+#include "CompElement.h"
 
 Poisson::Poisson() {
 }
@@ -43,8 +44,22 @@ int Poisson::NState() const {
     return 1;
 }
 
-void Poisson::Contribute(IntPointData &integrationpointdata, double weight , Matrix &EK, Matrix &EF) const{
+void Poisson::Contribute(IntPointData &data, double weight, Matrix &EK, Matrix &EF) const {
+    int nshape = data.phi.size();
+    CompElement *comp;
+    int dim = comp->Dimension();    
+    Matrix perm= this->GetPermeability();
+    
+    for (int in = 0; in < nshape; in++) {
+        int d;
+        for (d = 0; d < dim; d++) {
+            for (int jn = 0; jn < nshape; jn++) {
+                EK(in, jn) += weight * data.dphidksi(d, in) * data.dphidksi(d, jn) * perm(in, jn);
+            }
+            EF(in, 0) += -weight * data.phi[in] * data.solution[in];
+        }
+    }
 }
 
-void Poisson::PostProcess(IntPointData &integrationpointdata, const std::string &variable, VecDouble &postprocvalue) const {
+std::vector<double> Poisson::PostProcess(const IntPointData &integrationpointdata, const PostProcVar var) const {
 }

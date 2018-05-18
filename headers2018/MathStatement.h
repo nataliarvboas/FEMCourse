@@ -10,6 +10,7 @@
 
 #include "DataTypes.h"
 #include "IntPointData.h"
+#include <functional>
 
 class MathStatement
 {
@@ -42,9 +43,6 @@ public:
     // Method to implement integral over element's volume
     virtual void Contribute(IntPointData &integrationpointdata, double weight, Matrix &EK, Matrix &EF) const = 0;
     
-    // Prepare and print post processing data
-    virtual void PostProcess(IntPointData &integrationpointdata, const std::string &variable,
-                             VecDouble &postprocvalue) const = 0;
     
 };
 #endif /* MathStatement_h */

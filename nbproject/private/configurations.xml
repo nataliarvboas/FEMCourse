@@ -76,6 +76,8 @@
         <in>L2Projection.h</in>
         <in>MathStatement.h</in>
         <in>Poisson.h</in>
+        <in>PossProcessTemplate.h</in>
+        <in>PostProcess.h</in>
         <in>ReadGmsh.h</in>
         <in>Shape1d.h</in>
         <in>ShapeQuad.h</in>
@@ -174,6 +176,8 @@
       <df name="src_2018">
         <df name="CMakeFiles">
         </df>
+        <in>Analysis.cpp</in>
+        <in>Assemble.cpp</in>
         <in>CompElement.cpp</in>
         <in>CompElementTemplate.cpp</in>
         <in>CompMesh.cpp</in>
@@ -195,6 +199,7 @@
         <in>L2Projection.cpp</in>
         <in>MathStatement.cpp</in>
         <in>Poisson.cpp</in>
+        <in>PostProcess.cpp</in>
         <in>ReadGmsh.cpp</in>
         <in>Shape1d.cpp</in>
         <in>ShapeQuad.cpp</in>
@@ -241,8 +246,6 @@
         <gdb_interceptlist>
           <gdbinterceptoptions gdb_all="false" gdb_unhandled="true" gdb_unexpected="true"/>
         </gdb_interceptlist>
-        <gdb_signals>
-        </gdb_signals>
         <gdb_options>
           <DebugOptions>
           </DebugOptions>

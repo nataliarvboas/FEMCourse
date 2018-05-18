@@ -72,7 +72,7 @@ public:
     void AllNeighbours(std::vector<GeoElementSide> &allneigh);
     
     // Compute all corner neighbours
-    void ComputeNeighbours(std::vector<GeoElementSide> &neighbour);
+    void ComputeNeighbours(std::vector<GeoElementSide> neighbour);
     
     // Intersections
     void Intersect(const std::vector<int> &one, const std::vector<int> &two, std::vector<int> &result);

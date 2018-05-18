@@ -15,7 +15,19 @@ CompMesh::CompMesh(const CompMesh &copy) {
     mathstatements = copy.mathstatements;
 }
 
+CompMesh::CompMesh(GeoMesh *gmesh) {
+    geomesh = gmesh;
+}
+
 CompMesh::~CompMesh() {
+}
+
+GeoMesh *CompMesh::GetGeoMesh() const {
+    return geomesh;
+}
+
+void CompMesh::SetGeoMesh(GeoMesh *gmesh) {
+    geomesh = gmesh;
 }
 
 void CompMesh::SetNumberElement(int64_t nelem) {
@@ -90,9 +102,18 @@ void CompMesh::SetMathVec(const std::vector<MathStatement *> &mathvec) {
     }
 }
 
+void CompMesh::AutoBuild() {
+
+}
+
 void CompMesh::Resequence() {
 }
 
 void CompMesh::Resequence(VecInt &DOFindices) {
 }
-    
+
+std::vector<double> &CompMesh::Solution() const {
+}
+
+void CompMesh::LoadSolution(std::vector<double> &Sol) {
+}

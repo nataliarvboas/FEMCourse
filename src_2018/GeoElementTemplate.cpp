@@ -134,14 +134,12 @@ int GeoElementTemplate<TGeom>::WhichSide(VecInt &SideNodeIds) {
                 }
             }
             if (is != nums) {
-                std::cout << "TPZGeoEl::WhichSide must be extended\n";
+                std::cout << "WhichSide must be extended\n";
                 DebugStop();
             }
         }
     }
     return -1;
-
-
 }
 
 template<class TGeom>

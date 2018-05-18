@@ -106,7 +106,7 @@ public:
     virtual int NDOF() const = 0;
     
     // Return the number of shape functions stored in the DOF data structure
-    virtual int NShapeFunctions(int doflocindex) = 0;
+    virtual int NShapeFunctions(int doflocindex) const = 0;
     
     // Use the Shape template class to compute the number of shape functions
     virtual int ComputeNShapeFunctions(int doflocindex, int order) = 0;

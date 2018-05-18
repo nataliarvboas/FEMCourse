@@ -49,35 +49,35 @@ CompElement *CompElementTemplate<Shape>::Clone() const {
 }
 
 template<class Shape>
-void CompElementTemplate<Shape>::ShapeFunctions(const VecDouble &intpoint, VecDouble &phi, Matrix &dphi) {
-    int order = intrule.GetOrder();    
+void CompElementTemplate<Shape>::ShapeFunctions(const VecDouble &intpoint, VecDouble &phi, Matrix &dphi) const {
+    int order = 1;
     VecInt orders(1, order);
     
     Shape::Shape(intpoint, orders, phi, dphi);    
 }
 
 template<class Shape>
-int CompElementTemplate<Shape>::NShapeFunctions() {
-    int order = intrule.GetOrder();
+int CompElementTemplate<Shape>::NShapeFunctions() const {
+    int order = 1;
     VecInt orders(1, order);
     
     return Shape::NShapeFunctions(orders);
 }
 
 template<class Shape>
-int CompElementTemplate<Shape>::NDOF() {
+int CompElementTemplate<Shape>::NDOF() const {
     return dofindexes.size();
 }
 
 template<class Shape>
-int CompElementTemplate<Shape>::NShapeFunctions(int doflocindex) {
+int CompElementTemplate<Shape>::NShapeFunctions(int doflocindex) const {
     CompMesh *compmesh = GetCompMesh();
     return compmesh->GetDOF(doflocindex).GetNShape();
-
 }
 
 template<class Shape>
 int CompElementTemplate<Shape>::ComputeNShapeFunctions(int doflocindex, int order) {
+
 }
 
 template class CompElementTemplate<Shape1d>;

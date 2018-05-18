@@ -26,6 +26,8 @@ public:
     
     Assemble &operator=(const Assemble &copy);
     
+    void SetMesh(CompMesh *cmesh);
+    
     /// Compute the total number of equations
     int64_t NEquations();
     
@@ -33,7 +35,7 @@ public:
     void OptimizeBandwidth();
     
     /// Compute the global stiffness matrix and right hand side
-    Compute(Matrix &globmat, Matrix &rhs);
+    void Compute(Matrix &globmat, Matrix &rhs);
     
 };
 #endif /* Assemble_h */

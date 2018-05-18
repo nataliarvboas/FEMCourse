@@ -35,6 +35,18 @@ ReadGmsh.h
 /home/natalia/Documents/GitHub/FEMCourse/mainprograms/ReadGmsh.h
 VTKGeoMesh.h
 /home/natalia/Documents/GitHub/FEMCourse/mainprograms/VTKGeoMesh.h
+GeomQuad.h
+/home/natalia/Documents/GitHub/FEMCourse/mainprograms/GeomQuad.h
+ShapeQuad.h
+/home/natalia/Documents/GitHub/FEMCourse/mainprograms/ShapeQuad.h
+GeoElementTemplate.h
+/home/natalia/Documents/GitHub/FEMCourse/mainprograms/GeoElementTemplate.h
+CompElementTemplate.h
+/home/natalia/Documents/GitHub/FEMCourse/mainprograms/CompElementTemplate.h
+CompElement.h
+/home/natalia/Documents/GitHub/FEMCourse/mainprograms/CompElement.h
+CompMesh.h
+/home/natalia/Documents/GitHub/FEMCourse/mainprograms/CompMesh.h
 
 /home/natalia/Documents/GitHub/FEMCourse/src vazio/TMatrix.cpp
 TMatrix.h
@@ -53,8 +65,20 @@ vector
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/CompElement.cpp
 CompElement.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/CompElement.h
+GeoElement.h
+/home/natalia/Documents/GitHub/FEMCourse/src_2018/GeoElement.h
 MathStatement.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/MathStatement.h
+CompElementTemplate.h
+/home/natalia/Documents/GitHub/FEMCourse/src_2018/CompElementTemplate.h
+IntPointData.h
+/home/natalia/Documents/GitHub/FEMCourse/src_2018/IntPointData.h
+MathStatement.h
+/home/natalia/Documents/GitHub/FEMCourse/src_2018/MathStatement.h
+tpanic.h
+/home/natalia/Documents/GitHub/FEMCourse/src_2018/tpanic.h
+math.h
+-
 
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/CompElementTemplate.cpp
 CompElementTemplate.h
@@ -97,6 +121,20 @@ GeomTriangle.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/GeomTriangle.h
 tpanic.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/tpanic.h
+CompMesh.h
+/home/natalia/Documents/GitHub/FEMCourse/src_2018/CompMesh.h
+CompElementTemplate.h
+/home/natalia/Documents/GitHub/FEMCourse/src_2018/CompElementTemplate.h
+tpanic.h
+/home/natalia/Documents/GitHub/FEMCourse/src_2018/tpanic.h
+Shape1d.h
+/home/natalia/Documents/GitHub/FEMCourse/src_2018/Shape1d.h
+ShapeQuad.h
+/home/natalia/Documents/GitHub/FEMCourse/src_2018/ShapeQuad.h
+ShapeTriangle.h
+/home/natalia/Documents/GitHub/FEMCourse/src_2018/ShapeTriangle.h
+ShapeTetrahedron.h
+/home/natalia/Documents/GitHub/FEMCourse/src_2018/ShapeTetrahedron.h
 
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/GeoElementSide.cpp
 stdio.h
@@ -279,6 +317,8 @@ MathStatement.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/Poisson.cpp
 Poisson.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/Poisson.h
+CompElement.h
+/home/natalia/Documents/GitHub/FEMCourse/src_2018/CompElement.h
 
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/ReadGmsh.cpp
 stdio.h
@@ -465,6 +505,8 @@ DOF.h
 headers2018/DOF.h
 DataTypes.h
 headers2018/DataTypes.h
+GeoMesh.h
+headers2018/GeoMesh.h
 
 headers2018/DOF.h
 DataTypes.h
@@ -505,8 +547,6 @@ GeoNode.h
 headers2018/GeoNode.h
 GeoElement.h
 headers2018/GeoElement.h
-CompMesh.h
-headers2018/CompMesh.h
 string
 -
 
@@ -603,6 +643,8 @@ DataTypes.h
 headers2018/DataTypes.h
 IntPointData.h
 headers2018/IntPointData.h
+functional
+-
 
 headers2018/Poisson.h
 MathStatement.h

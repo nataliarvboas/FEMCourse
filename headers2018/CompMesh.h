@@ -14,9 +14,15 @@ class MathStatement;
 
 #include "DOF.h"
 #include "DataTypes.h"
+#include "GeoMesh.h"
+
+//class GeoMesh
 
 class CompMesh
 {
+    /// pointer to the geometric mesh
+    GeoMesh *geomesh;
+    
     // Vector with computational elements objects
     std::vector<CompElement *> compelements;
     
@@ -26,16 +32,26 @@ class CompMesh
     // Vector with math statement objects
     std::vector<MathStatement *> mathstatements;
     
+    // Vector with solution coeficients
+    std::vector<double> solution;
+    
 public:
     
     // Default constructor of CompMesh
     CompMesh();
+    
+    // Default constructor of CompMesh
+    CompMesh(GeoMesh *gmesh);
     
     // Copy constructor of CompMesh
     CompMesh(const CompMesh &copy);
     
     // Destructor of CompMesh
     ~CompMesh();
+    
+    GeoMesh *GetGeoMesh() const ;
+    
+    void SetGeoMesh(GeoMesh *gmesh);
     
     // Set the number of computational elements on the grid
     void SetNumberElement(int64_t nelem);
@@ -82,11 +98,18 @@ public:
     // Set the vector with math statement objects
     void SetMathVec(const std::vector<MathStatement *> &mathvec);
     
+    // will create the computational elements
+    void AutoBuild();
+    
     // Initialize the datastructure FirstEquation of the DOF objects
     void Resequence();
     
     // Initialize the datastructure FirstEquation of the DOF objects in the order specified by the vector
     void Resequence(VecInt &DOFindices);
+    
+    std::vector<double> &Solution() const;
+    
+    void LoadSolution(std::vector<double> &Sol);
     
 };
 
