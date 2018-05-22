@@ -15,12 +15,14 @@
 #include "GeoElementSide.h"
 #include "GeoMesh.h"
 #include "tpanic.h"
+#include <math.h> 
+using namespace std;
 
 template<class TGeom>
-GeoElementTemplate<TGeom>::GeoElementTemplate(const VecInt &nodeindices, int materialid, GeoMesh *gmesh, int index): GeoElement(materialid, gmesh, index) {
+GeoElementTemplate<TGeom>::GeoElementTemplate(const VecInt &nodeindices, int materialid, GeoMesh *gmesh, int index) : GeoElement(materialid, gmesh, index) {
     Geom.SetNodes(nodeindices);
-    for(int side = 0; side < TGeom::nSides; side++){
-        Geom.SetNeighbour(side,GeoElementSide(this,side));
+    for (int side = 0; side < TGeom::nSides; side++) {
+        Geom.SetNeighbour(side, GeoElementSide(this, side));
     }
 }
 
@@ -42,19 +44,15 @@ ElementType GeoElementTemplate<TGeom>::Type() {
 
 template<class TGeom>
 void GeoElementTemplate<TGeom>::X(const VecDouble &xi, VecDouble &x) {
-    GeoMesh *gmesh = new GeoMesh;
-
-    int NNodes = gmesh->NumNodes();
-
+    int NNodes = this->NNodes();
     Matrix coord(3, NNodes);
-
-    GeoNode np;
 
     int i, j;
     for (i = 0; i < NNodes; i++) {
-        np = gmesh->Node(i);
+        int index = this->NodeIndex(i);
+        GeoNode node = GMesh->Node(index);
         for (j = 0; j < 3; j++) {
-            coord(j, i) = np.Coord(j);
+            coord(j, i) = node.Coord(j);
         }
     }
     Geom.X(xi, coord, x);
@@ -62,22 +60,139 @@ void GeoElementTemplate<TGeom>::X(const VecDouble &xi, VecDouble &x) {
 
 template<class TGeom>
 void GeoElementTemplate<TGeom>::GradX(const VecDouble &xi, VecDouble &x, Matrix &gradx) {
-    GeoMesh *gmesh = new GeoMesh;
-
-    int NNodes = gmesh->NumNodes();
-
+    int NNodes = this->NNodes();
     Matrix coord(3, NNodes);
-
-    GeoNode np;
 
     int i, j;
     for (i = 0; i < NNodes; i++) {
-        np = gmesh->Node(i);
+        int index = this->NodeIndex(i);
+        GeoNode node = GMesh->Node(index);
         for (j = 0; j < 3; j++) {
-            coord(j, i) = np.Coord(j);
+            coord(j, i) = node.Coord(j);
         }
     }
     Geom.GradX(xi, coord, x, gradx);
+}
+
+template<class TGeom>
+void GeoElementTemplate<TGeom>::Jacobian(const Matrix &gradx, Matrix &jac, Matrix &axes, double &detjac, Matrix &jacinv) {
+    int nrows = gradx.Rows();
+    int ncols = gradx.Cols();
+    int dim = jac.Rows();
+    
+    switch (dim) {
+        case 1:
+        {
+            axes.Resize(dim, 3);
+            std::vector<double> v_1(3, 0.);
+
+            for (int i = 0; i < nrows; i++) {
+                v_1[i] = gradx.GetVal(i, 0);
+            }
+
+            double norm_v_1 = 0.;
+            for (int i = 0; i < nrows; i++) {
+                norm_v_1 += v_1[i] * v_1[i];
+            }
+
+            norm_v_1 = sqrt(norm_v_1);
+            jac(0, 0) = norm_v_1;
+            detjac = norm_v_1;
+            jacinv(0, 0) = 1.0 / detjac;
+
+            detjac = fabs(detjac);
+
+            for (int i = 0; i < 3; i++) {
+                axes(0, i) = v_1[i] / norm_v_1;
+            }
+        }
+            break;
+        case 2:
+        {
+            axes.Resize(dim, 3);
+            std::vector<double> v_1(3, 0.), v_2(3, 0.);
+            std::vector<double> v_1_til(3, 0.), v_2_til(3, 0.);
+
+            for (int i = 0; i < nrows; i++) {
+                v_1[i] = gradx.GetVal(i, 0);
+                v_2[i] = gradx.GetVal(i, 1);
+            }
+
+            double norm_v_1_til = 0.0;
+            double norm_v_2_til = 0.0;
+            double v_1_dot_v_2 = 0.0;
+
+            for (int i = 0; i < 3; i++) {
+                norm_v_1_til += v_1[i] * v_1[i];
+                v_1_dot_v_2 += v_1[i] * v_2[i];
+            }
+            norm_v_1_til = sqrt(norm_v_1_til);
+
+            for (int i = 0; i < 3; i++) {
+                v_1_til[i] = v_1[i] / norm_v_1_til;
+                v_2_til[i] = v_2[i] - v_1_dot_v_2 * v_1_til[i] / norm_v_1_til;
+                norm_v_2_til += v_2_til[i] * v_2_til[i];
+            }
+            norm_v_2_til = sqrt(norm_v_2_til);
+
+
+            jac(0, 0) = norm_v_1_til;
+            jac(0, 1) = v_1_dot_v_2 / norm_v_1_til;
+            jac(1, 1) = norm_v_2_til;
+
+            detjac = jac(0, 0) * jac(1, 1) - jac(1, 0) * jac(0, 1);
+
+            jacinv(0, 0) = +jac(1, 1) / detjac;
+            jacinv(1, 1) = +jac(0, 0) / detjac;
+            jacinv(0, 1) = -jac(0, 1) / detjac;
+            jacinv(1, 0) = -jac(1, 0) / detjac;
+
+            detjac = fabs(detjac);
+
+            for (int i = 0; i < 3; i++) {
+                v_2_til[i] /= norm_v_2_til;
+                axes(0, i) = v_1_til[i];
+                axes(1, i) = v_2_til[i];
+            }
+        }
+            break;
+        case 3:
+        {
+            axes.Resize(dim, 3);
+
+            for (int i = 0; i < nrows; i++) {
+                jac(i, 0) = gradx.GetVal(i, 0);
+                jac(i, 1) = gradx.GetVal(i, 1);
+                jac(i, 2) = gradx.GetVal(i, 2);
+            }
+
+            detjac -= jac(0, 2) * jac(1, 1) * jac(2, 0); //- a02 a11 a20
+            detjac += jac(0, 1) * jac(1, 2) * jac(2, 0); //+ a01 a12 a20
+            detjac += jac(0, 2) * jac(1, 0) * jac(2, 1); //+ a02 a10 a21
+            detjac -= jac(0, 0) * jac(1, 2) * jac(2, 1); //- a00 a12 a21
+            detjac -= jac(0, 1) * jac(1, 0) * jac(2, 2); //- a01 a10 a22
+            detjac += jac(0, 0) * jac(1, 1) * jac(2, 2); //+ a00 a11 a22
+
+            jacinv(0, 0) = (-jac(1, 2) * jac(2, 1) + jac(1, 1) * jac(2, 2)) / detjac; //-a12 a21 + a11 a22
+            jacinv(0, 1) = (jac(0, 2) * jac(2, 1) - jac(0, 1) * jac(2, 2)) / detjac; //a02 a21 - a01 a22
+            jacinv(0, 2) = (-jac(0, 2) * jac(1, 1) + jac(0, 1) * jac(1, 2)) / detjac; //-a02 a11 + a01 a12
+            jacinv(1, 0) = (jac(1, 2) * jac(2, 0) - jac(1, 0) * jac(2, 2)) / detjac; //a12 a20 - a10 a22
+            jacinv(1, 1) = (-jac(0, 2) * jac(2, 0) + jac(0, 0) * jac(2, 2)) / detjac; //-a02 a20 + a00 a22
+            jacinv(1, 2) = (jac(0, 2) * jac(1, 0) - jac(0, 0) * jac(1, 2)) / detjac; //a02 a10 - a00 a12
+            jacinv(2, 0) = (-jac(1, 1) * jac(2, 0) + jac(1, 0) * jac(2, 1)) / detjac; //-a11 a20 + a10 a21
+            jacinv(2, 1) = (jac(0, 1) * jac(2, 0) - jac(0, 0) * jac(2, 1)) / detjac; //a01 a20 - a00 a21
+            jacinv(2, 2) = (-jac(0, 1) * jac(1, 0) + jac(0, 0) * jac(1, 1)) / detjac; //-a01 a10 + a00 a11
+
+            detjac = fabs(detjac);
+
+            axes.Zero();
+            axes(0, 0) = 1.0;
+            axes(1, 1) = 1.0;
+            axes(2, 2) = 1.0;
+        }
+            break;
+    }
+
 }
 
 template<class TGeom>
@@ -147,11 +262,11 @@ void GeoElementTemplate<TGeom>::Print(std::ostream &out) {
     out << "Number of nodes:\t" << this->NNodes() << std::endl;
     out << "Corner nodes:\t\t" << this->NCornerNodes() << std::endl;
     out << "Nodes indexes\t\t";
-    
+
     for (int i = 0; i < this->NNodes(); i++) out << this->NodeIndex(i) << "   ";
     out << "\nNumber of sides:\t" << this->NSides() << std::endl;
     out << "Material Id:\t\t" << this->Material() << std::endl;
-    
+
     int nsides = this->NSides();
 
     for (int i = 0; i < nsides; i++) {

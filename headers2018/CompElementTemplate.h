@@ -56,6 +56,12 @@ public:
     // Return the number of shape functions
     virtual int NShapeFunctions() const;
 
+    // Set number of DOF
+    virtual void SetNDOF(int64_t ndof);
+    
+    // Set DOF index in vector position i
+    virtual void SetDOFIndex(int i, int64_t dofindex);
+    
     // Return the number of degree of freedom
     virtual int NDOF() const;
     

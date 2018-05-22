@@ -16,6 +16,7 @@
 #include "TopologyQuad.h"
 #include "TopologyTriangle.h"
 #include "TopologyTetrahedron.h"
+#include <vector> 
 #include <algorithm>
 
 
@@ -70,58 +71,7 @@ void GeoElementSide::AllNeighbours(std::vector<GeoElementSide> &allneigh) {
     }
 }
 
-void GeoElementSide::Intersect(const std::vector<int> &one, const std::vector<int> &two, std::vector<int> &result) {
-    int firstc, secondc, nfirst, nsecond;
-    nfirst = one.size();
-    nsecond = two.size();
-    firstc = 0;
-    secondc = 0;
-    while (firstc < nfirst && secondc < nsecond) {
-        while (firstc < nfirst && one[firstc] < two[secondc]) {
-            firstc++;
-        }
-        if (firstc == nfirst) break;
-        while (secondc < nsecond && two[secondc] < one[firstc]) {
-            secondc++;
-        }
-        if (firstc < nfirst && secondc < nsecond && one[firstc] == two[secondc]) {
-            result.push_back(one[firstc]);
-            firstc++;
-            secondc++;
-        }
-    }
-}
-
-void GeoElementSide::Intersect(const std::vector<int> &one, const std::vector<int> &two, const std::vector<int> &three, std::vector<int> &result) {
-    int firstc, secondc, thirdc, nfirst, nsecond, nthird;
-    nfirst = one.size();
-    nsecond = two.size();
-    nthird = three.size();
-    firstc = 0;
-    secondc = 0;
-    thirdc = 0;
-    while (firstc < nfirst && secondc < nsecond && thirdc < nthird) {
-        while (firstc < nfirst && (one[firstc] < two[secondc] || one[firstc] < three[thirdc])) {
-            firstc++;
-        }
-        if (firstc == nfirst)break;
-        while (secondc < nsecond && (two[secondc] < one[firstc] || two[secondc] < three[thirdc])) {
-            secondc++;
-        }
-        if (secondc == nsecond) break;
-        while (thirdc < nthird && (three[thirdc] < one[firstc] || three[thirdc] < two[secondc])) {
-            thirdc++;
-        }
-        if (firstc < nfirst && secondc < nsecond && thirdc < nthird && one[firstc] == two[secondc] && one[firstc] == three[thirdc]) {
-            result.push_back(one[firstc]);
-            firstc++;
-            secondc++;
-            thirdc++;
-        }
-    }
-}
-
-void GeoElementSide::ComputeNeighbours(std::vector<GeoElementSide> compneigh) {
+void GeoElementSide::ComputeNeighbours(std::vector<GeoElementSide> &compneigh) {
     if (fSide < fElement->NCornerNodes()) {
         AllNeighbours(compneigh);
         return;
@@ -146,6 +96,7 @@ void GeoElementSide::ComputeNeighbours(std::vector<GeoElementSide> compneigh) {
         std::sort(GeoElSet[in].begin(), GeoElSet[in].end());
     }
     std::vector<int> result;
+    std::vector<int> result_aux;
     switch (nsnodes) {
         case 1:
         {
@@ -153,19 +104,21 @@ void GeoElementSide::ComputeNeighbours(std::vector<GeoElementSide> compneigh) {
         }
             break;
         case 2:
-            Intersect(GeoElSet[0], GeoElSet[1], result);
+            std::set_intersection(GeoElSet[0].begin(), GeoElSet[0].end(), GeoElSet[1].begin() ,GeoElSet[1].end(), result.begin());
+
             break;
         case 3:
-            Intersect(GeoElSet[0], GeoElSet[1], GeoElSet[2], result);
+            std::set_intersection(GeoElSet[0].begin(),GeoElSet[0].end(),GeoElSet[1].begin(),GeoElSet[1].end(),result_aux.begin());
+            std::set_intersection(result_aux.begin(),result_aux.end(),GeoElSet[2].begin(),GeoElSet[2].end(),result.begin());
             break;
         case 4:
         {
             std::vector<int> inter1, inter2;
-            Intersect(GeoElSet[0], GeoElSet[2], inter1);
+            std::set_intersection(GeoElSet[0].begin(),GeoElSet[0].end(),GeoElSet[2].begin(),GeoElSet[2].end(),inter1.begin());
             if (inter1.size() == 0) break;
-            Intersect(GeoElSet[1], GeoElSet[3], inter2);
+             std::set_intersection(GeoElSet[1].begin(),GeoElSet[1].end(),GeoElSet[3].begin(),GeoElSet[3].end(),inter2.begin());
             if (inter2.size() == 0) break;
-            Intersect(inter1, inter2, result);
+              std::set_intersection(inter1.begin(),inter1.end(),inter2.begin(),inter2.end(),result.begin());
         }
             break;
         default:
@@ -173,8 +126,7 @@ void GeoElementSide::ComputeNeighbours(std::vector<GeoElementSide> compneigh) {
             std::vector<int> inter1, inter2;
             inter1 = GeoElSet[0];
             for (in = 0; in < nsnodes - 1; in++) {
-                inter2.resize(0);
-                Intersect(inter1, GeoElSet[in + 1], inter2);
+                std::set_intersection(inter1.begin(),inter1.end(),GeoElSet[in + 1].begin(),GeoElSet[in + 1].end(),inter2.begin());
                 if (inter2.size() == 0) break;
                 inter1 = inter2;
             }

@@ -58,7 +58,7 @@ public:
     MathStatement *GetStatement() const;
     
     // Set the material object associated with the element
-    void SetStatement(MathStatement *statement);
+    void SetStatement( MathStatement *statement);
     
     // Return integration rule established
     IntRule *GetIntRule() const;
@@ -93,14 +93,27 @@ public:
     // Compute and fill integration points data object
     void ComputeRequiredData(IntPointData &data, VecDouble &intpoint) const;
     
+    // Convert a shapefunction derivative in xi-eta to a function derivative in axes
+    void Convert2Axes(const Matrix &dphi, const Matrix &jacinv, Matrix &dphidx) const;
+    
     // Compute the element stifness matrix and force vector
     virtual void CalcStiff(Matrix &ek, Matrix &ef) const;
     
     // Compute shape functions set at point x
     virtual void ShapeFunctions(const VecDouble &intpoint, VecDouble &phi, Matrix &dphi) const = 0;
     
+    // Compute the solution and its gradient at a parametric point
+    // for dsol the row indicates the direction, the column indicates the state variable
+    virtual void Solution(const VecDouble &intpoint, VecDouble &sol, TMatrix &dsol) const;
+    
     // Return the number of shape functions
     virtual int NShapeFunctions() const = 0;
+    
+    // Set number of DOF
+    virtual void SetNDOF(int64_t ndof) = 0;
+    
+    // Se DOF index in vector position i
+    virtual void SetDOFIndex(int i, int64_t dofindex) = 0;
     
     // Return the number of degree of freedom
     virtual int NDOF() const = 0;

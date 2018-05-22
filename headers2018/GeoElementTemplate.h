@@ -82,8 +82,6 @@ public:
     // Return the neighbour along side
     virtual GeoElementSide Neighbour(int side)
     {
-        //return GeoElementSide(Geom.Neighbour(side),this->GetMesh());
-        //return GeoElementSide(Geom.Neighbour(side).Element(),side);
         return Geom.Neighbour(side);
     }
     
@@ -102,10 +100,15 @@ public:
     // Compute gradient of x mapping from local parametric coordinates
     virtual void GradX(const VecDouble &xi, VecDouble &x, Matrix &gradx);
     
+    /** @brief Compute a QR facotrization of the gradient of the mapping function, Q = Jacobian and R = axes  */
+    virtual void Jacobian(const Matrix &gradx, Matrix &jac,Matrix &axes, double &detjac, Matrix &jacinv);
+    
     virtual int WhichSide(VecInt &SideNodeIds);
     
     // Function to print results
     virtual void Print(std::ostream &out);
+    
+
 };
 
 #endif /* GeoElementTemplate_h */

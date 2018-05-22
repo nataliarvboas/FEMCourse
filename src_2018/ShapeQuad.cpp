@@ -44,22 +44,26 @@ void ShapeQuad::Shape(const VecDouble &xi, VecInt &orders, VecDouble &phi, Matri
         dphi.Resize(2, 9);
     }
 
-    VecDouble coxi(1);
-    coxi[0] = xi[0];
-
-    VecDouble coeta(1);
-    coeta[0] = xi[1];
-
     VecDouble phixi(nshape), phieta(nshape);
-    TMatrix dphixi(1, nshape), dphieta(1, nshape);
+    Matrix dphixi(1, nshape), dphieta(1, nshape);
 
-    for (int csi = 0; csi < nshape; csi++) {
+    VecDouble cxi(1);
+    cxi[0] = xi[0];
+    VecDouble ceta(1);
+    ceta[0] = xi[1];
 
-        Shape1d::Shape(xi, orders, phixi, dphixi);
+    VecInt order_t(3, 1);
+    for (int i = 0; i < 3; i++) {
+        order_t[i] = orders[i];
+    }
+    int nn = Shape1d::NShapeFunctions(order_t);
+    for (int csi = 0; csi < nn; csi++) {
 
-        for (int eta = 0; eta < nshape; eta++) {
+        Shape1d::Shape(cxi, order_t, phixi, dphixi);
 
-            Shape1d::Shape(xi, orders, phixi, dphixi);
+        for (int eta = 0; eta < nn; eta++) {
+
+            Shape1d::Shape(ceta, order_t, phieta, dphieta);
 
             phi[Indices(csi, eta)] = phixi[csi] * phieta[eta];
 
@@ -75,7 +79,7 @@ int ShapeQuad::NShapeFunctions(int side, int order) {
 
     if (side < 4) return 1;
 
-    if (side < 8) return (order - 1); 
+    if (side < 8) return (order - 1);
     if (side == 8) {
         return ((order - 1)*(order - 1));
     }

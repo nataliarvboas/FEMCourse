@@ -5,8 +5,14 @@
  */
 #include "Analysis.h"
 #include "Assemble.h"
+#include "CompMesh.h"
 
 Analysis::Analysis() {
+    cmesh = 0;
+    Solution = 0;
+    GlobalSystem = 0;
+    RightHandSide = 0;
+
 }
 
 Analysis::Analysis(const Analysis &cp) {
@@ -37,23 +43,20 @@ CompMesh *Analysis::Mesh() const {
 }
 
 void Analysis::RunSimulation() {
-    Assemble *assemb = new Assemble();
 
-    int64_t neq = assemb->NEquations();
+    double nnodes = cmesh->GetElementVec().size();
+    Matrix this->GlobalSystem.Resize(nnodes, nnodes, 0);
+    GlobalSystem.Zero();
+    Matrix RightHandSide(nnodes, 1, 0);
 
-    if (neq > 20000) {
-        std::cout << "Entering Assemble Equations\n";
-        std::cout.flush();
-    }
+    Assemble assemb = new Assemble;
 
-    Assemble();
+    assemb->Compute(GlobalSystem, RightHandSide);
 
-    if (neq > 20000) {
-        std::cout << "Entering Solve\n";
-        std::cout.flush();
-    }
+    GlobalSystem.Print();
+    RightHandSide.Print();
 }
 
-void Analysis::PostProcess(std::string &filename, PostProcess &defPostProc) const {
-    
-}
+//void Analysis::PostProcess(std::string &filename, PostProcess &defPostProc) const {
+//
+//}

@@ -25,7 +25,7 @@ L2Projection &L2Projection::operator=(const L2Projection &copy) {
 }
 
 L2Projection *L2Projection::Clone() const {
-    //return new L2Projection(*this);
+    return new L2Projection(*this);
 }
 
 L2Projection::~L2Projection() {

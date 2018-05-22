@@ -12,7 +12,7 @@
 #include "ShapeQuad.h"
 #include "ShapeTetrahedron.h"
 #include "ShapeTriangle.h"
-
+#include "GeoElement.h"
 
 template<class Shape>
 CompElementTemplate<Shape>::CompElementTemplate() {
@@ -20,10 +20,11 @@ CompElementTemplate<Shape>::CompElementTemplate() {
 
 template<class Shape>
 CompElementTemplate<Shape>::CompElementTemplate(int64_t ind, CompMesh *cmesh, GeoElement *geo) : CompElement(ind, cmesh, geo) {
-    int nel = cmesh->GetElementVec().size();
-    cmesh->GetElementVec().resize(nel+1);
-    cmesh->GetElementVec()[nel] = this;
-    this->SetIndex(nel);  
+    cmesh->SetGeoMesh(geo->GetMesh());
+    int64_t nel = 0;
+    nel = cmesh->GetGeoMesh()->NumElements();
+    cmesh->SetNumberElement(nel);
+    cmesh->SetElement(ind, this);
 }
 
 template<class Shape>
@@ -45,23 +46,35 @@ CompElementTemplate<Shape>::~CompElementTemplate() {
 
 template<class Shape>
 CompElement *CompElementTemplate<Shape>::Clone() const {
-    //return new CompElementTemplate(*this);
+    return new CompElementTemplate(*this);
 }
 
 template<class Shape>
 void CompElementTemplate<Shape>::ShapeFunctions(const VecDouble &intpoint, VecDouble &phi, Matrix &dphi) const {
     int order = 1;
-    VecInt orders(1, order);
-    
-    Shape::Shape(intpoint, orders, phi, dphi);    
+    int nsides = this->GetGeoElement()->NCornerNodes();
+    VecInt orders(nsides, order);
+
+    Shape::Shape(intpoint, orders, phi, dphi);
 }
 
 template<class Shape>
 int CompElementTemplate<Shape>::NShapeFunctions() const {
     int order = 1;
-    VecInt orders(1, order);
-    
-    return Shape::NShapeFunctions(orders);
+    int nsides = this->GetGeoElement()->NSides();
+    VecInt orders(nsides, order);
+
+    return Shape::NShapeFunctions(orders);       
+}
+
+template<class Shape>
+void CompElementTemplate<Shape>::SetNDOF(int64_t ndof) {
+    dofindexes.resize(ndof);
+}
+
+template<class Shape>
+void CompElementTemplate<Shape>::SetDOFIndex(int i, int64_t dofindex) {
+    dofindexes[i] = dofindex;
 }
 
 template<class Shape>

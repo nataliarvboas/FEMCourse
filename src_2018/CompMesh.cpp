@@ -5,6 +5,9 @@
  */
 
 #include "CompMesh.h"
+#include "MathStatement.h"
+#include "GeoMesh.h"
+
 
 CompMesh::CompMesh() {
 }
@@ -103,7 +106,18 @@ void CompMesh::SetMathVec(const std::vector<MathStatement *> &mathvec) {
 }
 
 void CompMesh::AutoBuild() {
+    int64_t i;
+    int64_t nelem = this->GetGeoMesh()->NumElements();
 
+    for (i = 0; i < nelem; i++) {
+        GeoElement *gel = this->GetGeoMesh()->Element(i);
+        if (!gel || gel->GetReference()) continue;
+        int matid = gel->Material();
+        MathStatement * mat = this->GetMath(matid);
+        if (!mat) {
+            //this->
+        }
+    }
 }
 
 void CompMesh::Resequence() {
@@ -112,8 +126,25 @@ void CompMesh::Resequence() {
 void CompMesh::Resequence(VecInt &DOFindices) {
 }
 
-std::vector<double> &CompMesh::Solution() const {
+std::vector<double> &CompMesh::Solution() {
+   return solution;
 }
 
-void CompMesh::LoadSolution(std::vector<double> &Sol) {
+void CompMesh::LoadSolution(std::vector<double> &Sol){
+        int64_t solsize = Sol.size();
+
+    solution.resize(solsize);
+    int64_t i, j;
+    double val;
+
+    for (i = 0; i < solsize; i++) {
+        solution[i] = Sol[i];
+    }
+    int64_t nelem = this->GetElementVec().size();
+    CompElement *cel;
+    for (i = 0; i < nelem; i++) {
+        cel = this->GetElement(i);
+        if (!cel) continue;
+        //cel->LoadSolution();
+    } 
 }

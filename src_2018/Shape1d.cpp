@@ -21,7 +21,7 @@ void Shape1d::Shape(const VecDouble& xi, VecInt& orders, VecDouble& phi, Matrix&
 
         for (int j = 0; j < n; j++) {
 
-            TMatrix axdphi(1, n);
+            Matrix axdphi(1, n);
             if (i != j) {
                 double epsj = -1. + j * 2. / (n - 1);
 
@@ -42,15 +42,21 @@ void Shape1d::Shape(const VecDouble& xi, VecInt& orders, VecDouble& phi, Matrix&
 }
 
 int Shape1d::NShapeFunctions(int side, int order) {
-    if (side < 2) return 1;
-    if (side < 3) return (order - 1);
+    if (side < 2) {
+        return 1;
+    }
+    if (side < 3) {
+        return (order - 1);
+    }
+
 }
 
 int Shape1d::NShapeFunctions(VecInt &orders) {
     int n = orders.size();
     int nshape = 0;
-    for (int i = 0; i < n; i++) {
-        nshape += NShapeFunctions(i, orders[i]);
+    int i = 0;
+    for (i = 0; i < n; i++) {
+        nshape = nshape + NShapeFunctions(i, orders[i]);
     }
     return nshape;
 }

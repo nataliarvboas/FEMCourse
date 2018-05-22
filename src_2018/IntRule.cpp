@@ -16,7 +16,7 @@
 
 using namespace std;
 
-IntRule::IntRule() {
+IntRule::IntRule() {    
 
 }
 
@@ -59,8 +59,7 @@ void IntRule::Print(std::ostream &out) const {
     }
 }
 
-void IntRule::Point(int p, VecDouble& co, double& w) const {
-
+void IntRule::Point(int p, VecDouble& co, double& w) const { 
     int dim = co.size();
 
     for (int i = 0; i < dim; i++) {

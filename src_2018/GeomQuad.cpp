@@ -61,20 +61,12 @@ void GeomQuad::X(const VecDouble &xi, Matrix &NodeCo, VecDouble &x) {
 
 void GeomQuad::GradX(const VecDouble &xi, Matrix &NodeCo, VecDouble &x, Matrix &gradx) {
 
-    int space = NodeCo.Rows();
+    int space = Dimension;
     int ncol = NodeCo.Cols();
 
     gradx.Resize(space, 2);
     gradx.Zero();
 
-#ifdef PZDEBUG
-    if (/* nrow != 3 || */ ncol != 4) {
-        std::cout << "Objects of incompatible lengths, gradient cannot be computed." << std::endl;
-        std::cout << "nodes matrix must be spacex4." << std::endl;
-        DebugStop();
-    }
-
-#endif
     VecDouble phi(4);
     Matrix dphi(2, 4);
     Shape(xi, phi, dphi);

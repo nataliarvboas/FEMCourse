@@ -26,7 +26,7 @@ Poisson &Poisson::operator=(const Poisson &copy) {
 }
 
 Poisson *Poisson::Clone() const {
-    //return new Poisson(*this);
+    return new Poisson(*this);
 }
 
 Poisson::~Poisson() {
@@ -45,18 +45,42 @@ int Poisson::NState() const {
 }
 
 void Poisson::Contribute(IntPointData &data, double weight, Matrix &EK, Matrix &EF) const {
-    int nshape = data.phi.size();
-    CompElement *comp;
-    int dim = comp->Dimension();    
-    Matrix perm= this->GetPermeability();
-    
-    for (int in = 0; in < nshape; in++) {
-        int d;
-        for (d = 0; d < dim; d++) {
-            for (int jn = 0; jn < nshape; jn++) {
-                EK(in, jn) += weight * data.dphidksi(d, in) * data.dphidksi(d, jn) * perm(in, jn);
-            }
-            EF(in, 0) += -weight * data.phi[in] * data.solution[in];
+    VecDouble phi = data.phi;
+    Matrix dphi = data.dphidx;
+    Matrix axes = data.axes;
+
+    int nshape = phi.size();
+    int dim = dphi.Rows();
+
+    std::vector<double> du(dim);
+    std::vector<double> dv(dim);
+
+
+    Matrix perm(dim, dim);
+    std::vector<double> result(nshape);
+
+    perm = this->GetPermeability();
+    //force = this->GetForceFunction();
+
+    for (int i = 0; i < nshape; i++) {
+        dv[0] = dphi(0, i) * axes(0, 0) + dphi(1, i) * axes(1, 0);
+        dv[1] = dphi(0, i) * axes(0, 1) + dphi(1, i) * axes(1, 1);
+
+        for (int j = 0; j < nshape; j++) {
+            du[0] = dphi(0, j) * axes(0, 0) + dphi(1, j) * axes(1, 0);
+            du[1] = dphi(0, j) * axes(0, 1) + dphi(1, j) * axes(1, 1);
+
+            const int posI = 2 * i;
+            const int posJ = 2 * j;
+
+            EK(posI, posJ) += du[0] * dv[0] * perm(0, 0) * weight + du[0] * dv[1] * perm(1, 0) * weight;
+            EK(posI, posJ + 1) += du[0] * dv[0] * perm(0, 1) * weight + du[0] * dv[1] * perm(1, 1) * weight;
+            EK(posI + 1, posJ) += du[1] * dv[0] * perm(0, 0) * weight + du[1] * dv[1] * perm(1, 0) * weight;
+            EK(posI + 1, posJ + 1) += du[1] * dv[0] * perm(0, 1) * weight + du[1] * dv[1] * perm(1, 1) * weight;
+        }
+        for (int k = 0; k < dim; k++) {
+            //EF(i, 0) += phi[i] * result[i] * weight;
+            EF(i, 0) += phi[i] * weight;
         }
     }
 }
