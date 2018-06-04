@@ -308,6 +308,60 @@ Testmatrix.cpp.s:
 	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestMatrix.dir/build.make mainprograms/CMakeFiles/TestMatrix.dir/Testmatrix.cpp.s
 .PHONY : Testmatrix.cpp.s
 
+__/src_2018/Analysis.o: __/src_2018/Analysis.cpp.o
+
+.PHONY : __/src_2018/Analysis.o
+
+# target to build an object file
+__/src_2018/Analysis.cpp.o:
+	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/Fem2018.dir/build.make mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/Analysis.cpp.o
+.PHONY : __/src_2018/Analysis.cpp.o
+
+__/src_2018/Analysis.i: __/src_2018/Analysis.cpp.i
+
+.PHONY : __/src_2018/Analysis.i
+
+# target to preprocess a source file
+__/src_2018/Analysis.cpp.i:
+	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/Fem2018.dir/build.make mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/Analysis.cpp.i
+.PHONY : __/src_2018/Analysis.cpp.i
+
+__/src_2018/Analysis.s: __/src_2018/Analysis.cpp.s
+
+.PHONY : __/src_2018/Analysis.s
+
+# target to generate assembly for a file
+__/src_2018/Analysis.cpp.s:
+	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/Fem2018.dir/build.make mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/Analysis.cpp.s
+.PHONY : __/src_2018/Analysis.cpp.s
+
+__/src_2018/Assemble.o: __/src_2018/Assemble.cpp.o
+
+.PHONY : __/src_2018/Assemble.o
+
+# target to build an object file
+__/src_2018/Assemble.cpp.o:
+	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/Fem2018.dir/build.make mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/Assemble.cpp.o
+.PHONY : __/src_2018/Assemble.cpp.o
+
+__/src_2018/Assemble.i: __/src_2018/Assemble.cpp.i
+
+.PHONY : __/src_2018/Assemble.i
+
+# target to preprocess a source file
+__/src_2018/Assemble.cpp.i:
+	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/Fem2018.dir/build.make mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/Assemble.cpp.i
+.PHONY : __/src_2018/Assemble.cpp.i
+
+__/src_2018/Assemble.s: __/src_2018/Assemble.cpp.s
+
+.PHONY : __/src_2018/Assemble.s
+
+# target to generate assembly for a file
+__/src_2018/Assemble.cpp.s:
+	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/Fem2018.dir/build.make mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/Assemble.cpp.s
+.PHONY : __/src_2018/Assemble.cpp.s
+
 __/src_2018/CompElement.o: __/src_2018/CompElement.cpp.o
 
 .PHONY : __/src_2018/CompElement.o
@@ -874,6 +928,33 @@ __/src_2018/Poisson.s: __/src_2018/Poisson.cpp.s
 __/src_2018/Poisson.cpp.s:
 	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/Fem2018.dir/build.make mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/Poisson.cpp.s
 .PHONY : __/src_2018/Poisson.cpp.s
+
+__/src_2018/PostProcess.o: __/src_2018/PostProcess.cpp.o
+
+.PHONY : __/src_2018/PostProcess.o
+
+# target to build an object file
+__/src_2018/PostProcess.cpp.o:
+	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/Fem2018.dir/build.make mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/PostProcess.cpp.o
+.PHONY : __/src_2018/PostProcess.cpp.o
+
+__/src_2018/PostProcess.i: __/src_2018/PostProcess.cpp.i
+
+.PHONY : __/src_2018/PostProcess.i
+
+# target to preprocess a source file
+__/src_2018/PostProcess.cpp.i:
+	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/Fem2018.dir/build.make mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/PostProcess.cpp.i
+.PHONY : __/src_2018/PostProcess.cpp.i
+
+__/src_2018/PostProcess.s: __/src_2018/PostProcess.cpp.s
+
+.PHONY : __/src_2018/PostProcess.s
+
+# target to generate assembly for a file
+__/src_2018/PostProcess.cpp.s:
+	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/Fem2018.dir/build.make mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/PostProcess.cpp.s
+.PHONY : __/src_2018/PostProcess.cpp.s
 
 __/src_2018/ReadGmsh.o: __/src_2018/ReadGmsh.cpp.o
 
@@ -2095,6 +2176,12 @@ help:
 	@echo "... Testmatrix.o"
 	@echo "... Testmatrix.i"
 	@echo "... Testmatrix.s"
+	@echo "... __/src_2018/Analysis.o"
+	@echo "... __/src_2018/Analysis.i"
+	@echo "... __/src_2018/Analysis.s"
+	@echo "... __/src_2018/Assemble.o"
+	@echo "... __/src_2018/Assemble.i"
+	@echo "... __/src_2018/Assemble.s"
 	@echo "... __/src_2018/CompElement.o"
 	@echo "... __/src_2018/CompElement.i"
 	@echo "... __/src_2018/CompElement.s"
@@ -2158,6 +2245,9 @@ help:
 	@echo "... __/src_2018/Poisson.o"
 	@echo "... __/src_2018/Poisson.i"
 	@echo "... __/src_2018/Poisson.s"
+	@echo "... __/src_2018/PostProcess.o"
+	@echo "... __/src_2018/PostProcess.i"
+	@echo "... __/src_2018/PostProcess.s"
 	@echo "... __/src_2018/ReadGmsh.o"
 	@echo "... __/src_2018/ReadGmsh.i"
 	@echo "... __/src_2018/ReadGmsh.s"

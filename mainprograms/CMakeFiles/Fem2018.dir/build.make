@@ -657,9 +657,33 @@ mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/GeoElementTemplate.cpp.o.provide
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/GeoElementTemplate.cpp.o.provides.build: mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/GeoElementTemplate.cpp.o
 
 
+mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/PostProcess.cpp.o: mainprograms/CMakeFiles/Fem2018.dir/flags.make
+mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/PostProcess.cpp.o: src_2018/PostProcess.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/natalia/Documents/GitHub/FEMCourse/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/PostProcess.cpp.o"
+	cd /home/natalia/Documents/GitHub/FEMCourse/mainprograms && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Fem2018.dir/__/src_2018/PostProcess.cpp.o -c /home/natalia/Documents/GitHub/FEMCourse/src_2018/PostProcess.cpp
+
+mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/PostProcess.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Fem2018.dir/__/src_2018/PostProcess.cpp.i"
+	cd /home/natalia/Documents/GitHub/FEMCourse/mainprograms && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/natalia/Documents/GitHub/FEMCourse/src_2018/PostProcess.cpp > CMakeFiles/Fem2018.dir/__/src_2018/PostProcess.cpp.i
+
+mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/PostProcess.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Fem2018.dir/__/src_2018/PostProcess.cpp.s"
+	cd /home/natalia/Documents/GitHub/FEMCourse/mainprograms && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/natalia/Documents/GitHub/FEMCourse/src_2018/PostProcess.cpp -o CMakeFiles/Fem2018.dir/__/src_2018/PostProcess.cpp.s
+
+mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/PostProcess.cpp.o.requires:
+
+.PHONY : mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/PostProcess.cpp.o.requires
+
+mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/PostProcess.cpp.o.provides: mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/PostProcess.cpp.o.requires
+	$(MAKE) -f mainprograms/CMakeFiles/Fem2018.dir/build.make mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/PostProcess.cpp.o.provides.build
+.PHONY : mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/PostProcess.cpp.o.provides
+
+mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/PostProcess.cpp.o.provides.build: mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/PostProcess.cpp.o
+
+
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/VTKGeoMesh.cpp.o: mainprograms/CMakeFiles/Fem2018.dir/flags.make
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/VTKGeoMesh.cpp.o: src_2018/VTKGeoMesh.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/natalia/Documents/GitHub/FEMCourse/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/VTKGeoMesh.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/natalia/Documents/GitHub/FEMCourse/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/VTKGeoMesh.cpp.o"
 	cd /home/natalia/Documents/GitHub/FEMCourse/mainprograms && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Fem2018.dir/__/src_2018/VTKGeoMesh.cpp.o -c /home/natalia/Documents/GitHub/FEMCourse/src_2018/VTKGeoMesh.cpp
 
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/VTKGeoMesh.cpp.i: cmake_force
@@ -683,7 +707,7 @@ mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/VTKGeoMesh.cpp.o.provides.build:
 
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/IntRule1d.cpp.o: mainprograms/CMakeFiles/Fem2018.dir/flags.make
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/IntRule1d.cpp.o: src_2018/IntRule1d.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/natalia/Documents/GitHub/FEMCourse/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/IntRule1d.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/natalia/Documents/GitHub/FEMCourse/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/IntRule1d.cpp.o"
 	cd /home/natalia/Documents/GitHub/FEMCourse/mainprograms && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Fem2018.dir/__/src_2018/IntRule1d.cpp.o -c /home/natalia/Documents/GitHub/FEMCourse/src_2018/IntRule1d.cpp
 
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/IntRule1d.cpp.i: cmake_force
@@ -707,7 +731,7 @@ mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/IntRule1d.cpp.o.provides.build: 
 
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/IntRuleTetrahedron.cpp.o: mainprograms/CMakeFiles/Fem2018.dir/flags.make
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/IntRuleTetrahedron.cpp.o: src_2018/IntRuleTetrahedron.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/natalia/Documents/GitHub/FEMCourse/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/IntRuleTetrahedron.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/natalia/Documents/GitHub/FEMCourse/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/IntRuleTetrahedron.cpp.o"
 	cd /home/natalia/Documents/GitHub/FEMCourse/mainprograms && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Fem2018.dir/__/src_2018/IntRuleTetrahedron.cpp.o -c /home/natalia/Documents/GitHub/FEMCourse/src_2018/IntRuleTetrahedron.cpp
 
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/IntRuleTetrahedron.cpp.i: cmake_force
@@ -731,7 +755,7 @@ mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/IntRuleTetrahedron.cpp.o.provide
 
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/Geom1d.cpp.o: mainprograms/CMakeFiles/Fem2018.dir/flags.make
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/Geom1d.cpp.o: src_2018/Geom1d.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/natalia/Documents/GitHub/FEMCourse/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/Geom1d.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/natalia/Documents/GitHub/FEMCourse/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/Geom1d.cpp.o"
 	cd /home/natalia/Documents/GitHub/FEMCourse/mainprograms && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Fem2018.dir/__/src_2018/Geom1d.cpp.o -c /home/natalia/Documents/GitHub/FEMCourse/src_2018/Geom1d.cpp
 
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/Geom1d.cpp.i: cmake_force
@@ -755,7 +779,7 @@ mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/Geom1d.cpp.o.provides.build: mai
 
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/TopologyQuad.cpp.o: mainprograms/CMakeFiles/Fem2018.dir/flags.make
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/TopologyQuad.cpp.o: src_2018/TopologyQuad.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/natalia/Documents/GitHub/FEMCourse/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/TopologyQuad.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/natalia/Documents/GitHub/FEMCourse/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/TopologyQuad.cpp.o"
 	cd /home/natalia/Documents/GitHub/FEMCourse/mainprograms && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Fem2018.dir/__/src_2018/TopologyQuad.cpp.o -c /home/natalia/Documents/GitHub/FEMCourse/src_2018/TopologyQuad.cpp
 
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/TopologyQuad.cpp.i: cmake_force
@@ -777,9 +801,57 @@ mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/TopologyQuad.cpp.o.provides: mai
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/TopologyQuad.cpp.o.provides.build: mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/TopologyQuad.cpp.o
 
 
+mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/Analysis.cpp.o: mainprograms/CMakeFiles/Fem2018.dir/flags.make
+mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/Analysis.cpp.o: src_2018/Analysis.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/natalia/Documents/GitHub/FEMCourse/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building CXX object mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/Analysis.cpp.o"
+	cd /home/natalia/Documents/GitHub/FEMCourse/mainprograms && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Fem2018.dir/__/src_2018/Analysis.cpp.o -c /home/natalia/Documents/GitHub/FEMCourse/src_2018/Analysis.cpp
+
+mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/Analysis.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Fem2018.dir/__/src_2018/Analysis.cpp.i"
+	cd /home/natalia/Documents/GitHub/FEMCourse/mainprograms && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/natalia/Documents/GitHub/FEMCourse/src_2018/Analysis.cpp > CMakeFiles/Fem2018.dir/__/src_2018/Analysis.cpp.i
+
+mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/Analysis.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Fem2018.dir/__/src_2018/Analysis.cpp.s"
+	cd /home/natalia/Documents/GitHub/FEMCourse/mainprograms && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/natalia/Documents/GitHub/FEMCourse/src_2018/Analysis.cpp -o CMakeFiles/Fem2018.dir/__/src_2018/Analysis.cpp.s
+
+mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/Analysis.cpp.o.requires:
+
+.PHONY : mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/Analysis.cpp.o.requires
+
+mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/Analysis.cpp.o.provides: mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/Analysis.cpp.o.requires
+	$(MAKE) -f mainprograms/CMakeFiles/Fem2018.dir/build.make mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/Analysis.cpp.o.provides.build
+.PHONY : mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/Analysis.cpp.o.provides
+
+mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/Analysis.cpp.o.provides.build: mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/Analysis.cpp.o
+
+
+mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/Assemble.cpp.o: mainprograms/CMakeFiles/Fem2018.dir/flags.make
+mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/Assemble.cpp.o: src_2018/Assemble.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/natalia/Documents/GitHub/FEMCourse/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building CXX object mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/Assemble.cpp.o"
+	cd /home/natalia/Documents/GitHub/FEMCourse/mainprograms && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Fem2018.dir/__/src_2018/Assemble.cpp.o -c /home/natalia/Documents/GitHub/FEMCourse/src_2018/Assemble.cpp
+
+mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/Assemble.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Fem2018.dir/__/src_2018/Assemble.cpp.i"
+	cd /home/natalia/Documents/GitHub/FEMCourse/mainprograms && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/natalia/Documents/GitHub/FEMCourse/src_2018/Assemble.cpp > CMakeFiles/Fem2018.dir/__/src_2018/Assemble.cpp.i
+
+mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/Assemble.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Fem2018.dir/__/src_2018/Assemble.cpp.s"
+	cd /home/natalia/Documents/GitHub/FEMCourse/mainprograms && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/natalia/Documents/GitHub/FEMCourse/src_2018/Assemble.cpp -o CMakeFiles/Fem2018.dir/__/src_2018/Assemble.cpp.s
+
+mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/Assemble.cpp.o.requires:
+
+.PHONY : mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/Assemble.cpp.o.requires
+
+mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/Assemble.cpp.o.provides: mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/Assemble.cpp.o.requires
+	$(MAKE) -f mainprograms/CMakeFiles/Fem2018.dir/build.make mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/Assemble.cpp.o.provides.build
+.PHONY : mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/Assemble.cpp.o.provides
+
+mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/Assemble.cpp.o.provides.build: mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/Assemble.cpp.o
+
+
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/Topology1d.cpp.o: mainprograms/CMakeFiles/Fem2018.dir/flags.make
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/Topology1d.cpp.o: src_2018/Topology1d.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/natalia/Documents/GitHub/FEMCourse/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/Topology1d.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/natalia/Documents/GitHub/FEMCourse/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building CXX object mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/Topology1d.cpp.o"
 	cd /home/natalia/Documents/GitHub/FEMCourse/mainprograms && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Fem2018.dir/__/src_2018/Topology1d.cpp.o -c /home/natalia/Documents/GitHub/FEMCourse/src_2018/Topology1d.cpp
 
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/Topology1d.cpp.i: cmake_force
@@ -803,7 +875,7 @@ mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/Topology1d.cpp.o.provides.build:
 
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/GeomTetrahedron.cpp.o: mainprograms/CMakeFiles/Fem2018.dir/flags.make
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/GeomTetrahedron.cpp.o: src_2018/GeomTetrahedron.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/natalia/Documents/GitHub/FEMCourse/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building CXX object mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/GeomTetrahedron.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/natalia/Documents/GitHub/FEMCourse/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building CXX object mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/GeomTetrahedron.cpp.o"
 	cd /home/natalia/Documents/GitHub/FEMCourse/mainprograms && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Fem2018.dir/__/src_2018/GeomTetrahedron.cpp.o -c /home/natalia/Documents/GitHub/FEMCourse/src_2018/GeomTetrahedron.cpp
 
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/GeomTetrahedron.cpp.i: cmake_force
@@ -827,7 +899,7 @@ mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/GeomTetrahedron.cpp.o.provides.b
 
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/TopologyTriangle.cpp.o: mainprograms/CMakeFiles/Fem2018.dir/flags.make
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/TopologyTriangle.cpp.o: src_2018/TopologyTriangle.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/natalia/Documents/GitHub/FEMCourse/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building CXX object mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/TopologyTriangle.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/natalia/Documents/GitHub/FEMCourse/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building CXX object mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/TopologyTriangle.cpp.o"
 	cd /home/natalia/Documents/GitHub/FEMCourse/mainprograms && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Fem2018.dir/__/src_2018/TopologyTriangle.cpp.o -c /home/natalia/Documents/GitHub/FEMCourse/src_2018/TopologyTriangle.cpp
 
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/TopologyTriangle.cpp.i: cmake_force
@@ -851,7 +923,7 @@ mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/TopologyTriangle.cpp.o.provides.
 
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/GeomQuad.cpp.o: mainprograms/CMakeFiles/Fem2018.dir/flags.make
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/GeomQuad.cpp.o: src_2018/GeomQuad.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/natalia/Documents/GitHub/FEMCourse/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building CXX object mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/GeomQuad.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/natalia/Documents/GitHub/FEMCourse/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building CXX object mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/GeomQuad.cpp.o"
 	cd /home/natalia/Documents/GitHub/FEMCourse/mainprograms && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Fem2018.dir/__/src_2018/GeomQuad.cpp.o -c /home/natalia/Documents/GitHub/FEMCourse/src_2018/GeomQuad.cpp
 
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/GeomQuad.cpp.i: cmake_force
@@ -875,7 +947,7 @@ mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/GeomQuad.cpp.o.provides.build: m
 
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/ShapeQuad.cpp.o: mainprograms/CMakeFiles/Fem2018.dir/flags.make
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/ShapeQuad.cpp.o: src_2018/ShapeQuad.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/natalia/Documents/GitHub/FEMCourse/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building CXX object mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/ShapeQuad.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/natalia/Documents/GitHub/FEMCourse/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building CXX object mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/ShapeQuad.cpp.o"
 	cd /home/natalia/Documents/GitHub/FEMCourse/mainprograms && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Fem2018.dir/__/src_2018/ShapeQuad.cpp.o -c /home/natalia/Documents/GitHub/FEMCourse/src_2018/ShapeQuad.cpp
 
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/ShapeQuad.cpp.i: cmake_force
@@ -899,7 +971,7 @@ mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/ShapeQuad.cpp.o.provides.build: 
 
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/IntRuleQuad.cpp.o: mainprograms/CMakeFiles/Fem2018.dir/flags.make
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/IntRuleQuad.cpp.o: src_2018/IntRuleQuad.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/natalia/Documents/GitHub/FEMCourse/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building CXX object mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/IntRuleQuad.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/natalia/Documents/GitHub/FEMCourse/CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building CXX object mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/IntRuleQuad.cpp.o"
 	cd /home/natalia/Documents/GitHub/FEMCourse/mainprograms && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Fem2018.dir/__/src_2018/IntRuleQuad.cpp.o -c /home/natalia/Documents/GitHub/FEMCourse/src_2018/IntRuleQuad.cpp
 
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/IntRuleQuad.cpp.i: cmake_force
@@ -948,11 +1020,14 @@ Fem2018_OBJECTS = \
 "CMakeFiles/Fem2018.dir/__/src_2018/GeomTriangle.cpp.o" \
 "CMakeFiles/Fem2018.dir/__/src_2018/DOF.cpp.o" \
 "CMakeFiles/Fem2018.dir/__/src_2018/GeoElementTemplate.cpp.o" \
+"CMakeFiles/Fem2018.dir/__/src_2018/PostProcess.cpp.o" \
 "CMakeFiles/Fem2018.dir/__/src_2018/VTKGeoMesh.cpp.o" \
 "CMakeFiles/Fem2018.dir/__/src_2018/IntRule1d.cpp.o" \
 "CMakeFiles/Fem2018.dir/__/src_2018/IntRuleTetrahedron.cpp.o" \
 "CMakeFiles/Fem2018.dir/__/src_2018/Geom1d.cpp.o" \
 "CMakeFiles/Fem2018.dir/__/src_2018/TopologyQuad.cpp.o" \
+"CMakeFiles/Fem2018.dir/__/src_2018/Analysis.cpp.o" \
+"CMakeFiles/Fem2018.dir/__/src_2018/Assemble.cpp.o" \
 "CMakeFiles/Fem2018.dir/__/src_2018/Topology1d.cpp.o" \
 "CMakeFiles/Fem2018.dir/__/src_2018/GeomTetrahedron.cpp.o" \
 "CMakeFiles/Fem2018.dir/__/src_2018/TopologyTriangle.cpp.o" \
@@ -988,11 +1063,14 @@ mainprograms/Fem2018: mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/ReadGmsh.c
 mainprograms/Fem2018: mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/GeomTriangle.cpp.o
 mainprograms/Fem2018: mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/DOF.cpp.o
 mainprograms/Fem2018: mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/GeoElementTemplate.cpp.o
+mainprograms/Fem2018: mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/PostProcess.cpp.o
 mainprograms/Fem2018: mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/VTKGeoMesh.cpp.o
 mainprograms/Fem2018: mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/IntRule1d.cpp.o
 mainprograms/Fem2018: mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/IntRuleTetrahedron.cpp.o
 mainprograms/Fem2018: mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/Geom1d.cpp.o
 mainprograms/Fem2018: mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/TopologyQuad.cpp.o
+mainprograms/Fem2018: mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/Analysis.cpp.o
+mainprograms/Fem2018: mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/Assemble.cpp.o
 mainprograms/Fem2018: mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/Topology1d.cpp.o
 mainprograms/Fem2018: mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/GeomTetrahedron.cpp.o
 mainprograms/Fem2018: mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/TopologyTriangle.cpp.o
@@ -1001,7 +1079,7 @@ mainprograms/Fem2018: mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/ShapeQuad.
 mainprograms/Fem2018: mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/IntRuleQuad.cpp.o
 mainprograms/Fem2018: mainprograms/CMakeFiles/Fem2018.dir/build.make
 mainprograms/Fem2018: mainprograms/CMakeFiles/Fem2018.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/natalia/Documents/GitHub/FEMCourse/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Linking CXX executable Fem2018"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/natalia/Documents/GitHub/FEMCourse/CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Linking CXX executable Fem2018"
 	cd /home/natalia/Documents/GitHub/FEMCourse/mainprograms && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Fem2018.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -1034,11 +1112,14 @@ mainprograms/CMakeFiles/Fem2018.dir/requires: mainprograms/CMakeFiles/Fem2018.di
 mainprograms/CMakeFiles/Fem2018.dir/requires: mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/GeomTriangle.cpp.o.requires
 mainprograms/CMakeFiles/Fem2018.dir/requires: mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/DOF.cpp.o.requires
 mainprograms/CMakeFiles/Fem2018.dir/requires: mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/GeoElementTemplate.cpp.o.requires
+mainprograms/CMakeFiles/Fem2018.dir/requires: mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/PostProcess.cpp.o.requires
 mainprograms/CMakeFiles/Fem2018.dir/requires: mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/VTKGeoMesh.cpp.o.requires
 mainprograms/CMakeFiles/Fem2018.dir/requires: mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/IntRule1d.cpp.o.requires
 mainprograms/CMakeFiles/Fem2018.dir/requires: mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/IntRuleTetrahedron.cpp.o.requires
 mainprograms/CMakeFiles/Fem2018.dir/requires: mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/Geom1d.cpp.o.requires
 mainprograms/CMakeFiles/Fem2018.dir/requires: mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/TopologyQuad.cpp.o.requires
+mainprograms/CMakeFiles/Fem2018.dir/requires: mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/Analysis.cpp.o.requires
+mainprograms/CMakeFiles/Fem2018.dir/requires: mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/Assemble.cpp.o.requires
 mainprograms/CMakeFiles/Fem2018.dir/requires: mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/Topology1d.cpp.o.requires
 mainprograms/CMakeFiles/Fem2018.dir/requires: mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/GeomTetrahedron.cpp.o.requires
 mainprograms/CMakeFiles/Fem2018.dir/requires: mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/TopologyTriangle.cpp.o.requires

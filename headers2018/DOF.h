@@ -9,7 +9,6 @@
 #define DOF_h
 #include "DataTypes.h"
 
-
 class DOF
 {
     // First associated equation

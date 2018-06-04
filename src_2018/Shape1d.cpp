@@ -8,7 +8,6 @@
 #include "TMatrix.h"
 
 void Shape1d::Shape(const VecDouble& xi, VecInt& orders, VecDouble& phi, Matrix& dphi) {
-
     int n = NShapeFunctions(orders);
 
     for (int i = 0; i < n; i++) {

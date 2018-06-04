@@ -372,11 +372,7 @@
           </incDir>
         </ccTool>
       </item>
-      <item path="src_2018/Analysis.cpp" ex="false" tool="1" flavor2="4">
-      </item>
-      <item path="src_2018/Assemble.cpp" ex="false" tool="1" flavor2="4">
-      </item>
-      <item path="src_2018/CompElement.cpp" ex="false" tool="1" flavor2="8">
+      <item path="src_2018/Analysis.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="1">
           <incDir>
             <pElem>headers2018</pElem>
@@ -386,7 +382,17 @@
           </incDir>
         </ccTool>
       </item>
-      <item path="src_2018/CompElementTemplate.cpp" ex="false" tool="1" flavor2="8">
+      <item path="src_2018/Assemble.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>headers2018</pElem>
+            <pElem>headers</pElem>
+            <pElem>tinyxml</pElem>
+            <pElem>mainprograms</pElem>
+          </incDir>
+        </ccTool>
+      </item>
+      <item path="src_2018/CompElement.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
           <incDir>
             <pElem>headers2018</pElem>
@@ -396,12 +402,22 @@
           </incDir>
         </ccTool>
       </item>
-      <item path="src_2018/CompMesh.cpp" ex="false" tool="1" flavor2="8">
-        <ccTool flags="0">
+      <item path="src_2018/CompElementTemplate.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="1">
           <incDir>
             <pElem>headers2018</pElem>
-            <pElem>src_2018</pElem>
             <pElem>headers</pElem>
+            <pElem>tinyxml</pElem>
+            <pElem>mainprograms</pElem>
+          </incDir>
+        </ccTool>
+      </item>
+      <item path="src_2018/CompMesh.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>headers2018</pElem>
+            <pElem>headers</pElem>
+            <pElem>tinyxml</pElem>
             <pElem>mainprograms</pElem>
           </incDir>
         </ccTool>
@@ -557,9 +573,9 @@
       <item path="src_2018/L2Projection.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
           <incDir>
+            <pElem>headers2018</pElem>
             <pElem>src_2018</pElem>
             <pElem>headers</pElem>
-            <pElem>headers2018</pElem>
             <pElem>mainprograms</pElem>
           </incDir>
         </ccTool>
@@ -567,9 +583,9 @@
       <item path="src_2018/MathStatement.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
           <incDir>
+            <pElem>headers2018</pElem>
             <pElem>src_2018</pElem>
             <pElem>headers</pElem>
-            <pElem>headers2018</pElem>
             <pElem>mainprograms</pElem>
           </incDir>
         </ccTool>
@@ -584,7 +600,14 @@
           </incDir>
         </ccTool>
       </item>
-      <item path="src_2018/PostProcess.cpp" ex="false" tool="1" flavor2="4">
+      <item path="src_2018/PostProcess.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+          <incDir>
+            <pElem>src_2018</pElem>
+            <pElem>headers2018</pElem>
+            <pElem>mainprograms</pElem>
+          </incDir>
+        </ccTool>
       </item>
       <item path="src_2018/ReadGmsh.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
@@ -597,11 +620,11 @@
         </ccTool>
       </item>
       <item path="src_2018/Shape1d.cpp" ex="false" tool="1" flavor2="8">
-        <ccTool flags="1">
+        <ccTool flags="0">
           <incDir>
-            <pElem>headers2018</pElem>
+            <pElem>src_2018</pElem>
             <pElem>headers</pElem>
-            <pElem>tinyxml</pElem>
+            <pElem>headers2018</pElem>
             <pElem>mainprograms</pElem>
           </incDir>
         </ccTool>

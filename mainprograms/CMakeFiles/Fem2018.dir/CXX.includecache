@@ -72,6 +72,22 @@ math.h
 vector
 -
 
+/home/natalia/Documents/GitHub/FEMCourse/src_2018/Analysis.cpp
+Analysis.h
+/home/natalia/Documents/GitHub/FEMCourse/src_2018/Analysis.h
+Assemble.h
+/home/natalia/Documents/GitHub/FEMCourse/src_2018/Assemble.h
+CompMesh.h
+/home/natalia/Documents/GitHub/FEMCourse/src_2018/CompMesh.h
+GeoMesh.h
+/home/natalia/Documents/GitHub/FEMCourse/src_2018/GeoMesh.h
+
+/home/natalia/Documents/GitHub/FEMCourse/src_2018/Assemble.cpp
+Assemble.h
+/home/natalia/Documents/GitHub/FEMCourse/src_2018/Assemble.h
+GeoElement.h
+/home/natalia/Documents/GitHub/FEMCourse/src_2018/GeoElement.h
+
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/CompElement.cpp
 CompElement.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/CompElement.h
@@ -111,6 +127,10 @@ ShapeTriangle.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/ShapeTriangle.h
 GeoElement.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/GeoElement.h
+MathStatement.h
+/home/natalia/Documents/GitHub/FEMCourse/src_2018/MathStatement.h
+GeoElementSide.h
+/home/natalia/Documents/GitHub/FEMCourse/src_2018/GeoElementSide.h
 
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/CompMesh.cpp
 CompMesh.h
@@ -339,6 +359,12 @@ Poisson.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/Poisson.h
 CompElement.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/CompElement.h
+functional
+-
+
+/home/natalia/Documents/GitHub/FEMCourse/src_2018/PostProcess.cpp
+PostProcess.h
+/home/natalia/Documents/GitHub/FEMCourse/src_2018/PostProcess.h
 
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/ReadGmsh.cpp
 stdio.h
@@ -515,28 +541,14 @@ IntRule.h
 headers2018/IntRule.h
 IntPointData.h
 headers2018/IntPointData.h
+functional
+-
 
 headers2018/CompElementTemplate.h
 CompElement.h
 headers2018/CompElement.h
 IntRule.h
 headers2018/IntRule.h
-Topology1d.h
-headers2018/Topology1d.h
-TopologyQuad.h
-headers2018/TopologyQuad.h
-TopologyTriangle.h
-headers2018/TopologyTriangle.h
-TopologyTetrahedron.h
-headers2018/TopologyTetrahedron.h
-Shape1d.h
-headers2018/Shape1d.h
-ShapeQuad.h
-headers2018/ShapeQuad.h
-ShapeTetrahedron.h
-headers2018/ShapeTetrahedron.h
-ShapeTriangle.h
-headers2018/ShapeTriangle.h
 DOF.h
 headers2018/DOF.h
 
@@ -595,6 +607,8 @@ GeoNode.h
 headers2018/GeoNode.h
 GeoElement.h
 headers2018/GeoElement.h
+CompMesh.h
+headers2018/CompMesh.h
 string
 -
 
@@ -631,6 +645,8 @@ headers2018/GeoElementSide.h
 headers2018/IntPointData.h
 DataTypes.h
 headers2018/DataTypes.h
+tpanic.h
+headers2018/tpanic.h
 
 headers2018/IntRule.h
 cmath
@@ -703,6 +719,8 @@ functional
 -
 
 headers2018/PostProcess.h
+string
+-
 
 headers2018/ReadGmsh.h
 string

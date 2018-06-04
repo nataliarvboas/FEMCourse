@@ -18,7 +18,8 @@
 #include "ShapeTriangle.h"
 #include "ShapeTetrahedron.h"
 
-GeoElement::GeoElement() {
+GeoElement::GeoElement() : GMesh(0), MaterialId(-1), Index(-1) {
+
 }
 
 GeoElement::GeoElement(int materialid, GeoMesh *mesh, int index) {
@@ -39,7 +40,8 @@ GeoElement::~GeoElement() {
 }
 
 CompElement *GeoElement::CreateCompEl(CompMesh *mesh, int64_t index) {
-    GeoElement *gel = mesh->GetGeoMesh()->Element(index);
+    //GeoElement *gel = mesh->GetGeoMesh()->Element(index);
+    GeoElement *gel = this;
 
     switch (gel->Type()) {
         case EOned:

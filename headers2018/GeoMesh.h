@@ -10,7 +10,7 @@
 
 #include "GeoNode.h"
 #include "GeoElement.h"
-//#include "CompMesh.h"
+#include "CompMesh.h"
 #include <string>
 
 class GeoMesh

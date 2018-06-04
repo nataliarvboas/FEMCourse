@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 #include "Assemble.h"
+#include "GeoElement.h"
 
 Assemble::Assemble() {
 }
@@ -29,8 +30,8 @@ int64_t Assemble::NEquations() {
     int64_t neq = 0;
     int64_t i, ncon = cmesh->GetDOFVec().size();
     for (i = 0; i < ncon; i++) {
-        DOF &df = cmesh->GetDOFVec()[i];
-        int dofsize = df.GetNShape() * df.GetNState();
+        DOF dof = cmesh->GetDOF(i);
+        int dofsize = dof.GetNShape() * dof.GetNState();
         neq += dofsize;
     }
     return neq;
@@ -40,18 +41,14 @@ void Assemble::OptimizeBandwidth() {
 }
 
 void Assemble::Compute(Matrix &globmat, Matrix &rhs) {
-    int64_t nelem = cmesh->GetElementVec().size();
-    int64_t nnodes = cmesh->GetElementVec().size();
-
-    Matrix globmat.Resize(nnodes, nnodes);
-    Matrix rhs.Resize(nnodes, 1);
+    int64_t nelem = cmesh->GetGeoMesh()->NumElements();
 
     globmat.Zero();
     rhs.Zero();
 
-    for (int64_t nel = 0; nel < nelem; nel++) {
-        CompElement *cel = cmesh->GetElement(nel);
-        GeoElement *gel = cmesh->GetGeoMesh()->Element(nel);
+    for (int64_t el = 0; el < nelem; el++) {
+        CompElement *cel = cmesh->GetElement(el);
+        GeoElement *gel = cmesh->GetGeoMesh()->Element(el);
 
         int64_t nnodes_el = cel->GetGeoElement()->NNodes();
 

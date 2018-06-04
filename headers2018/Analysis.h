@@ -33,7 +33,7 @@ public:
     Analysis(const Analysis &cp);
     
     Analysis &operator=(const Analysis &cp);
-
+    
     Analysis(CompMesh *cmesh);
     
     void SetMesh(CompMesh *cmesh);
@@ -42,7 +42,7 @@ public:
     
     void RunSimulation();
     
-    //void PostProcess(std::string &filename, PostProcess &defPostProc) const;
+    void PostProcess(std::string &filename, PostProcess &defPostProc) const;
     
 };
 

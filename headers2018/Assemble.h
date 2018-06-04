@@ -15,6 +15,7 @@
 // class geared towards the assembly of the global system of equations
 class Assemble
 {
+    protected:
     CompMesh *cmesh = 0;
     
 public:

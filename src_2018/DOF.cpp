@@ -13,12 +13,14 @@ DOF::DOF(const DOF &copy) {
     firstequation = copy.firstequation;
     nshape = copy.nshape;
     nstate = copy.nstate;
+    order = copy.order;
 }
 
 DOF &DOF::operator=(const DOF &copy) {
     firstequation = copy.firstequation;
     nshape = copy.nshape;
     nstate = copy.nstate;
+    order = copy.order;
     return *this;
 }
 

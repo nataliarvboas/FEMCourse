@@ -66,7 +66,7 @@ public:
     bool IsNeighbour(const GeoElementSide &candidate);
     
     // Define elements neighbourhood
-    void InsertConnectivity(GeoElementSide &connectivity);
+    void IsertConnectivity(GeoElementSide &connectivity);
     
     // Vector with all Neighbours
     void AllNeighbours(std::vector<GeoElementSide> &allneigh);

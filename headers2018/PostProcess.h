@@ -8,6 +8,8 @@
 #ifndef PostProcess_h
 #define PostProcess_h
 
+#include <string>
+
 class Analysis;
 
 class PostProcess
@@ -16,7 +18,7 @@ class PostProcess
     Analysis *Reference;
     
     virtual void Write(std::string filename);
-    
+        
     
 };
 #endif /* PostProcess_h */

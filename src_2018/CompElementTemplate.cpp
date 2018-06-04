@@ -13,6 +13,8 @@
 #include "ShapeTetrahedron.h"
 #include "ShapeTriangle.h"
 #include "GeoElement.h"
+#include "MathStatement.h"
+#include "GeoElementSide.h"
 
 template<class Shape>
 CompElementTemplate<Shape>::CompElementTemplate() {
@@ -20,37 +22,70 @@ CompElementTemplate<Shape>::CompElementTemplate() {
 
 template<class Shape>
 CompElementTemplate<Shape>::CompElementTemplate(int64_t ind, CompMesh *cmesh, GeoElement *geo) : CompElement(ind, cmesh, geo) {
-    cmesh->SetGeoMesh(geo->GetMesh());
     int64_t nel = 0;
-    nel = cmesh->GetGeoMesh()->NumElements();
+    nel = cmesh->GetElementVec().size();
     cmesh->SetNumberElement(nel);
     cmesh->SetElement(ind, this);
+    intrule.SetOrder(2*cmesh->GetDefaultOrder());
+    this->SetIntRule(&intrule);
+    this->SetIndex(ind);
+    geo->SetReference(this);
+
+    int matid = geo->Material();
+    MathStatement *mat = cmesh->GetMath(matid);
+    this->SetStatement(mat);
+
+    int nsides = geo->NSides();
+    this->SetNDOF(nsides);
+    int ndof = cmesh->GetDOFVec().size();
+
+    for (int i = 0; i < nsides; i++) {
+        GeoElementSide gelside(this->GetGeoElement(), i);
+        GeoElementSide neighbour = gelside.Neighbour();
+       // GeoElementSide neighbour = geo->Neighbour(i);
+
+        if (gelside != neighbour && neighbour.Element()->GetIndex() < ind) {
+            CompElement *cel = neighbour.Element()->GetReference();
+            int dofindex = cel->GetDOFIndex(neighbour.Side());
+            this->SetDOFIndex(i, dofindex);
+        } else {
+            int order = cmesh->GetDefaultOrder();
+            int nshape = this->ComputeNShapeFunctions(i, order);
+            int nstate = this->GetStatement()->NState();
+            DOF dof;
+            dof.SetNShapeStateOrder(nshape, nstate, order);
+            ndof++;
+            cmesh->SetNumberDOF(ndof);
+            this->SetDOFIndex(i, ndof);
+            cmesh->SetDOF(i, dof);
+        }
+    }
 }
 
-template<class Shape>
-CompElementTemplate<Shape>::CompElementTemplate(const CompElementTemplate &copy) {
+template<class Shape >
+CompElementTemplate<Shape>::CompElementTemplate(const CompElementTemplate & copy) {
     dofindexes = copy.dofindexes;
     intrule = copy.intrule;
 }
 
-template<class Shape>
-CompElementTemplate<Shape> &CompElementTemplate<Shape>::operator=(const CompElementTemplate &copy) {
+template<class Shape >
+CompElementTemplate<Shape> &CompElementTemplate<Shape>::operator=(const CompElementTemplate & copy) {
     dofindexes = copy.dofindexes;
     intrule = copy.intrule;
     return *this;
 }
 
-template<class Shape>
+template<class Shape >
 CompElementTemplate<Shape>::~CompElementTemplate() {
 }
 
-template<class Shape>
-CompElement *CompElementTemplate<Shape>::Clone() const {
+template<class Shape >
+CompElement * CompElementTemplate<Shape>::Clone() const {
     return new CompElementTemplate(*this);
 }
 
 template<class Shape>
-void CompElementTemplate<Shape>::ShapeFunctions(const VecDouble &intpoint, VecDouble &phi, Matrix &dphi) const {
+void CompElementTemplate<Shape>::ShapeFunctions(const VecDouble &intpoint, VecDouble &phi, Matrix & dphi) const {
     int order = 1;
     int nsides = this->GetGeoElement()->NCornerNodes();
     VecInt orders(nsides, order);
@@ -59,12 +94,17 @@ void CompElementTemplate<Shape>::ShapeFunctions(const VecDouble &intpoint, VecDo
 }
 
 template<class Shape>
+void CompElementTemplate<Shape>::GetMultiplyingCoeficients(VecDouble & coefs) {
+
+}
+
+template<class Shape>
 int CompElementTemplate<Shape>::NShapeFunctions() const {
     int order = 1;
     int nsides = this->GetGeoElement()->NSides();
     VecInt orders(nsides, order);
 
-    return Shape::NShapeFunctions(orders);       
+    return Shape::NShapeFunctions(orders);
 }
 
 template<class Shape>
@@ -75,6 +115,11 @@ void CompElementTemplate<Shape>::SetNDOF(int64_t ndof) {
 template<class Shape>
 void CompElementTemplate<Shape>::SetDOFIndex(int i, int64_t dofindex) {
     dofindexes[i] = dofindex;
+}
+
+template<class Shape >
+int64_t CompElementTemplate<Shape>::GetDOFIndex(int i) {
+    return dofindexes[i];
 }
 
 template<class Shape>
@@ -90,6 +135,9 @@ int CompElementTemplate<Shape>::NShapeFunctions(int doflocindex) const {
 
 template<class Shape>
 int CompElementTemplate<Shape>::ComputeNShapeFunctions(int doflocindex, int order) {
+    dofindexes.resize(doflocindex + 1);
+    dofindexes[doflocindex] = doflocindex;
+    return Shape::NShapeFunctions(doflocindex, order);
 
 }
 

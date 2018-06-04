@@ -6,6 +6,7 @@
 
 #include "Poisson.h"
 #include "CompElement.h"
+#include <functional>
 
 Poisson::Poisson() {
 }
@@ -41,7 +42,7 @@ void Poisson::SetPermeability(const Matrix &perm) {
 }
 
 int Poisson::NState() const {
-    return 1;
+    return 2;
 }
 
 void Poisson::Contribute(IntPointData &data, double weight, Matrix &EK, Matrix &EF) const {
@@ -57,10 +58,12 @@ void Poisson::Contribute(IntPointData &data, double weight, Matrix &EK, Matrix &
 
 
     Matrix perm(dim, dim);
-    std::vector<double> result(nshape);
+    VecDouble co(nshape);
+    VecDouble result(nshape);
+    std::function<void(const VecDouble &co, VecDouble &result)> force;
 
     perm = this->GetPermeability();
-    //force = this->GetForceFunction();
+    force = this->GetForceFunction();
 
     for (int i = 0; i < nshape; i++) {
         dv[0] = dphi(0, i) * axes(0, 0) + dphi(1, i) * axes(1, 0);
@@ -79,8 +82,7 @@ void Poisson::Contribute(IntPointData &data, double weight, Matrix &EK, Matrix &
             EK(posI + 1, posJ + 1) += du[1] * dv[0] * perm(0, 1) * weight + du[1] * dv[1] * perm(1, 1) * weight;
         }
         for (int k = 0; k < dim; k++) {
-            //EF(i, 0) += phi[i] * result[i] * weight;
-            EF(i, 0) += phi[i] * weight;
+            EF(i, 0) += phi[i] * result[i] * weight;  //colocar a force function
         }
     }
 }

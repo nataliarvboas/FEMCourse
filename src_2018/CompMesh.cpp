@@ -8,8 +8,8 @@
 #include "MathStatement.h"
 #include "GeoMesh.h"
 
+CompMesh::CompMesh() : geomesh(0), compelements(0), dofs(0), mathstatements(0), solution(0) {
 
-CompMesh::CompMesh() {
 }
 
 CompMesh::CompMesh(const CompMesh &copy) {
@@ -19,7 +19,7 @@ CompMesh::CompMesh(const CompMesh &copy) {
 }
 
 CompMesh::CompMesh(GeoMesh *gmesh) {
-    geomesh = gmesh;
+    this->SetGeoMesh(gmesh);
 }
 
 CompMesh::~CompMesh() {
@@ -107,31 +107,36 @@ void CompMesh::SetMathVec(const std::vector<MathStatement *> &mathvec) {
 
 void CompMesh::AutoBuild() {
     int64_t i;
-    int64_t nelem = this->GetGeoMesh()->NumElements();
+    int64_t nelem = this->GetElementVec().size();
 
     for (i = 0; i < nelem; i++) {
+        DOF dof;
         GeoElement *gel = this->GetGeoMesh()->Element(i);
-        if (!gel || gel->GetReference()) continue;
-        int matid = gel->Material();
-        MathStatement * mat = this->GetMath(matid);
-        if (!mat) {
-            //this->
-        }
+        CompElement *cel = gel->CreateCompEl(this, i);
     }
+    this->Resequence();
 }
 
 void CompMesh::Resequence() {
+    int64_t ndof = this->GetDOFVec().size();
+    int64_t fe = 0;
+
+    for (int i = 0; i < ndof; i++) {
+        this->GetDOF(i).SetFirstEquation(fe);
+        int dofsize = this->GetDOF(i).GetNShape() * this->GetDOF(i).GetNState();
+        fe += dofsize;
+    }
 }
 
 void CompMesh::Resequence(VecInt &DOFindices) {
 }
 
 std::vector<double> &CompMesh::Solution() {
-   return solution;
+    return solution;
 }
 
-void CompMesh::LoadSolution(std::vector<double> &Sol){
-        int64_t solsize = Sol.size();
+void CompMesh::LoadSolution(std::vector<double> &Sol) {
+    int64_t solsize = Sol.size();
 
     solution.resize(solsize);
     int64_t i, j;
@@ -146,5 +151,5 @@ void CompMesh::LoadSolution(std::vector<double> &Sol){
         cel = this->GetElement(i);
         if (!cel) continue;
         //cel->LoadSolution();
-    } 
+    }
 }

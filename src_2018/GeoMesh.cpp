@@ -12,7 +12,9 @@
 #include <vector>
 #include "tpanic.h"
 
-GeoMesh::GeoMesh() {
+GeoMesh::GeoMesh() : Nodes(0) ,Elements(0) {
+    Reference = 0; 
+    fDim = -1;
 }
 
 GeoMesh::GeoMesh(const GeoMesh &copy) {
@@ -89,7 +91,7 @@ void GeoMesh::BuildConnectivity() {
                 if (neighbour.Element() == 0) DebugStop();
 
                 if (!two.IsNeighbour(one)) {
-                    one.InsertConnectivity(two);
+                    one.IsertConnectivity(two);
                 }
             }
         }
@@ -108,7 +110,7 @@ void GeoMesh::BuildConnectivity() {
                 int64_t nneigh = neighbours.size();
                 int64_t in;
                 for (in = 0; in < nneigh; in++) {
-                    gelside.InsertConnectivity(neighbours[in]);
+                    gelside.IsertConnectivity(neighbours[in]);
                 }
         }
     }

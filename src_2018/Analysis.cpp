@@ -6,12 +6,13 @@
 #include "Analysis.h"
 #include "Assemble.h"
 #include "CompMesh.h"
+#include "GeoMesh.h"
 
 Analysis::Analysis() {
     cmesh = 0;
-    Solution = 0;
-    GlobalSystem = 0;
-    RightHandSide = 0;
+    Solution.Resize(0, 0);
+    GlobalSystem.Resize(0, 0);
+    RightHandSide.Resize(0, 0);
 
 }
 
@@ -43,18 +44,23 @@ CompMesh *Analysis::Mesh() const {
 }
 
 void Analysis::RunSimulation() {
+    double nnodes = cmesh->GetGeoMesh()->NumNodes();
+    GlobalSystem.Resize(nnodes, nnodes);
+    RightHandSide.Resize(nnodes, 1);
 
-    double nnodes = cmesh->GetElementVec().size();
-    Matrix this->GlobalSystem.Resize(nnodes, nnodes, 0);
-    GlobalSystem.Zero();
-    Matrix RightHandSide(nnodes, 1, 0);
+    Assemble assemb(cmesh);
+    assemb.Compute(GlobalSystem, RightHandSide);
 
-    Assemble assemb = new Assemble;
+//    std::cout << "Global Stiff Matrix" << std::endl;
+//    GlobalSystem.Print();
+//    std::cout << "\nVector of Forces" << std::endl;
+//    RightHandSide.Print();
 
-    assemb->Compute(GlobalSystem, RightHandSide);
-
-    GlobalSystem.Print();
-    RightHandSide.Print();
+    GlobalSystem.Solve_LU(RightHandSide);
+    Solution = RightHandSide;
+//
+//    std::cout << "\nSolution" << std::endl;
+//    Solution.Print();
 }
 
 //void Analysis::PostProcess(std::string &filename, PostProcess &defPostProc) const {

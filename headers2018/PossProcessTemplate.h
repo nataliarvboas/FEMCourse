@@ -19,7 +19,7 @@ class PostProcessTemplate
     
     AppendVariable(typename math::postprocvar);
     
-    std::vector<double> PostProcResult(MathStatement &mathStatement, unsigned int varIndex, IntPointData &data) const {
+    std::vector<double> PostProcResult(MathStatement &mathStatement, unsigned int varIndex, IntPontData &data) const {
         math *locptr = dynamic_cast<typename math*> &mathStatement;
         if(!locptr) DebugStop();
         const unsigned int numScalarVariables = NumScalarVariables();

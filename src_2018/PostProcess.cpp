@@ -6,9 +6,6 @@
 
 #include "PostProcess.h"
 
-virtual void PostProcess::Write(std::string filename) {
+void PostProcess::Write(std::string filename) {
 
-}
-
-void PostProcess::Transform() {
 }

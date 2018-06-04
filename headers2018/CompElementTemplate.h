@@ -10,14 +10,6 @@
 
 #include "CompElement.h"
 #include "IntRule.h"
-#include "Topology1d.h"
-#include "TopologyQuad.h"
-#include "TopologyTriangle.h"
-#include "TopologyTetrahedron.h"
-#include "Shape1d.h"
-#include "ShapeQuad.h"
-#include "ShapeTetrahedron.h"
-#include "ShapeTriangle.h"
 #include "DOF.h"
 
 template<class Shape>
@@ -53,14 +45,20 @@ public:
     // Compute shape functions set at point x
     virtual void ShapeFunctions(const VecDouble &intpoint, VecDouble &phi, Matrix &dphi) const;
     
+    //
+    void GetMultiplyingCoeficients(VecDouble &coefs);
+    
     // Return the number of shape functions
     virtual int NShapeFunctions() const;
 
     // Set number of DOF
     virtual void SetNDOF(int64_t ndof);
     
-    // Set DOF index in vector position i
+    // Se DOF index in vector position i
     virtual void SetDOFIndex(int i, int64_t dofindex);
+    
+    // Get DOF index in vector position i
+    virtual int64_t GetDOFIndex(int i);
     
     // Return the number of degree of freedom
     virtual int NDOF() const;

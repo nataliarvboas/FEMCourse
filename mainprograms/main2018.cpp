@@ -31,6 +31,7 @@ using std::cin;
 
 GeoMesh *CreateGeoMesh(int nel_x, int nel_y, int dim, int len);
 CompMesh *CreateCompMesh(GeoMesh *gmesh, int pOrder);
+void ForceFunction(const VecDouble &co, VecDouble &result);
 
 int main() {
     //    VecDouble vec1;
@@ -42,11 +43,11 @@ int main() {
     //    
     //    gmesh.Print(std::cout);
 
-    int nel_x = 1;
-    int nel_y = 1;
+    int nel_x = 2;
+    int nel_y = 2;
     int dim = 2;
-    double len = 1;
-    int pOrder = 2;
+    double len = 4;
+    int pOrder = 1;
 
     GeoMesh *gmesh = CreateGeoMesh(nel_x, nel_y, dim, len);
     gmesh->Print(cout);
@@ -61,12 +62,12 @@ int main() {
         CompElement *cel = cmesh->GetElement(i);
         cel->CalcStiff(EK, EF);
     }
-    
+
     std::cout << "\nMatriz de rigidez: " << std::endl;
     EK.Print();
-    
-   //Analysis an(cmesh);
-    //an->RunSimulation();
+
+    Analysis an(cmesh);
+    an.RunSimulation();
 
     return 0;
 }
@@ -103,44 +104,45 @@ GeoMesh *CreateGeoMesh(int nel_x, int nel_y, int dim, int len) {
             TopolQuad[2] = TopolQuad[0]+(nnodes_y) + 1;
             TopolQuad[3] = TopolQuad[0] + 1;
 
-
-
-            int matid = 1;
+            int matid = 0;
             GeoElement *gel = new GeoElementTemplate<GeomQuad> (TopolQuad, matid, gmesh, index);
             gmesh->SetElement(index, gel);
         }
     }
+    
     gmesh->BuildConnectivity();
     return gmesh;
 }
 
 CompMesh *CreateCompMesh(GeoMesh *gmesh, int pOrder) {
-    CompMesh *cmesh = new CompMesh;
-    gmesh->SetReference(cmesh);
+    CompMesh *cmesh = new CompMesh(gmesh);
 
-    IntRule *intrule = new IntRuleQuad;
-    intrule->SetOrder(pOrder);
+    Matrix perm(2, 2);
+    perm(0, 0) = 1;
+    perm(0, 1) = 0;
+    perm(1, 0) = 0;
+    perm(1, 1) = 1;
+    
+//    VecDouble co(2);
+//    VecDouble result(2);
 
-    Matrix p(2, 2);
-    p(0, 0) = 1;
-    p(0, 1) = 0;
-    p(1, 0) = 0;
-    p(1, 1) = 1;
+    Poisson *p = new Poisson;
+    p->SetPermeability(perm);
+    
+    p->SetForceFunction(ForceFunction);
 
-    Poisson *perm = new Poisson;
-    perm->SetPermeability(p);
-    int64_t nelem = gmesh->NumElements();
-    for (int i = 0; i < nelem; i++) {
-        GeoElement *gel = gmesh->Element(i);
-        CompElement *cel = new CompElementTemplate<ShapeQuad> (gel->GetIndex(), cmesh, gel);
+    cmesh->SetNumberMath(1);
+    cmesh->SetMathStatement(0, p);
+    cmesh->SetDefaultOrder(pOrder);
+    cmesh->SetNumberElement(gmesh->NumElements());
 
-        cel->SetIntRule(intrule);
-        cel->SetStatement(perm);
-
-        std::cout << "CompElement index: " << cel->GetIndex() << std::endl;
-        std::cout << "Integration order: " << cel->GetIntRule()->GetOrder() << std::endl;
-    }
-
+    cmesh->AutoBuild();
     return cmesh;
+}
 
+void ForceFunction(const VecDouble &co, VecDouble &result){
+    int n = co.size();
+    for(int i = 0; i < n; i++){
+        result[i] = 0.2 * co[i];
+    }
 }

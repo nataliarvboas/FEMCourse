@@ -16,7 +16,9 @@
 
 using namespace std;
 
-IntRule::IntRule() {    
+IntRule::IntRule() : fPoints(), fWeights(){
+        fOrder = 0;
+
 
 }
 
@@ -30,10 +32,14 @@ IntRule::~IntRule() {
 
 IntRule::IntRule(const IntRule& copy) {
     fOrder = copy.fOrder;
+    fPoints = copy.fPoints;
+    fWeights = copy.fWeights;
 }
 
 IntRule &IntRule::operator=(const IntRule &cp) {
     fOrder = cp.fOrder;
+    fPoints = cp.fPoints;
+    fWeights = cp.fWeights;
     return *this;
 }
 
@@ -59,7 +65,7 @@ void IntRule::Print(std::ostream &out) const {
     }
 }
 
-void IntRule::Point(int p, VecDouble& co, double& w) const { 
+void IntRule::Point(int p, VecDouble& co, double& w) const {
     int dim = co.size();
 
     for (int i = 0; i < dim; i++) {
