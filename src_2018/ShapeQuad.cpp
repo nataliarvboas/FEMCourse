@@ -75,9 +75,6 @@ void ShapeQuad::Shape(const VecDouble &xi, VecInt &orders, VecDouble &phi, Matri
 
 int ShapeQuad::NShapeFunctions(int side, int order) {
     if (side < 4) return 1;
-    return order - 1;
-
-    if (side < 4) return 1;
 
     if (side < 8) return (order - 1);
     if (side == 8) {

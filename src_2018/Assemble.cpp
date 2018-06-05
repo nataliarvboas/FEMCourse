@@ -44,6 +44,7 @@ void Assemble::OptimizeBandwidth() {
 
 void Assemble::Compute(Matrix &globmat, Matrix &rhs) {
     int64_t nelem = cmesh->GetGeoMesh()->NumElements();
+    int64_t ne = this->NEquations();
 
     globmat.Zero();
     rhs.Zero();
@@ -61,7 +62,7 @@ void Assemble::Compute(Matrix &globmat, Matrix &rhs) {
         ef.Zero();
 
         cel->CalcStiff(ek, ef);
-
+        
         for (int64_t i = 0; i < nnodes_el; i++) {
             int64_t IG = gel->NodeIndex(i);
             rhs(IG, 0) += ef(i, 0);

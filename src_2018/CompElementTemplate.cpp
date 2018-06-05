@@ -49,17 +49,20 @@ CompElementTemplate<Shape>::CompElementTemplate(int64_t ind, CompMesh *cmesh, Ge
             int64_t dofindex = cel->GetDOFIndex(neighbour.Side());
             this->SetDOFIndex(i, dofindex);
         } else {
+            DOF dof;
             int order = cmesh->GetDefaultOrder();
             int nshape = this->ComputeNShapeFunctions(i, order);
             int nstate = this->GetStatement()->NState();
-            DOF dof;
             dof.SetNShapeStateOrder(nshape, nstate, order);
+
             int64_t ndof = cmesh->GetNumberDOF();
             ndof++;
             cmesh->SetNumberDOF(ndof);
+
             int64_t dofindex = ndof - 1;
             this->SetDOFIndex(i, dofindex);
-            cmesh->SetDOF(i, dof);
+
+            cmesh->SetDOF(ndof - 1, dof);
         }
     }
 }
