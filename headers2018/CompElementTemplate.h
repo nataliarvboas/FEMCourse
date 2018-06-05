@@ -45,8 +45,8 @@ public:
     // Compute shape functions set at point x
     virtual void ShapeFunctions(const VecDouble &intpoint, VecDouble &phi, Matrix &dphi) const;
     
-    //
-    void GetMultiplyingCoeficients(VecDouble &coefs);
+    // 
+    virtual void GetMultiplyingCoeficients(VecDouble &coefs) const;
     
     // Return the number of shape functions
     virtual int NShapeFunctions() const;
@@ -73,5 +73,6 @@ public:
     virtual int Dimension() const {
         return Shape::Dimension;
     }
+    
 };
 #endif /* CompElementTemplate_h */

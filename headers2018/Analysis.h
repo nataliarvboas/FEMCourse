@@ -9,15 +9,15 @@
 #define Analysis_h
 
 #include "DataTypes.h"
-class CompMesh;
-class PostProcess;
 #include <string>
 
+class CompMesh;
+
+class PostProcess;
 
 class Analysis
 {
 protected:
-    
     CompMesh *cmesh;
     
     Matrix Solution;
@@ -34,6 +34,8 @@ public:
     
     Analysis &operator=(const Analysis &cp);
     
+    ~Analysis();
+    
     Analysis(CompMesh *cmesh);
     
     void SetMesh(CompMesh *cmesh);
@@ -42,7 +44,9 @@ public:
     
     void RunSimulation();
     
-    void PostProcess(std::string &filename, PostProcess &defPostProc) const;
+    void PostProcessSolution(const std::string &filename, PostProcess &defPostProc) const;
+    
+    void PostProcessError(VecDouble error, std::ostream &out, PostProcess &defPostProc) const;
     
 };
 

@@ -31,6 +31,9 @@ Analysis &Analysis::operator=(const Analysis &cp) {
     return *this;
 }
 
+Analysis::~Analysis() {
+}
+
 Analysis::Analysis(CompMesh *mesh) {
     cmesh = mesh;
 }
@@ -47,22 +50,23 @@ void Analysis::RunSimulation() {
     double nnodes = cmesh->GetGeoMesh()->NumNodes();
     GlobalSystem.Resize(nnodes, nnodes);
     RightHandSide.Resize(nnodes, 1);
+    Matrix F(nnodes, 1);
 
     Assemble assemb(cmesh);
     assemb.Compute(GlobalSystem, RightHandSide);
 
-//    std::cout << "Global Stiff Matrix" << std::endl;
-//    GlobalSystem.Print();
-//    std::cout << "\nVector of Forces" << std::endl;
-//    RightHandSide.Print();
+    std::cout << "\nGlobal Stiff Matrix" << std::endl;
+    GlobalSystem.Print();
 
-    GlobalSystem.Solve_LU(RightHandSide);
-    Solution = RightHandSide;
-//
-//    std::cout << "\nSolution" << std::endl;
-//    Solution.Print();
+    F = RightHandSide;
+    GlobalSystem.Solve_LU(F);
+    Solution = F;
 }
 
-//void Analysis::PostProcess(std::string &filename, PostProcess &defPostProc) const {
+//void PostProcessSolution(const std::string &filename, PostProcess &defPostProc) const{
 //
+//}
+
+//void PostProcessError(VecDouble error, std::ostream &out, PostProcess &defPostProc) const {
+//    
 //}

@@ -110,21 +110,21 @@ void CompMesh::AutoBuild() {
     int64_t nelem = this->GetElementVec().size();
 
     for (i = 0; i < nelem; i++) {
-        DOF dof;
         GeoElement *gel = this->GetGeoMesh()->Element(i);
         CompElement *cel = gel->CreateCompEl(this, i);
+        this->SetElement(i, cel);
     }
     this->Resequence();
 }
 
 void CompMesh::Resequence() {
-    int64_t ndof = this->GetDOFVec().size();
+    int64_t ndof = this->GetNumberDOF();
     int64_t fe = 0;
 
     for (int i = 0; i < ndof; i++) {
         this->GetDOF(i).SetFirstEquation(fe);
-        int dofsize = this->GetDOF(i).GetNShape() * this->GetDOF(i).GetNState();
-        fe += dofsize;
+        int result = this->GetDOF(i).GetNShape() * this->GetDOF(i).GetNState();
+        fe += result;
     }
 }
 
@@ -150,6 +150,6 @@ void CompMesh::LoadSolution(std::vector<double> &Sol) {
     for (i = 0; i < nelem; i++) {
         cel = this->GetElement(i);
         if (!cel) continue;
-        //cel->LoadSolution();
+        //cel->Solution();
     }
 }

@@ -87,6 +87,10 @@ Assemble.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/Assemble.h
 GeoElement.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/GeoElement.h
+CompMesh.h
+/home/natalia/Documents/GitHub/FEMCourse/src_2018/CompMesh.h
+GeoMesh.h
+/home/natalia/Documents/GitHub/FEMCourse/src_2018/GeoMesh.h
 
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/CompElement.cpp
 CompElement.h
@@ -177,6 +181,8 @@ stdio.h
 -
 GeoElement.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/GeoElement.h
+GeoMesh.h
+/home/natalia/Documents/GitHub/FEMCourse/src_2018/GeoMesh.h
 GeoElementTemplate.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/GeoElementTemplate.h
 GeoElementSide.h
@@ -529,8 +535,6 @@ string
 headers2018/Assemble.h
 DataTypes.h
 headers2018/DataTypes.h
-CompMesh.h
-headers2018/CompMesh.h
 PostProcess.h
 headers2018/PostProcess.h
 
@@ -541,6 +545,8 @@ IntRule.h
 headers2018/IntRule.h
 IntPointData.h
 headers2018/IntPointData.h
+PostProcess.h
+headers2018/PostProcess.h
 functional
 -
 
@@ -575,22 +581,8 @@ headers2018/TMatrix.h
 headers2018/GeoElement.h
 DataTypes.h
 headers2018/DataTypes.h
-GeoElementSide.h
-headers2018/GeoElementSide.h
 CompElement.h
 headers2018/CompElement.h
-CompElementTemplate.h
-headers2018/CompElementTemplate.h
-Shape1d.h
-headers2018/Shape1d.h
-ShapeQuad.h
-headers2018/ShapeQuad.h
-ShapeTriangle.h
-headers2018/ShapeTriangle.h
-ShapeTetrahedron.h
-headers2018/ShapeTetrahedron.h
-GeoMesh.h
-headers2018/GeoMesh.h
 
 headers2018/GeoElementSide.h
 GeoElement.h
@@ -707,6 +699,8 @@ DataTypes.h
 headers2018/DataTypes.h
 IntPointData.h
 headers2018/IntPointData.h
+PostProcess.h
+headers2018/PostProcess.h
 
 headers2018/Poisson.h
 MathStatement.h
@@ -719,8 +713,10 @@ functional
 -
 
 headers2018/PostProcess.h
-string
+functional
 -
+DataTypes.h
+headers2018/DataTypes.h
 
 headers2018/ReadGmsh.h
 string

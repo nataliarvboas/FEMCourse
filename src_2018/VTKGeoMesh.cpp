@@ -272,7 +272,7 @@ void VTKGeoMesh::PrintCMeshVTK(CompMesh *cmesh, int dim, const std::string &file
             node << std::endl;
             VecDouble sol(1);
             TMatrix dsol(2,1);
-            cel->Solution(xi, sol, dsol);
+            //cel->Solution(xi, sol, dsol);
             solution << sol[0] << " " << std::endl;
             int i;
             for (i=0; i<dsol.Rows(); i++) {

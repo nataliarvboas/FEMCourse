@@ -44,7 +44,7 @@ int main() {
     //    gmesh.Print(std::cout);
 
     int nel_x = 2;
-    int nel_y = 2;
+    int nel_y = 1;
     int dim = 2;
     double len = 4;
     int pOrder = 1;
@@ -53,18 +53,6 @@ int main() {
     gmesh->Print(cout);
 
     CompMesh *cmesh = CreateCompMesh(gmesh, pOrder);
-
-    Matrix EK;
-    Matrix EF;
-
-    int nelem = cmesh->GetElementVec().size();
-    for (int i = 0; i < nelem; i++) {
-        CompElement *cel = cmesh->GetElement(i);
-        cel->CalcStiff(EK, EF);
-    }
-
-    std::cout << "\nMatriz de rigidez: " << std::endl;
-    EK.Print();
 
     Analysis an(cmesh);
     an.RunSimulation();
@@ -122,13 +110,9 @@ CompMesh *CreateCompMesh(GeoMesh *gmesh, int pOrder) {
     perm(0, 1) = 0;
     perm(1, 0) = 0;
     perm(1, 1) = 1;
-    
-//    VecDouble co(2);
-//    VecDouble result(2);
 
     Poisson *p = new Poisson;
-    p->SetPermeability(perm);
-    
+    p->SetPermeability(perm);    
     p->SetForceFunction(ForceFunction);
 
     cmesh->SetNumberMath(1);
@@ -141,8 +125,4 @@ CompMesh *CreateCompMesh(GeoMesh *gmesh, int pOrder) {
 }
 
 void ForceFunction(const VecDouble &co, VecDouble &result){
-    int n = co.size();
-    for(int i = 0; i < n; i++){
-        result[i] = 0.2 * co[i];
-    }
 }

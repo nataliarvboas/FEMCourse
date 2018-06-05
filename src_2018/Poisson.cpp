@@ -11,8 +11,9 @@
 Poisson::Poisson() {
 }
 
-Poisson::Poisson(Matrix &perm) {
+Poisson::Poisson(int materialid, Matrix &perm) {
     permeability = perm;
+    this->SetMatID(materialid);
 }
 
 Poisson::Poisson(const Poisson &copy) {
@@ -41,8 +42,20 @@ void Poisson::SetPermeability(const Matrix &perm) {
     permeability = perm;
 }
 
+int Poisson::NEvalErrors() const {
+}
+
 int Poisson::NState() const {
     return 2;
+}
+
+int Poisson::VariableIndex(const std::string &name) {
+}
+
+int Poisson::NSolutionVariables(const PostProcVar var) {
+}
+
+void Poisson::ContributeError(IntPointData &integrationpointdata, VecDouble &u_exact, Matrix &du_exact, VecDouble &errors) const {
 }
 
 void Poisson::Contribute(IntPointData &data, double weight, Matrix &EK, Matrix &EF) const {
@@ -60,7 +73,7 @@ void Poisson::Contribute(IntPointData &data, double weight, Matrix &EK, Matrix &
     Matrix perm(dim, dim);
     VecDouble co(nshape);
     VecDouble result(nshape);
-    std::function<void(const VecDouble &co, VecDouble &result)> force;
+    std::function<void(const VecDouble &co, VecDouble & result) > force;
 
     perm = this->GetPermeability();
     force = this->GetForceFunction();
@@ -82,10 +95,10 @@ void Poisson::Contribute(IntPointData &data, double weight, Matrix &EK, Matrix &
             EK(posI + 1, posJ + 1) += du[1] * dv[0] * perm(0, 1) * weight + du[1] * dv[1] * perm(1, 1) * weight;
         }
         for (int k = 0; k < dim; k++) {
-            EF(i, 0) += phi[i] * result[i] * weight;  //colocar a force function
+            EF(i, 0) += phi[i] * result[i] * weight; //colocar a force function
         }
     }
 }
 
-std::vector<double> Poisson::PostProcess(const IntPointData &integrationpointdata, const PostProcVar var) const {
+std::vector<double> Poisson::PostProcessSolution(const IntPointData &integrationpointdata, const PostProcVar var) const {
 }

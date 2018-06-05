@@ -9,8 +9,9 @@
 L2Projection::L2Projection() {
 }
 
-L2Projection::L2Projection(Matrix &perm) {
+L2Projection::L2Projection(int materialid, Matrix &perm) {
     projection = perm;
+    this->SetMatID(materialid);
 }
 
 L2Projection::L2Projection(const L2Projection &copy) {
@@ -62,6 +63,18 @@ void L2Projection::Contribute(IntPointData &data, double weight, Matrix &EK, Mat
     }
 }
 
-std::vector<double> L2Projection::PostProcess(const IntPointData &integrationpointdata, const PostProcVar var) const {
-    
+int L2Projection::NEvalErrors() const {
+}
+
+void L2Projection::ContributeError(IntPointData &integrationpointdata, VecDouble &u_exact, Matrix &du_exact, VecDouble &errors) const {
+}
+
+int L2Projection::VariableIndex(const std::string &name){
+}
+
+int L2Projection::NSolutionVariables(const PostProcVar var){
+}
+
+std::vector<double> L2Projection::PostProcessSolution(const IntPointData &integrationpointdata, const PostProcVar var) const {
+
 }

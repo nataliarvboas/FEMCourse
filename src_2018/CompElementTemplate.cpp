@@ -17,7 +17,7 @@
 #include "GeoElementSide.h"
 
 template<class Shape>
-CompElementTemplate<Shape>::CompElementTemplate() {
+CompElementTemplate<Shape>::CompElementTemplate() : dofindexes(0) {
 }
 
 template<class Shape>
@@ -26,9 +26,11 @@ CompElementTemplate<Shape>::CompElementTemplate(int64_t ind, CompMesh *cmesh, Ge
     nel = cmesh->GetElementVec().size();
     cmesh->SetNumberElement(nel);
     cmesh->SetElement(ind, this);
-    intrule.SetOrder(2*cmesh->GetDefaultOrder());
+    intrule.SetOrder(2 * cmesh->GetDefaultOrder());
     this->SetIntRule(&intrule);
     this->SetIndex(ind);
+    this->SetCompMesh(cmesh);
+    this->SetGeoElement(geo);
     geo->SetReference(this);
 
     int matid = geo->Material();
@@ -36,17 +38,15 @@ CompElementTemplate<Shape>::CompElementTemplate(int64_t ind, CompMesh *cmesh, Ge
     this->SetStatement(mat);
 
     int nsides = geo->NSides();
-    this->SetNDOF(nsides);
-    int ndof = cmesh->GetDOFVec().size();
 
     for (int i = 0; i < nsides; i++) {
         GeoElementSide gelside(this->GetGeoElement(), i);
         GeoElementSide neighbour = gelside.Neighbour();
-       // GeoElementSide neighbour = geo->Neighbour(i);
+        this->SetNDOF(nsides);
 
         if (gelside != neighbour && neighbour.Element()->GetIndex() < ind) {
             CompElement *cel = neighbour.Element()->GetReference();
-            int dofindex = cel->GetDOFIndex(neighbour.Side());
+            int64_t dofindex = cel->GetDOFIndex(neighbour.Side());
             this->SetDOFIndex(i, dofindex);
         } else {
             int order = cmesh->GetDefaultOrder();
@@ -54,9 +54,11 @@ CompElementTemplate<Shape>::CompElementTemplate(int64_t ind, CompMesh *cmesh, Ge
             int nstate = this->GetStatement()->NState();
             DOF dof;
             dof.SetNShapeStateOrder(nshape, nstate, order);
+            int64_t ndof = cmesh->GetNumberDOF();
             ndof++;
             cmesh->SetNumberDOF(ndof);
-            this->SetDOFIndex(i, ndof);
+            int64_t dofindex = ndof - 1;
+            this->SetDOFIndex(i, dofindex);
             cmesh->SetDOF(i, dof);
         }
     }
@@ -94,7 +96,7 @@ void CompElementTemplate<Shape>::ShapeFunctions(const VecDouble &intpoint, VecDo
 }
 
 template<class Shape>
-void CompElementTemplate<Shape>::GetMultiplyingCoeficients(VecDouble & coefs) {
+void CompElementTemplate<Shape>::GetMultiplyingCoeficients(VecDouble & coefs) const {
 
 }
 

@@ -12,6 +12,7 @@
 #include "DataTypes.h"
 
 class CompElement;
+
 class GeoMesh;
 
 class MathStatement;
@@ -64,6 +65,10 @@ public:
     
     // Set the number of math statements
     void SetNumberMath(int nmath);
+    
+    int64_t GetNumberDOF() const {
+        return dofs.size();
+    }
     
     // Set the computational element associated to an index
     void SetElement(int64_t elindex, CompElement *cel);

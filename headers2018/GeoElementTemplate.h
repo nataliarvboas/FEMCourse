@@ -107,7 +107,6 @@ public:
     
     // Function to print results
     virtual void Print(std::ostream &out);
-    
 
 };
 

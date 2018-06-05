@@ -6,6 +6,7 @@
 
 #include <stdio.h>
 #include "GeoElement.h"
+#include "GeoMesh.h"
 #include "GeoElementTemplate.h"
 #include "GeoElementSide.h"
 #include "Geom1d.h"

@@ -9,13 +9,13 @@
 #define Assemble_h
 
 #include "DataTypes.h"
-#include "CompMesh.h"
 #include "PostProcess.h"
+
+class CompMesh;
 
 // class geared towards the assembly of the global system of equations
 class Assemble
 {
-    protected:
     CompMesh *cmesh = 0;
     
 public:
@@ -38,6 +38,6 @@ public:
     
     /// Compute the global stiffness matrix and right hand side
     void Compute(Matrix &globmat, Matrix &rhs);
-    
+
 };
 #endif /* Assemble_h */

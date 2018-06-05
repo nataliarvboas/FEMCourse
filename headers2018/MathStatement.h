@@ -10,6 +10,7 @@
 
 #include "DataTypes.h"
 #include "IntPointData.h"
+#include "PostProcess.h"
 
 class MathStatement
 {
@@ -20,6 +21,10 @@ class MathStatement
     int nstate = 0;
     
 public:
+    
+//    enum PostProcVar;
+    
+    static double gBigNumber;
     
     // Constructor of MathStatement
     MathStatement();
@@ -39,8 +44,22 @@ public:
     // Return the number of state variables
     virtual int NState() const = 0;
     
+    // Return the number of errors
+    virtual int NEvalErrors() const = 0;
+    
     // Method to implement integral over element's volume
     virtual void Contribute(IntPointData &integrationpointdata, double weight, Matrix &EK, Matrix &EF) const = 0;
+    
+    // Method to implement error over element's volume
+    virtual void ContributeError(IntPointData &integrationpointdata, VecDouble &u_exact, Matrix &du_exact, VecDouble &errors) const = 0;
+    
+    virtual void SetMatID(int indexmat){
+        matid = indexmat;
+    }
+    
+    virtual int GetMatID(){
+        return matid;
+    }
     
     
 };

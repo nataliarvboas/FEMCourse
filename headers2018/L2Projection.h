@@ -11,7 +11,7 @@
 #include "MathStatement.h"
 #include "DataTypes.h"
 #include  "IntPointData.h"
-#include  <functional>
+#include <functional>
 
 class L2Projection : public MathStatement
 {
@@ -30,7 +30,7 @@ public:
     L2Projection();
     
     // Constructor of L2Projection
-    L2Projection(Matrix &perm);
+    L2Projection(int materialid, Matrix &perm);
     
     // Copy constructor of L2Projection
     L2Projection(const L2Projection &copy);
@@ -62,15 +62,27 @@ public:
         forceFunction = f;
     }
     
+    // Return the number of errors
+    virtual int NEvalErrors() const;
+    
     // Return the number of state variables
     virtual int NState() const;
+    
+    // Return the variable index associated with the name
+    virtual int VariableIndex(const std::string &name);
+    
+    // Return the number of variables associated with the variable indexed by var. Param var Index variable into the solution, is obtained by calling VariableIndex
+    virtual int NSolutionVariables(const PostProcVar var);
     
     // Method to implement integral over element's volume
     virtual void Contribute(IntPointData &integrationpointdata, double weight, Matrix &EK, Matrix &EF) const;
     
+    // Method to implement error over element's volume
+    virtual void ContributeError(IntPointData &integrationpointdata, VecDouble &u_exact, Matrix &du_exact, VecDouble &errors) const;
+    
     // Prepare and print post processing data
-    virtual std::vector<double> PostProcess(const IntPointData &integrationpointdata, const PostProcVar var) const;
-
+    virtual std::vector<double> PostProcessSolution(const IntPointData &integrationpointdata, const PostProcVar var) const;
+    
     
 };
 #endif /* L2Projection_h */

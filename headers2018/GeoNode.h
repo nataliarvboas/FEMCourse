@@ -19,7 +19,7 @@ class GeoNode
 public:
     
     // Constructor of GeoNode
-    GeoNode(){
+    GeoNode(): xco(0){
         
     }
     

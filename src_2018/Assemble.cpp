@@ -5,6 +5,8 @@
  */
 #include "Assemble.h"
 #include "GeoElement.h"
+#include "CompMesh.h"
+#include "GeoMesh.h"
 
 Assemble::Assemble() {
 }
@@ -47,10 +49,10 @@ void Assemble::Compute(Matrix &globmat, Matrix &rhs) {
     rhs.Zero();
 
     for (int64_t el = 0; el < nelem; el++) {
-        CompElement *cel = cmesh->GetElement(el);
         GeoElement *gel = cmesh->GetGeoMesh()->Element(el);
+        CompElement *cel = gel->GetReference();
 
-        int64_t nnodes_el = cel->GetGeoElement()->NNodes();
+        int64_t nnodes_el = gel->NNodes();
 
         Matrix ek(nnodes_el, nnodes_el);
         Matrix ef(nnodes_el, 1);
@@ -63,7 +65,7 @@ void Assemble::Compute(Matrix &globmat, Matrix &rhs) {
         for (int64_t i = 0; i < nnodes_el; i++) {
             int64_t IG = gel->NodeIndex(i);
             rhs(IG, 0) += ef(i, 0);
-            
+
             for (int64_t j = 0; j < nnodes_el; j++) {
                 int64_t JG = gel->NodeIndex(j);
                 globmat(IG, JG) += ek(i, j);

@@ -9,14 +9,11 @@
 #define GeoElement_h
 
 #include "DataTypes.h"
-#include "GeoElementSide.h"
 #include "CompElement.h"
-#include "CompElementTemplate.h"
-#include "Shape1d.h"
-#include "ShapeQuad.h"
-#include "ShapeTriangle.h"
-#include "ShapeTetrahedron.h"
-#include "GeoMesh.h"
+
+class CompMesh;
+
+class GeoElementSide;
 
 class GeoMesh;
 
