@@ -60,10 +60,9 @@ void Assemble::Compute(Matrix &globmat, Matrix &rhs) {
         ek.Zero();
         ef.Zero();
         cel->CalcStiff(ek, ef);
-        VecDouble coef;
-        cel->GetMultiplyingCoeficients(coef);
 
         int ndof = cel->NDOF();
+        ek.Print();
 
         VecInt iglob(0);
         int ni = 0;
@@ -74,6 +73,8 @@ void Assemble::Compute(Matrix &globmat, Matrix &rhs) {
             for (int j = 0; j < dof.GetNShape() * dof.GetNState(); j++) {
                 iglob.resize(ni + 1);
                 iglob[ni] = dof.GetFirstEquation() + j;
+                std::cout << "index: " << ni << std::endl;
+                std::cout << "index: " << iglob[ni] << std::endl;
                 ni++;
             }
         }

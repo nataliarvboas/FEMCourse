@@ -14,7 +14,7 @@ void ShapeQuad::Shape(const VecDouble &xi, VecInt &orders, VecDouble &phi, Matri
 
     Matrix Indices(1, 1, 0);
 
-    if (nsides == 4) {
+    if (orders[0] == 1) {
 
         Indices.Resize(2, 2);
 
@@ -27,7 +27,7 @@ void ShapeQuad::Shape(const VecDouble &xi, VecInt &orders, VecDouble &phi, Matri
         dphi.Resize(2, 4);
     }
 
-    if (nsides == 9) {
+    if (orders[0] == 2) {
         Indices.Resize(3, 3);
 
         Indices(0, 0) = 0;
@@ -52,18 +52,19 @@ void ShapeQuad::Shape(const VecDouble &xi, VecInt &orders, VecDouble &phi, Matri
     VecDouble ceta(1);
     ceta[0] = xi[1];
 
-    VecInt order_t(3, 1);
+    VecInt order_1d(3, 1);
     for (int i = 0; i < 3; i++) {
-        order_t[i] = orders[i];
+        order_1d[i] = orders[i];
     }
-    int nn = Shape1d::NShapeFunctions(order_t);
+    
+    int nn = Shape1d::NShapeFunctions(order_1d);
     for (int csi = 0; csi < nn; csi++) {
 
-        Shape1d::Shape(cxi, order_t, phixi, dphixi);
+        Shape1d::Shape(cxi, order_1d, phixi, dphixi);
 
         for (int eta = 0; eta < nn; eta++) {
 
-            Shape1d::Shape(ceta, order_t, phieta, dphieta);
+            Shape1d::Shape(ceta, order_1d, phieta, dphieta);
 
             phi[Indices(csi, eta)] = phixi[csi] * phieta[eta];
 

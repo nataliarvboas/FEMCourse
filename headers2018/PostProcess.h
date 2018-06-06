@@ -4,11 +4,11 @@
 //
 //  Created by Philippe Devloo on 15/05/18.
 //
-#include <functional>
-#include "DataTypes.h"
 
 #ifndef PostProcess_h
 #define PostProcess_h
+#include <functional>
+#include "DataTypes.h"
 
 class Analysis;
 
@@ -56,6 +56,22 @@ public:
     virtual std::function<void (const VecDouble &loc, VecDouble &result, Matrix &deriv)> GetExact(){
         return fExact;
     }
+    
+    virtual std::vector<std::string> Vectornames() const = 0;
+    
+    virtual std::vector<std::string> Scalarnames() const = 0;
+    
+    virtual VecInt VectorvariablesIds() const = 0;
+    
+    virtual VecInt ScalarvariablesIds() const = 0;
+    
+    virtual void AppendVariable(const std::string &name) = 0;
+    
+    virtual inline unsigned int NumScalarVariables() const = 0;
+    
+    virtual  inline unsigned int NumVectorVariables() const = 0;
+    
+    virtual inline unsigned int NumVariables() const = 0;
     
     
 };

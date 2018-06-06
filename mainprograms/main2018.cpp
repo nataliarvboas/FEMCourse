@@ -43,11 +43,11 @@ int main() {
     //    
     //    gmesh.Print(std::cout);
     int dim = 2;
-    int nel_x = 2;
-    int nel_y = 2;
-    double l_x = 2;
-    double l_y = 2;
-    int pOrder = 1;
+    int nel_x = 1;
+    int nel_y = 1;
+    double l_x = 1;
+    double l_y = 1;
+    int pOrder = 2;
 
     GeoMesh *gmesh = CreateGeoMesh(nel_x, nel_y, dim, l_x, l_y);
     gmesh->Print(cout);

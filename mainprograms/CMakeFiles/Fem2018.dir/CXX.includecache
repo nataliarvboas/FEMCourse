@@ -81,6 +81,8 @@ CompMesh.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/CompMesh.h
 GeoMesh.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/GeoMesh.h
+PostProcess.h
+/home/natalia/Documents/GitHub/FEMCourse/src_2018/PostProcess.h
 
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/Assemble.cpp
 Assemble.h
@@ -443,14 +445,12 @@ TopologyTriangle.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/VTKGeoMesh.cpp
 stdio.h
 -
+PostProcess.h
+/home/natalia/Documents/GitHub/FEMCourse/src_2018/PostProcess.h
 VTKGeoMesh.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/VTKGeoMesh.h
 GeoMesh.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/GeoMesh.h
-GeoElement.h
-/home/natalia/Documents/GitHub/FEMCourse/src_2018/GeoElement.h
-CompElement.h
-/home/natalia/Documents/GitHub/FEMCourse/src_2018/CompElement.h
 CompMesh.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/CompMesh.h
 tpanic.h
@@ -775,6 +775,8 @@ headers2018/IntRuleTriangle.h
 headers2018/VTKGeoMesh.h
 string
 -
+DataTypes.h
+headers2018/DataTypes.h
 
 headers2018/tpanic.h
 iostream

@@ -6,6 +6,3 @@
 
 #include "PostProcess.h"
 
-//void PostProcess::Write(std::string filename) {
-//
-//}

@@ -6,11 +6,9 @@
 //
 
 #include <stdio.h>
-
+#include "PostProcess.h"
 #include "VTKGeoMesh.h"
 #include "GeoMesh.h"
-#include "GeoElement.h"
-#include "CompElement.h"
 #include "CompMesh.h"
 #include "tpanic.h"
 #include <fstream>
@@ -272,7 +270,7 @@ void VTKGeoMesh::PrintCMeshVTK(CompMesh *cmesh, int dim, const std::string &file
             node << std::endl;
             VecDouble sol(1);
             TMatrix dsol(2,1);
-            //cel->Solution(xi, sol, dsol);
+//            cel->Solution(xi, 1, sol, dsol);
             solution << sol[0] << " " << std::endl;
             int i;
             for (i=0; i<dsol.Rows(); i++) {
@@ -321,6 +319,184 @@ void VTKGeoMesh::PrintCMeshVTK(CompMesh *cmesh, int dim, const std::string &file
     file << gradsol.str();
     file.close();
 
+}
+
+void VTKGeoMesh::PrintSolVTK(CompMesh *cmesh, PostProcess &defPostProc, const std::string &filename){
+
+    std::ofstream file(filename);
+    file.clear();
+    
+    
+    //Header
+    file << "# vtk DataFile Version 3.0" << std::endl;
+    file << "TPZGeoMesh VTK Visualization" << std::endl;
+    file << "ASCII" << std::endl << std::endl;
+    
+    file << "DATASET UNSTRUCTURED_GRID" << std::endl;
+    file << "POINTS ";
+    
 
     
+    int64_t actualNode = -1, Size = 0, nVALIDelements = 0;
+    
+    
+    std::stringstream node, connectivity, Type, material, elindex;
+    std::stringstream gradsol;
+    int64_t nelements = cmesh->GetElementVec().size();
+    
+    GeoElement *gel;
+    for(int icel = 0; icel<nelements; icel++)
+    {
+        CompElement * cel = cmesh->GetElement(icel);
+        
+        gel = cel->GetGeoElement();
+        
+        TMatrix ParamCo = NodeCoordinates(gel->Type());
+        int elNnodes = ParamCo.Rows();
+        
+        Size += (1+elNnodes);
+        connectivity << elNnodes;
+        int dim = cel->Dimension();
+        
+        for(int t = 0; t < elNnodes; t++)
+        {
+            VecDouble xi(ParamCo.Cols(),0.), xco(3,0.);
+            for(int i=0; i< xi.size(); i++) xi[i] = ParamCo(t,i);
+            gel->X(xi, xco);
+            for (auto x:xco) {
+                node << x << " ";
+            }
+            node << std::endl;
+            actualNode++;
+            connectivity << " " << actualNode;
+        }
+        connectivity << std::endl;
+        
+        int elType = GetVTK_ElType(gel->Type());
+        Type << elType << std::endl;
+        
+        material << gel->Material() << std::endl;
+        elindex << cel->GetIndex() << std::endl;
+        nVALIDelements++;
+    }
+    //   node << std::endl;
+    actualNode++;
+    file << actualNode << " float" << std::endl << node.str();
+    
+    file << "CELLS " << nVALIDelements << " ";
+    
+    file << Size << std::endl;
+    file << connectivity.str() << std::endl;
+    
+    file << "CELL_TYPES " << nVALIDelements << std::endl;
+    file << Type.str() << std::endl;
+    
+    file << "CELL_DATA" << " " << nVALIDelements << std::endl;
+    file << "FIELD FieldData 2" << std::endl;
+    file << "material 1 " << nVALIDelements << " int" << std::endl;
+    file << material.str();
+    file << "elindex 1 " << nVALIDelements << " int" << std::endl;
+    file << elindex.str();
+    (file) << "POINT_DATA " << actualNode << std::endl;
+    
+    
+    int nscalvar = defPostProc.NumScalarVariables();
+    std::vector<std::stringstream> scalsol(nscalvar);
+    
+    if (nscalvar) {
+        
+        VecInt vecvar = defPostProc.ScalarvariablesIds();
+        
+        for (int ivar=0; ivar<nscalvar; ivar++) {
+            
+            std::string varname = defPostProc.Scalarnames()[ivar];
+            int var = vecvar[ivar];
+            
+            GeoElement *gel;
+            for(int icel = 0; icel<nelements; icel++)
+            {
+                CompElement * cel = cmesh->GetElement(icel);
+                
+                gel = cel->GetGeoElement();
+                
+                TMatrix ParamCo = NodeCoordinates(gel->Type());
+                int elNnodes = ParamCo.Rows();
+                
+                for(int t = 0; t < elNnodes; t++)
+                {
+                    VecDouble xi(ParamCo.Cols(),0.), xco(3,0.);
+                    for(int i=0; i< xi.size(); i++) xi[i] = ParamCo(t,i);
+                    gel->X(xi, xco);
+                    
+                    VecDouble sol(1);
+                    TMatrix dsol(2,1);
+//                    cel->Solution(xi, var, sol, dsol);
+                    
+                    scalsol[ivar] << sol[0] << " " << std::endl;
+                    
+                }
+                
+            }
+            
+            (file) << "SCALARS " << "varname" << " float" << std::endl << "LOOKUP_TABLE default\n";
+            file << scalsol[ivar].str();
+            
+        }
+        
+    }
+    
+    
+    int nvecvar = defPostProc.NumVectorVariables();
+    std::vector<std::stringstream> solution(nvecvar);
+    
+    if (nvecvar) {
+        
+        VecInt vecvar = defPostProc.VectorvariablesIds();
+       
+        for (int ivar=0; ivar<nvecvar; ivar++) {
+            
+            std::string varname = defPostProc.Vectornames()[ivar];
+            int var = vecvar[ivar];
+            
+            GeoElement *gel;
+            for(int icel = 0; icel<nelements; icel++)
+            {
+                CompElement * cel = cmesh->GetElement(icel);
+                
+                gel = cel->GetGeoElement();
+                
+                TMatrix ParamCo = NodeCoordinates(gel->Type());
+                int elNnodes = ParamCo.Rows();
+                
+                for(int t = 0; t < elNnodes; t++)
+                {
+                    VecDouble xi(ParamCo.Cols(),0.), xco(3,0.);
+                    for(int i=0; i< xi.size(); i++) xi[i] = ParamCo(t,i);
+                    gel->X(xi, xco);
+
+                    VecDouble sol(2);
+                    TMatrix dsol(2,1);
+//                    cel->Solution(xi, var, sol, dsol);
+                    
+                    int is;
+                    for (is=0; is<2; is++) {
+                        solution[ivar] << sol[is] << " ";
+                    }
+                    for(; is<3; is++) solution[ivar] << 0. << " ";
+                    solution[ivar] << std::endl;
+                    
+                }
+                
+            }
+            
+            (file) << "VECTORS " << varname << " float" << std::endl;
+            file << solution[ivar].str();
+            
+        }
+        
+    }
+    
+    file.close();
 }
+
+

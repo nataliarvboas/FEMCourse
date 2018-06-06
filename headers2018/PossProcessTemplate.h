@@ -21,6 +21,15 @@ template<class math>
 class PostProcessTemplate: public PostProcess
 {
 
+    protected:
+    
+    std::vector<typename math::PostProcVar> scalarvariables;
+    std::vector<typename math::PostProcVar> vectorvariables;
+    
+    std::vector<std::string> vectornames;
+    std::vector<std::string> scalarnames;
+
+    
     public:
     
     PostProcessTemplate() : PostProcess(){
@@ -42,18 +51,60 @@ class PostProcessTemplate: public PostProcess
     }
     
     
-    std::vector<typename math::PostProcVar> scalarvariables;
-    std::vector<typename math::PostProcVar> vectorvariables;
-    //TVec<typename math::PostProcVar> teste;
+    virtual std::vector<std::string> Vectornames() const{
+        return vectornames;
+    }
+
+    virtual std::vector<std::string> Scalarnames() const{
+        return scalarnames;
+    }
     
-    virtual void AppendVariable(typename math::PostProcVar obj){
+    virtual VecInt VectorvariablesIds() const{
         math Statement;
-        int nsol = Statement.NSolutionVariables(obj);
+        VecInt VecVar(NumVectorVariables(),0);
+        
+        for (int index = 0; index< NumVectorVariables(); index++) {
+            VecVar[index]=Statement.VariableIndex(vectorvariables[index]);
+        }
+        
+        return VecVar;
+    }
+
+    virtual VecInt ScalarvariablesIds() const{
+        math Statement;
+        VecInt ScalVar(NumScalarVariables(),0);
+        
+        for (int index = 0; index< NumScalarVariables(); index++) {
+            ScalVar[index]=Statement.VariableIndex(scalarvariables[index]);
+        }
+        
+        return ScalVar;
+    }
+    
+    virtual void AppendVariable(const std::string &name){
+        math Statement;
+        typename math::PostProcVar var = Statement.VariableIndex(name);
+        AppendVariable(var);
+        
+        int nsol = Statement.NSolutionVariables(var);
         
         if (nsol==1) {
-            scalarvariables.push_back(obj);
+            scalarnames.push_back(name);
         }else{
-            vectorvariables.push_back(obj);
+            vectornames.push_back(name);
+        }
+        
+    }
+    
+    
+    void AppendVariable(typename math::PostProcVar var){
+        math Statement;
+        int nsol = Statement.NSolutionVariables(var);
+        
+        if (nsol==1) {
+            scalarvariables.push_back(var);
+        }else{
+            vectorvariables.push_back(var);
         }
         
     }
@@ -66,15 +117,15 @@ class PostProcessTemplate: public PostProcess
         return locptr->PostProcessSolution(data, varIndex < numScalarVariables? scalarvariables[varIndex] : vectorvariables[varIndex-numScalarVariables]);
     }
     
-    inline unsigned int NumScalarVariables() const {
+    virtual inline unsigned int NumScalarVariables() const {
         return scalarvariables.size();
     }
     
-    inline unsigned int NumVectorVariables() const {
+    virtual  inline unsigned int NumVectorVariables() const {
         return vectorvariables.size();
     }
     
-    inline unsigned int NumVariables() const {
+    virtual inline unsigned int NumVariables() const {
         return NumScalarVariables() + NumVectorVariables();
     }
 };

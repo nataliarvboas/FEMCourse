@@ -91,25 +91,20 @@ CompElement * CompElementTemplate<Shape>::Clone() const {
 
 template<class Shape>
 void CompElementTemplate<Shape>::ShapeFunctions(const VecDouble &intpoint, VecDouble &phi, Matrix & dphi) const {
-    int order = 1;
-    int nsides = this->GetGeoElement()->NCornerNodes();
+    int order = this->GetCompMesh()->GetDefaultOrder();
+    int nsides = this->GetGeoElement()->NSides();
     VecInt orders(nsides, order);
 
     Shape::Shape(intpoint, orders, phi, dphi);
 }
 
 template<class Shape>
-void CompElementTemplate<Shape>::GetMultiplyingCoeficients(VecDouble & coefs) const {
-    
-
-
-
-    
+void CompElementTemplate<Shape>::GetMultiplyingCoeficients(VecDouble & coefs) const {  
 }
 
 template<class Shape>
 int CompElementTemplate<Shape>::NShapeFunctions() const {
-    int order = 1;
+    int order = this->GetCompMesh()->GetDefaultOrder();
     int nsides = this->GetGeoElement()->NSides();
     VecInt orders(nsides, order);
 

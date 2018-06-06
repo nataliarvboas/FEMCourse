@@ -7,6 +7,7 @@
 #include "Assemble.h"
 #include "CompMesh.h"
 #include "GeoMesh.h"
+#include "PostProcess.h"
 
 Analysis::Analysis() {
     cmesh = 0;
@@ -68,7 +69,9 @@ void Analysis::RunSimulation() {
 //void PostProcessSolution(const std::string &filename, PostProcess &defPostProc) const{
 //
 //}
-
+//
 //void PostProcessError(VecDouble error, std::ostream &out, PostProcess &defPostProc) const {
 //    
 //}
+
+

@@ -125,39 +125,6 @@ void CompElement::ComputeRequiredData(IntPointData &data, VecDouble &intpoint) c
     data.x.resize(3, 0.0);
 
     geoel->X(intpoint, data.x);
-
-    //        std::cout << "\nx: " << std::endl;
-    //        for (int i = 0; i < data.x.size(); i++) {
-    //            std::cout << data.x[i] << std::endl;
-    //        }
-    //
-    //        std::cout << "\nksi: " << std::endl;
-    //        for (int i = 0; i < data.ksi.size(); i++) {
-    //            std::cout << data.ksi[i] << std::endl;
-    //        }
-    //    
-    //        std::cout << "\ngradx: " << std::endl;
-    //        data.gradx.Print();
-    //    
-    //        std::cout << "\njac: " << std::endl;
-    //        jac.Print();
-    //    
-    //        std::cout << "\naxes: " << std::endl;
-    //        data.axes.Print();
-    //    
-    //        std::cout << "\njacinv: " << std::endl;
-    //        jacinv.Print();
-    //    
-    //        std::cout << "\nphi: " << std::endl;
-    //        for (int i = 0; i < data.phi.size(); i++) {
-    //            std::cout << data.phi[i] << std::endl;
-    //        }
-    //    
-    //        std::cout << "\ndphidksi: " << std::endl;
-    //        data.dphidksi.Print();
-    //    
-    //        std::cout << "\ndphidx: " << std::endl;
-    //        data.dphidx.Print();
 }
 
 void CompElement::Convert2Axes(const Matrix &dphi, const Matrix &jacinv, Matrix &dphidx) const {
@@ -236,11 +203,7 @@ void CompElement::CalcStiff(Matrix &ek, Matrix &ef) const {
 void CompElement::EvaluateError(std::function<void(const VecDouble &loc, VecDouble &val, Matrix &deriv) > fp, VecDouble &errors) const {
 }
 
-//  void CompElement::Solution(VecDouble &intpoint, int var, VecDouble &sol, TMatrix &dsol) const{
 void CompElement::Solution(VecDouble &intpoint, PostProcess &defPostProc, VecDouble &sol, TMatrix &dsol) const {
-
-
-
 }
 
 double ComputeError(std::function<void(const VecDouble &co, VecDouble &sol, Matrix &dsol)> &exact, VecDouble &errors) {
