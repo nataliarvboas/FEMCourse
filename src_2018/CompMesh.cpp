@@ -120,11 +120,14 @@ void CompMesh::AutoBuild() {
 void CompMesh::Resequence() {
     int64_t ndof = this->GetNumberDOF();
     int64_t fe = 0;
+    this->GetDOF(0).SetFirstEquation(0);
 
-    for (int i = 0; i < ndof; i++) {
-        this->GetDOF(i).SetFirstEquation(fe);
-        int result = this->GetDOF(i).GetNShape() * this->GetDOF(i).GetNState();
+    for (int i = 1; i < ndof; i++) {
+        int nshape = this->GetDOF(i).GetNShape();
+        int nstate = this->GetDOF(i).GetNState();
+        int result = nshape * nstate;
         fe += result;
+        this->GetDOF(i).SetFirstEquation(fe);
     }
 }
 
@@ -136,20 +139,8 @@ std::vector<double> &CompMesh::Solution() {
 }
 
 void CompMesh::LoadSolution(std::vector<double> &Sol) {
-    int64_t solsize = Sol.size();
-
-    solution.resize(solsize);
-    int64_t i, j;
-    double val;
-
-    for (i = 0; i < solsize; i++) {
+    solution.resize(Sol.size());
+    for (int64_t i = 0; i < Sol.size(); i++) {
         solution[i] = Sol[i];
-    }
-    int64_t nelem = this->GetElementVec().size();
-    CompElement *cel;
-    for (i = 0; i < nelem; i++) {
-        cel = this->GetElement(i);
-        if (!cel) continue;
-        //cel->Solution();
     }
 }

@@ -7,6 +7,7 @@
 #include "GeoElement.h"
 #include "CompMesh.h"
 #include "GeoMesh.h"
+#include <algorithm> 
 
 Assemble::Assemble() {
 }
@@ -46,29 +47,43 @@ void Assemble::Compute(Matrix &globmat, Matrix &rhs) {
     int64_t nelem = cmesh->GetGeoMesh()->NumElements();
     int64_t ne = this->NEquations();
 
+    globmat.Resize(ne, ne);
+    rhs.Resize(ne, 1);
+
     globmat.Zero();
     rhs.Zero();
 
     for (int64_t el = 0; el < nelem; el++) {
-        GeoElement *gel = cmesh->GetGeoMesh()->Element(el);
-        CompElement *cel = gel->GetReference();
+        CompElement *cel = cmesh->GetElement(el);
 
-        int64_t nnodes_el = gel->NNodes();
-
-        Matrix ek(nnodes_el, nnodes_el);
-        Matrix ef(nnodes_el, 1);
-
+        Matrix ek, ef;
         ek.Zero();
         ef.Zero();
-
         cel->CalcStiff(ek, ef);
-        
-        for (int64_t i = 0; i < nnodes_el; i++) {
-            int64_t IG = gel->NodeIndex(i);
+        VecDouble coef;
+        cel->GetMultiplyingCoeficients(coef);
+
+        int ndof = cel->NDOF();
+
+        VecInt iglob(0);
+        int ni = 0;
+
+        for (int i = 0; i < ndof; i++) {
+            int dofindex = cel->GetDOFIndex(i);
+            DOF dof = cmesh->GetDOF(dofindex);
+            for (int j = 0; j < dof.GetNShape() * dof.GetNState(); j++) {
+                iglob.resize(ni + 1);
+                iglob[ni] = dof.GetFirstEquation() + j;
+                ni++;
+            }
+        }
+
+        for (int64_t i = 0; i < ek.Rows(); i++) {
+            int64_t IG = iglob[i];
             rhs(IG, 0) += ef(i, 0);
 
-            for (int64_t j = 0; j < nnodes_el; j++) {
-                int64_t JG = gel->NodeIndex(j);
+            for (int64_t j = 0; j < ek.Rows(); j++) {
+                int64_t JG = iglob[j];
                 globmat(IG, JG) += ek(i, j);
             }
         }

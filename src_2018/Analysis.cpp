@@ -47,20 +47,22 @@ CompMesh *Analysis::Mesh() const {
 }
 
 void Analysis::RunSimulation() {
-    double nnodes = cmesh->GetGeoMesh()->NumNodes();
-    GlobalSystem.Resize(nnodes, nnodes);
-    RightHandSide.Resize(nnodes, 1);
-    Matrix F(nnodes, 1);
-
+    Matrix F;
     Assemble assemb(cmesh);
     assemb.Compute(GlobalSystem, RightHandSide);
 
     std::cout << "\nGlobal Stiff Matrix" << std::endl;
     GlobalSystem.Print();
 
+    int nrows = RightHandSide.Rows();
+    int ncols = RightHandSide.Cols();
+    F.Resize(nrows,ncols);
     F = RightHandSide;
+    
     GlobalSystem.Solve_LU(F);
     Solution = F;
+    
+    //cmesh->LoadSolution(Solution);
 }
 
 //void PostProcessSolution(const std::string &filename, PostProcess &defPostProc) const{

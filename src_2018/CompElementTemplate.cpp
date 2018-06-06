@@ -100,7 +100,11 @@ void CompElementTemplate<Shape>::ShapeFunctions(const VecDouble &intpoint, VecDo
 
 template<class Shape>
 void CompElementTemplate<Shape>::GetMultiplyingCoeficients(VecDouble & coefs) const {
+    
 
+
+
+    
 }
 
 template<class Shape>

@@ -71,12 +71,13 @@ void Poisson::Contribute(IntPointData &data, double weight, Matrix &EK, Matrix &
 
 
     Matrix perm(dim, dim);
-    VecDouble co(nshape);
-    VecDouble result(nshape);
     std::function<void(const VecDouble &co, VecDouble & result) > force;
 
     perm = this->GetPermeability();
     force = this->GetForceFunction();
+    
+    VecDouble res(data.x.size());
+    force(data.x, res);
 
     for (int i = 0; i < nshape; i++) {
         dv[0] = dphi(0, i) * axes(0, 0) + dphi(1, i) * axes(1, 0);
@@ -95,7 +96,7 @@ void Poisson::Contribute(IntPointData &data, double weight, Matrix &EK, Matrix &
             EK(posI + 1, posJ + 1) += du[1] * dv[0] * perm(0, 1) * weight + du[1] * dv[1] * perm(1, 1) * weight;
         }
         for (int k = 0; k < dim; k++) {
-            EF(i, 0) += phi[i] * result[i] * weight; //colocar a force function
+            EF(i, 0) += phi[k] * res[k] * weight;
         }
     }
 }

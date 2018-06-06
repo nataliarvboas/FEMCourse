@@ -12,14 +12,9 @@
         <group>
             <file>file:/home/natalia/Documents/GitHub/FEMCourse/src_2018/CompElementTemplate.cpp</file>
             <file>file:/home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp</file>
-            <file>file:/home/natalia/Documents/GitHub/FEMCourse/src_2018/GeoElementSide.cpp</file>
             <file>file:/home/natalia/Documents/GitHub/FEMCourse/src_2018/CompMesh.cpp</file>
-            <file>file:/home/natalia/Documents/GitHub/FEMCourse/headers2018/GeoElement.h</file>
-            <file>file:/home/natalia/Documents/GitHub/FEMCourse/src_2018/GeoMesh.cpp</file>
-            <file>file:/home/natalia/Documents/GitHub/FEMCourse/headers2018/CompMesh.h</file>
             <file>file:/home/natalia/Documents/GitHub/FEMCourse/src_2018/DOF.cpp</file>
             <file>file:/home/natalia/Documents/GitHub/FEMCourse/src_2018/CompElement.cpp</file>
-            <file>file:/home/natalia/Documents/GitHub/FEMCourse/headers2018/CompElementTemplate.h</file>
             <file>file:/home/natalia/Documents/GitHub/FEMCourse/src_2018/Assemble.cpp</file>
         </group>
     </open-files>

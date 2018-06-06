@@ -44,7 +44,7 @@ CompElement::~CompElement() {
 }
 
 CompElement *CompElement::Clone() const {
-   // return new CompElement(*this);
+    // return new CompElement(*this);
 }
 
 MathStatement *CompElement::GetStatement() const {
@@ -233,12 +233,15 @@ void CompElement::CalcStiff(Matrix &ek, Matrix &ef) const {
     }
 }
 
-void CompElement::EvaluateError(std::function<void(const VecDouble &loc,VecDouble &val,Matrix &deriv)> fp, VecDouble &errors) const{
+void CompElement::EvaluateError(std::function<void(const VecDouble &loc, VecDouble &val, Matrix &deriv) > fp, VecDouble &errors) const {
 }
 
-//void CompElement::Solution(VecDouble &intpoint, PostProcess &defPostProc, VecDouble &sol, TMatrix &dsol) const {
-//    
-//}
+//  void CompElement::Solution(VecDouble &intpoint, int var, VecDouble &sol, TMatrix &dsol) const{
+void CompElement::Solution(VecDouble &intpoint, PostProcess &defPostProc, VecDouble &sol, TMatrix &dsol) const {
 
-double ComputeError(std::function<void(const VecDouble &co, VecDouble &sol, Matrix &dsol)> &exact, VecDouble &errors){
+
+
+}
+
+double ComputeError(std::function<void(const VecDouble &co, VecDouble &sol, Matrix &dsol)> &exact, VecDouble &errors) {
 }

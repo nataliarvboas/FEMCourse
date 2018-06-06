@@ -29,7 +29,7 @@ using std::cout;
 using std::endl;
 using std::cin;
 
-GeoMesh *CreateGeoMesh(int nel_x, int nel_y, int dim, int len);
+GeoMesh *CreateGeoMesh(int nel_x, int nel_y, int dim, int l_x, int l_y);
 CompMesh *CreateCompMesh(GeoMesh *gmesh, int pOrder);
 void ForceFunction(const VecDouble &co, VecDouble &result);
 
@@ -42,14 +42,14 @@ int main() {
     //    VTKGeoMesh::PrintGMeshVTK(&gmesh,"teste1.vtk");
     //    
     //    gmesh.Print(std::cout);
-
-    int nel_x = 2;
-    int nel_y = 1;
     int dim = 2;
-    double len = 4;
+    int nel_x = 2;
+    int nel_y = 2;
+    double l_x = 2;
+    double l_y = 2;
     int pOrder = 1;
 
-    GeoMesh *gmesh = CreateGeoMesh(nel_x, nel_y, dim, len);
+    GeoMesh *gmesh = CreateGeoMesh(nel_x, nel_y, dim, l_x, l_y);
     gmesh->Print(cout);
 
     CompMesh *cmesh = CreateCompMesh(gmesh, pOrder);
@@ -60,7 +60,7 @@ int main() {
     return 0;
 }
 
-GeoMesh *CreateGeoMesh(int nel_x, int nel_y, int dim, int len) {
+GeoMesh *CreateGeoMesh(int nel_x, int nel_y, int dim, int l_x, int l_y) {
     int nnodes_x = nel_x + 1;
     int nnodes_y = nel_y + 1;
     int64_t nelem = nel_x*nel_y;
@@ -76,8 +76,8 @@ GeoMesh *CreateGeoMesh(int nel_x, int nel_y, int dim, int len) {
     for (int i = 0; i < nnodes_x; i++) {
         for (int j = 0; j < nnodes_y; j++) {
             id = i * nnodes_y + j;
-            coord[0] = (i) * len / (nnodes_x - 1);
-            coord[1] = (j) * len / (nnodes_y - 1);
+            coord[0] = (i) * l_x / (nnodes_x - 1);
+            coord[1] = (j) * l_y / (nnodes_y - 1);
             gmesh->Node(id).SetCo(coord);
         }
     }
@@ -97,7 +97,7 @@ GeoMesh *CreateGeoMesh(int nel_x, int nel_y, int dim, int len) {
             gmesh->SetElement(index, gel);
         }
     }
-    
+
     gmesh->BuildConnectivity();
     return gmesh;
 }
@@ -112,7 +112,7 @@ CompMesh *CreateCompMesh(GeoMesh *gmesh, int pOrder) {
     perm(1, 1) = 1;
 
     Poisson *p = new Poisson;
-    p->SetPermeability(perm);    
+    p->SetPermeability(perm);
     p->SetForceFunction(ForceFunction);
 
     cmesh->SetNumberMath(1);
@@ -124,5 +124,5 @@ CompMesh *CreateCompMesh(GeoMesh *gmesh, int pOrder) {
     return cmesh;
 }
 
-void ForceFunction(const VecDouble &co, VecDouble &result){
+void ForceFunction(const VecDouble &co, VecDouble &result) {
 }
