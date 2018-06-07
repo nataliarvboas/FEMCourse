@@ -41,8 +41,6 @@ mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/CompElement.cpp.o: headers/TMatr
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/CompElement.cpp.o: headers/TVec.h
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/CompElement.cpp.o: headers/TVecNum.h
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/CompElement.cpp.o: headers2018/CompElement.h
-mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/CompElement.cpp.o: headers2018/CompElementTemplate.h
-mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/CompElement.cpp.o: headers2018/DOF.h
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/CompElement.cpp.o: headers2018/DataTypes.h
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/CompElement.cpp.o: headers2018/GeoElement.h
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/CompElement.cpp.o: headers2018/IntPointData.h
@@ -93,7 +91,6 @@ mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/CompMesh.cpp.o: headers2018/GeoM
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/CompMesh.cpp.o: headers2018/GeoNode.h
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/CompMesh.cpp.o: headers2018/IntPointData.h
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/CompMesh.cpp.o: headers2018/IntRule.h
-mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/CompMesh.cpp.o: headers2018/MathStatement.h
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/CompMesh.cpp.o: headers2018/PostProcess.h
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/CompMesh.cpp.o: headers2018/tpanic.h
 
@@ -110,7 +107,6 @@ mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/GeoElement.cpp.o: headers/TVec.h
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/GeoElement.cpp.o: headers/TVecNum.h
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/GeoElement.cpp.o: headers2018/CompElement.h
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/GeoElement.cpp.o: headers2018/CompElementTemplate.h
-mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/GeoElement.cpp.o: headers2018/CompMesh.h
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/GeoElement.cpp.o: headers2018/DOF.h
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/GeoElement.cpp.o: headers2018/DataTypes.h
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/GeoElement.cpp.o: headers2018/GeoElement.h
@@ -146,24 +142,11 @@ mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/GeoElementSide.cpp.o: headers201
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/GeoElementSide.cpp.o: headers2018/DataTypes.h
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/GeoElementSide.cpp.o: headers2018/GeoElement.h
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/GeoElementSide.cpp.o: headers2018/GeoElementSide.h
-mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/GeoElementSide.cpp.o: headers2018/GeoElementTemplate.h
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/GeoElementSide.cpp.o: headers2018/GeoMesh.h
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/GeoElementSide.cpp.o: headers2018/GeoNode.h
-mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/GeoElementSide.cpp.o: headers2018/Geom1d.h
-mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/GeoElementSide.cpp.o: headers2018/GeomQuad.h
-mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/GeoElementSide.cpp.o: headers2018/GeomTetrahedron.h
-mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/GeoElementSide.cpp.o: headers2018/GeomTriangle.h
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/GeoElementSide.cpp.o: headers2018/IntPointData.h
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/GeoElementSide.cpp.o: headers2018/IntRule.h
-mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/GeoElementSide.cpp.o: headers2018/IntRule1d.h
-mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/GeoElementSide.cpp.o: headers2018/IntRuleQuad.h
-mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/GeoElementSide.cpp.o: headers2018/IntRuleTetrahedron.h
-mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/GeoElementSide.cpp.o: headers2018/IntRuleTriangle.h
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/GeoElementSide.cpp.o: headers2018/PostProcess.h
-mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/GeoElementSide.cpp.o: headers2018/Topology1d.h
-mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/GeoElementSide.cpp.o: headers2018/TopologyQuad.h
-mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/GeoElementSide.cpp.o: headers2018/TopologyTetrahedron.h
-mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/GeoElementSide.cpp.o: headers2018/TopologyTriangle.h
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/GeoElementSide.cpp.o: headers2018/tpanic.h
 
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/GeoElementTemplate.cpp.o: src_2018/GeoElementTemplate.cpp
@@ -290,10 +273,6 @@ mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/IntRule.cpp.o: headers/TVec.h
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/IntRule.cpp.o: headers/TVecNum.h
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/IntRule.cpp.o: headers2018/DataTypes.h
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/IntRule.cpp.o: headers2018/IntRule.h
-mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/IntRule.cpp.o: headers2018/IntRule1d.h
-mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/IntRule.cpp.o: headers2018/IntRuleQuad.h
-mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/IntRule.cpp.o: headers2018/IntRuleTetrahedron.h
-mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/IntRule.cpp.o: headers2018/IntRuleTriangle.h
 
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/IntRule1d.cpp.o: src_2018/IntRule1d.cpp
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/IntRule1d.cpp.o: headers/TMatrix.h
@@ -320,7 +299,6 @@ mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/IntRuleTetrahedron.cpp.o: header
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/IntRuleTetrahedron.cpp.o: headers/TVecNum.h
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/IntRuleTetrahedron.cpp.o: headers2018/DataTypes.h
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/IntRuleTetrahedron.cpp.o: headers2018/IntRule.h
-mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/IntRuleTetrahedron.cpp.o: headers2018/IntRule1d.h
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/IntRuleTetrahedron.cpp.o: headers2018/IntRuleTetrahedron.h
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/IntRuleTetrahedron.cpp.o: headers2018/tpanic.h
 
@@ -330,7 +308,6 @@ mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/IntRuleTriangle.cpp.o: headers/T
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/IntRuleTriangle.cpp.o: headers/TVecNum.h
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/IntRuleTriangle.cpp.o: headers2018/DataTypes.h
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/IntRuleTriangle.cpp.o: headers2018/IntRule.h
-mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/IntRuleTriangle.cpp.o: headers2018/IntRule1d.h
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/IntRuleTriangle.cpp.o: headers2018/IntRuleTriangle.h
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/IntRuleTriangle.cpp.o: headers2018/tpanic.h
 
@@ -359,10 +336,8 @@ mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/Poisson.cpp.o: src_2018/Poisson.
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/Poisson.cpp.o: headers/TMatrix.h
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/Poisson.cpp.o: headers/TVec.h
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/Poisson.cpp.o: headers/TVecNum.h
-mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/Poisson.cpp.o: headers2018/CompElement.h
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/Poisson.cpp.o: headers2018/DataTypes.h
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/Poisson.cpp.o: headers2018/IntPointData.h
-mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/Poisson.cpp.o: headers2018/IntRule.h
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/Poisson.cpp.o: headers2018/MathStatement.h
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/Poisson.cpp.o: headers2018/Poisson.h
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/Poisson.cpp.o: headers2018/PostProcess.h

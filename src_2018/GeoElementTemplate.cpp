@@ -6,13 +6,13 @@
 
 #include <stdio.h>
 #include "GeoElementTemplate.h"
-#include "GeoNode.h"
+//#include "GeoNode.h"
 #include "Geom1d.h"
 #include "GeomQuad.h"
 #include "GeomTriangle.h"
 #include "GeomTetrahedron.h"
-#include "GeoElement.h"
-#include "GeoElementSide.h"
+//#include "GeoElement.h"
+//#include "GeoElementSide.h"
 #include "GeoMesh.h"
 #include "tpanic.h"
 #include <math.h> 

@@ -87,26 +87,16 @@ PostProcess.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/Assemble.cpp
 Assemble.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/Assemble.h
-GeoElement.h
-/home/natalia/Documents/GitHub/FEMCourse/src_2018/GeoElement.h
 CompMesh.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/CompMesh.h
 GeoMesh.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/GeoMesh.h
-algorithm
--
 
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/CompElement.cpp
 CompElement.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/CompElement.h
 GeoElement.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/GeoElement.h
-MathStatement.h
-/home/natalia/Documents/GitHub/FEMCourse/src_2018/MathStatement.h
-CompElementTemplate.h
-/home/natalia/Documents/GitHub/FEMCourse/src_2018/CompElementTemplate.h
-IntPointData.h
-/home/natalia/Documents/GitHub/FEMCourse/src_2018/IntPointData.h
 MathStatement.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/MathStatement.h
 tpanic.h
@@ -143,8 +133,6 @@ GeoElementSide.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/CompMesh.cpp
 CompMesh.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/CompMesh.h
-MathStatement.h
-/home/natalia/Documents/GitHub/FEMCourse/src_2018/MathStatement.h
 GeoMesh.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/GeoMesh.h
 
@@ -165,8 +153,6 @@ GeomTriangle.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/GeomTriangle.h
 tpanic.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/tpanic.h
-CompMesh.h
-/home/natalia/Documents/GitHub/FEMCourse/src_2018/CompMesh.h
 CompElementTemplate.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/CompElementTemplate.h
 tpanic.h
@@ -183,32 +169,10 @@ ShapeTetrahedron.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/GeoElementSide.cpp
 stdio.h
 -
-GeoElement.h
-/home/natalia/Documents/GitHub/FEMCourse/src_2018/GeoElement.h
 GeoMesh.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/GeoMesh.h
-GeoElementTemplate.h
-/home/natalia/Documents/GitHub/FEMCourse/src_2018/GeoElementTemplate.h
 GeoElementSide.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/GeoElementSide.h
-Geom1d.h
-/home/natalia/Documents/GitHub/FEMCourse/src_2018/Geom1d.h
-GeomQuad.h
-/home/natalia/Documents/GitHub/FEMCourse/src_2018/GeomQuad.h
-GeomTriangle.h
-/home/natalia/Documents/GitHub/FEMCourse/src_2018/GeomTriangle.h
-GeomTetrahedron.h
-/home/natalia/Documents/GitHub/FEMCourse/src_2018/GeomTetrahedron.h
-Topology1d.h
-/home/natalia/Documents/GitHub/FEMCourse/src_2018/Topology1d.h
-TopologyQuad.h
-/home/natalia/Documents/GitHub/FEMCourse/src_2018/TopologyQuad.h
-TopologyTriangle.h
-/home/natalia/Documents/GitHub/FEMCourse/src_2018/TopologyTriangle.h
-TopologyTetrahedron.h
-/home/natalia/Documents/GitHub/FEMCourse/src_2018/TopologyTetrahedron.h
-vector
--
 algorithm
 -
 
@@ -217,8 +181,6 @@ stdio.h
 -
 GeoElementTemplate.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/GeoElementTemplate.h
-GeoNode.h
-/home/natalia/Documents/GitHub/FEMCourse/src_2018/GeoNode.h
 Geom1d.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/Geom1d.h
 GeomQuad.h
@@ -227,10 +189,6 @@ GeomTriangle.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/GeomTriangle.h
 GeomTetrahedron.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/GeomTetrahedron.h
-GeoElement.h
-/home/natalia/Documents/GitHub/FEMCourse/src_2018/GeoElement.h
-GeoElementSide.h
-/home/natalia/Documents/GitHub/FEMCourse/src_2018/GeoElementSide.h
 GeoMesh.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/GeoMesh.h
 tpanic.h
@@ -243,10 +201,6 @@ stdio.h
 -
 GeoMesh.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/GeoMesh.h
-GeoNode.h
-/home/natalia/Documents/GitHub/FEMCourse/src_2018/GeoNode.h
-vector
-/home/natalia/Documents/GitHub/FEMCourse/src_2018/vector
 GeoElementSide.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/GeoElementSide.h
 vector
@@ -255,34 +209,24 @@ tpanic.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/tpanic.h
 
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/GeoNode.cpp
-DataTypes.h
-/home/natalia/Documents/GitHub/FEMCourse/src_2018/DataTypes.h
 GeoNode.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/GeoNode.h
 
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/Geom1d.cpp
 Geom1d.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/Geom1d.h
-GeoElementSide.h
-/home/natalia/Documents/GitHub/FEMCourse/src_2018/GeoElementSide.h
 
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/GeomQuad.cpp
 GeomQuad.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/GeomQuad.h
-GeoElementSide.h
-/home/natalia/Documents/GitHub/FEMCourse/src_2018/GeoElementSide.h
 
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/GeomTetrahedron.cpp
 GeomTetrahedron.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/GeomTetrahedron.h
-GeoElementSide.h
-/home/natalia/Documents/GitHub/FEMCourse/src_2018/GeoElementSide.h
 
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/GeomTriangle.cpp
 GeomTriangle.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/GeomTriangle.h
-GeoElementSide.h
-/home/natalia/Documents/GitHub/FEMCourse/src_2018/GeoElementSide.h
 
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/IntRule.cpp
 iostream
@@ -291,14 +235,6 @@ vector
 -
 IntRule.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/IntRule.h
-IntRule1d.h
-/home/natalia/Documents/GitHub/FEMCourse/src_2018/IntRule1d.h
-IntRuleQuad.h
-/home/natalia/Documents/GitHub/FEMCourse/src_2018/IntRuleQuad.h
-IntRuleTriangle.h
-/home/natalia/Documents/GitHub/FEMCourse/src_2018/IntRuleTriangle.h
-IntRuleTetrahedron.h
-/home/natalia/Documents/GitHub/FEMCourse/src_2018/IntRuleTetrahedron.h
 cmath
 -
 iomanip
@@ -307,8 +243,6 @@ iomanip
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/IntRule1d.cpp
 iostream
 -
-IntRule.h
-/home/natalia/Documents/GitHub/FEMCourse/src_2018/IntRule.h
 IntRule1d.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/IntRule1d.h
 vector
@@ -323,8 +257,6 @@ tpanic.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/IntRuleQuad.cpp
 iostream
 -
-IntRule.h
-/home/natalia/Documents/GitHub/FEMCourse/src_2018/IntRule.h
 IntRule1d.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/IntRule1d.h
 IntRuleQuad.h
@@ -335,10 +267,6 @@ tpanic.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/IntRuleTetrahedron.cpp
 iostream
 -
-IntRule.h
-/home/natalia/Documents/GitHub/FEMCourse/src_2018/IntRule.h
-IntRule1d.h
-/home/natalia/Documents/GitHub/FEMCourse/src_2018/IntRule1d.h
 IntRuleTetrahedron.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/IntRuleTetrahedron.h
 tpanic.h
@@ -347,10 +275,6 @@ tpanic.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/IntRuleTriangle.cpp
 iostream
 -
-IntRule.h
-/home/natalia/Documents/GitHub/FEMCourse/src_2018/IntRule.h
-IntRule1d.h
-/home/natalia/Documents/GitHub/FEMCourse/src_2018/IntRule1d.h
 IntRuleTriangle.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/IntRuleTriangle.h
 tpanic.h
@@ -367,8 +291,6 @@ MathStatement.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/Poisson.cpp
 Poisson.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/Poisson.h
-CompElement.h
-/home/natalia/Documents/GitHub/FEMCourse/src_2018/CompElement.h
 functional
 -
 

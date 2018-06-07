@@ -4,10 +4,10 @@
  * and open the template in the editor.
  */
 #include "Assemble.h"
-#include "GeoElement.h"
+//#include "GeoElement.h"
 #include "CompMesh.h"
 #include "GeoMesh.h"
-#include <algorithm> 
+//#include <algorithm> 
 
 Assemble::Assemble() {
 }
@@ -61,9 +61,10 @@ void Assemble::Compute(Matrix &globmat, Matrix &rhs) {
         ef.Zero();
         cel->CalcStiff(ek, ef);
 
-        int ndof = cel->NDOF();
-        ek.Print();
+//        ek.Print();
 
+        int ndof = cel->NDOF();
+        
         VecInt iglob(0);
         int ni = 0;
 
@@ -73,8 +74,6 @@ void Assemble::Compute(Matrix &globmat, Matrix &rhs) {
             for (int j = 0; j < dof.GetNShape() * dof.GetNState(); j++) {
                 iglob.resize(ni + 1);
                 iglob[ni] = dof.GetFirstEquation() + j;
-                std::cout << "index: " << ni << std::endl;
-                std::cout << "index: " << iglob[ni] << std::endl;
                 ni++;
             }
         }

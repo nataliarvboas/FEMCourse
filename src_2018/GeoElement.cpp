@@ -10,7 +10,7 @@
 #include "GeomTetrahedron.h"
 #include "GeomTriangle.h"
 #include "tpanic.h"
-#include "CompMesh.h"
+//#include "CompMesh.h"
 #include "CompElementTemplate.h"
 #include "tpanic.h"
 #include "Shape1d.h"

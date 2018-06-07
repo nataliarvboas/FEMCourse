@@ -5,7 +5,7 @@
  */
 
 #include <iostream> 
-#include "IntRule.h"
+//#include "IntRule.h"
 #include "IntRule1d.h"
 #include <vector>
 #include <math.h>

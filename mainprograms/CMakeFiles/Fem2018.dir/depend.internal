@@ -42,8 +42,6 @@ mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/CompElement.cpp.o
  headers/TVec.h
  headers/TVecNum.h
  headers2018/CompElement.h
- headers2018/CompElementTemplate.h
- headers2018/DOF.h
  headers2018/DataTypes.h
  headers2018/GeoElement.h
  headers2018/IntPointData.h
@@ -94,7 +92,6 @@ mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/CompMesh.cpp.o
  headers2018/GeoNode.h
  headers2018/IntPointData.h
  headers2018/IntRule.h
- headers2018/MathStatement.h
  headers2018/PostProcess.h
  headers2018/tpanic.h
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/DOF.cpp.o
@@ -111,7 +108,6 @@ mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/GeoElement.cpp.o
  headers/TVecNum.h
  headers2018/CompElement.h
  headers2018/CompElementTemplate.h
- headers2018/CompMesh.h
  headers2018/DOF.h
  headers2018/DataTypes.h
  headers2018/GeoElement.h
@@ -147,24 +143,11 @@ mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/GeoElementSide.cpp.o
  headers2018/DataTypes.h
  headers2018/GeoElement.h
  headers2018/GeoElementSide.h
- headers2018/GeoElementTemplate.h
  headers2018/GeoMesh.h
  headers2018/GeoNode.h
- headers2018/Geom1d.h
- headers2018/GeomQuad.h
- headers2018/GeomTetrahedron.h
- headers2018/GeomTriangle.h
  headers2018/IntPointData.h
  headers2018/IntRule.h
- headers2018/IntRule1d.h
- headers2018/IntRuleQuad.h
- headers2018/IntRuleTetrahedron.h
- headers2018/IntRuleTriangle.h
  headers2018/PostProcess.h
- headers2018/Topology1d.h
- headers2018/TopologyQuad.h
- headers2018/TopologyTetrahedron.h
- headers2018/TopologyTriangle.h
  headers2018/tpanic.h
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/GeoElementTemplate.cpp.o
  /home/natalia/Documents/GitHub/FEMCourse/src_2018/GeoElementTemplate.cpp
@@ -291,10 +274,6 @@ mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/IntRule.cpp.o
  headers/TVecNum.h
  headers2018/DataTypes.h
  headers2018/IntRule.h
- headers2018/IntRule1d.h
- headers2018/IntRuleQuad.h
- headers2018/IntRuleTetrahedron.h
- headers2018/IntRuleTriangle.h
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/IntRule1d.cpp.o
  /home/natalia/Documents/GitHub/FEMCourse/src_2018/IntRule1d.cpp
  headers/TMatrix.h
@@ -321,7 +300,6 @@ mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/IntRuleTetrahedron.cpp.o
  headers/TVecNum.h
  headers2018/DataTypes.h
  headers2018/IntRule.h
- headers2018/IntRule1d.h
  headers2018/IntRuleTetrahedron.h
  headers2018/tpanic.h
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/IntRuleTriangle.cpp.o
@@ -331,7 +309,6 @@ mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/IntRuleTriangle.cpp.o
  headers/TVecNum.h
  headers2018/DataTypes.h
  headers2018/IntRule.h
- headers2018/IntRule1d.h
  headers2018/IntRuleTriangle.h
  headers2018/tpanic.h
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/L2Projection.cpp.o
@@ -360,10 +337,8 @@ mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/Poisson.cpp.o
  headers/TMatrix.h
  headers/TVec.h
  headers/TVecNum.h
- headers2018/CompElement.h
  headers2018/DataTypes.h
  headers2018/IntPointData.h
- headers2018/IntRule.h
  headers2018/MathStatement.h
  headers2018/Poisson.h
  headers2018/PostProcess.h

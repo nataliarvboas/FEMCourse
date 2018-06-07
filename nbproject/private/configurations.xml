@@ -13,6 +13,8 @@
         </df>
         <df name="CMakeTmp">
         </df>
+        <df name="Progress">
+        </df>
         <in>feature_tests.c</in>
         <in>feature_tests.cxx</in>
       </df>
@@ -76,8 +78,8 @@
         <in>L2Projection.h</in>
         <in>MathStatement.h</in>
         <in>Poisson.h</in>
-        <in>PossProcessTemplate.h</in>
         <in>PostProcess.h</in>
+        <in>PostProcessTemplate.h</in>
         <in>ReadGmsh.h</in>
         <in>Shape1d.h</in>
         <in>ShapeQuad.h</in>

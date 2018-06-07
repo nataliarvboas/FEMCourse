@@ -5,7 +5,7 @@
  */
 
 #include "CompMesh.h"
-#include "MathStatement.h"
+//#include "MathStatement.h"
 #include "GeoMesh.h"
 
 CompMesh::CompMesh() : geomesh(0), compelements(0), dofs(0), mathstatements(0), solution(0) {

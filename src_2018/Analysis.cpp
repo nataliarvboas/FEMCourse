@@ -63,7 +63,13 @@ void Analysis::RunSimulation() {
     GlobalSystem.Solve_LU(F);
     Solution = F;
     
-    //cmesh->LoadSolution(Solution);
+    int solsize = Solution.Rows();
+    VecDouble sol(solsize);
+    
+    for (int i = 0; i < solsize; i++) {
+        sol[i] = Solution(i,0);
+    }    
+    cmesh->LoadSolution(sol);
 }
 
 //void PostProcessSolution(const std::string &filename, PostProcess &defPostProc) const{

@@ -99,7 +99,23 @@ void CompElementTemplate<Shape>::ShapeFunctions(const VecDouble &intpoint, VecDo
 }
 
 template<class Shape>
-void CompElementTemplate<Shape>::GetMultiplyingCoeficients(VecDouble & coefs) const {  
+void CompElementTemplate<Shape>::GetMultiplyingCoeficients(VecDouble & coefs) const {
+    int ndof = this->NDOF();
+
+    VecInt iglob(0);
+    int ni = 0;
+
+    for (int64_t i = 0; i < ndof; i++) {
+        int dofindex = dofindexes[i];
+        DOF dof = this->GetCompMesh()->GetDOF(dofindex);
+        for (int j = 0; j < dof.GetNShape() * dof.GetNState(); j++) {
+            iglob.resize(ni + 1);
+            coefs.resize(ni + 1);
+            iglob[ni] = dof.GetFirstEquation() + j;
+            coefs[ni] = this->GetCompMesh()->Solution()[iglob[ni]];
+            ni++;
+        }
+    }
 }
 
 template<class Shape>
@@ -121,7 +137,7 @@ void CompElementTemplate<Shape>::SetDOFIndex(int i, int64_t dofindex) {
     dofindexes[i] = dofindex;
 }
 
-template<class Shape >
+template<class Shape>
 int64_t CompElementTemplate<Shape>::GetDOFIndex(int i) {
     return dofindexes[i];
 }

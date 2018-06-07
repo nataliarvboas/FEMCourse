@@ -47,7 +47,7 @@ int main() {
     int nel_y = 1;
     double l_x = 1;
     double l_y = 1;
-    int pOrder = 2;
+    int pOrder = 1;
 
     GeoMesh *gmesh = CreateGeoMesh(nel_x, nel_y, dim, l_x, l_y);
     gmesh->Print(cout);
@@ -65,7 +65,7 @@ GeoMesh *CreateGeoMesh(int nel_x, int nel_y, int dim, int l_x, int l_y) {
     int nnodes_y = nel_y + 1;
     int64_t nelem = nel_x*nel_y;
 
-    GeoMesh * gmesh = new GeoMesh;
+    GeoMesh *gmesh = new GeoMesh;
 
     gmesh->SetDimension(dim);
     gmesh->SetNumNodes(nnodes_x * nnodes_y);

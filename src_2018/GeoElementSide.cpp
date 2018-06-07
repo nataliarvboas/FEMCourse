@@ -5,19 +5,19 @@
  */
 
 #include <stdio.h>
-#include "GeoElement.h"
+//#include "GeoElement.h"
 #include "GeoMesh.h"
-#include "GeoElementTemplate.h"
+//#include "GeoElementTemplate.h"
 #include "GeoElementSide.h"
-#include "Geom1d.h"
-#include "GeomQuad.h"
-#include "GeomTriangle.h"
-#include "GeomTetrahedron.h"
-#include "Topology1d.h"
-#include "TopologyQuad.h"
-#include "TopologyTriangle.h"
-#include "TopologyTetrahedron.h"
-#include <vector> 
+//#include "Geom1d.h"
+//#include "GeomQuad.h"
+//#include "GeomTriangle.h"
+//#include "GeomTetrahedron.h"
+//#include "Topology1d.h"
+//#include "TopologyQuad.h"
+//#include "TopologyTriangle.h"
+//#include "TopologyTetrahedron.h"
+//#include <vector> 
 #include <algorithm>
 
 

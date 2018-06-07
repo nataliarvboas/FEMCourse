@@ -5,7 +5,7 @@
  */
 
 #include "Poisson.h"
-#include "CompElement.h"
+//#include "CompElement.h"
 #include <functional>
 
 Poisson::Poisson() {
@@ -71,7 +71,7 @@ void Poisson::Contribute(IntPointData &data, double weight, Matrix &EK, Matrix &
 
 
     Matrix perm(dim, dim);
-    std::function<void(const VecDouble &co, VecDouble & result) > force;
+    std::function<void(const VecDouble &co, VecDouble &result)> force;
 
     perm = this->GetPermeability();
     force = this->GetForceFunction();
