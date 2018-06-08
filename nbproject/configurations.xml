@@ -6,9 +6,6 @@
         <in>feature_tests.c</in>
         <in>feature_tests.cxx</in>
       </df>
-      <df name="headers2018">
-        <in>PostProcessTemplate.h</in>
-      </df>
       <df name="mainprograms">
         <in>TestIntegrate.cpp</in>
         <in>TestOneDProblem.cpp</in>
@@ -140,8 +137,6 @@
           </incDir>
         </ccTool>
       </folder>
-      <item path="headers2018/PostProcessTemplate.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="mainprograms/TestIntegrate.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
           <incDir>
@@ -388,31 +383,31 @@
         </ccTool>
       </item>
       <item path="src_2018/Assemble.cpp" ex="false" tool="1" flavor2="8">
-        <ccTool flags="0">
+        <ccTool flags="1">
           <incDir>
             <pElem>headers2018</pElem>
-            <pElem>src_2018</pElem>
             <pElem>headers</pElem>
+            <pElem>tinyxml</pElem>
             <pElem>mainprograms</pElem>
           </incDir>
         </ccTool>
       </item>
       <item path="src_2018/CompElement.cpp" ex="false" tool="1" flavor2="8">
-        <ccTool flags="0">
+        <ccTool flags="1">
           <incDir>
             <pElem>headers2018</pElem>
-            <pElem>src_2018</pElem>
             <pElem>headers</pElem>
+            <pElem>tinyxml</pElem>
             <pElem>mainprograms</pElem>
           </incDir>
         </ccTool>
       </item>
       <item path="src_2018/CompElementTemplate.cpp" ex="false" tool="1" flavor2="8">
-        <ccTool flags="0">
+        <ccTool flags="1">
           <incDir>
             <pElem>headers2018</pElem>
-            <pElem>src_2018</pElem>
             <pElem>headers</pElem>
+            <pElem>tinyxml</pElem>
             <pElem>mainprograms</pElem>
           </incDir>
         </ccTool>
@@ -576,11 +571,11 @@
         </ccTool>
       </item>
       <item path="src_2018/L2Projection.cpp" ex="false" tool="1" flavor2="8">
-        <ccTool flags="0">
+        <ccTool flags="1">
           <incDir>
             <pElem>headers2018</pElem>
-            <pElem>src_2018</pElem>
             <pElem>headers</pElem>
+            <pElem>tinyxml</pElem>
             <pElem>mainprograms</pElem>
           </incDir>
         </ccTool>

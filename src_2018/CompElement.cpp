@@ -176,6 +176,7 @@ void CompElement::CalcStiff(Matrix &ek, Matrix &ef) const {
     this->InitializeIntPointData(data);
 
     int dim = this->Dimension();
+    int nstate = this->GetStatement()->NState();
     std::vector<double> intpoint(dim, 0.);
     double weight = 0.;
 
@@ -184,8 +185,8 @@ void CompElement::CalcStiff(Matrix &ek, Matrix &ef) const {
     int intrulepoints = intrule->NPoints();
     int nshape = this->NShapeFunctions();
 
-    ek.Resize(intrulepoints*dim, nshape * dim);
-    ef.Resize(intrulepoints*dim, 1);
+    ek.Resize(nshape * nstate, nshape * nstate);
+    ef.Resize(nshape * nstate, 1);
 
     ek.Zero();
     ef.Zero();

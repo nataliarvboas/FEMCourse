@@ -61,6 +61,9 @@ public:
         return matid;
     }
     
+    // Prepare and print post processing data
+    virtual std::vector<double> PostProcessSolution(const IntPointData &integrationpointdata, const int var) const = 0;
+    
     
 };
 #endif /* MathStatement_h */

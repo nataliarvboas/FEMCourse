@@ -61,13 +61,10 @@ void Assemble::Compute(Matrix &globmat, Matrix &rhs) {
         ef.Zero();
         cel->CalcStiff(ek, ef);
 
-//        ek.Print();
-
         int ndof = cel->NDOF();
-        
+
         VecInt iglob(0);
         int ni = 0;
-
         for (int i = 0; i < ndof; i++) {
             int dofindex = cel->GetDOFIndex(i);
             DOF dof = cmesh->GetDOF(dofindex);

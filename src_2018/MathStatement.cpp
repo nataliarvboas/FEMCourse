@@ -6,6 +6,8 @@
 
 #include "MathStatement.h"
 
+double MathStatement::gBigNumber = 1.e12;
+
 MathStatement::MathStatement() {
 }
 

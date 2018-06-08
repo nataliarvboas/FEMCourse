@@ -33,8 +33,7 @@ CompElementTemplate<Shape>::CompElementTemplate(int64_t ind, CompMesh *cmesh, Ge
     this->SetGeoElement(geo);
     geo->SetReference(this);
 
-    int matid = geo->Material();
-    MathStatement *mat = cmesh->GetMath(matid);
+    MathStatement *mat = cmesh->GetMath(ind);
     this->SetStatement(mat);
 
     int nsides = geo->NSides();
@@ -52,7 +51,7 @@ CompElementTemplate<Shape>::CompElementTemplate(int64_t ind, CompMesh *cmesh, Ge
             DOF dof;
             int order = cmesh->GetDefaultOrder();
             int nshape = this->ComputeNShapeFunctions(i, order);
-            int nstate = this->GetStatement()->NState();
+            int nstate = mat->NState();
             dof.SetNShapeStateOrder(nshape, nstate, order);
 
             int64_t ndof = cmesh->GetNumberDOF();

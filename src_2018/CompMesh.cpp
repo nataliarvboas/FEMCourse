@@ -20,6 +20,7 @@ CompMesh::CompMesh(const CompMesh &copy) {
 
 CompMesh::CompMesh(GeoMesh *gmesh) {
     this->SetGeoMesh(gmesh);
+    this->SetNumberElement(gmesh->NumElements());
 }
 
 CompMesh::~CompMesh() {

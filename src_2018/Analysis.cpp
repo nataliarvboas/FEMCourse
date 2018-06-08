@@ -55,20 +55,23 @@ void Analysis::RunSimulation() {
     std::cout << "\nGlobal Stiff Matrix" << std::endl;
     GlobalSystem.Print();
 
+    std::cout << "\nLoad Vector:" << std::endl;
+    RightHandSide.Print();
+
     int nrows = RightHandSide.Rows();
     int ncols = RightHandSide.Cols();
-    F.Resize(nrows,ncols);
+    F.Resize(nrows, ncols);
     F = RightHandSide;
-    
+
     GlobalSystem.Solve_LU(F);
     Solution = F;
-    
+
     int solsize = Solution.Rows();
     VecDouble sol(solsize);
-    
+
     for (int i = 0; i < solsize; i++) {
-        sol[i] = Solution(i,0);
-    }    
+        sol[i] = Solution(i, 0);
+    }
     cmesh->LoadSolution(sol);
 }
 

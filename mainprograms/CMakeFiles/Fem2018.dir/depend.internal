@@ -501,7 +501,6 @@ mainprograms/CMakeFiles/Fem2018.dir/main2018.cpp.o
  headers2018/Analysis.h
  headers2018/Assemble.h
  headers2018/CompElement.h
- headers2018/CompElementTemplate.h
  headers2018/CompMesh.h
  headers2018/DOF.h
  headers2018/DataTypes.h
@@ -510,7 +509,10 @@ mainprograms/CMakeFiles/Fem2018.dir/main2018.cpp.o
  headers2018/GeoElementTemplate.h
  headers2018/GeoMesh.h
  headers2018/GeoNode.h
+ headers2018/Geom1d.h
  headers2018/GeomQuad.h
+ headers2018/GeomTetrahedron.h
+ headers2018/GeomTriangle.h
  headers2018/IntPointData.h
  headers2018/IntRule.h
  headers2018/IntRule1d.h
@@ -522,7 +524,6 @@ mainprograms/CMakeFiles/Fem2018.dir/main2018.cpp.o
  headers2018/Poisson.h
  headers2018/PostProcess.h
  headers2018/ReadGmsh.h
- headers2018/ShapeQuad.h
  headers2018/Topology1d.h
  headers2018/TopologyQuad.h
  headers2018/TopologyTetrahedron.h

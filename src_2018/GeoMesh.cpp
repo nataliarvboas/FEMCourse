@@ -11,8 +11,8 @@
 #include <vector>
 #include "tpanic.h"
 
-GeoMesh::GeoMesh() : Nodes(0) ,Elements(0) {
-    Reference = 0; 
+GeoMesh::GeoMesh() : Nodes(0), Elements(0) {
+    Reference = 0;
     fDim = -1;
 }
 
@@ -103,14 +103,14 @@ void GeoMesh::BuildConnectivity() {
         int nsides = gel->NSides();
         int is;
         for (is = ncor; is < nsides; is++) {
-                GeoElementSide gelside(gel, is);
-                std::vector<GeoElementSide> neighbours;
-                gelside.ComputeNeighbours(neighbours);
-                int64_t nneigh = neighbours.size();
-                int64_t in;
-                for (in = 0; in < nneigh; in++) {
-                    gelside.IsertConnectivity(neighbours[in]);
-                }
+            GeoElementSide gelside(gel, is);
+            std::vector<GeoElementSide> neighbours;
+            gelside.ComputeNeighbours(neighbours);
+            int64_t nneigh = neighbours.size();
+            int64_t in;
+            for (in = 0; in < nneigh; in++) {
+                gelside.IsertConnectivity(neighbours[in]);
+            }
         }
     }
 }

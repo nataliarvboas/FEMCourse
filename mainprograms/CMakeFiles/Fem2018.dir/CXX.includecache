@@ -9,44 +9,26 @@
 /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp
 iostream
 -
+fstream
+-
 math.h
 -
-IntRule.h
-/home/natalia/Documents/GitHub/FEMCourse/mainprograms/IntRule.h
-IntRule1d.h
-/home/natalia/Documents/GitHub/FEMCourse/mainprograms/IntRule1d.h
-IntRuleQuad.h
-/home/natalia/Documents/GitHub/FEMCourse/mainprograms/IntRuleQuad.h
-IntRuleTetrahedron.h
-/home/natalia/Documents/GitHub/FEMCourse/mainprograms/IntRuleTetrahedron.h
-IntRuleTriangle.h
-/home/natalia/Documents/GitHub/FEMCourse/mainprograms/IntRuleTriangle.h
-Topology1d.h
-/home/natalia/Documents/GitHub/FEMCourse/mainprograms/Topology1d.h
-TopologyTriangle.h
-/home/natalia/Documents/GitHub/FEMCourse/mainprograms/TopologyTriangle.h
-TopologyQuad.h
-/home/natalia/Documents/GitHub/FEMCourse/mainprograms/TopologyQuad.h
-TopologyTetrahedron.h
-/home/natalia/Documents/GitHub/FEMCourse/mainprograms/TopologyTetrahedron.h
 DataTypes.h
 /home/natalia/Documents/GitHub/FEMCourse/mainprograms/DataTypes.h
 ReadGmsh.h
 /home/natalia/Documents/GitHub/FEMCourse/mainprograms/ReadGmsh.h
 VTKGeoMesh.h
 /home/natalia/Documents/GitHub/FEMCourse/mainprograms/VTKGeoMesh.h
+Geom1d.h
+/home/natalia/Documents/GitHub/FEMCourse/mainprograms/Geom1d.h
 GeomQuad.h
 /home/natalia/Documents/GitHub/FEMCourse/mainprograms/GeomQuad.h
-ShapeQuad.h
-/home/natalia/Documents/GitHub/FEMCourse/mainprograms/ShapeQuad.h
+GeomTriangle.h
+/home/natalia/Documents/GitHub/FEMCourse/mainprograms/GeomTriangle.h
+GeomTetrahedron.h
+/home/natalia/Documents/GitHub/FEMCourse/mainprograms/GeomTetrahedron.h
 GeoElementTemplate.h
 /home/natalia/Documents/GitHub/FEMCourse/mainprograms/GeoElementTemplate.h
-CompElementTemplate.h
-/home/natalia/Documents/GitHub/FEMCourse/mainprograms/CompElementTemplate.h
-CompElement.h
-/home/natalia/Documents/GitHub/FEMCourse/mainprograms/CompElement.h
-CompMesh.h
-/home/natalia/Documents/GitHub/FEMCourse/mainprograms/CompMesh.h
 MathStatement.h
 /home/natalia/Documents/GitHub/FEMCourse/mainprograms/MathStatement.h
 L2Projection.h
@@ -283,6 +265,8 @@ tpanic.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/L2Projection.cpp
 L2Projection.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/L2Projection.h
+PostProcess.h
+/home/natalia/Documents/GitHub/FEMCourse/src_2018/PostProcess.h
 
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/MathStatement.cpp
 MathStatement.h
@@ -291,6 +275,8 @@ MathStatement.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/Poisson.cpp
 Poisson.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/Poisson.h
+PostProcess.h
+/home/natalia/Documents/GitHub/FEMCourse/src_2018/PostProcess.h
 functional
 -
 
@@ -615,6 +601,8 @@ DataTypes.h
 headers2018/DataTypes.h
 IntPointData.h
 headers2018/IntPointData.h
+PostProcess.h
+headers2018/PostProcess.h
 functional
 -
 
@@ -633,6 +621,8 @@ DataTypes.h
 headers2018/DataTypes.h
 IntPointData.h
 headers2018/IntPointData.h
+PostProcess.h
+headers2018/PostProcess.h
 functional
 -
 
