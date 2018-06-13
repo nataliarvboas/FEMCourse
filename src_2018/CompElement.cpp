@@ -219,7 +219,6 @@ void CompElement::EvaluateError(std::function<void(const VecDouble &loc, VecDoub
     
     errors.resize(NErrors);
 
-
     IntRule *intrule = this->GetIntRule();
     int intrulepoints = intrule->NPoints();
 

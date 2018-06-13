@@ -21,6 +21,11 @@ class L2Projection : public MathStatement
     // L2 projection matrix
     Matrix projection;
     
+    // First value of boundary condition
+    Matrix BCVal1;
+    // Second value of boundary condition
+    Matrix BCVal2;
+    
     // Force funtion related to L2 projection math statement
     std::function<void(const VecDouble &co, VecDouble &result)> forceFunction;
     
@@ -34,7 +39,7 @@ public:
     L2Projection();
     
     // Constructor of L2Projection
-    L2Projection(int bctype, int materialid, Matrix &perm);
+    L2Projection(int bctype, int materialid, Matrix &proj, Matrix Val1, Matrix Val2);
     
     // Copy constructor of L2Projection
     L2Projection(const L2Projection &copy);
@@ -56,6 +61,18 @@ public:
     // Set the L2 projection matrix
     void SetProjectionMatrix(const Matrix &proj);
 
+    // Return Val1
+    Matrix Val1() const
+    {
+        return BCVal1;
+    }
+    
+    // Return Val2
+    Matrix Val2() const
+    {
+        return BCVal2;
+    }
+    
     // Return the force function related to L2 projection math statement
     std::function<void(const VecDouble &co, VecDouble &result)> GetForceFunction() const
     {
@@ -73,7 +90,7 @@ public:
     {
         SolutionExact = Exact;
     }
-       
+    
     // Return the number of errors
     virtual int NEvalErrors() const;
     
