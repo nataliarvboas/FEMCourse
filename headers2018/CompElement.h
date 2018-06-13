@@ -110,13 +110,10 @@ public:
     
     // Compute the solution and its gradient at a parametric point
     // for dsol the row indicates the direction, the column indicates the state variable
-    virtual void Solution(VecDouble &intpoint, PostProcess &defPostProc, VecDouble &sol, TMatrix &dsol) const;
+    virtual void Solution(VecDouble &intpoint, int var, VecDouble &sol, TMatrix &dsol) const;
     
     // Get Multiplying Coeficients
     virtual void GetMultiplyingCoeficients(VecDouble &coefs) const = 0;
-    
-    /// Compute the error of the finite element approximation
-    double ComputeError(std::function<void(const VecDouble &co, VecDouble &sol, Matrix &dsol)> &exact,  VecDouble &errors);
     
     // Return the number of shape functions
     virtual int NShapeFunctions() const = 0;

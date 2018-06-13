@@ -39,6 +39,8 @@ Analysis.h
 /home/natalia/Documents/GitHub/FEMCourse/mainprograms/Analysis.h
 Assemble.h
 /home/natalia/Documents/GitHub/FEMCourse/mainprograms/Assemble.h
+PostProcess.h
+/home/natalia/Documents/GitHub/FEMCourse/mainprograms/PostProcess.h
 
 /home/natalia/Documents/GitHub/FEMCourse/src vazio/TMatrix.cpp
 TMatrix.h
@@ -53,6 +55,10 @@ math.h
 -
 vector
 -
+stdio.h
+-
+string.h
+-
 
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/Analysis.cpp
 Analysis.h
@@ -65,6 +71,10 @@ GeoMesh.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/GeoMesh.h
 PostProcess.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/PostProcess.h
+tpanic.h
+/home/natalia/Documents/GitHub/FEMCourse/src_2018/tpanic.h
+MathStatement.h
+/home/natalia/Documents/GitHub/FEMCourse/src_2018/MathStatement.h
 
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/Assemble.cpp
 Assemble.h
@@ -267,6 +277,10 @@ L2Projection.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/L2Projection.h
 PostProcess.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/PostProcess.h
+tpanic.h
+/home/natalia/Documents/GitHub/FEMCourse/src_2018/tpanic.h
+string.h
+-
 
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/MathStatement.cpp
 MathStatement.h
@@ -278,6 +292,8 @@ Poisson.h
 PostProcess.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/PostProcess.h
 functional
+-
+string.h
 -
 
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/PostProcess.cpp
@@ -601,8 +617,6 @@ DataTypes.h
 headers2018/DataTypes.h
 IntPointData.h
 headers2018/IntPointData.h
-PostProcess.h
-headers2018/PostProcess.h
 functional
 -
 
@@ -621,8 +635,6 @@ DataTypes.h
 headers2018/DataTypes.h
 IntPointData.h
 headers2018/IntPointData.h
-PostProcess.h
-headers2018/PostProcess.h
 functional
 -
 

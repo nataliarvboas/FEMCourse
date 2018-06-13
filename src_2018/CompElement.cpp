@@ -44,7 +44,7 @@ CompElement::~CompElement() {
 }
 
 CompElement *CompElement::Clone() const {
-//     return new CompElement(*this);
+    //     return new CompElement(*this);
 }
 
 MathStatement *CompElement::GetStatement() const {
@@ -202,10 +202,70 @@ void CompElement::CalcStiff(Matrix &ek, Matrix &ef) const {
 }
 
 void CompElement::EvaluateError(std::function<void(const VecDouble &loc, VecDouble &val, Matrix &deriv) > fp, VecDouble &errors) const {
+    MathStatement *material = this->GetStatement();
+    if (!material) {
+        std::cout << "No material for this element\n";
+        return;
+    }
+
+    IntPointData data;
+    this->InitializeIntPointData(data);
+    double weight;
+
+
+    int NErrors = material->NEvalErrors();
+    int dim = Dimension();
+    VecDouble intpoint(dim, 0.);
+    
+    errors.resize(NErrors);
+
+
+    IntRule *intrule = this->GetIntRule();
+    int intrulepoints = intrule->NPoints();
+
+    for (int ip = 0; ip < intrulepoints; ip++) {
+        intrule->Point(ip, intpoint, weight);
+
+        this->ComputeRequiredData(data, intpoint);
+        weight *= fabs(data.detjac);
+        data.weight = weight;
+        this->GetMultiplyingCoeficients(data.coefs);
+        data.ComputeSolution();
+
+        VecDouble u_exact(data.x.size());
+        Matrix du_exact(data.x.size(), data.x.size());
+        fp(data.x, u_exact, du_exact);
+
+        VecDouble values(NErrors);
+        material->ContributeError(data, u_exact, du_exact, values);
+
+        for (int ier = 0; ier < NErrors; ier++) {
+            errors[ier] += weight * values[ier];
+        }
+    }
+    for (int ier = 0; ier < NErrors; ier++) {
+        errors[ier] = sqrt(errors[ier]);
+    }
 }
 
-void CompElement::Solution(VecDouble &intpoint, PostProcess &defPostProc, VecDouble &sol, TMatrix &dsol) const {
+void CompElement::Solution(VecDouble &intpoint, int var, VecDouble &sol, TMatrix &dsol) const {
+    MathStatement * material = this->GetStatement();
+    if (!material) {
+        std::cout << "No material for this element\n";
+        return;
+    }
+
+    IntPointData data;
+    this->InitializeIntPointData(data);
+    double weight;
+
+    this->ComputeRequiredData(data, intpoint);
+    weight *= fabs(data.detjac);
+    data.weight = weight;
+    this->GetMultiplyingCoeficients(data.coefs);
+    data.ComputeSolution();
+
+    sol = data.solution;
+    dsol = data.dsoldx;
 }
 
-double ComputeError(std::function<void(const VecDouble &co, VecDouble &sol, Matrix &dsol)> &exact, VecDouble &errors) {
-}

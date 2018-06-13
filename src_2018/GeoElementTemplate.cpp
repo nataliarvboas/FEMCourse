@@ -25,6 +25,7 @@ GeoElementTemplate<TGeom>::GeoElementTemplate(const VecInt &nodeindices, int mat
     for (int side = 0; side < TGeom::nSides; side++) {
         Geom.SetNeighbour(side, GeoElementSide(this, side));
     }
+    gmesh->SetElement(index, this);
 }
 
 template<class TGeom>

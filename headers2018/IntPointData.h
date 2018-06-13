@@ -39,11 +39,13 @@ public:
     
     Matrix dsoldx;
     
-    void ComputeSolution(VecDouble &coefs)
+    VecDouble coefs;
+    
+    void ComputeSolution()
     {
         if(coefs.size()%phi.size())
         {
-            DebugStop();
+        //    DebugStop();
         }
         int nstate = coefs.size()/phi.size();
         solution.resize(nstate);

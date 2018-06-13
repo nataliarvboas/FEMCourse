@@ -19,6 +19,8 @@ GeoMesh::GeoMesh() : Nodes(0), Elements(0) {
 GeoMesh::GeoMesh(const GeoMesh &copy) {
     Elements = copy.Elements;
     Nodes = copy.Nodes;
+    Reference = copy.Reference;
+    fDim = copy.fDim;
 }
 
 GeoMesh &GeoMesh::operator=(const GeoMesh &copy) {

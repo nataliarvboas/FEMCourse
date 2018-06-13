@@ -12,8 +12,10 @@
         <group>
             <file>file:/home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp</file>
             <file>file:/home/natalia/Documents/GitHub/FEMCourse/src_2018/CompMesh.cpp</file>
+            <file>file:/home/natalia/Documents/GitHub/FEMCourse/src_2018/L2Projection.cpp</file>
             <file>file:/home/natalia/Documents/GitHub/FEMCourse/src_2018/Poisson.cpp</file>
-            <file>file:/home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h</file>
+            <file>file:/home/natalia/Documents/GitHub/FEMCourse/src_2018/Analysis.cpp</file>
+            <file>file:/home/natalia/Documents/GitHub/FEMCourse/headers2018/MathStatement.h</file>
             <file>file:/home/natalia/Documents/GitHub/FEMCourse/src_2018/CompElement.cpp</file>
         </group>
     </open-files>

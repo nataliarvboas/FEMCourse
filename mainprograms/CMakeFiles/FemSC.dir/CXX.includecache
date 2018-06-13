@@ -47,6 +47,10 @@ math.h
 -
 vector
 -
+stdio.h
+-
+string.h
+-
 
 /home/natalia/Documents/GitHub/FEMCourse/src vazio/TVec.cpp
 iostream

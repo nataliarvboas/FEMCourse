@@ -46,7 +46,7 @@ public:
     
     void PostProcessSolution(const std::string &filename, PostProcess &defPostProc) const;
     
-    void PostProcessError(VecDouble error, std::ostream &out, PostProcess &defPostProc) const;
+    VecDouble PostProcessError(std::ostream &out, PostProcess &defPostProc) const;
     
 };
 

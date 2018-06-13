@@ -25,3 +25,27 @@ MathStatement &MathStatement::operator=(const MathStatement &copy) {
 MathStatement::~MathStatement() {
 }
 
+void MathStatement::Axes2XYZ(const Matrix &dudaxes, Matrix &dudx, const Matrix &axesv, bool colMajor) const {
+    Matrix axes(axesv.Rows(), axesv.Cols());
+    for (int r = 0; r < axes.Rows(); r++) {
+        for (int c = 0; c < axes.Cols(); c++) {
+            axes(r, c) = axesv.GetVal(r, c);
+        }
+    }
+
+    if (colMajor) {
+        Matrix axesT;
+        axes.Transpose(axesT);
+
+        if (dudx.Rows() != axesT.Rows() || dudx.Cols() != dudaxes.Cols()) {
+            dudx.Resize(axesT.Rows(), dudaxes.Cols());
+        }
+        dudx.Zero();
+        axesT.Multiply(dudaxes, dudx, 0);
+    } else {
+        dudx.Resize(dudaxes.Rows(), axes.Cols());
+        dudx.Zero();
+        dudaxes.Multiply(axes, dudx, 0);
+    }
+}
+

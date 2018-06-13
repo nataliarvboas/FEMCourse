@@ -55,12 +55,22 @@ public:
   ///Transpoe a matriz;
   void Transpose();
   
+  TMatrix Transpose( TMatrix & matrix) const;
+    
   ///Retorna um vetor do tamanho do numero de colunas da matriz referente a linha row;
   VecDouble GetRow(int row) const;
   
   ///Retorna um vetor do tamanho do numero de linhas da matriz referente a coluna col;
   VecDouble GetCol(int col) const;
   
+  double & g( const int64_t row, const int64_t col) const;
+   
+  void Multiply(const TMatrix &A, TMatrix &B, int opt) const;
+    
+  void MultAdd(const TMatrix &x,const TMatrix &y, TMatrix &z,
+                                 const double alpha,const double beta,const int opt) const;
+    
+    
   /// Decompoe a matriz
   void LU_Decomposition();
 

@@ -13,6 +13,9 @@
 #include <stdio.h>
 #include <math.h>
 #include <vector>
+#include <stdio.h>
+#include <string.h>
+
 
 using std::cout;
 using std::endl;
@@ -155,6 +158,126 @@ void TMatrix::Transpose()
     this->fmatrix[i]=tr.fmatrix[i];
   }
 }
+
+TMatrix TMatrix::Transpose( TMatrix & matrix) const
+{
+    matrix.Resize(fcol, frow);
+    int64_t i, j;
+    for(i=0;i<frow;i++)
+        for(j=0;j<fcol;j++)
+            matrix.PutVal(j, i, GetVal(i, j));
+            //matrix(j,i)=operator()(i,j);
+    return matrix;
+}
+
+double &TMatrix::g( const int64_t row, const int64_t col) const {
+
+    if(row >=  this->Rows() || row<0 || col >=  this->Cols() || col<0) {
+        std::cout << "Index out of bounds" <<std::endl;
+        DebugStop();
+    }
+
+    return *(this->fmatrix+col*this->frow+row);
+}
+
+void TMatrix::Multiply(const TMatrix &A, TMatrix &B, int opt) const {
+    if ((opt==0 && Cols() != A.Rows()) || (opt ==1 && Rows() != A.Rows()))
+        std::cout << "Multiply (TPZMatrix<>&,TPZMatrix<TVar> &) <incompatible dimensions>" <<std::endl;
+    if(!opt && (B.Rows() != Rows() || B.Cols() != A.Cols())) {
+        B.Resize(Rows(),A.Cols());
+    }
+    else if (opt && (B.Rows() != Cols() || B.Cols() != A.Cols())) {
+        B.Resize(Cols(),A.Cols());
+    }
+    MultAdd( A, B, B, 1.0, 0.0, opt);
+}
+
+
+void TMatrix::MultAdd(const TMatrix &x,const TMatrix &y, TMatrix &z,
+                               const double alpha,const double beta,const int opt) const {
+    
+    if ((!opt && this->Cols() != x.Rows()) || (opt && this->Rows() != x.Rows())) {
+        std::cout<< "TPZFMatrix::MultAdd matrix x with incompatible dimensions>" <<std::endl;
+        return;
+    }
+    if(beta != (double)0. && ((!opt && this->Rows() != y.Rows()) || (opt && this->Cols() != y.Rows()) || y.Cols() != x.Cols())) {
+        std::cout << "TPZFMatrix::MultAdd matrix y with incompatible dimensions>" <<std::endl;
+        return;
+    }
+    if(!opt) {
+        if(z.Cols() != x.Cols() || z.Rows() != this->Rows()) {
+            z.Resize(this->Rows(),x.Cols());
+        }
+    } else {
+        if(z.Cols() != x.Cols() || z.Rows() != this->Cols()) {
+            z.Resize(this->Cols(),x.Cols());
+        }
+    }
+    if(this->Cols() == 0)
+    {
+        z.Zero();
+    }
+    unsigned numeq = opt ? this->Cols() : this->Rows();
+    int64_t rows = this->Rows();
+    int64_t cols = this->Cols();
+    int64_t xcols = x.Cols();
+    int64_t ic, c;
+    if (numeq)
+    {
+        for (ic = 0; ic < xcols; ic++) {
+            double *zp = &z(0,ic), *zlast = zp+numeq;
+            if(beta != (double)0.) {
+                const double *yp = &y.g(0,ic);
+                if(&z != &y) {
+                    memcpy(zp,yp,numeq*sizeof(double));
+                }
+                for(int64_t i=0; i< numeq; i++) z(i,ic) *= beta;
+                
+            } else {
+                while(zp != zlast) {
+                    *zp = 0.;
+                    zp ++;
+                }
+            }
+        }
+    }
+    
+    if(!(rows*cols)) return;
+    
+    for (ic = 0; ic < xcols; ic++) {
+        if(!opt) {
+            for ( c = 0; c<cols; c++) {
+                double * zp = &z(0,ic), *zlast = zp+rows;
+                double * fp = fmatrix +rows*c;
+                const double * xp = &x.g(c,ic);
+                while(zp < zlast) {
+                    *zp += alpha* *fp++ * *xp;
+                    zp ++;
+                }
+            }
+        } else {
+            double * fp = fmatrix,  *zp = &z(0,ic);
+            for (c = 0; c<cols; c++) {
+                double val = 0.;
+                // bug correction philippe 5/2/97
+                //                     REAL * xp = &x(0,ic), xlast = xp + numeq;
+                const double *xp = &x.g(0,ic);
+                const double *xlast = xp + rows;
+                while(xp < xlast) {
+                    val += *fp++ * *xp;
+                    xp ++;
+                }
+                *zp += alpha *val;
+                zp ++;
+            }
+        }
+    }
+    
+}
+
+
+
+
 
 ///Zera os valores da matriz
 void TMatrix::Zero()

@@ -8,6 +8,10 @@
 #include "CompMesh.h"
 #include "GeoMesh.h"
 #include "PostProcess.h"
+#include "tpanic.h"
+#include "MathStatement.h"
+
+using namespace std;
 
 Analysis::Analysis() {
     cmesh = 0;
@@ -52,11 +56,11 @@ void Analysis::RunSimulation() {
     Assemble assemb(cmesh);
     assemb.Compute(GlobalSystem, RightHandSide);
 
-    std::cout << "\nGlobal Stiff Matrix" << std::endl;
-    GlobalSystem.Print();
-
-    std::cout << "\nLoad Vector:" << std::endl;
-    RightHandSide.Print();
+//    std::cout << "\nGlobal Stiff Matrix" << std::endl;
+//    GlobalSystem.Print();
+//
+//    std::cout << "\nLoad Vector:" << std::endl;
+//    RightHandSide.Print();
 
     int nrows = RightHandSide.Rows();
     int ncols = RightHandSide.Cols();
@@ -75,12 +79,61 @@ void Analysis::RunSimulation() {
     cmesh->LoadSolution(sol);
 }
 
-//void PostProcessSolution(const std::string &filename, PostProcess &defPostProc) const{
-//
-//}
-//
-//void PostProcessError(VecDouble error, std::ostream &out, PostProcess &defPostProc) const {
-//    
-//}
+void Analysis::PostProcessSolution(const std::string &filename, PostProcess &defPostProc) const {
 
+
+}
+
+VecDouble Analysis::PostProcessError(std::ostream &out, PostProcess &defPostProc) const {
+
+    VecDouble values(10, 0.);
+    VecDouble errors(10, 0.);
+    std::function<void (const VecDouble &loc, VecDouble &result, Matrix & deriv) > fExact;
+//
+//    int solsize = Solution.Rows();
+//    VecDouble sol(solsize);
+//
+//    for (int i = 0; i < solsize; i++) {
+//        sol[i] = Solution(i, 0);
+//    }
+//    cmesh->LoadSolution(sol);
+
+    int64_t nel = cmesh->GetElementVec().size();
+
+    for (int64_t i = 0; i < nel; i++) {
+        CompElement *el = cmesh->GetElement(i);
+        if (el) {
+            MathStatement *mat = el->GetStatement();
+            fExact = defPostProc.GetExact();
+            el->EvaluateError(fExact, errors);
+            int nerrors = errors.size();
+            values.resize(nerrors, 0.);
+            for (int ier = 0; ier < nerrors; ier++) {
+                values[ier] += errors[ier] * errors[ier];
+            }
+        }
+    }
+
+    int nerrors = errors.size();
+    VecDouble ervec(nerrors, -10.0);
+
+    if (nerrors < 3) {
+        out << endl << "Analysis::PostProcessError - At least 3 norms are expected." << endl;
+        out << endl << "############" << endl;
+        for (int ier = 0; ier < nerrors; ier++)
+            out << endl << "error " << ier << "  = " << sqrt(values[ier]);
+    } else {
+        out << "############" << endl;
+        out << "Norma H1 or L2 -> p = " << sqrt(values[0]) << endl;
+        out << "Norma L2 or L2 -> u = " << sqrt(values[1]) << endl;
+        out << "Semi-norma H1 or L2 -> div = " << sqrt(values[2]) << endl;
+        for (int ier = 3; ier < nerrors; ier++)
+            out << "other norms = " << sqrt(values[ier]) << endl;
+    }
+    // Returns the calculated errors.
+    for (int i = 0; i < nerrors; i++){
+        ervec[i] = sqrt(values[i]);
+    }
+    return ervec;
+}
 

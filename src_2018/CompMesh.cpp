@@ -13,9 +13,12 @@ CompMesh::CompMesh() : geomesh(0), compelements(0), dofs(0), mathstatements(0), 
 }
 
 CompMesh::CompMesh(const CompMesh &copy) {
+    geomesh = copy.geomesh;
     compelements = copy.compelements;
     dofs = copy.dofs;
     mathstatements = copy.mathstatements;
+    solution = copy.solution;
+    DefaultOrder = copy.DefaultOrder;
 }
 
 CompMesh::CompMesh(GeoMesh *gmesh) {
@@ -114,25 +117,38 @@ void CompMesh::AutoBuild() {
         GeoElement *gel = this->GetGeoMesh()->Element(i);
         CompElement *cel = gel->CreateCompEl(this, i);
         this->SetElement(i, cel);
+        this->Resequence();
     }
-    this->Resequence();
 }
 
 void CompMesh::Resequence() {
     int64_t ndof = this->GetNumberDOF();
     int64_t fe = 0;
-    this->GetDOF(0).SetFirstEquation(0);
 
-    for (int i = 1; i < ndof; i++) {
+    for (int i = 0; i < ndof; i++) {
+        this->GetDOF(i).SetFirstEquation(fe);
         int nshape = this->GetDOF(i).GetNShape();
         int nstate = this->GetDOF(i).GetNState();
         int result = nshape * nstate;
         fe += result;
-        this->GetDOF(i).SetFirstEquation(fe);
     }
 }
 
 void CompMesh::Resequence(VecInt &DOFindices) {
+    int64_t ndofel = DOFindices.size();
+    int nelem = this->GetElementVec().size();
+    int64_t fe = 0;
+
+    for (int i = 0; i < nelem; i++) {
+        for (int j = 0; j < ndofel; j++) {
+            int dofindex = DOFindices[j];
+            this->GetDOF(dofindex).SetFirstEquation(fe);
+            int nshape = this->GetDOF(dofindex).GetNShape();
+            int nstate = this->GetDOF(dofindex).GetNState();
+            int result = nshape * nstate;
+            fe += result;
+        }
+    }
 }
 
 std::vector<double> &CompMesh::Solution() {

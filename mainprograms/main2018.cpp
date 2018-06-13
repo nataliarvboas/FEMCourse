@@ -20,6 +20,8 @@
 #include "Analysis.h"
 #include "Assemble.h"
 
+#include "PostProcess.h"
+
 using std::cout;
 using std::endl;
 using std::cin;
@@ -44,26 +46,25 @@ int main() {
     int dim = 2;
     int nel_x = 2;
     int nel_y = 2;
-    double l_x = 1.;
-    double l_y = 1.;
+    double l_x = 1;
+    double l_y = 1;
     int pOrder = 1;
 
     GeoMesh *gmesh = CreateGeoMesh(nel_x, nel_y, dim, l_x, l_y);
-//    gmesh->Print(std::cout);
+    //    gmesh->Print(std::cout);
 
     CompMesh *cmesh = CreateCompMesh(gmesh, pOrder);
 
     Analysis an(cmesh);
     an.RunSimulation();
-    
+
     VecDouble sol;
-    sol=cmesh->Solution();
-    std::cout<< "\nSolution" <<std::endl;
+    sol = cmesh->Solution();
+    std::cout << "\nSolution" << std::endl;
 
     for (int i = 0; i < sol.size(); i++) {
-        std::cout<<sol[i]<<std::endl;
+        std::cout << sol[i] << std::endl;
     }
-
 
     return 0;
 }
@@ -104,7 +105,6 @@ GeoMesh *CreateGeoMesh(int nel_x, int nel_y, int dim, double l_x, double l_y) {
 
             int matid = 0;
             GeoElement *gel = new GeoElementTemplate<GeomQuad> (TopolQuad, matid, gmesh, index);
-            gmesh->SetElement(index, gel);
         }
     }
 
@@ -138,7 +138,6 @@ GeoMesh *CreateGeoMesh(int nel_x, int nel_y, int dim, double l_x, double l_y) {
             topolLine[0] = TopolQuad[0];
             topolLine[1] = TopolQuad[1];
             GeoElement *gel = new GeoElementTemplate<Geom1d> (topolLine, bc2, gmesh, id);
-            gmesh->SetElement(id, gel);
             id++;
         }
         // Condicao de contorno da direita -> sides: 1 e 2
@@ -146,7 +145,6 @@ GeoMesh *CreateGeoMesh(int nel_x, int nel_y, int dim, double l_x, double l_y) {
             topolLine[0] = TopolQuad[1];
             topolLine[1] = TopolQuad[2];
             GeoElement *gel = new GeoElementTemplate<Geom1d> (topolLine, bc1, gmesh, id);
-            gmesh->SetElement(id, gel);
             id++;
         }
         // Condicao de contorno superior -> sides: 2 e 3
@@ -154,7 +152,6 @@ GeoMesh *CreateGeoMesh(int nel_x, int nel_y, int dim, double l_x, double l_y) {
             topolLine[0] = TopolQuad[2];
             topolLine[1] = TopolQuad[3];
             GeoElement *gel = new GeoElementTemplate<Geom1d> (topolLine, bc3, gmesh, id);
-            gmesh->SetElement(id, gel);
             id++;
         }
 
@@ -163,7 +160,6 @@ GeoMesh *CreateGeoMesh(int nel_x, int nel_y, int dim, double l_x, double l_y) {
             topolLine[0] = TopolQuad[0];
             topolLine[1] = TopolQuad[3];
             GeoElement *gel = new GeoElementTemplate<Geom1d> (topolLine, bc0, gmesh, id);
-            gmesh->SetElement(id, gel);
             id++;
         }
     }
@@ -174,7 +170,7 @@ GeoMesh *CreateGeoMesh(int nel_x, int nel_y, int dim, double l_x, double l_y) {
 CompMesh *CreateCompMesh(GeoMesh *gmesh, int pOrder) {
     CompMesh *cmesh = new CompMesh(gmesh);
     cmesh->SetDefaultOrder(pOrder);
-    int nelem = gmesh->NumElements();
+    int nelem = cmesh->GetElementVec().size();
 
     Matrix perm(2, 2);
     perm(0, 0) = 1;
@@ -191,7 +187,7 @@ CompMesh *CreateCompMesh(GeoMesh *gmesh, int pOrder) {
             cmesh->SetMathStatement(i, p);
         } else {
             cmesh->SetNumberMath(i + 1);
-            L2Projection *bc = new L2Projection(matid, perm);
+            L2Projection *bc = new L2Projection(0, matid, perm);
             bc->SetExactSolution(Sol_exact);
             cmesh->SetMathStatement(i, bc);
         }

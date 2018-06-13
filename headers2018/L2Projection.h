@@ -11,11 +11,12 @@
 #include "MathStatement.h"
 #include "DataTypes.h"
 #include  "IntPointData.h"
-#include  "PostProcess.h"
 #include <functional>
 
 class L2Projection : public MathStatement
 {
+    // Boundary condition ID
+    int BCType = 0;
     
     // L2 projection matrix
     Matrix projection;
@@ -33,13 +34,15 @@ public:
     L2Projection();
     
     // Constructor of L2Projection
-    L2Projection(int materialid, Matrix &perm);
+    L2Projection(int bctype, int materialid, Matrix &perm);
     
     // Copy constructor of L2Projection
     L2Projection(const L2Projection &copy);
     
     // Operator of copy
     L2Projection &operator=(const L2Projection &copy);
+    
+    int GetBCType() const { return BCType; }
     
     // Method for creating a copy of the element
     virtual L2Projection *Clone() const;
@@ -70,7 +73,7 @@ public:
     {
         SolutionExact = Exact;
     }
-    
+       
     // Return the number of errors
     virtual int NEvalErrors() const;
     
@@ -78,8 +81,8 @@ public:
     virtual int NState() const;
     
     virtual int VariableIndex(const PostProcVar var) const;
-//    
-//    // Return the variable index associated with the name
+    
+    // Return the variable index associated with the name
     virtual PostProcVar VariableIndex(const std::string &name);
     
     // Return the number of variables associated with the variable indexed by var. Param var Index variable into the solution, is obtained by calling VariableIndex
