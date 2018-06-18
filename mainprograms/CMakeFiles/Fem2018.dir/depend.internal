@@ -17,8 +17,12 @@ mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/Analysis.cpp.o
  headers2018/GeoNode.h
  headers2018/IntPointData.h
  headers2018/IntRule.h
+ headers2018/L2Projection.h
  headers2018/MathStatement.h
+ headers2018/Poisson.h
  headers2018/PostProcess.h
+ headers2018/PostProcessTemplate.h
+ headers2018/VTKGeoMesh.h
  headers2018/tpanic.h
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/Assemble.cpp.o
  /home/natalia/Documents/GitHub/FEMCourse/src_2018/Assemble.cpp
@@ -524,6 +528,7 @@ mainprograms/CMakeFiles/Fem2018.dir/main2018.cpp.o
  headers2018/MathStatement.h
  headers2018/Poisson.h
  headers2018/PostProcess.h
+ headers2018/PostProcessTemplate.h
  headers2018/ReadGmsh.h
  headers2018/Topology1d.h
  headers2018/TopologyQuad.h

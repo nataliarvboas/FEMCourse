@@ -2,6 +2,7 @@
 #include <iostream>
 #include <fstream>
 #include <math.h>
+#include <cmath>
 
 #include "DataTypes.h"
 #include "ReadGmsh.h"
@@ -21,6 +22,7 @@
 #include "Assemble.h"
 
 #include "PostProcess.h"
+#include "PostProcessTemplate.h"
 
 using std::cout;
 using std::endl;
@@ -28,6 +30,7 @@ using std::cin;
 
 const double Pi = M_PI;
 
+void ComputeConvergenceRates(VecDouble &error, double &h_size, VecDouble &convergence);
 GeoMesh *CreateGeoMesh(int nel_x, int nel_y, int dim, double l_x, double l_y);
 CompMesh *CreateCompMesh(GeoMesh *gmesh, int pOrder);
 void ForceFunction(const VecDouble &co, VecDouble &result);
@@ -42,31 +45,43 @@ int main() {
     //        VTKGeoMesh::PrintGMeshVTK(&gmesh,"teste1.vtk");
     //        
     //        gmesh.Print(std::cout);
+    for (int i = 1; i < 4; i++) {
 
-    int dim = 2;
-    int nel_x = 2;
-    int nel_y = 2;
-    double l_x = 1;
-    double l_y = 1;
-    int pOrder = 1;
+        int n = pow(2, i);
+        int dim = 2;
+        int nel_x = n;
+        int nel_y = n;
+        double l_x = 1;
+        double l_y = 1;
+        int pOrder = 1;
 
-    GeoMesh *gmesh = CreateGeoMesh(nel_x, nel_y, dim, l_x, l_y);
-    //    gmesh->Print(std::cout);
+        GeoMesh *gmesh = CreateGeoMesh(nel_x, nel_y, dim, l_x, l_y);
+        CompMesh *cmesh = CreateCompMesh(gmesh, pOrder);
 
-    CompMesh *cmesh = CreateCompMesh(gmesh, pOrder);
+        Analysis an(cmesh);
+        PostProcess *pos = new PostProcessTemplate<Poisson>(&an);
+        pos->AppendVariable("Sol");
+        pos->AppendVariable("SolExact");
+        pos->SetExact(Sol_exact);
 
-    Analysis an(cmesh);
-    an.RunSimulation();
+        an.RunSimulation();
+        an.PostProcessSolution("sol.vtk", *pos);
 
-    VecDouble sol;
-    sol = cmesh->Solution();
-    std::cout << "\nSolution" << std::endl;
-
-    for (int i = 0; i < sol.size(); i++) {
-        std::cout << sol[i] << std::endl;
+        VecDouble ervec;
+        ervec = an.PostProcessError(std::cout, *pos);
+        VecDouble conv(ervec.size());
+        ComputeConvergenceRates(ervec, l_x, conv);
     }
-
     return 0;
+}
+
+void ComputeConvergenceRates(VecDouble &error, double &h_size, VecDouble &convergence) {
+//    int ndata = error.size();
+//    for (int i = 1; i < ndata; i++) {
+//        double logerror = log(error[i - 1]);
+//        double logerrori = log(error[i]);
+//        convergence[i - 1] = (logerrori - logerror) / (h_size - log(h_size[i - 1]));
+//    }
 }
 
 GeoMesh *CreateGeoMesh(int nel_x, int nel_y, int dim, double l_x, double l_y) {
@@ -184,18 +199,19 @@ CompMesh *CreateCompMesh(GeoMesh *gmesh, int pOrder) {
             cmesh->SetNumberMath(i + 1);
             Poisson *p = new Poisson(matid, perm);
             p->SetForceFunction(ForceFunction);
+            p->SetExactSolution(Sol_exact);
             cmesh->SetMathStatement(i, p);
         } else {
             cmesh->SetNumberMath(i + 1);
-            L2Projection *bc = new L2Projection(0, matid, perm);
+            Matrix Val1(1, 1, 0.), Val2(1, 1, 0.);
+            L2Projection *bc = new L2Projection(0, matid, perm, Val1, Val2);
+            bc->SetForceFunction(ForceFunction);
             bc->SetExactSolution(Sol_exact);
             cmesh->SetMathStatement(i, bc);
         }
     }
-
     cmesh->AutoBuild();
     return cmesh;
-
 }
 
 void ForceFunction(const VecDouble &x, VecDouble &f) {

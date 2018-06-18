@@ -10,6 +10,8 @@
 #include "PostProcess.h"
 #include "tpanic.h"
 #include "MathStatement.h"
+#include "VTKGeoMesh.h"
+#include "PostProcessTemplate.h"
 
 using namespace std;
 
@@ -80,8 +82,8 @@ void Analysis::RunSimulation() {
 }
 
 void Analysis::PostProcessSolution(const std::string &filename, PostProcess &defPostProc) const {
-
-
+//    defPostProc.
+    VTKGeoMesh::PrintSolVTK(cmesh, defPostProc, filename);
 }
 
 VecDouble Analysis::PostProcessError(std::ostream &out, PostProcess &defPostProc) const {
@@ -89,12 +91,12 @@ VecDouble Analysis::PostProcessError(std::ostream &out, PostProcess &defPostProc
     VecDouble values(10, 0.);
     VecDouble errors(10, 0.);
     std::function<void (const VecDouble &loc, VecDouble &result, Matrix & deriv) > fExact;
-//
+
 //    int solsize = Solution.Rows();
 //    VecDouble sol(solsize);
 //
 //    for (int i = 0; i < solsize; i++) {
-//        sol[i] = Solution(i, 0);
+////        sol[i] = Solution(i, 0);
 //    }
 //    cmesh->LoadSolution(sol);
 
@@ -103,7 +105,6 @@ VecDouble Analysis::PostProcessError(std::ostream &out, PostProcess &defPostProc
     for (int64_t i = 0; i < nel; i++) {
         CompElement *el = cmesh->GetElement(i);
         if (el) {
-            MathStatement *mat = el->GetStatement();
             fExact = defPostProc.GetExact();
             el->EvaluateError(fExact, errors);
             int nerrors = errors.size();

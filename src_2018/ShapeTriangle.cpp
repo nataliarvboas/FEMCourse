@@ -15,47 +15,42 @@ void ShapeTriangle::Shape(const VecDouble &xi, VecInt &orders, VecDouble &phi, M
     phi.resize(nshape);
     dphi.Resize(2, nshape);
 
-    if (nsides == 3) {
-        phi[0] = 1 - xi[0] - xi[1];
-        phi[1] = xi[0];
-        phi[2] = xi[1];
+
+    phi[0] = 1 - xi[0] - xi[1];
+    phi[1] = xi[0];
+    phi[2] = xi[1];
 
 
-        dphi(0, 0) = -1;
-        dphi(0, 1) = 1;
-        dphi(0, 2) = 0;
-        dphi(1, 0) = -1;
-        dphi(1, 1) = 0;
-        dphi(1, 2) = 1;
-    }
+    dphi(0, 0) = -1;
+    dphi(0, 1) = 1;
+    dphi(0, 2) = 0;
+    dphi(1, 0) = -1;
+    dphi(1, 1) = 0;
+    dphi(1, 2) = 1;
 
     if (nsides == 7) {
-        VecDouble eps(nshape);
+        int is;
+        for (is = 3; is < 6; is++) {
+            int is1 = is % 3;
+            int is2 = (is + 1) % 3;
+            phi[is] = phi[is1] * phi[is2];
+            dphi(0, is) = dphi(0, is1) * phi[is2] + phi[is1]* dphi(0, is2);
+            dphi(1, is) = dphi(1, is1) * phi[is2] + phi[is1] * dphi(1, is2);
+        }
+        int is1 = 0;
+        int is2 = 1;
+        int is3 = 2;
+        phi[is] = phi[is1] * phi[is2] * phi[is3];
+        dphi(0, is) = dphi(0, is1) * phi[is2] * phi[is3] + phi[is1] * dphi(0, is2) * phi[is3] + phi[is1] * phi[is2] * dphi(0, is3);
+        dphi(1, is) = dphi(1, is1) * phi[is2] * phi[is3] + phi[is1] * dphi(1, is2) * phi[is3] + phi[is1] * phi[is2] * dphi(1, is3);
 
-        eps[0] = 1 - xi[0] - xi[1];
-        eps[1] = xi[0];
-        eps[2] = xi[1];
-
-        phi[0] = 2 * eps[0]*(eps[0] - 0.5);
-        phi[1] = 2 * eps[1]*(eps[1] - 0.5);
-        phi[2] = 2 * eps[2]*(eps[2] - 0.5);
-        phi[3] = 4 * eps[0] * eps[1];
-        phi[4] = 4 * eps[1] * eps[2];
-        phi[5] = 4 * eps[2] * eps[0];
-
-        dphi(0, 0) = -2 * (0.5 - xi[1] - xi[0]) - 2 * (1 - xi[1] - xi[0]);
-        dphi(0, 1) = 2 * (-0.5 + xi[0]) + 2 * xi[0];
-        dphi(0, 2) = 0;
-        dphi(0, 3) = 4 * (1 - xi[1] - xi[0]) - 4 * xi[0];
-        dphi(0, 4) = 4 * xi[1];
-        dphi(0, 5) = -4 * xi[1];
-
-        dphi(1, 0) = -2 * (0.5 - xi[1] - xi[0]) - 2 * (1 - xi[1] - xi[0]);
-        dphi(1, 1) = 0;
-        dphi(1, 2) = 2 * (-0.5 + xi[1]) + 2 * xi[1];
-        dphi(1, 3) = -4 * xi[0];
-        dphi(1, 4) = 4 * xi[0];
-        dphi(1, 5) = -4 * xi[1] + 4 * (1 - xi[1] - xi[0]);
+        // Make the generating shape functions linear and unitary
+        double mult[] = {1., 1., 1., 4., 4., 4., 27.};
+        for (is = 3; is < nsides; is++) {
+            phi[is] *= mult[is];
+            dphi(0, is) *= mult[is];
+            dphi(1, is) *= mult[is];
+        }
     }
 }
 

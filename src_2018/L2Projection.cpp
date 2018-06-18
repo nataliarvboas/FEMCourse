@@ -12,9 +12,11 @@
 L2Projection::L2Projection() {
 }
 
-L2Projection::L2Projection(int bctype, int materialid, Matrix &perm) {
-    projection = perm;
+L2Projection::L2Projection(int bctype, int materialid, Matrix &proj, Matrix Val1, Matrix Val2) {
+    projection = proj;
     BCType = bctype;
+    BCVal1 = Val1;
+    BCVal2 = Val2;
     this->SetMatID(materialid);
 }
 
@@ -23,6 +25,8 @@ L2Projection::L2Projection(const L2Projection &copy) {
     forceFunction = copy.forceFunction;
     SolutionExact = copy.SolutionExact;
     BCType = copy.BCType;
+    BCVal1 = copy.BCVal1;
+    BCVal2 = copy.BCVal2;
 
 }
 
@@ -31,6 +35,8 @@ L2Projection &L2Projection::operator=(const L2Projection &copy) {
     forceFunction = copy.forceFunction;
     SolutionExact = copy.SolutionExact;
     BCType = copy.BCType;
+    BCVal1 = copy.BCVal1;
+    BCVal2 = copy.BCVal2;
     return *this;
 }
 
@@ -54,7 +60,7 @@ int L2Projection::NState() const {
 }
 
 void L2Projection::Contribute(IntPointData &data, double weight, Matrix &EK, Matrix &EF) const {
-    int nvars = this->NState();
+    int nstate = this->NState();
     int nshape = data.phi.size();
 
     VecDouble result(data.x.size());
@@ -62,19 +68,50 @@ void L2Projection::Contribute(IntPointData &data, double weight, Matrix &EK, Mat
 
     SolutionExact(data.x, result, deriv);
 
-    for (int i = 0; i < nshape; i++) {
-        for (int ivi = 0; ivi < nvars; ivi++) {
-            const int posI = nvars * i + ivi;
-            EF(posI, 0) += weight * data.phi[i] * result[ivi] * MathStatement::gBigNumber;
-        }
-        for (int j = 0; j < nshape; j++) {
-            for (int ivi = 0; ivi < nvars; ivi++) {
-                const int posI = nvars * i + ivi;
-                const int posJ = nvars * j + ivi;
-                EK(posI, posJ) += weight * data.phi[i] * data.phi[j] * MathStatement::gBigNumber;
+    switch (this->GetBCType()) {
+
+        case 0:
+        {
+            for (int iv = 0; iv < nstate; iv++) {
+                for (int in = 0; in < nshape; in++) {
+                    EF(nstate * in + iv, 0) += MathStatement::gBigNumber * result[iv] * data.phi[in] * weight;
+                    for (int jn = 0; jn < nshape; jn++) {
+                        EK(nstate * in + iv, nstate * jn + iv) += MathStatement::gBigNumber * data.phi[in] * data.phi[jn] * weight;
+                    }
+                }
             }
+            break;
+        }
+
+        case 1:
+        {
+            for (int iv = 0; iv < nstate; iv++) {
+                for (int in = 0; in < nshape; in++) {
+                    EF(nstate * in + iv, 0) += Val2()(iv, 0) * data.phi[in] * weight;
+                }
+            }
+            break;
+        }
+
+        default:
+        {
+            std::cout << __PRETTY_FUNCTION__ << " at line " << __LINE__ << " not implemented\n";
         }
     }
+
+    //    for (int i = 0; i < nshape; i++) {
+    //        for (int ivi = 0; ivi < nstate; ivi++) {
+    //            const int posI = nstate * i + ivi;
+    //            EF(posI, 0) += weight * data.phi[i] * result[ivi] * MathStatement::gBigNumber;
+    //        }
+    //        for (int j = 0; j < nshape; j++) {
+    //            for (int ivi = 0; ivi < nstate; ivi++) {
+    //                const int posI = nstate * i + ivi;
+    //                const int posJ = nstate * j + ivi;
+    //                EK(posI, posJ) += weight * data.phi[i] * data.phi[j] * MathStatement::gBigNumber;
+    //            }
+    //        }
+    //    }
 }
 
 int L2Projection::NEvalErrors() const {
@@ -90,14 +127,14 @@ void L2Projection::ContributeError(IntPointData &data, VecDouble &u_exact, Matri
     Matrix dudx = data.dsoldx;
     Matrix gradu(3, 1);
     Matrix axes = data.axes;
-    this->Axes2XYZ(dudx, gradu, axes, true);
+    this->Axes2XYZ(dudx, gradu, axes);
 
     VecDouble sol(1), dsol(3, 0.);
     VecDouble u = data.solution;
     double diff;
-    
+
     for (int i = 0; i < u.size(); i++) {
-        diff = (u[0] - u_exact[0]);
+        diff = (u[i] - u_exact[i]);
     }
 
 
@@ -105,12 +142,15 @@ void L2Projection::ContributeError(IntPointData &data, VecDouble &u_exact, Matri
 
     errors[2] = 0.;
 
-    for (int i = 0; i < gradu.Rows(); i++) {
-        for (int j = 0; j < gradu.Cols(); j++) {
-            diff += (gradu(i, j) - du_exact(i, j));
+    for (int i = 0; i < 2; i++) {
+        for (int j = 0; j < this->NState(); j++) {
+            diff = (gradu(i, j) - du_exact(i, j));
+            errors[2] += diff*diff;
         }
+
     }
     errors[0] = errors[1] + errors[2];
+
 }
 
 int L2Projection::VariableIndex(const PostProcVar var) const {
@@ -124,11 +164,14 @@ L2Projection::PostProcVar L2Projection::VariableIndex(const std::string & name) 
 }
 
 int L2Projection::NSolutionVariables(const PostProcVar var) {
-    //    if (var == ESol) return this->NState();
-    //    if (var == EDSol) return this->NState(); //??
+    if (var == ESol) return this->NState();
+    if (var == EDSol) return this->NState();
 
 }
 
 std::vector<double> L2Projection::PostProcessSolution(const IntPointData &integrationpointdata, const int var) const {
-    DebugStop();
+//    DebugStop();
+    VecDouble vec(2,0);
+    return vec;
+
 }

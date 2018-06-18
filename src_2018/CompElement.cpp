@@ -110,8 +110,8 @@ void CompElement::ComputeRequiredData(IntPointData &data, VecDouble &intpoint) c
 
     int dim = this->Dimension();
 
-    geoel->X(data.ksi, data.x);
-    geoel->GradX(data.ksi, data.x, data.gradx);
+    geoel->X(intpoint, data.x);
+    geoel->GradX(intpoint, data.x, data.gradx);
 
     data.detjac = 0.0;
     Matrix jac(dim, dim, 0);
@@ -121,10 +121,6 @@ void CompElement::ComputeRequiredData(IntPointData &data, VecDouble &intpoint) c
 
     this->ShapeFunctions(intpoint, data.phi, data.dphidksi);
     this->Convert2Axes(data.dphidksi, jacinv, data.dphidx);
-
-    data.x.resize(3, 0.0);
-
-    geoel->X(intpoint, data.x);
 }
 
 void CompElement::Convert2Axes(const Matrix &dphi, const Matrix &jacinv, Matrix &dphidx) const {
@@ -192,9 +188,9 @@ void CompElement::CalcStiff(Matrix &ek, Matrix &ef) const {
     ef.Zero();
 
     for (int int_ind = 0; int_ind < intrulepoints; ++int_ind) {
-        intrule->Point(int_ind, intpoint, weight);
+        intrule->Point(int_ind, data.ksi, weight);
 
-        this->ComputeRequiredData(data, intpoint);
+        this->ComputeRequiredData(data, data.ksi);
         weight *= fabs(data.detjac);
 
         material->Contribute(data, weight, ek, ef);
@@ -202,49 +198,57 @@ void CompElement::CalcStiff(Matrix &ek, Matrix &ef) const {
 }
 
 void CompElement::EvaluateError(std::function<void(const VecDouble &loc, VecDouble &val, Matrix &deriv) > fp, VecDouble &errors) const {
-    MathStatement *material = this->GetStatement();
+    MathStatement * material = this->GetStatement();
+
     if (!material) {
         std::cout << "No material for this element\n";
         return;
     }
 
-    IntPointData data;
-    this->InitializeIntPointData(data);
-    double weight;
-
-
     int NErrors = material->NEvalErrors();
-    int dim = Dimension();
-    VecDouble intpoint(dim, 0.);
-    
-    errors.resize(NErrors);
+    errors.resize(NErrors, 0);
+
 
     IntRule *intrule = this->GetIntRule();
-    int intrulepoints = intrule->NPoints();
+    int maxIntOrder = 15;
+    intrule->SetOrder(maxIntOrder);
+    
+    int dim = Dimension();
+    int nstate = material->NState();
 
-    for (int ip = 0; ip < intrulepoints; ip++) {
-        intrule->Point(ip, intpoint, weight);
+    VecDouble intpoint(dim, 0.), values(NErrors);
+    double weight;
 
-        this->ComputeRequiredData(data, intpoint);
+    IntPointData data;
+    this->InitializeIntPointData(data);
+    int nintpoints = intrule->NPoints();
+
+
+    VecDouble u_exact(nstate);
+    Matrix du_exact(dim, nstate);
+    fp(data.x, u_exact, du_exact);
+
+    for (int nint = 0; nint < nintpoints; nint++) {
+        intrule->Point(nint, data.ksi, data.weight);
+        this->ComputeRequiredData(data, data.ksi);
         weight *= fabs(data.detjac);
+
+        fp(data.x, u_exact, du_exact);
         data.weight = weight;
         this->GetMultiplyingCoeficients(data.coefs);
         data.ComputeSolution();
-
-        VecDouble u_exact(data.x.size());
-        Matrix du_exact(data.x.size(), data.x.size());
-        fp(data.x, u_exact, du_exact);
-
-        VecDouble values(NErrors);
         material->ContributeError(data, u_exact, du_exact, values);
 
-        for (int ier = 0; ier < NErrors; ier++) {
+
+        for (int ier = 0; ier < NErrors; ier++)
             errors[ier] += weight * values[ier];
-        }
     }
+
+
     for (int ier = 0; ier < NErrors; ier++) {
         errors[ier] = sqrt(errors[ier]);
     }
+
 }
 
 void CompElement::Solution(VecDouble &intpoint, int var, VecDouble &sol, TMatrix &dsol) const {
@@ -264,7 +268,7 @@ void CompElement::Solution(VecDouble &intpoint, int var, VecDouble &sol, TMatrix
     this->GetMultiplyingCoeficients(data.coefs);
     data.ComputeSolution();
 
-    sol = data.solution;
+    sol = material->PostProcessSolution(data, var);
     dsol = data.dsoldx;
 }
 

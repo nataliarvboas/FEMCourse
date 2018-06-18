@@ -53,6 +53,7 @@ int Poisson::NState() const {
 }
 
 int Poisson::VariableIndex(const PostProcVar var) const {
+    if (var == ENone) return ENone;
     if (var == ESol) return ESol;
     if (var == EDSol) return EDSol;
     if (var == EFlux) return EFlux;
@@ -68,10 +69,21 @@ Poisson::PostProcVar Poisson::VariableIndex(const std::string &name) {
     if (!strcmp("Force", name.c_str())) return EForce;
     if (!strcmp("SolExact", name.c_str())) return ESolExact;
     if (!strcmp("DSolExact", name.c_str())) return EDSolExact;
+    else {
+        std::cout << "variable not implemented" << std::endl;
+    }
 }
 
 int Poisson::NSolutionVariables(const PostProcVar var) {
-
+    if (var == ESol) return this->Dimension();
+    if (var == EDSol) return this->Dimension();
+    if (var == EFlux) return this->Dimension();
+    if (var == EForce) return this->Dimension();
+    if (var == ESolExact) return this->Dimension();
+    if (var == EDSolExact) return this->Dimension();
+    else {
+        std::cout << "variable not implemented" << std::endl;
+    }
 
 }
 
@@ -84,14 +96,14 @@ void Poisson::ContributeError(IntPointData &data, VecDouble &u_exact, Matrix &du
     Matrix dudx = data.dsoldx;
     Matrix gradu(3, 1);
     Matrix axes = data.axes;
-    this->Axes2XYZ(dudx, gradu, axes, true);
+    this->Axes2XYZ(dudx, gradu, axes);
 
     VecDouble sol(1), dsol(3, 0.);
     VecDouble u = data.solution;
     double diff;
-    
-    for (int i = 0; i < u.size(); i++) {
-        diff = (u[0] - u_exact[0]);
+
+    for (int i = 0; i < this->NState(); i++) {
+        diff += (u[i] - u_exact[i]);
     }
 
 
@@ -99,10 +111,12 @@ void Poisson::ContributeError(IntPointData &data, VecDouble &u_exact, Matrix &du
 
     errors[2] = 0.;
 
-    for (int i = 0; i < gradu.Rows(); i++) {
-        for (int j = 0; j < gradu.Cols(); j++) {
-            diff += (gradu(i, j) - du_exact(i, j));
+    for (int i = 0; i < this->Dimension(); i++) {
+        for (int j = 0; j < this->NState(); j++) {
+            diff = (gradu(i, j) - du_exact(i, j));
+            errors[2] += diff*diff;
         }
+
     }
     errors[0] = errors[1] + errors[2];
 }
@@ -125,80 +139,120 @@ void Poisson::Contribute(IntPointData &data, double weight, Matrix &EK, Matrix &
     VecDouble res(data.x.size());
     force(data.x, res);
 
-    Matrix nvec(nstate, nstate, 0);
-    for (int i = 0; i < nstate; i++) {
-        nvec(i, i) = 1;
-    }
-
-    int id = 0;
-    int inormal = 0;
-    VecDouble normalid(nshape*nstate, 0.);
-    VecDouble shapeid(nshape*nstate, 0.);
-    for (int i = 0; i < nshape; i++) {
-        inormal = 0;
-        for (int s = 0; s < nstate; s++) {
-            normalid[id] = inormal;
-            shapeid[id] = i;
-            id++;
-            inormal++;
+    Matrix dphi_(dim, 1);
+    std::vector<Matrix> grad(nshape);
+    int i, j, k;
+    for (i = 0; i < nshape; i++) {
+        for (j = 0; j < dim; j++) {
+            dphi_(j, 0) = dphi(j, i);
         }
+        grad[i] = dphi_;
     }
 
-    Matrix dphi_nvec(nstate, nstate);
-    std::vector<Matrix> grad(nshape * nstate);
-    int i, j, k, nvecid;
-    for (i = 0; i < nshape * nstate; i++) {
-        nvecid = normalid[i];
-        for (j = 0; j < nstate; j++) {
-            for (k = 0; k < nstate; k++) {
-                dphi_nvec(j, k) = dphi(k, shapeid[i]) * nvec(j, nvecid);
+    int ivi = 0;
+    for (i = 0; i < nshape; i++) {
+        for (ivi = 0; ivi < nstate; ivi++) {
+            int posI = nstate * i + ivi;
+            EF(posI, 0) += phi[i] * res[ivi] * weight;
+        }
+        for (j = 0; j < nshape; j++) {
+            for (ivi = 0; ivi < nstate; ivi++) {
+                int posI = nstate * i + ivi;
+                int posJ = nstate * j + ivi;
+                Matrix gradi_T;
+                grad[i].Transpose(gradi_T);
+                EK(posI, posJ) += (gradi_T * grad[j])(0, 0) * weight;
             }
         }
-        grad[i] = dphi_nvec;
     }
-
-    Matrix mult(nstate, nstate);
-    double inner;
-
-    for (int i = 0; i < nshape; i++) {
-        for (int k = 0; k < nstate; k++) {
-            int posI = nstate * i + k;
-            EF(posI, 0) += phi[i] * res[k] * weight;
-        }
-    }
-
-    for (int i = 0; i < nshape * nstate; i++) {
-        for (int j = 0; j < nshape * nstate; j++) {
-            mult = grad[j] * perm;
-            inner = this->Inner(grad[i], mult);
-            EK(i, j) += inner * weight;
-        }
-    }
-
-    //        for (int i = 0; i < nshape; i++) {
-    //            const int posI = 2 * i;
-    //    
-    //            EF(posI, 0) += phi[i] * res[0] * weight;
-    //            EF(posI + 1, 0) += phi[i] * res[1] * weight;
-    //    
-    //            dv[0] = dphi(0, i) * axes(0, 0) + dphi(1, i) * axes(1, 0);
-    //            dv[1] = dphi(0, i) * axes(0, 1) + dphi(1, i) * axes(1, 1);
-    //    
-    //            for (int j = 0; j < nshape; j++) {
-    //                const int posJ = 2 * j;
-    //                du[0] = dphi(0, j) * axes(0, 0) + dphi(1, j) * axes(1, 0);
-    //                du[1] = dphi(0, j) * axes(0, 1) + dphi(1, j) * axes(1, 1);
-    //    
-    //    
-    //                EK(posI, posJ) += du[0] * dv[0] * perm(0, 0) * weight + du[0] * dv[1] * perm(1, 0) * weight;
-    //                EK(posI, posJ + 1) += du[0] * dv[0] * perm(0, 1) * weight + du[0] * dv[1] * perm(1, 1) * weight;
-    //                EK(posI + 1, posJ) += du[1] * dv[0] * perm(0, 0) * weight + du[1] * dv[1] * perm(1, 0) * weight;
-    //                EK(posI + 1, posJ + 1) += du[1] * dv[0] * perm(0, 1) * weight + du[1] * dv[1] * perm(1, 1) * weight;
-    //            }
-    //        }
 }
 
-std::vector<double> Poisson::PostProcessSolution(const IntPointData &integrationpointdata, const int var) const {
+std::vector<double> Poisson::PostProcessSolution(const IntPointData &data, const int var) const {
+    VecDouble sol = data.solution;
+    int rows = data.dsoldx.Rows();
+    int cols = data.dsoldx.Cols();
+    Matrix gradu(rows, cols);
+    gradu = data.dsoldx;
+
+    int dim = this->Dimension();
+    VecDouble Solout(0);
+
+    switch (var) {
+        case 0: //None
+        {
+            break;
+        }
+
+        case 1: //ESol
+        {
+            Solout.resize(dim);
+            Solout[0] = sol[0];
+            Solout[1] = sol[1];
+        }
+            break;
+
+        case 2: //EDSol
+        {
+            Solout.resize(rows * cols);
+            for (int i = 0; i < rows; i++) {
+                for (int j = 0; j < cols; j++) {
+                    Solout[i * cols + j] = gradu(i, j);
+                }
+            }
+
+        }
+            break;
+        case 3: //EFlux
+        {
+
+        }
+            break;
+
+        case 4: //EForce
+        {
+            Solout.resize(dim);
+            VecDouble result(dim);
+            this->forceFunction(data.x, result);
+            Solout[0] = result[0];
+            Solout[1] = result[1];
+        }
+            break;
+
+        case 5: //ESolExact
+        {
+            Solout.resize(dim);
+            VecDouble sol(dim);
+            Matrix dsol(dim, dim);
+            this->SolutionExact(data.x, sol, dsol);
+
+            Solout[0] = sol[0];
+            Solout[1] = sol[1];
+
+        }
+            break;
+        case 6: //EDSolExact
+        {
+            Solout.resize(rows * cols);
+            VecDouble sol(dim);
+            Matrix dsol(dim, dim);
+            this->SolutionExact(data.x, sol, dsol);
+
+            for (int i = 0; i < rows; i++) {
+                for (int j = 0; j < cols; j++) {
+                    Solout[i * cols + j] = dsol(i, j);
+                }
+            }
+        }
+            break;
+
+
+        default:
+        {
+            std::cout << " Var index not implemented " << std::endl;
+            DebugStop();
+        }
+    }
+    return Solout;
 
 }
 

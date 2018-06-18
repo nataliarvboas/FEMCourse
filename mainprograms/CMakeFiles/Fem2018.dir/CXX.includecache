@@ -13,6 +13,8 @@ fstream
 -
 math.h
 -
+cmath
+-
 DataTypes.h
 /home/natalia/Documents/GitHub/FEMCourse/mainprograms/DataTypes.h
 ReadGmsh.h
@@ -41,6 +43,8 @@ Assemble.h
 /home/natalia/Documents/GitHub/FEMCourse/mainprograms/Assemble.h
 PostProcess.h
 /home/natalia/Documents/GitHub/FEMCourse/mainprograms/PostProcess.h
+PostProcessTemplate.h
+/home/natalia/Documents/GitHub/FEMCourse/mainprograms/PostProcessTemplate.h
 
 /home/natalia/Documents/GitHub/FEMCourse/src vazio/TMatrix.cpp
 TMatrix.h
@@ -75,6 +79,10 @@ tpanic.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/tpanic.h
 MathStatement.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/MathStatement.h
+VTKGeoMesh.h
+/home/natalia/Documents/GitHub/FEMCourse/src_2018/VTKGeoMesh.h
+PostProcessTemplate.h
+/home/natalia/Documents/GitHub/FEMCourse/src_2018/PostProcessTemplate.h
 
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/Assemble.cpp
 Assemble.h
@@ -643,6 +651,20 @@ functional
 -
 DataTypes.h
 headers2018/DataTypes.h
+
+headers2018/PostProcessTemplate.h
+MathStatement.h
+headers2018/MathStatement.h
+Poisson.h
+headers2018/Poisson.h
+L2Projection.h
+headers2018/L2Projection.h
+IntPointData.h
+headers2018/IntPointData.h
+PostProcess.h
+headers2018/PostProcess.h
+list
+-
 
 headers2018/ReadGmsh.h
 string

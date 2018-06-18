@@ -102,5 +102,5 @@ public:
     virtual double Inner(Matrix &S, Matrix &T) const;
 
 
-    };
+};
 #endif /* Poisson_h */
