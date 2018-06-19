@@ -439,7 +439,8 @@ void VTKGeoMesh::PrintSolVTK(CompMesh *cmesh, PostProcess &defPostProc, const st
                 
             }
             
-            (file) << "SCALARS " << "varname" << " float" << std::endl << "LOOKUP_TABLE default\n";
+//          (file) << "SCALARS " << "varname" << " float" << std::endl << "LOOKUP_TABLE default\n";
+            (file) << "SCALARS " << varname << " float" << std::endl << "LOOKUP_TABLE default\n";
             file << scalsol[ivar].str();
             
         }

@@ -13,9 +13,10 @@
             <file>file:/home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp</file>
             <file>file:/home/natalia/Documents/GitHub/FEMCourse/src_2018/VTKGeoMesh.cpp</file>
             <file>file:/home/natalia/Documents/GitHub/FEMCourse/src_2018/Poisson.cpp</file>
+            <file>file:/home/natalia/Documents/GitHub/FEMCourse/src_2018/L2Projection.cpp</file>
             <file>file:/home/natalia/Documents/GitHub/FEMCourse/src_2018/Analysis.cpp</file>
             <file>file:/home/natalia/Documents/GitHub/FEMCourse/src_2018/CompElement.cpp</file>
-            <file>file:/home/natalia/Documents/GitHub/FEMCourse/headers2018/PostProcessTemplate.h</file>
+            <file>file:/home/natalia/Documents/GitHub/FEMCourse/src_2018/Assemble.cpp</file>
         </group>
     </open-files>
 </project-private>

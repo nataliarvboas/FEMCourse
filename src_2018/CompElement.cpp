@@ -212,38 +212,35 @@ void CompElement::EvaluateError(std::function<void(const VecDouble &loc, VecDoub
     IntRule *intrule = this->GetIntRule();
     int maxIntOrder = 15;
     intrule->SetOrder(maxIntOrder);
-    
+
     int dim = Dimension();
     int nstate = material->NState();
 
-    VecDouble intpoint(dim, 0.), values(NErrors);
-    double weight;
+    VecDouble intpoint(dim, 0.), values(NErrors, 1);
+    double weight = 0.;
 
     IntPointData data;
     this->InitializeIntPointData(data);
     int nintpoints = intrule->NPoints();
-
 
     VecDouble u_exact(nstate);
     Matrix du_exact(dim, nstate);
     fp(data.x, u_exact, du_exact);
 
     for (int nint = 0; nint < nintpoints; nint++) {
-        intrule->Point(nint, data.ksi, data.weight);
+        std::fill(values.begin(), values.end(), 0);
+        intrule->Point(nint, data.ksi, weight);
         this->ComputeRequiredData(data, data.ksi);
         weight *= fabs(data.detjac);
 
         fp(data.x, u_exact, du_exact);
-        data.weight = weight;
         this->GetMultiplyingCoeficients(data.coefs);
         data.ComputeSolution();
         material->ContributeError(data, u_exact, du_exact, values);
 
-
         for (int ier = 0; ier < NErrors; ier++)
             errors[ier] += weight * values[ier];
     }
-
 
     for (int ier = 0; ier < NErrors; ier++) {
         errors[ier] = sqrt(errors[ier]);
@@ -260,11 +257,7 @@ void CompElement::Solution(VecDouble &intpoint, int var, VecDouble &sol, TMatrix
 
     IntPointData data;
     this->InitializeIntPointData(data);
-    double weight;
-
     this->ComputeRequiredData(data, intpoint);
-    weight *= fabs(data.detjac);
-    data.weight = weight;
     this->GetMultiplyingCoeficients(data.coefs);
     data.ComputeSolution();
 

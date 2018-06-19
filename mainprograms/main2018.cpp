@@ -24,35 +24,27 @@
 #include "PostProcess.h"
 #include "PostProcessTemplate.h"
 
-using std::cout;
-using std::endl;
-using std::cin;
+using namespace std;
 
 const double Pi = M_PI;
 
-void ComputeConvergenceRates(VecDouble &error, double &h_size, VecDouble &convergence);
+void ComputeConvergenceRates(VecDouble &error0, VecDouble &error, int ndiv, double l);
 GeoMesh *CreateGeoMesh(int nel_x, int nel_y, int dim, double l_x, double l_y);
 CompMesh *CreateCompMesh(GeoMesh *gmesh, int pOrder);
 void ForceFunction(const VecDouble &co, VecDouble &result);
 void Sol_exact(const VecDouble &x, VecDouble &sol, Matrix &dsol);
 
 int main() {
-    //        VecDouble vec1;
-    //        ReadGmsh read;
-    //        GeoMesh gmesh;
-    //        read.Read(gmesh,"t1.msh");
-    //        
-    //        VTKGeoMesh::PrintGMeshVTK(&gmesh,"teste1.vtk");
-    //        
-    //        gmesh.Print(std::cout);
-    for (int i = 1; i < 4; i++) {
+    VecDouble error0(3,0);
+    for (int i = 1; i < 5; i++) {
 
-        int n = pow(2, i);
+        int ndiv = pow(2, i);
         int dim = 2;
-        int nel_x = n;
-        int nel_y = n;
-        double l_x = 1;
-        double l_y = 1;
+        int nel_x = ndiv;
+        int nel_y = ndiv;
+        double l = 1;
+        double l_x = l;
+        double l_y = l;
         int pOrder = 1;
 
         GeoMesh *gmesh = CreateGeoMesh(nel_x, nel_y, dim, l_x, l_y);
@@ -66,22 +58,33 @@ int main() {
 
         an.RunSimulation();
         an.PostProcessSolution("sol.vtk", *pos);
-
-        VecDouble ervec;
-        ervec = an.PostProcessError(std::cout, *pos);
-        VecDouble conv(ervec.size());
-        ComputeConvergenceRates(ervec, l_x, conv);
+        
+        VecDouble error;
+        error = an.PostProcessError(std::cout, *pos);
+   
+        ComputeConvergenceRates(error0, error, ndiv, l);
     }
     return 0;
 }
 
-void ComputeConvergenceRates(VecDouble &error, double &h_size, VecDouble &convergence) {
-//    int ndata = error.size();
-//    for (int i = 1; i < ndata; i++) {
-//        double logerror = log(error[i - 1]);
-//        double logerrori = log(error[i]);
-//        convergence[i - 1] = (logerrori - logerror) / (h_size - log(h_size[i - 1]));
-//    }
+void ComputeConvergenceRates(VecDouble &error0, VecDouble &error, int ndiv, double l) {
+
+    if (ndiv == 2) {
+        error0 = error;
+    }
+
+    double h = l / ndiv;
+    double h0 = 2 * h;
+
+    std::cout << "-----------------------" << std::endl;
+    std::cout << "Taxa de conv. u: " << (log(error[0]) - log(error0[0])) / (log(h) - log(h0)) << endl;
+    std::cout << "Taxa de conv. gradu: " << (log(error[1]) - log(error0[1])) / (log(h) - log(h0)) << endl;
+    std::cout << "Taxa de conv. energia: " << (log(error[2]) - log(error0[2])) / (log(h) - log(h0)) << endl;
+    std::cout << "-----------------------" << std::endl;
+
+    for (int i = 0; i < error.size(); i++) {
+        error0[i] = error[i];
+    }
 }
 
 GeoMesh *CreateGeoMesh(int nel_x, int nel_y, int dim, double l_x, double l_y) {
@@ -221,8 +224,8 @@ void ForceFunction(const VecDouble &x, VecDouble &f) {
     double yv = x[1];
     //    STATE zv = x[2];
 
-    double f_x = -8.0 * Pi * Pi * cos(2.0 * Pi * yv) * sin(2.0 * Pi * xv);
-    double f_y = +8.0 * Pi * Pi * cos(2.0 * Pi * xv) * sin(2.0 * Pi * yv);
+    double f_x = 8.0 * Pi * Pi * cos(2.0 * Pi * yv) * sin(2.0 * Pi * xv);
+    double f_y = -8.0 * Pi * Pi * cos(2.0 * Pi * xv) * sin(2.0 * Pi * yv);
 
     f[0] = f_x; // x direction
     f[1] = f_y; // y direction

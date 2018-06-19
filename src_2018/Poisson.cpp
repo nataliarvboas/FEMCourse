@@ -49,7 +49,7 @@ int Poisson::NEvalErrors() const {
 }
 
 int Poisson::NState() const {
-    return 2;
+    return 1;
 }
 
 int Poisson::VariableIndex(const PostProcVar var) const {
@@ -75,11 +75,11 @@ Poisson::PostProcVar Poisson::VariableIndex(const std::string &name) {
 }
 
 int Poisson::NSolutionVariables(const PostProcVar var) {
-    if (var == ESol) return this->Dimension();
+    if (var == ESol) return this->NState();
     if (var == EDSol) return this->Dimension();
     if (var == EFlux) return this->Dimension();
-    if (var == EForce) return this->Dimension();
-    if (var == ESolExact) return this->Dimension();
+    if (var == EForce) return this->NState();
+    if (var == ESolExact) return this->NState();
     if (var == EDSolExact) return this->Dimension();
     else {
         std::cout << "variable not implemented" << std::endl;
@@ -88,37 +88,30 @@ int Poisson::NSolutionVariables(const PostProcVar var) {
 }
 
 void Poisson::ContributeError(IntPointData &data, VecDouble &u_exact, Matrix &du_exact, VecDouble &errors) const {
-    errors.resize(NEvalErrors());
-
-    for (int i = 0; i < this->NEvalErrors(); i++) {
-        errors[i] = 0;
-    }
-    Matrix dudx = data.dsoldx;
+    errors.resize(NEvalErrors(), 0);
     Matrix gradu(3, 1);
     Matrix axes = data.axes;
+
+    VecDouble u = data.solution;
+    Matrix dudx = data.dsoldx;
+
     this->Axes2XYZ(dudx, gradu, axes);
 
-    VecDouble sol(1), dsol(3, 0.);
-    VecDouble u = data.solution;
-    double diff;
-
+    double diff = 0.0;
     for (int i = 0; i < this->NState(); i++) {
-        diff += (u[i] - u_exact[i]);
+        diff = (u[i] - u_exact[i]);
+        errors[0] += diff*diff;
     }
 
-
-    errors[1] = diff*diff;
-
-    errors[2] = 0.;
-
+    errors[1] = 0.;
     for (int i = 0; i < this->Dimension(); i++) {
         for (int j = 0; j < this->NState(); j++) {
             diff = (gradu(i, j) - du_exact(i, j));
-            errors[2] += diff*diff;
+            errors[1] += diff*diff;
         }
 
     }
-    errors[0] = errors[1] + errors[2];
+    errors[2] = errors[0] + errors[1];
 }
 
 void Poisson::Contribute(IntPointData &data, double weight, Matrix &EK, Matrix &EF) const {
@@ -157,11 +150,13 @@ void Poisson::Contribute(IntPointData &data, double weight, Matrix &EK, Matrix &
         }
         for (j = 0; j < nshape; j++) {
             for (ivi = 0; ivi < nstate; ivi++) {
-                int posI = nstate * i + ivi;
-                int posJ = nstate * j + ivi;
-                Matrix gradi_T;
-                grad[i].Transpose(gradi_T);
-                EK(posI, posJ) += (gradi_T * grad[j])(0, 0) * weight;
+                for (int ivj = 0; ivj < nstate; ivj++) {
+                    int posI = nstate * i + ivi;
+                    int posJ = nstate * j + ivj;
+                    Matrix gradi_T;
+                    grad[i].Transpose(gradi_T);
+                    EK(posI, posJ) += (gradi_T * grad[j])(0, 0) * perm(ivi, ivj) * weight;
+                }
             }
         }
     }
@@ -174,18 +169,19 @@ std::vector<double> Poisson::PostProcessSolution(const IntPointData &data, const
     Matrix gradu(rows, cols);
     gradu = data.dsoldx;
 
-    int dim = this->Dimension();
-    VecDouble Solout(0);
+    int nstate = this->NState();
+    VecDouble Solout;
 
     switch (var) {
         case 0: //None
         {
-            break;
+            std::cout << " Var index not implemented " << std::endl;
+            DebugStop();
         }
 
         case 1: //ESol
         {
-            Solout.resize(dim);
+            Solout.resize(nstate);
             Solout[0] = sol[0];
             Solout[1] = sol[1];
         }
@@ -210,8 +206,8 @@ std::vector<double> Poisson::PostProcessSolution(const IntPointData &data, const
 
         case 4: //EForce
         {
-            Solout.resize(dim);
-            VecDouble result(dim);
+            Solout.resize(nstate);
+            VecDouble result(nstate);
             this->forceFunction(data.x, result);
             Solout[0] = result[0];
             Solout[1] = result[1];
@@ -220,9 +216,9 @@ std::vector<double> Poisson::PostProcessSolution(const IntPointData &data, const
 
         case 5: //ESolExact
         {
-            Solout.resize(dim);
-            VecDouble sol(dim);
-            Matrix dsol(dim, dim);
+            Solout.resize(nstate);
+            VecDouble sol(nstate);
+            Matrix dsol(nstate, nstate);
             this->SolutionExact(data.x, sol, dsol);
 
             Solout[0] = sol[0];
@@ -233,8 +229,8 @@ std::vector<double> Poisson::PostProcessSolution(const IntPointData &data, const
         case 6: //EDSolExact
         {
             Solout.resize(rows * cols);
-            VecDouble sol(dim);
-            Matrix dsol(dim, dim);
+            VecDouble sol(nstate);
+            Matrix dsol(nstate, nstate);
             this->SolutionExact(data.x, sol, dsol);
 
             for (int i = 0; i < rows; i++) {

@@ -56,7 +56,7 @@ void L2Projection::SetProjectionMatrix(const Matrix &proj) {
 }
 
 int L2Projection::NState() const {
-    return 2;
+    return 1;
 }
 
 void L2Projection::Contribute(IntPointData &data, double weight, Matrix &EK, Matrix &EF) const {
@@ -119,38 +119,7 @@ int L2Projection::NEvalErrors() const {
 }
 
 void L2Projection::ContributeError(IntPointData &data, VecDouble &u_exact, Matrix &du_exact, VecDouble &errors) const {
-    errors.resize(NEvalErrors());
-
-    for (int i = 0; i < this->NEvalErrors(); i++) {
-        errors[i] = 0;
-    }
-    Matrix dudx = data.dsoldx;
-    Matrix gradu(3, 1);
-    Matrix axes = data.axes;
-    this->Axes2XYZ(dudx, gradu, axes);
-
-    VecDouble sol(1), dsol(3, 0.);
-    VecDouble u = data.solution;
-    double diff;
-
-    for (int i = 0; i < u.size(); i++) {
-        diff = (u[i] - u_exact[i]);
-    }
-
-
-    errors[1] = diff*diff;
-
-    errors[2] = 0.;
-
-    for (int i = 0; i < 2; i++) {
-        for (int j = 0; j < this->NState(); j++) {
-            diff = (gradu(i, j) - du_exact(i, j));
-            errors[2] += diff*diff;
-        }
-
-    }
-    errors[0] = errors[1] + errors[2];
-
+    return;
 }
 
 int L2Projection::VariableIndex(const PostProcVar var) const {
@@ -170,8 +139,8 @@ int L2Projection::NSolutionVariables(const PostProcVar var) {
 }
 
 std::vector<double> L2Projection::PostProcessSolution(const IntPointData &integrationpointdata, const int var) const {
-//    DebugStop();
-    VecDouble vec(2,0);
+    //    DebugStop();
+    VecDouble vec(2, 0);
     return vec;
 
 }
