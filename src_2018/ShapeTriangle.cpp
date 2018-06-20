@@ -28,7 +28,7 @@ void ShapeTriangle::Shape(const VecDouble &xi, VecInt &orders, VecDouble &phi, M
     dphi(1, 1) = 0;
     dphi(1, 2) = 1;
 
-    if (nsides == 7) {
+    if (nshape == 7) {
         int is;
         for (is = 3; is < 6; is++) {
             int is1 = is % 3;

@@ -182,8 +182,9 @@ std::vector<double> Poisson::PostProcessSolution(const IntPointData &data, const
         case 1: //ESol
         {
             Solout.resize(nstate);
-            Solout[0] = sol[0];
-            Solout[1] = sol[1];
+            for (int i = 0; i < nstate; i++) {
+                Solout[i] = sol[i];
+            }
         }
             break;
 
@@ -209,8 +210,9 @@ std::vector<double> Poisson::PostProcessSolution(const IntPointData &data, const
             Solout.resize(nstate);
             VecDouble result(nstate);
             this->forceFunction(data.x, result);
-            Solout[0] = result[0];
-            Solout[1] = result[1];
+            for (int i = 0; i < nstate; i++) {
+                Solout[i] = result[i];
+            }
         }
             break;
 
@@ -220,9 +222,9 @@ std::vector<double> Poisson::PostProcessSolution(const IntPointData &data, const
             VecDouble sol(nstate);
             Matrix dsol(nstate, nstate);
             this->SolutionExact(data.x, sol, dsol);
-
-            Solout[0] = sol[0];
-            Solout[1] = sol[1];
+            for (int i = 0; i < nstate; i++) {
+                Solout[i] = sol[i];
+            }
 
         }
             break;

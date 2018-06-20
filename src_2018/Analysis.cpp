@@ -71,6 +71,8 @@ void Analysis::RunSimulation() {
 
     GlobalSystem.Solve_LU(F);
     Solution = F;
+    
+//    Solution.Print();
 
     int solsize = Solution.Rows();
     VecDouble sol(solsize);

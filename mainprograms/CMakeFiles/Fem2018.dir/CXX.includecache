@@ -15,6 +15,10 @@ math.h
 -
 cmath
 -
+functional
+-
+string.h
+-
 DataTypes.h
 /home/natalia/Documents/GitHub/FEMCourse/mainprograms/DataTypes.h
 ReadGmsh.h

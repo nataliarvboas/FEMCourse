@@ -3,6 +3,8 @@
 #include <fstream>
 #include <math.h>
 #include <cmath>
+#include <functional> 
+#include <string.h>
 
 #include "DataTypes.h"
 #include "ReadGmsh.h"
@@ -29,39 +31,43 @@ using namespace std;
 const double Pi = M_PI;
 
 void ComputeConvergenceRates(VecDouble &error0, VecDouble &error, int ndiv, double l);
-GeoMesh *CreateGeoMesh(int nel_x, int nel_y, int dim, double l_x, double l_y);
+GeoMesh *QuadGeoMesh(int nnodes_x, int nnodes_y, int dim, double l);
+GeoMesh *TriangleGeoMesh(int nnodes_x, int nnodes_y, int dim, double l);
+GeoMesh *TetrahedronGeoMesh(int nnodes_x, int nnodes_y, int dim, double l);
+GeoMesh *CreateGeoMesh(ElementType eltype, int nnodes_x, int nnodes_y, int dim, double l);
 CompMesh *CreateCompMesh(GeoMesh *gmesh, int pOrder);
 void ForceFunction(const VecDouble &co, VecDouble &result);
 void Sol_exact(const VecDouble &x, VecDouble &sol, Matrix &dsol);
 
 int main() {
-    VecDouble error0(3,0);
+    VecDouble error0(3, 0);
     for (int i = 0; i < 5; i++) {
 
         int ndiv = pow(2, i);
         int dim = 2;
-        int nel_x = ndiv;
-        int nel_y = ndiv;
+        int nnodes_x = ndiv + 1;
+        int nnodes_y = ndiv + 1;
         double l = 1;
-        double l_x = l;
-        double l_y = l;
         int pOrder = 2;
+        ElementType eltype = EQuadrilateral;
 
-        GeoMesh *gmesh = CreateGeoMesh(nel_x, nel_y, dim, l_x, l_y);
+        GeoMesh *gmesh = CreateGeoMesh(eltype, nnodes_x, nnodes_y, dim, l);
         CompMesh *cmesh = CreateCompMesh(gmesh, pOrder);
 
         Analysis an(cmesh);
         PostProcess *pos = new PostProcessTemplate<Poisson>(&an);
         pos->AppendVariable("Sol");
         pos->AppendVariable("SolExact");
+        pos->AppendVariable("DSol");
+        pos->AppendVariable("DSolExact");
         pos->SetExact(Sol_exact);
 
         an.RunSimulation();
-        an.PostProcessSolution("solquad.vtk", *pos);
-        
+        an.PostProcessSolution("Solution.vtk", *pos);
+
         VecDouble error;
         error = an.PostProcessError(std::cout, *pos);
-   
+
         ComputeConvergenceRates(error0, error, ndiv, l);
     }
     return 0;
@@ -87,11 +93,21 @@ void ComputeConvergenceRates(VecDouble &error0, VecDouble &error, int ndiv, doub
     }
 }
 
-GeoMesh *CreateGeoMesh(int nel_x, int nel_y, int dim, double l_x, double l_y) {
-    int nnodes_x = nel_x + 1;
-    int nnodes_y = nel_y + 1;
-    int64_t nelem = nel_x*nel_y;
+GeoMesh *CreateGeoMesh(ElementType eltype, int nnodes_x, int nnodes_y, int dim, double l) {
+    if (eltype == EQuadrilateral) {
+        return QuadGeoMesh(nnodes_x, nnodes_y, dim, l);
+    }
+    if (eltype == ETriangle) {
+        return TriangleGeoMesh(nnodes_x, nnodes_y, dim, l);
+    }
+    if (eltype == ETetraedro) {
+        return TetrahedronGeoMesh(nnodes_x, nnodes_y, dim, l);
+    }
+}
+
+GeoMesh *QuadGeoMesh(int nnodes_x, int nnodes_y, int dim, double l) {
     int64_t nnodes = nnodes_x*nnodes_y;
+    int64_t nelem = (nnodes_x - 1) * (nnodes_y - 1);
 
     GeoMesh *gmesh = new GeoMesh;
 
@@ -104,8 +120,8 @@ GeoMesh *CreateGeoMesh(int nel_x, int nel_y, int dim, double l_x, double l_y) {
     for (int i = 0; i < nnodes_y; i++) {
         for (int j = 0; j < nnodes_x; j++) {
             nodeid = i * nnodes_x + j;
-            coord[0] = (j) * l_x / (nnodes_x - 1);
-            coord[1] = (i) * l_y / (nnodes_y - 1);
+            coord[0] = (j) * l / (nnodes_x - 1);
+            coord[1] = (i) * l / (nnodes_y - 1);
             gmesh->Node(nodeid).SetCo(coord);
         }
     }
@@ -146,34 +162,34 @@ GeoMesh *CreateGeoMesh(int nel_x, int nel_y, int dim, double l_x, double l_y) {
 
         //Coordenadas x e y de cada corner do elemento
         for (int i = 0; i < 2; i++) {
-            for (int j = 0; j < 4; j++) {
+            for (int j = 0; j < ncorners; j++) {
                 co(i, j) = gmesh->Node(TopolQuad[j]).Co()[i];
             }
         }
 
-        // Condicao de contorno inferior -> sides: 0 e 1
+        // Condicao de contorno inferior
         if (co(1, 0) == 0 && co(1, 1) == 0) {
             topolLine[0] = TopolQuad[0];
             topolLine[1] = TopolQuad[1];
             GeoElement *gel = new GeoElementTemplate<Geom1d> (topolLine, bc2, gmesh, id);
             id++;
         }
-        // Condicao de contorno da direita -> sides: 1 e 2
-        if (co(0, 1) == l_x && co(0, 2) == l_x) {
+        // Condicao de contorno da direita
+        if (co(0, 1) == l && co(0, 2) == l) {
             topolLine[0] = TopolQuad[1];
             topolLine[1] = TopolQuad[2];
             GeoElement *gel = new GeoElementTemplate<Geom1d> (topolLine, bc1, gmesh, id);
             id++;
         }
-        // Condicao de contorno superior -> sides: 2 e 3
-        if (co(1, 2) == l_y && co(1, 3) == l_y) {
+        // Condicao de contorno superior
+        if (co(1, 2) == l && co(1, 3) == l) {
             topolLine[0] = TopolQuad[2];
             topolLine[1] = TopolQuad[3];
             GeoElement *gel = new GeoElementTemplate<Geom1d> (topolLine, bc3, gmesh, id);
             id++;
         }
 
-        // Condicao de contorno da esquerda -> sides: 0 e 3
+        // Condicao de contorno da esquerda
         if (co(0, 0) == 0 && co(0, 3) == 0) {
             topolLine[0] = TopolQuad[0];
             topolLine[1] = TopolQuad[3];
@@ -183,6 +199,114 @@ GeoMesh *CreateGeoMesh(int nel_x, int nel_y, int dim, double l_x, double l_y) {
     }
     gmesh->BuildConnectivity();
     return gmesh;
+}
+
+GeoMesh *TriangleGeoMesh(int nnodes_x, int nnodes_y, int dim, double l) {
+    int64_t nnodes = nnodes_x*nnodes_y;
+    int64_t nelem = 2 * (nnodes_x - 1) * (nnodes_y - 1);
+
+    GeoMesh *gmesh = new GeoMesh;
+
+    gmesh->SetDimension(dim);
+    gmesh->SetNumNodes(nnodes);
+
+    //Cria os nos da malha
+    VecDouble coord(3, 0.);
+    int64_t nodeid;
+    for (int i = 0; i < nnodes_y; i++) {
+        for (int j = 0; j < nnodes_x; j++) {
+            nodeid = i * nnodes_x + j;
+            coord[0] = (j) * l / (nnodes_x - 1);
+            coord[1] = (i) * l / (nnodes_y - 1);
+            gmesh->Node(nodeid).SetCo(coord);
+        }
+    }
+
+    //Cria os elementos
+    VecInt TopolTriangle_e(3, 0);
+    VecInt TopolTriangle_d(3, 0);
+    int k = 0;
+    int index = 0;
+    for (int i = 0; i < (nnodes_y - 1); i++) {
+        for (int j = 0; j < (nnodes_x - 1); j++) {
+            TopolTriangle_e[0] = i * nnodes_y + j;
+            TopolTriangle_e[1] = TopolTriangle_e[0] + 1;
+            TopolTriangle_e[2] = TopolTriangle_e[0] + nnodes_x;
+            int matid = 0;
+            GeoElement *gel = new GeoElementTemplate<GeomTriangle> (TopolTriangle_e, matid, gmesh, index);
+            index++;
+
+            TopolTriangle_d[0] = TopolTriangle_e[1];
+            TopolTriangle_d[1] = TopolTriangle_e[1] + nnodes_y;
+            TopolTriangle_d[2] = TopolTriangle_e[0] + nnodes_x;
+            GeoElement *gelU = new GeoElementTemplate<GeomTriangle>(TopolTriangle_d, matid, gmesh, index);
+            index++;
+        }
+    }
+
+    VecInt topolLine(2, 0.);
+    VecInt TopolTriangle(3, 0);
+    Matrix co(2, 4, 0);
+    int64_t id = nelem;
+
+    int bc0 = -1;
+    int bc1 = -2;
+    int bc2 = -3;
+    int bc3 = -4;
+
+    //Condicoes de contorno
+    for (int64_t iel = 0; iel < nelem; iel++) {
+
+        //Indice do no de cada corner do elemento
+        int ncorners = gmesh->Element(iel)->NCornerNodes();
+        for (int i = 0; i < ncorners; i++) {
+            TopolTriangle[i] = gmesh->Element(iel)->NodeIndex(i);
+        }
+
+        //Coordenadas x e y de cada corner do elemento
+        for (int i = 0; i < 2; i++) {
+            for (int j = 0; j < ncorners; j++) {
+                co(i, j) = gmesh->Node(TopolTriangle[j]).Co()[i];
+            }
+        }
+
+        // Condicao de contorno inferior
+        if (co(1, 0) == 0 && co(1, 1) == 0) {
+            topolLine[0] = TopolTriangle[0];
+            topolLine[1] = TopolTriangle[1];
+            GeoElement *gel = new GeoElementTemplate<Geom1d> (topolLine, bc2, gmesh, id);
+            id++;
+        }
+        // Condicao de contorno da direita
+        if (co(0, 0) == l && co(0, 1) == l) {
+            topolLine[0] = TopolTriangle[0];
+            topolLine[1] = TopolTriangle[1];
+            GeoElement *gel = new GeoElementTemplate<Geom1d> (topolLine, bc1, gmesh, id);
+            id++;
+        }
+        // Condicao de contorno superior
+        if (co(1, 1) == l && co(1, 2) == l) {
+            topolLine[0] = TopolTriangle[1];
+            topolLine[1] = TopolTriangle[2];
+            GeoElement *gel = new GeoElementTemplate<Geom1d> (topolLine, bc3, gmesh, id);
+            id++;
+        }
+
+        // Condicao de contorno da esquerda
+        if (co(0, 0) == 0 && co(0, 2) == 0) {
+            topolLine[0] = TopolTriangle[0];
+            topolLine[1] = TopolTriangle[2];
+            GeoElement *gel = new GeoElementTemplate<Geom1d> (topolLine, bc0, gmesh, id);
+            id++;
+        }
+    }
+
+    gmesh->BuildConnectivity();
+    return gmesh;
+}
+
+GeoMesh *TetrahedronGeoMesh(int nnodes_x, int nnodes_y, int dim, double l) {
+
 }
 
 CompMesh *CreateCompMesh(GeoMesh *gmesh, int pOrder) {
