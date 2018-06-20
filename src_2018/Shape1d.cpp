@@ -9,6 +9,12 @@
 
 void Shape1d::Shape(const VecDouble& xi, VecInt& orders, VecDouble& phi, Matrix& dphi) {
     int n = NShapeFunctions(orders);
+    
+    if (orders[0] == 2) {
+        phi.resize(n);
+        dphi.Resize(2, n);
+        n = n - 1;
+    }
 
     for (int i = 0; i < n; i++) {
         phi[i] = 1.;
@@ -38,6 +44,13 @@ void Shape1d::Shape(const VecDouble& xi, VecInt& orders, VecDouble& phi, Matrix&
             }
         }
     }
+    if (orders[0] == 2) {
+        phi[2] = phi[0] * phi[1];
+        dphi(0, 2) = dphi(0, 0) * phi[1] + phi[0] * dphi(0, 1);
+        phi[2] *= 4.;
+        dphi(0, 2) *= 4.;
+    }
+
 }
 
 int Shape1d::NShapeFunctions(int side, int order) {

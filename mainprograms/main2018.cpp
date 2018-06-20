@@ -36,7 +36,7 @@ void Sol_exact(const VecDouble &x, VecDouble &sol, Matrix &dsol);
 
 int main() {
     VecDouble error0(3,0);
-    for (int i = 1; i < 5; i++) {
+    for (int i = 0; i < 5; i++) {
 
         int ndiv = pow(2, i);
         int dim = 2;
@@ -45,7 +45,7 @@ int main() {
         double l = 1;
         double l_x = l;
         double l_y = l;
-        int pOrder = 1;
+        int pOrder = 2;
 
         GeoMesh *gmesh = CreateGeoMesh(nel_x, nel_y, dim, l_x, l_y);
         CompMesh *cmesh = CreateCompMesh(gmesh, pOrder);
@@ -57,7 +57,7 @@ int main() {
         pos->SetExact(Sol_exact);
 
         an.RunSimulation();
-        an.PostProcessSolution("sol.vtk", *pos);
+        an.PostProcessSolution("solquad.vtk", *pos);
         
         VecDouble error;
         error = an.PostProcessError(std::cout, *pos);
@@ -69,7 +69,7 @@ int main() {
 
 void ComputeConvergenceRates(VecDouble &error0, VecDouble &error, int ndiv, double l) {
 
-    if (ndiv == 2) {
+    if (ndiv == 1) {
         error0 = error;
     }
 

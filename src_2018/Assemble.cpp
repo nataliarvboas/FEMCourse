@@ -61,7 +61,8 @@ void Assemble::Compute(Matrix &globmat, Matrix &rhs) {
         ef.Zero();
         cel->CalcStiff(ek, ef);
 
-//                ek.Print();
+//        ek.Print();
+//        ef.Print();
 
         int ndof = cel->NDOF();
         VecInt iglob(0);

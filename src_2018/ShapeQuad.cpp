@@ -12,37 +12,14 @@ void ShapeQuad::Shape(const VecDouble &xi, VecInt &orders, VecDouble &phi, Matri
     int nshape = NShapeFunctions(orders);
     int nsides = orders.size();
 
-    Matrix Indices(1, 1, 0);
+    Matrix Indices(2, 2, 0);
+    Indices(0, 0) = 0;
+    Indices(0, 1) = 3;
+    Indices(1, 0) = 1;
+    Indices(1, 1) = 2;
 
-    if (orders[0] == 1) {
-
-        Indices.Resize(2, 2);
-
-        Indices(0, 0) = 0;
-        Indices(0, 1) = 3;
-        Indices(1, 0) = 1;
-        Indices(1, 1) = 2;
-
-        phi.resize(4);
-        dphi.Resize(2, 4);
-    }
-
-    if (orders[0] == 2) {
-        Indices.Resize(3, 3);
-
-        Indices(0, 0) = 0;
-        Indices(0, 1) = 7;
-        Indices(0, 2) = 3;
-        Indices(1, 0) = 4;
-        Indices(1, 1) = 8;
-        Indices(1, 2) = 6;
-        Indices(2, 0) = 1;
-        Indices(2, 1) = 5;
-        Indices(2, 2) = 2;
-
-        phi.resize(9);
-        dphi.Resize(2, 9);
-    }
+    phi.resize(nshape);
+    dphi.Resize(2, nshape);
 
     VecDouble phixi(nshape), phieta(nshape);
     Matrix dphixi(1, nshape), dphieta(1, nshape);
@@ -54,9 +31,9 @@ void ShapeQuad::Shape(const VecDouble &xi, VecInt &orders, VecDouble &phi, Matri
 
     VecInt order_1d(3, 1);
     for (int i = 0; i < 3; i++) {
-        order_1d[i] = orders[i];
+        order_1d[i] = 1;
     }
-    
+
     int nn = Shape1d::NShapeFunctions(order_1d);
     for (int csi = 0; csi < nn; csi++) {
 
@@ -72,6 +49,33 @@ void ShapeQuad::Shape(const VecDouble &xi, VecInt &orders, VecDouble &phi, Matri
             dphi(1, Indices(csi, eta)) = dphieta(0, eta) * phixi[csi];
         }
     }
+
+    if (orders[0] == 2) {
+        int is;
+        for (is = 4; is < 8; is++) {
+            int id = is % 4;
+            int id2 = (is + 1) % 4;
+            phi[is] = phi[id] * phi[id2];
+            dphi(0, is) = dphi(0, id) * phi[id2] + phi[id] * dphi(0, id2);
+            dphi(1, is) = dphi(1, id) * phi[id2] + phi[id] * dphi(1, id2);
+        }
+        phi[8] = phi[0] * phi[2];
+        dphi(0, 8) = dphi(0, 0) * phi[2] + phi[0] * dphi(0, 2);
+        dphi(1, 8) = dphi(1, 0) * phi[2] + phi[0] * dphi(1, 2);
+
+        for (int is = 4; is < 8; is++) {
+            phi[is] += phi[8];
+            dphi(0, is) += dphi(0, 8);
+            dphi(1, is) += dphi(1, 8);
+            phi[is] *= 4.;
+            dphi(0, is) *= 4.;
+            dphi(1, is) *= 4.;
+        }
+        phi[8] *= 16.;
+        dphi(0, 8) *= 16.;
+        dphi(1, 8) *= 16.;
+    }
+
 }
 
 int ShapeQuad::NShapeFunctions(int side, int order) {

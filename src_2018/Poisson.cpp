@@ -49,7 +49,7 @@ int Poisson::NEvalErrors() const {
 }
 
 int Poisson::NState() const {
-    return 1;
+    return 2;
 }
 
 int Poisson::VariableIndex(const PostProcVar var) const {

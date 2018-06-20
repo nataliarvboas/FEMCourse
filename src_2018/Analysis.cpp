@@ -58,8 +58,8 @@ void Analysis::RunSimulation() {
     Assemble assemb(cmesh);
     assemb.Compute(GlobalSystem, RightHandSide);
 
-    //    std::cout << "\nGlobal Stiff Matrix" << std::endl;
-    //    GlobalSystem.Print();
+//        std::cout << "\nGlobal Stiff Matrix" << std::endl;
+//        GlobalSystem.Print();
     //
     //    std::cout << "\nLoad Vector:" << std::endl;
     //    RightHandSide.Print();
