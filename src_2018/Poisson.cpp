@@ -49,7 +49,7 @@ int Poisson::NEvalErrors() const {
 }
 
 int Poisson::NState() const {
-    return 2;
+    return 3;
 }
 
 int Poisson::VariableIndex(const PostProcVar var) const {
@@ -104,8 +104,10 @@ void Poisson::ContributeError(IntPointData &data, VecDouble &u_exact, Matrix &du
     }
 
     errors[1] = 0.;
-    for (int i = 0; i < this->Dimension(); i++) {
-        for (int j = 0; j < this->NState(); j++) {
+    int dim = this->Dimension();
+    int nstate = this->NState();
+    for (int i = 0; i < dim; i++) {
+        for (int j = 0; j < nstate; j++) {
             diff = (gradu(i, j) - du_exact(i, j));
             errors[1] += diff*diff;
         }
@@ -120,7 +122,7 @@ void Poisson::Contribute(IntPointData &data, double weight, Matrix &EK, Matrix &
     Matrix axes = data.axes;
 
     int nshape = phi.size();
-    int dim = this->Dimension();
+    int dim = dphi.Rows;
     int nstate = this->NState();
 
     Matrix perm(dim, dim);
@@ -235,8 +237,8 @@ std::vector<double> Poisson::PostProcessSolution(const IntPointData &data, const
             Matrix dsol(nstate, nstate);
             this->SolutionExact(data.x, sol, dsol);
 
-            for (int i = 0; i < rows; i++) {
-                for (int j = 0; j < cols; j++) {
+            for (int i = 0; i < dsol.Rows(); i++) {
+                for (int j = 0; j < dsol.Cols(); j++) {
                     Solout[i * cols + j] = dsol(i, j);
                 }
             }

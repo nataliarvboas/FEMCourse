@@ -56,7 +56,7 @@ void L2Projection::SetProjectionMatrix(const Matrix &proj) {
 }
 
 int L2Projection::NState() const {
-    return 2;
+    return 3;
 }
 
 void L2Projection::Contribute(IntPointData &data, double weight, Matrix &EK, Matrix &EF) const {

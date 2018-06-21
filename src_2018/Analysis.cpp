@@ -98,7 +98,7 @@ VecDouble Analysis::PostProcessError(std::ostream &out, PostProcess &defPostProc
     for (int64_t i = 0; i < nel; i++) {
         CompElement *el = cmesh->GetElement(i);
         if (el) {
-            if (el->GetStatement()->GetMatID() == 0) {
+            if (el->GetStatement()->GetMatID() == 1) {
                 std::fill(errors.begin(), errors.end(), 0.);
                 fExact = defPostProc.GetExact();
                 el->EvaluateError(fExact, errors);

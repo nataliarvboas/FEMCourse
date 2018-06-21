@@ -59,7 +59,7 @@ void GeoElementSide::IsertConnectivity(GeoElementSide &candidate) {
     if (this->IsNeighbour(candidate)) return;
     GeoElementSide neigh1 = Neighbour();
     GeoElementSide neigh2 = candidate.Neighbour();
-    neigh1.SetNeighbour(neigh2);
+    SetNeighbour(neigh2);
     candidate.SetNeighbour(neigh1);
 }
 
