@@ -30,7 +30,7 @@ using namespace std;
 
 const double Pi = M_PI;
 
-void ComputeConvergenceRates(VecDouble &error0, VecDouble &error, int ndiv, double l);
+void ComputeConvergenceRates(std::ostream &out, VecDouble &error0, VecDouble &error, int ndiv, double l);
 GeoMesh *QuadGeoMesh(int nnode, double l);
 GeoMesh *TriangleGeoMesh(int nnode, double l);
 GeoMesh *TetrahedronGeoMesh(int nnode, double l);
@@ -38,40 +38,97 @@ GeoMesh *CreateGeoMesh(ElementType eltype, int nnode, double l);
 CompMesh *CreateCompMesh(GeoMesh *gmesh, int pOrder);
 void ForceFunction(const VecDouble &co, VecDouble &result);
 void Sol_exact(const VecDouble &x, VecDouble &sol, Matrix &dsol);
+void TetrahedronLinearTest();
+void TetrahedronQuadraticTest();
+
 
 int main() {
+    
+    TetrahedronLinearTest();
+    TetrahedronQuadraticTest();
+    return 0;
+}
+
+void TetrahedronLinearTest() {
     VecDouble error0(3, 0);
+    std::ofstream fout("Tetrahedron-Linear.txt");
     for (int i = 0; i < 5; i++) {
         int ndiv = pow(2, i);
         double l = 1;
         int pOrder = 1;
+
+
+        fout << "-------------------------------------------" << std::endl;
+        fout << "Number of elements: " << ndiv << "x" << ndiv << std::endl;
+        cout << "\nNumber of elements: " << ndiv << "x" << ndiv << std::endl;
         //------------------------------
         ElementType eltype = ETetraedro;
         //------------------------------
         GeoMesh *gmesh = CreateGeoMesh(eltype, ndiv + 1, l);
-        VTKGeoMesh::PrintGMeshVTK(gmesh, "gmeshtetra.vtk");
         CompMesh *cmesh = CreateCompMesh(gmesh, pOrder);
 
         Analysis an(cmesh);
         PostProcess *pos = new PostProcessTemplate<Poisson>(&an);
         pos->AppendVariable("Sol");
         pos->AppendVariable("SolExact");
-//        pos->AppendVariable("DSol");
-//        pos->AppendVariable("DSolExact");
+        //        pos->AppendVariable("DSol");
+        //        pos->AppendVariable("DSolExact");
         pos->SetExact(Sol_exact);
 
         an.RunSimulation();
-        an.PostProcessSolution("Solution.vtk", *pos);
+        an.PostProcessSolution("Tetrahedron-Linear.vtk", *pos);
 
         VecDouble error;
-        error = an.PostProcessError(std::cout, *pos);
+        error = an.PostProcessError(fout, *pos);
+        //
+        ComputeConvergenceRates(fout, error0, error, ndiv, l);
+        fout << "-------------------------------------------" << std::endl;
 
-        ComputeConvergenceRates(error0, error, ndiv, l);
     }
-    return 0;
+
 }
 
-void ComputeConvergenceRates(VecDouble &error0, VecDouble &error, int ndiv, double l) {
+void TetrahedronQuadraticTest() {
+    VecDouble error0(3, 0);
+    std::ofstream fout("Tetrahedron-Quadratic.txt");
+    for (int i = 0; i < 5; i++) {
+        int ndiv = pow(2, i);
+        double l = 1;
+        int pOrder = 2;
+
+
+        fout << "-------------------------------------------" << std::endl;
+        fout << "Number of elements: " << ndiv << "x" << ndiv << std::endl;
+        cout << "\nNumber of elements: " << ndiv << "x" << ndiv << std::endl;
+        //------------------------------
+        ElementType eltype = ETetraedro;
+        //------------------------------
+        GeoMesh *gmesh = CreateGeoMesh(eltype, ndiv + 1, l);
+        //        VTKGeoMesh::PrintGMeshVTK(gmesh, "Gmesh.vtk");
+        CompMesh *cmesh = CreateCompMesh(gmesh, pOrder);
+
+        Analysis an(cmesh);
+        PostProcess *pos = new PostProcessTemplate<Poisson>(&an);
+        pos->AppendVariable("Sol");
+        pos->AppendVariable("SolExact");
+        //        pos->AppendVariable("DSol");
+        //        pos->AppendVariable("DSolExact");
+        pos->SetExact(Sol_exact);
+
+        an.RunSimulation();
+        an.PostProcessSolution("Tetrahedron-Quadratic.vtk", *pos);
+
+        VecDouble error;
+        error = an.PostProcessError(fout, *pos);
+        //
+        ComputeConvergenceRates(fout, error0, error, ndiv, l);
+        fout << "-------------------------------------------" << std::endl;
+
+    }
+
+}
+
+void ComputeConvergenceRates(std::ostream &out, VecDouble &error0, VecDouble &error, int ndiv, double l) {
 
     if (ndiv == 1) {
         error0 = error;
@@ -79,12 +136,10 @@ void ComputeConvergenceRates(VecDouble &error0, VecDouble &error, int ndiv, doub
 
     double h = l / ndiv;
     double h0 = 2 * h;
-
-    std::cout << "-----------------------" << std::endl;
-    std::cout << "Taxa de conv. u: " << (log(error[0]) - log(error0[0])) / (log(h) - log(h0)) << endl;
-    std::cout << "Taxa de conv. gradu: " << (log(error[1]) - log(error0[1])) / (log(h) - log(h0)) << endl;
-    std::cout << "Taxa de conv. energia: " << (log(error[2]) - log(error0[2])) / (log(h) - log(h0)) << endl;
-    std::cout << "-----------------------" << std::endl;
+    out << "\n# Convergence rates #" << std::endl;
+    out << "L2-Norm (u): " << (log(error[0]) - log(error0[0])) / (log(h) - log(h0)) << endl;
+    out << "L2-Norm (grad u): " << (log(error[1]) - log(error0[1])) / (log(h) - log(h0)) << endl;
+    out << "H1-Norm (u): " << (log(error[2]) - log(error0[2])) / (log(h) - log(h0)) << endl;
 
     for (int i = 0; i < error.size(); i++) {
         error0[i] = error[i];
@@ -506,11 +561,18 @@ CompMesh *CreateCompMesh(GeoMesh *gmesh, int pOrder) {
     cmesh->SetDefaultOrder(pOrder);
     int nelem = cmesh->GetElementVec().size();
 
-    Matrix perm(2, 2);
+    Matrix perm(3, 3);
     perm(0, 0) = 1;
     perm(0, 1) = 0;
+    perm(0, 2) = 0;
+
     perm(1, 0) = 0;
     perm(1, 1) = 1;
+    perm(1, 2) = 0;
+
+    perm(2, 0) = 0;
+    perm(2, 1) = 0;
+    perm(2, 2) = 1;
 
     for (int i = 0; i < nelem; i++) {
         int matid = gmesh->Element(i)->Material();
@@ -534,7 +596,7 @@ CompMesh *CreateCompMesh(GeoMesh *gmesh, int pOrder) {
 }
 
 void ForceFunction(const VecDouble &x, VecDouble &f) {
-    f.resize(2);
+    f.resize(3);
 
     double xv = x[0];
     double yv = x[1];
@@ -542,32 +604,41 @@ void ForceFunction(const VecDouble &x, VecDouble &f) {
 
     double f_x = 8.0 * Pi * Pi * cos(2.0 * Pi * yv) * sin(2.0 * Pi * xv);
     double f_y = -8.0 * Pi * Pi * cos(2.0 * Pi * xv) * sin(2.0 * Pi * yv);
+    double f_z = 0;
 
     f[0] = f_x; // x direction
     f[1] = f_y; // y direction
+    f[2] = f_z; // y direction
 }
 
 void Sol_exact(const VecDouble &x, VecDouble &sol, Matrix &dsol) {
 
-    dsol.Resize(2, 2);
-    sol.resize(2);
+    dsol.Resize(3, 3);
+    sol.resize(3);
 
     double xv = x[0];
     double yv = x[1];
 
     double v_x = cos(2 * Pi * yv) * sin(2 * Pi * xv);
     double v_y = -(cos(2 * Pi * xv) * sin(2 * Pi * yv));
+    double v_z = 0;
 
 
     sol[0] = v_x;
     sol[1] = v_y;
+    sol[2] = v_z;
 
     // vx direction
     dsol(0, 0) = 2 * Pi * cos(2 * Pi * xv) * cos(2 * Pi * yv);
     dsol(0, 1) = 2 * Pi * sin(2 * Pi * xv) * sin(2 * Pi * yv);
+    dsol(0, 2) = 0;
 
     // vy direction
     dsol(1, 0) = -2 * Pi * sin(2 * Pi * xv) * sin(2 * Pi * yv);
     dsol(1, 1) = -2 * Pi * cos(2 * Pi * xv) * cos(2 * Pi * yv);
+    dsol(1, 2) = 0;
 
+    dsol(2, 0) = 0;
+    dsol(2, 1) = 0;
+    dsol(2, 2) = 0;
 }

@@ -57,22 +57,17 @@ void Analysis::RunSimulation() {
     Matrix F;
     Assemble assemb(cmesh);
     assemb.Compute(GlobalSystem, RightHandSide);
-
-//        std::cout << "\nGlobal Stiff Matrix" << std::endl;
-//        GlobalSystem.Print();
-    //
-    //    std::cout << "\nLoad Vector:" << std::endl;
-    //    RightHandSide.Print();
+    std::cout << "Assemble done!" << std::endl;
 
     int nrows = RightHandSide.Rows();
     int ncols = RightHandSide.Cols();
     F.Resize(nrows, ncols);
     F = RightHandSide;
 
+    std::cout << "Computing solution..." << std::endl;
     GlobalSystem.Solve_LU(F);
+    std::cout << "Solution computed!" << std::endl;
     Solution = F;
-    
-//    Solution.Print();
 
     int solsize = Solution.Rows();
     VecDouble sol(solsize);
@@ -88,6 +83,7 @@ void Analysis::PostProcessSolution(const std::string &filename, PostProcess &def
 }
 
 VecDouble Analysis::PostProcessError(std::ostream &out, PostProcess &defPostProc) const {
+    std::cout << "Computing error..." << endl;
 
     VecDouble values(10, 0.);
     VecDouble errors(10, 0.);
@@ -116,14 +112,13 @@ VecDouble Analysis::PostProcessError(std::ostream &out, PostProcess &defPostProc
 
     if (nerrors < 3) {
         out << endl << "Analysis::PostProcessError - At least 3 norms are expected." << endl;
-        out << endl << "############" << endl;
         for (int ier = 0; ier < nerrors; ier++)
             out << endl << "error " << ier << "  = " << sqrt(values[ier]);
     } else {
-        out << "############" << endl;
-        out << "Norma L2 de u: " << sqrt(values[0]) << endl;
-        out << "Norma L2 de gradu: " << sqrt(values[1]) << endl;
-        out << "Norma H1 de u: " << sqrt(values[2]) << endl;
+        out << "\n# Error #" << endl;
+        out << "L2-Norm (u): " << sqrt(values[0]) << endl;
+        out << "L2-Norm (grad u):" << sqrt(values[1]) << endl;
+        out << "H1-Norm (u): " << sqrt(values[2]) << endl;
         for (int ier = 3; ier < nerrors; ier++)
             out << "other norms = " << sqrt(values[ier]) << endl;
     }

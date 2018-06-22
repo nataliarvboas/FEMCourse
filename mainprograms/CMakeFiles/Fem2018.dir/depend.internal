@@ -419,6 +419,7 @@ mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/ShapeTetrahedron.cpp.o
  headers2018/IntRuleTetrahedron.h
  headers2018/ShapeTetrahedron.h
  headers2018/TopologyTetrahedron.h
+ headers2018/tpanic.h
 mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/ShapeTriangle.cpp.o
  /home/natalia/Documents/GitHub/FEMCourse/src_2018/ShapeTriangle.cpp
  headers/TMatrix.h

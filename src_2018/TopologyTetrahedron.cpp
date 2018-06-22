@@ -22,7 +22,7 @@ int TopologyTetrahedron::SideNodeIndex(int side, int node) {
     if (side >= 4 && side < 10 && node < 2) return SideNodes[side - 4][node];
     if (side >= 10 && side < 14 && node < 3) return FaceNodes[side - 10][node];
     if (side == 14 && node < 4) return node;
-    std::cout << "TPZTetrahedron::SideNodeLocId inconsistent side or node " << side
+    std::cout << "ShapeTetrahedron::SideNodeIndex inconsistent side or node " << side
             << ' ' << node << std::endl;
     DebugStop();
     return -1;

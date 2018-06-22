@@ -49,7 +49,7 @@ int Poisson::NEvalErrors() const {
 }
 
 int Poisson::NState() const {
-    return 3;
+    return 2;
 }
 
 int Poisson::VariableIndex(const PostProcVar var) const {
@@ -122,7 +122,7 @@ void Poisson::Contribute(IntPointData &data, double weight, Matrix &EK, Matrix &
     Matrix axes = data.axes;
 
     int nshape = phi.size();
-    int dim = dphi.Rows;
+    int dim = dphi.Rows();
     int nstate = this->NState();
 
     Matrix perm(dim, dim);
@@ -166,6 +166,7 @@ void Poisson::Contribute(IntPointData &data, double weight, Matrix &EK, Matrix &
 
 std::vector<double> Poisson::PostProcessSolution(const IntPointData &data, const int var) const {
     VecDouble sol = data.solution;
+    int solsize = sol.size();
     int rows = data.dsoldx.Rows();
     int cols = data.dsoldx.Cols();
     Matrix gradu(rows, cols);
@@ -195,7 +196,7 @@ std::vector<double> Poisson::PostProcessSolution(const IntPointData &data, const
             Solout.resize(rows * cols);
             for (int i = 0; i < rows; i++) {
                 for (int j = 0; j < cols; j++) {
-                    Solout[i * cols + j] = gradu(i, j);
+                    Solout[i*cols + j] = gradu(i, j);
                 }
             }
 
@@ -237,8 +238,8 @@ std::vector<double> Poisson::PostProcessSolution(const IntPointData &data, const
             Matrix dsol(nstate, nstate);
             this->SolutionExact(data.x, sol, dsol);
 
-            for (int i = 0; i < dsol.Rows(); i++) {
-                for (int j = 0; j < dsol.Cols(); j++) {
+            for (int i = 0; i < rows; i++) {
+                for (int j = 0; j < cols; j++) {
                     Solout[i * cols + j] = dsol(i, j);
                 }
             }

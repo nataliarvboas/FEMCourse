@@ -353,6 +353,8 @@ ShapeTetrahedron.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/ShapeTetrahedron.h
 TMatrix.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/TMatrix.h
+tpanic.h
+/home/natalia/Documents/GitHub/FEMCourse/src_2018/tpanic.h
 
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/ShapeTriangle.cpp
 ShapeTriangle.h

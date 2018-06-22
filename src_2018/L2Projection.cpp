@@ -56,7 +56,7 @@ void L2Projection::SetProjectionMatrix(const Matrix &proj) {
 }
 
 int L2Projection::NState() const {
-    return 3;
+    return 2;
 }
 
 void L2Projection::Contribute(IntPointData &data, double weight, Matrix &EK, Matrix &EF) const {
@@ -98,20 +98,6 @@ void L2Projection::Contribute(IntPointData &data, double weight, Matrix &EK, Mat
             std::cout << __PRETTY_FUNCTION__ << " at line " << __LINE__ << " not implemented\n";
         }
     }
-
-    //    for (int i = 0; i < nshape; i++) {
-    //        for (int ivi = 0; ivi < nstate; ivi++) {
-    //            const int posI = nstate * i + ivi;
-    //            EF(posI, 0) += weight * data.phi[i] * result[ivi] * MathStatement::gBigNumber;
-    //        }
-    //        for (int j = 0; j < nshape; j++) {
-    //            for (int ivi = 0; ivi < nstate; ivi++) {
-    //                const int posI = nstate * i + ivi;
-    //                const int posJ = nstate * j + ivi;
-    //                EK(posI, posJ) += weight * data.phi[i] * data.phi[j] * MathStatement::gBigNumber;
-    //            }
-    //        }
-    //    }
 }
 
 int L2Projection::NEvalErrors() const {
@@ -139,8 +125,6 @@ int L2Projection::NSolutionVariables(const PostProcVar var) {
 }
 
 std::vector<double> L2Projection::PostProcessSolution(const IntPointData &integrationpointdata, const int var) const {
-    //    DebugStop();
     VecDouble vec(2, 0);
     return vec;
-
 }

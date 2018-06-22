@@ -34,7 +34,7 @@ void ShapeTriangle::Shape(const VecDouble &xi, VecInt &orders, VecDouble &phi, M
             int is1 = is % 3;
             int is2 = (is + 1) % 3;
             phi[is] = phi[is1] * phi[is2];
-            dphi(0, is) = dphi(0, is1) * phi[is2] + phi[is1]* dphi(0, is2);
+            dphi(0, is) = dphi(0, is1) * phi[is2] + phi[is1] * dphi(0, is2);
             dphi(1, is) = dphi(1, is1) * phi[is2] + phi[is1] * dphi(1, is2);
         }
         int is1 = 0;
@@ -55,8 +55,6 @@ void ShapeTriangle::Shape(const VecDouble &xi, VecInt &orders, VecDouble &phi, M
 }
 
 int ShapeTriangle::NShapeFunctions(int side, int order) {
-    if (side < 3) return 1;
-    return order - 1;
     switch (side) {
         case 0:
         case 1:
@@ -65,9 +63,8 @@ int ShapeTriangle::NShapeFunctions(int side, int order) {
         case 3:
         case 4:
         case 5:
-            return order - 1;
         case 6:
-            return (order - 2) < 0 ? 0 : ((order - 2)*(order - 1)) / 2;
+            return order - 1;
     }
 }
 
