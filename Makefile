@@ -123,71 +123,6 @@ Fem2018/fast:
 	$(MAKE) -f mainprograms/CMakeFiles/Fem2018.dir/build.make mainprograms/CMakeFiles/Fem2018.dir/build
 .PHONY : Fem2018/fast
 
-#=============================================================================
-# Target rules for targets named TestMatrix
-
-# Build rule for target.
-TestMatrix: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 TestMatrix
-.PHONY : TestMatrix
-
-# fast build rule for target.
-TestMatrix/fast:
-	$(MAKE) -f mainprograms/CMakeFiles/TestMatrix.dir/build.make mainprograms/CMakeFiles/TestMatrix.dir/build
-.PHONY : TestMatrix/fast
-
-#=============================================================================
-# Target rules for targets named FemSC
-
-# Build rule for target.
-FemSC: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 FemSC
-.PHONY : FemSC
-
-# fast build rule for target.
-FemSC/fast:
-	$(MAKE) -f mainprograms/CMakeFiles/FemSC.dir/build.make mainprograms/CMakeFiles/FemSC.dir/build
-.PHONY : FemSC/fast
-
-#=============================================================================
-# Target rules for targets named TestIntegrate
-
-# Build rule for target.
-TestIntegrate: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 TestIntegrate
-.PHONY : TestIntegrate
-
-# fast build rule for target.
-TestIntegrate/fast:
-	$(MAKE) -f mainprograms/CMakeFiles/TestIntegrate.dir/build.make mainprograms/CMakeFiles/TestIntegrate.dir/build
-.PHONY : TestIntegrate/fast
-
-#=============================================================================
-# Target rules for targets named TestOneDProblem
-
-# Build rule for target.
-TestOneDProblem: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 TestOneDProblem
-.PHONY : TestOneDProblem
-
-# fast build rule for target.
-TestOneDProblem/fast:
-	$(MAKE) -f mainprograms/CMakeFiles/TestOneDProblem.dir/build.make mainprograms/CMakeFiles/TestOneDProblem.dir/build
-.PHONY : TestOneDProblem/fast
-
-#=============================================================================
-# Target rules for targets named TestTwoDProblem
-
-# Build rule for target.
-TestTwoDProblem: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 TestTwoDProblem
-.PHONY : TestTwoDProblem
-
-# fast build rule for target.
-TestTwoDProblem/fast:
-	$(MAKE) -f mainprograms/CMakeFiles/TestTwoDProblem.dir/build.make mainprograms/CMakeFiles/TestTwoDProblem.dir/build
-.PHONY : TestTwoDProblem/fast
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -197,11 +132,6 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... Fem2018"
-	@echo "... TestMatrix"
-	@echo "... FemSC"
-	@echo "... TestIntegrate"
-	@echo "... TestOneDProblem"
-	@echo "... TestTwoDProblem"
 .PHONY : help
 
 

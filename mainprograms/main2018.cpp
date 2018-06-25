@@ -46,11 +46,11 @@ void TetrahedronLinearTest();
 void TetrahedronQuadraticTest();
 
 int main() {
-//    QuadrilateralLinearTest();
+    QuadrilateralLinearTest();
 //    QuadrilateralQuadraticTest();
 
-    TriangleLinearTest();
-    TriangleQuadraticTest();
+//    TriangleLinearTest();
+//    TriangleQuadraticTest();
 
 //    TetrahedronLinearTest();
 //    TetrahedronQuadraticTest();
@@ -566,6 +566,7 @@ void QuadrilateralLinearTest() {
         cout << "\nNumber of elements: " << ndiv << "x" << ndiv << std::endl;
 
         GeoMesh *gmesh = QuadGeoMesh(ndiv + 1, ndiv + 1, l);
+//        VTKGeoMesh::PrintGMeshVTK(gmesh, "gmesh.vtk");
         CompMesh *cmesh = CreateCompMesh(gmesh, pOrder);
 
         Analysis an(cmesh);

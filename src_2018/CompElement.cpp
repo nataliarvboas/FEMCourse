@@ -266,4 +266,3 @@ void CompElement::Solution(VecDouble &intpoint, int var, VecDouble &sol, TMatrix
     sol = material->PostProcessSolution(data, var);
     dsol = data.dsoldx;
 }
-

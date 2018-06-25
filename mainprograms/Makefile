@@ -56,17 +56,6 @@ CMAKE_BINARY_DIR = /home/natalia/Documents/GitHub/FEMCourse
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
-
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
@@ -77,6 +66,17 @@ edit_cache:
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
+
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -124,189 +124,6 @@ Fem2018: mainprograms/CMakeFiles/Fem2018.dir/rule
 Fem2018/fast:
 	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/Fem2018.dir/build.make mainprograms/CMakeFiles/Fem2018.dir/build
 .PHONY : Fem2018/fast
-
-# Convenience name for target.
-mainprograms/CMakeFiles/TestMatrix.dir/rule:
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f CMakeFiles/Makefile2 mainprograms/CMakeFiles/TestMatrix.dir/rule
-.PHONY : mainprograms/CMakeFiles/TestMatrix.dir/rule
-
-# Convenience name for target.
-TestMatrix: mainprograms/CMakeFiles/TestMatrix.dir/rule
-
-.PHONY : TestMatrix
-
-# fast build rule for target.
-TestMatrix/fast:
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestMatrix.dir/build.make mainprograms/CMakeFiles/TestMatrix.dir/build
-.PHONY : TestMatrix/fast
-
-# Convenience name for target.
-mainprograms/CMakeFiles/FemSC.dir/rule:
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f CMakeFiles/Makefile2 mainprograms/CMakeFiles/FemSC.dir/rule
-.PHONY : mainprograms/CMakeFiles/FemSC.dir/rule
-
-# Convenience name for target.
-FemSC: mainprograms/CMakeFiles/FemSC.dir/rule
-
-.PHONY : FemSC
-
-# fast build rule for target.
-FemSC/fast:
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/FemSC.dir/build.make mainprograms/CMakeFiles/FemSC.dir/build
-.PHONY : FemSC/fast
-
-# Convenience name for target.
-mainprograms/CMakeFiles/TestIntegrate.dir/rule:
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f CMakeFiles/Makefile2 mainprograms/CMakeFiles/TestIntegrate.dir/rule
-.PHONY : mainprograms/CMakeFiles/TestIntegrate.dir/rule
-
-# Convenience name for target.
-TestIntegrate: mainprograms/CMakeFiles/TestIntegrate.dir/rule
-
-.PHONY : TestIntegrate
-
-# fast build rule for target.
-TestIntegrate/fast:
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestIntegrate.dir/build.make mainprograms/CMakeFiles/TestIntegrate.dir/build
-.PHONY : TestIntegrate/fast
-
-# Convenience name for target.
-mainprograms/CMakeFiles/TestOneDProblem.dir/rule:
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f CMakeFiles/Makefile2 mainprograms/CMakeFiles/TestOneDProblem.dir/rule
-.PHONY : mainprograms/CMakeFiles/TestOneDProblem.dir/rule
-
-# Convenience name for target.
-TestOneDProblem: mainprograms/CMakeFiles/TestOneDProblem.dir/rule
-
-.PHONY : TestOneDProblem
-
-# fast build rule for target.
-TestOneDProblem/fast:
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestOneDProblem.dir/build.make mainprograms/CMakeFiles/TestOneDProblem.dir/build
-.PHONY : TestOneDProblem/fast
-
-# Convenience name for target.
-mainprograms/CMakeFiles/TestTwoDProblem.dir/rule:
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f CMakeFiles/Makefile2 mainprograms/CMakeFiles/TestTwoDProblem.dir/rule
-.PHONY : mainprograms/CMakeFiles/TestTwoDProblem.dir/rule
-
-# Convenience name for target.
-TestTwoDProblem: mainprograms/CMakeFiles/TestTwoDProblem.dir/rule
-
-.PHONY : TestTwoDProblem
-
-# fast build rule for target.
-TestTwoDProblem/fast:
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestTwoDProblem.dir/build.make mainprograms/CMakeFiles/TestTwoDProblem.dir/build
-.PHONY : TestTwoDProblem/fast
-
-TestIntegrate.o: TestIntegrate.cpp.o
-
-.PHONY : TestIntegrate.o
-
-# target to build an object file
-TestIntegrate.cpp.o:
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestIntegrate.dir/build.make mainprograms/CMakeFiles/TestIntegrate.dir/TestIntegrate.cpp.o
-.PHONY : TestIntegrate.cpp.o
-
-TestIntegrate.i: TestIntegrate.cpp.i
-
-.PHONY : TestIntegrate.i
-
-# target to preprocess a source file
-TestIntegrate.cpp.i:
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestIntegrate.dir/build.make mainprograms/CMakeFiles/TestIntegrate.dir/TestIntegrate.cpp.i
-.PHONY : TestIntegrate.cpp.i
-
-TestIntegrate.s: TestIntegrate.cpp.s
-
-.PHONY : TestIntegrate.s
-
-# target to generate assembly for a file
-TestIntegrate.cpp.s:
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestIntegrate.dir/build.make mainprograms/CMakeFiles/TestIntegrate.dir/TestIntegrate.cpp.s
-.PHONY : TestIntegrate.cpp.s
-
-TestOneDProblem.o: TestOneDProblem.cpp.o
-
-.PHONY : TestOneDProblem.o
-
-# target to build an object file
-TestOneDProblem.cpp.o:
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestOneDProblem.dir/build.make mainprograms/CMakeFiles/TestOneDProblem.dir/TestOneDProblem.cpp.o
-.PHONY : TestOneDProblem.cpp.o
-
-TestOneDProblem.i: TestOneDProblem.cpp.i
-
-.PHONY : TestOneDProblem.i
-
-# target to preprocess a source file
-TestOneDProblem.cpp.i:
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestOneDProblem.dir/build.make mainprograms/CMakeFiles/TestOneDProblem.dir/TestOneDProblem.cpp.i
-.PHONY : TestOneDProblem.cpp.i
-
-TestOneDProblem.s: TestOneDProblem.cpp.s
-
-.PHONY : TestOneDProblem.s
-
-# target to generate assembly for a file
-TestOneDProblem.cpp.s:
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestOneDProblem.dir/build.make mainprograms/CMakeFiles/TestOneDProblem.dir/TestOneDProblem.cpp.s
-.PHONY : TestOneDProblem.cpp.s
-
-TestTwoDProblem.o: TestTwoDProblem.cpp.o
-
-.PHONY : TestTwoDProblem.o
-
-# target to build an object file
-TestTwoDProblem.cpp.o:
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestTwoDProblem.dir/build.make mainprograms/CMakeFiles/TestTwoDProblem.dir/TestTwoDProblem.cpp.o
-.PHONY : TestTwoDProblem.cpp.o
-
-TestTwoDProblem.i: TestTwoDProblem.cpp.i
-
-.PHONY : TestTwoDProblem.i
-
-# target to preprocess a source file
-TestTwoDProblem.cpp.i:
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestTwoDProblem.dir/build.make mainprograms/CMakeFiles/TestTwoDProblem.dir/TestTwoDProblem.cpp.i
-.PHONY : TestTwoDProblem.cpp.i
-
-TestTwoDProblem.s: TestTwoDProblem.cpp.s
-
-.PHONY : TestTwoDProblem.s
-
-# target to generate assembly for a file
-TestTwoDProblem.cpp.s:
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestTwoDProblem.dir/build.make mainprograms/CMakeFiles/TestTwoDProblem.dir/TestTwoDProblem.cpp.s
-.PHONY : TestTwoDProblem.cpp.s
-
-Testmatrix.o: Testmatrix.cpp.o
-
-.PHONY : Testmatrix.o
-
-# target to build an object file
-Testmatrix.cpp.o:
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestMatrix.dir/build.make mainprograms/CMakeFiles/TestMatrix.dir/Testmatrix.cpp.o
-.PHONY : Testmatrix.cpp.o
-
-Testmatrix.i: Testmatrix.cpp.i
-
-.PHONY : Testmatrix.i
-
-# target to preprocess a source file
-Testmatrix.cpp.i:
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestMatrix.dir/build.make mainprograms/CMakeFiles/TestMatrix.dir/Testmatrix.cpp.i
-.PHONY : Testmatrix.cpp.i
-
-Testmatrix.s: Testmatrix.cpp.s
-
-.PHONY : Testmatrix.s
-
-# target to generate assembly for a file
-Testmatrix.cpp.s:
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestMatrix.dir/build.make mainprograms/CMakeFiles/TestMatrix.dir/Testmatrix.cpp.s
-.PHONY : Testmatrix.cpp.s
 
 __/src_2018/Analysis.o: __/src_2018/Analysis.cpp.o
 
@@ -1226,123 +1043,6 @@ __/src_2018/VTKGeoMesh.cpp.s:
 	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/Fem2018.dir/build.make mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/VTKGeoMesh.cpp.s
 .PHONY : __/src_2018/VTKGeoMesh.cpp.s
 
-__/src_vazio/TIntRule1d.o: __/src_vazio/TIntRule1d.cpp.o
-
-.PHONY : __/src_vazio/TIntRule1d.o
-
-# target to build an object file
-__/src_vazio/TIntRule1d.cpp.o:
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestMatrix.dir/build.make mainprograms/CMakeFiles/TestMatrix.dir/__/src_vazio/TIntRule1d.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/FemSC.dir/build.make mainprograms/CMakeFiles/FemSC.dir/__/src_vazio/TIntRule1d.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestIntegrate.dir/build.make mainprograms/CMakeFiles/TestIntegrate.dir/__/src_vazio/TIntRule1d.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestOneDProblem.dir/build.make mainprograms/CMakeFiles/TestOneDProblem.dir/__/src_vazio/TIntRule1d.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestTwoDProblem.dir/build.make mainprograms/CMakeFiles/TestTwoDProblem.dir/__/src_vazio/TIntRule1d.cpp.o
-.PHONY : __/src_vazio/TIntRule1d.cpp.o
-
-__/src_vazio/TIntRule1d.i: __/src_vazio/TIntRule1d.cpp.i
-
-.PHONY : __/src_vazio/TIntRule1d.i
-
-# target to preprocess a source file
-__/src_vazio/TIntRule1d.cpp.i:
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestMatrix.dir/build.make mainprograms/CMakeFiles/TestMatrix.dir/__/src_vazio/TIntRule1d.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/FemSC.dir/build.make mainprograms/CMakeFiles/FemSC.dir/__/src_vazio/TIntRule1d.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestIntegrate.dir/build.make mainprograms/CMakeFiles/TestIntegrate.dir/__/src_vazio/TIntRule1d.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestOneDProblem.dir/build.make mainprograms/CMakeFiles/TestOneDProblem.dir/__/src_vazio/TIntRule1d.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestTwoDProblem.dir/build.make mainprograms/CMakeFiles/TestTwoDProblem.dir/__/src_vazio/TIntRule1d.cpp.i
-.PHONY : __/src_vazio/TIntRule1d.cpp.i
-
-__/src_vazio/TIntRule1d.s: __/src_vazio/TIntRule1d.cpp.s
-
-.PHONY : __/src_vazio/TIntRule1d.s
-
-# target to generate assembly for a file
-__/src_vazio/TIntRule1d.cpp.s:
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestMatrix.dir/build.make mainprograms/CMakeFiles/TestMatrix.dir/__/src_vazio/TIntRule1d.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/FemSC.dir/build.make mainprograms/CMakeFiles/FemSC.dir/__/src_vazio/TIntRule1d.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestIntegrate.dir/build.make mainprograms/CMakeFiles/TestIntegrate.dir/__/src_vazio/TIntRule1d.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestOneDProblem.dir/build.make mainprograms/CMakeFiles/TestOneDProblem.dir/__/src_vazio/TIntRule1d.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestTwoDProblem.dir/build.make mainprograms/CMakeFiles/TestTwoDProblem.dir/__/src_vazio/TIntRule1d.cpp.s
-.PHONY : __/src_vazio/TIntRule1d.cpp.s
-
-__/src_vazio/TIntRuleQuad.o: __/src_vazio/TIntRuleQuad.cpp.o
-
-.PHONY : __/src_vazio/TIntRuleQuad.o
-
-# target to build an object file
-__/src_vazio/TIntRuleQuad.cpp.o:
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestMatrix.dir/build.make mainprograms/CMakeFiles/TestMatrix.dir/__/src_vazio/TIntRuleQuad.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/FemSC.dir/build.make mainprograms/CMakeFiles/FemSC.dir/__/src_vazio/TIntRuleQuad.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestIntegrate.dir/build.make mainprograms/CMakeFiles/TestIntegrate.dir/__/src_vazio/TIntRuleQuad.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestOneDProblem.dir/build.make mainprograms/CMakeFiles/TestOneDProblem.dir/__/src_vazio/TIntRuleQuad.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestTwoDProblem.dir/build.make mainprograms/CMakeFiles/TestTwoDProblem.dir/__/src_vazio/TIntRuleQuad.cpp.o
-.PHONY : __/src_vazio/TIntRuleQuad.cpp.o
-
-__/src_vazio/TIntRuleQuad.i: __/src_vazio/TIntRuleQuad.cpp.i
-
-.PHONY : __/src_vazio/TIntRuleQuad.i
-
-# target to preprocess a source file
-__/src_vazio/TIntRuleQuad.cpp.i:
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestMatrix.dir/build.make mainprograms/CMakeFiles/TestMatrix.dir/__/src_vazio/TIntRuleQuad.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/FemSC.dir/build.make mainprograms/CMakeFiles/FemSC.dir/__/src_vazio/TIntRuleQuad.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestIntegrate.dir/build.make mainprograms/CMakeFiles/TestIntegrate.dir/__/src_vazio/TIntRuleQuad.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestOneDProblem.dir/build.make mainprograms/CMakeFiles/TestOneDProblem.dir/__/src_vazio/TIntRuleQuad.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestTwoDProblem.dir/build.make mainprograms/CMakeFiles/TestTwoDProblem.dir/__/src_vazio/TIntRuleQuad.cpp.i
-.PHONY : __/src_vazio/TIntRuleQuad.cpp.i
-
-__/src_vazio/TIntRuleQuad.s: __/src_vazio/TIntRuleQuad.cpp.s
-
-.PHONY : __/src_vazio/TIntRuleQuad.s
-
-# target to generate assembly for a file
-__/src_vazio/TIntRuleQuad.cpp.s:
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestMatrix.dir/build.make mainprograms/CMakeFiles/TestMatrix.dir/__/src_vazio/TIntRuleQuad.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/FemSC.dir/build.make mainprograms/CMakeFiles/FemSC.dir/__/src_vazio/TIntRuleQuad.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestIntegrate.dir/build.make mainprograms/CMakeFiles/TestIntegrate.dir/__/src_vazio/TIntRuleQuad.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestOneDProblem.dir/build.make mainprograms/CMakeFiles/TestOneDProblem.dir/__/src_vazio/TIntRuleQuad.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestTwoDProblem.dir/build.make mainprograms/CMakeFiles/TestTwoDProblem.dir/__/src_vazio/TIntRuleQuad.cpp.s
-.PHONY : __/src_vazio/TIntRuleQuad.cpp.s
-
-__/src_vazio/TIntRuleTriangle.o: __/src_vazio/TIntRuleTriangle.cpp.o
-
-.PHONY : __/src_vazio/TIntRuleTriangle.o
-
-# target to build an object file
-__/src_vazio/TIntRuleTriangle.cpp.o:
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestMatrix.dir/build.make mainprograms/CMakeFiles/TestMatrix.dir/__/src_vazio/TIntRuleTriangle.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/FemSC.dir/build.make mainprograms/CMakeFiles/FemSC.dir/__/src_vazio/TIntRuleTriangle.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestIntegrate.dir/build.make mainprograms/CMakeFiles/TestIntegrate.dir/__/src_vazio/TIntRuleTriangle.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestOneDProblem.dir/build.make mainprograms/CMakeFiles/TestOneDProblem.dir/__/src_vazio/TIntRuleTriangle.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestTwoDProblem.dir/build.make mainprograms/CMakeFiles/TestTwoDProblem.dir/__/src_vazio/TIntRuleTriangle.cpp.o
-.PHONY : __/src_vazio/TIntRuleTriangle.cpp.o
-
-__/src_vazio/TIntRuleTriangle.i: __/src_vazio/TIntRuleTriangle.cpp.i
-
-.PHONY : __/src_vazio/TIntRuleTriangle.i
-
-# target to preprocess a source file
-__/src_vazio/TIntRuleTriangle.cpp.i:
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestMatrix.dir/build.make mainprograms/CMakeFiles/TestMatrix.dir/__/src_vazio/TIntRuleTriangle.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/FemSC.dir/build.make mainprograms/CMakeFiles/FemSC.dir/__/src_vazio/TIntRuleTriangle.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestIntegrate.dir/build.make mainprograms/CMakeFiles/TestIntegrate.dir/__/src_vazio/TIntRuleTriangle.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestOneDProblem.dir/build.make mainprograms/CMakeFiles/TestOneDProblem.dir/__/src_vazio/TIntRuleTriangle.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestTwoDProblem.dir/build.make mainprograms/CMakeFiles/TestTwoDProblem.dir/__/src_vazio/TIntRuleTriangle.cpp.i
-.PHONY : __/src_vazio/TIntRuleTriangle.cpp.i
-
-__/src_vazio/TIntRuleTriangle.s: __/src_vazio/TIntRuleTriangle.cpp.s
-
-.PHONY : __/src_vazio/TIntRuleTriangle.s
-
-# target to generate assembly for a file
-__/src_vazio/TIntRuleTriangle.cpp.s:
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestMatrix.dir/build.make mainprograms/CMakeFiles/TestMatrix.dir/__/src_vazio/TIntRuleTriangle.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/FemSC.dir/build.make mainprograms/CMakeFiles/FemSC.dir/__/src_vazio/TIntRuleTriangle.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestIntegrate.dir/build.make mainprograms/CMakeFiles/TestIntegrate.dir/__/src_vazio/TIntRuleTriangle.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestOneDProblem.dir/build.make mainprograms/CMakeFiles/TestOneDProblem.dir/__/src_vazio/TIntRuleTriangle.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestTwoDProblem.dir/build.make mainprograms/CMakeFiles/TestTwoDProblem.dir/__/src_vazio/TIntRuleTriangle.cpp.s
-.PHONY : __/src_vazio/TIntRuleTriangle.cpp.s
-
 __/src_vazio/TMatrix.o: __/src_vazio/TMatrix.cpp.o
 
 .PHONY : __/src_vazio/TMatrix.o
@@ -1350,11 +1050,6 @@ __/src_vazio/TMatrix.o: __/src_vazio/TMatrix.cpp.o
 # target to build an object file
 __/src_vazio/TMatrix.cpp.o:
 	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/Fem2018.dir/build.make mainprograms/CMakeFiles/Fem2018.dir/__/src_vazio/TMatrix.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestMatrix.dir/build.make mainprograms/CMakeFiles/TestMatrix.dir/__/src_vazio/TMatrix.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/FemSC.dir/build.make mainprograms/CMakeFiles/FemSC.dir/__/src_vazio/TMatrix.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestIntegrate.dir/build.make mainprograms/CMakeFiles/TestIntegrate.dir/__/src_vazio/TMatrix.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestOneDProblem.dir/build.make mainprograms/CMakeFiles/TestOneDProblem.dir/__/src_vazio/TMatrix.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestTwoDProblem.dir/build.make mainprograms/CMakeFiles/TestTwoDProblem.dir/__/src_vazio/TMatrix.cpp.o
 .PHONY : __/src_vazio/TMatrix.cpp.o
 
 __/src_vazio/TMatrix.i: __/src_vazio/TMatrix.cpp.i
@@ -1364,11 +1059,6 @@ __/src_vazio/TMatrix.i: __/src_vazio/TMatrix.cpp.i
 # target to preprocess a source file
 __/src_vazio/TMatrix.cpp.i:
 	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/Fem2018.dir/build.make mainprograms/CMakeFiles/Fem2018.dir/__/src_vazio/TMatrix.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestMatrix.dir/build.make mainprograms/CMakeFiles/TestMatrix.dir/__/src_vazio/TMatrix.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/FemSC.dir/build.make mainprograms/CMakeFiles/FemSC.dir/__/src_vazio/TMatrix.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestIntegrate.dir/build.make mainprograms/CMakeFiles/TestIntegrate.dir/__/src_vazio/TMatrix.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestOneDProblem.dir/build.make mainprograms/CMakeFiles/TestOneDProblem.dir/__/src_vazio/TMatrix.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestTwoDProblem.dir/build.make mainprograms/CMakeFiles/TestTwoDProblem.dir/__/src_vazio/TMatrix.cpp.i
 .PHONY : __/src_vazio/TMatrix.cpp.i
 
 __/src_vazio/TMatrix.s: __/src_vazio/TMatrix.cpp.s
@@ -1378,597 +1068,7 @@ __/src_vazio/TMatrix.s: __/src_vazio/TMatrix.cpp.s
 # target to generate assembly for a file
 __/src_vazio/TMatrix.cpp.s:
 	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/Fem2018.dir/build.make mainprograms/CMakeFiles/Fem2018.dir/__/src_vazio/TMatrix.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestMatrix.dir/build.make mainprograms/CMakeFiles/TestMatrix.dir/__/src_vazio/TMatrix.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/FemSC.dir/build.make mainprograms/CMakeFiles/FemSC.dir/__/src_vazio/TMatrix.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestIntegrate.dir/build.make mainprograms/CMakeFiles/TestIntegrate.dir/__/src_vazio/TMatrix.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestOneDProblem.dir/build.make mainprograms/CMakeFiles/TestOneDProblem.dir/__/src_vazio/TMatrix.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestTwoDProblem.dir/build.make mainprograms/CMakeFiles/TestTwoDProblem.dir/__/src_vazio/TMatrix.cpp.s
 .PHONY : __/src_vazio/TMatrix.cpp.s
-
-__/src_vazio/TVec.o: __/src_vazio/TVec.cpp.o
-
-.PHONY : __/src_vazio/TVec.o
-
-# target to build an object file
-__/src_vazio/TVec.cpp.o:
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestMatrix.dir/build.make mainprograms/CMakeFiles/TestMatrix.dir/__/src_vazio/TVec.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/FemSC.dir/build.make mainprograms/CMakeFiles/FemSC.dir/__/src_vazio/TVec.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestIntegrate.dir/build.make mainprograms/CMakeFiles/TestIntegrate.dir/__/src_vazio/TVec.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestOneDProblem.dir/build.make mainprograms/CMakeFiles/TestOneDProblem.dir/__/src_vazio/TVec.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestTwoDProblem.dir/build.make mainprograms/CMakeFiles/TestTwoDProblem.dir/__/src_vazio/TVec.cpp.o
-.PHONY : __/src_vazio/TVec.cpp.o
-
-__/src_vazio/TVec.i: __/src_vazio/TVec.cpp.i
-
-.PHONY : __/src_vazio/TVec.i
-
-# target to preprocess a source file
-__/src_vazio/TVec.cpp.i:
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestMatrix.dir/build.make mainprograms/CMakeFiles/TestMatrix.dir/__/src_vazio/TVec.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/FemSC.dir/build.make mainprograms/CMakeFiles/FemSC.dir/__/src_vazio/TVec.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestIntegrate.dir/build.make mainprograms/CMakeFiles/TestIntegrate.dir/__/src_vazio/TVec.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestOneDProblem.dir/build.make mainprograms/CMakeFiles/TestOneDProblem.dir/__/src_vazio/TVec.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestTwoDProblem.dir/build.make mainprograms/CMakeFiles/TestTwoDProblem.dir/__/src_vazio/TVec.cpp.i
-.PHONY : __/src_vazio/TVec.cpp.i
-
-__/src_vazio/TVec.s: __/src_vazio/TVec.cpp.s
-
-.PHONY : __/src_vazio/TVec.s
-
-# target to generate assembly for a file
-__/src_vazio/TVec.cpp.s:
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestMatrix.dir/build.make mainprograms/CMakeFiles/TestMatrix.dir/__/src_vazio/TVec.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/FemSC.dir/build.make mainprograms/CMakeFiles/FemSC.dir/__/src_vazio/TVec.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestIntegrate.dir/build.make mainprograms/CMakeFiles/TestIntegrate.dir/__/src_vazio/TVec.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestOneDProblem.dir/build.make mainprograms/CMakeFiles/TestOneDProblem.dir/__/src_vazio/TVec.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestTwoDProblem.dir/build.make mainprograms/CMakeFiles/TestTwoDProblem.dir/__/src_vazio/TVec.cpp.s
-.PHONY : __/src_vazio/TVec.cpp.s
-
-__/src_vazio/TVecNum.o: __/src_vazio/TVecNum.cpp.o
-
-.PHONY : __/src_vazio/TVecNum.o
-
-# target to build an object file
-__/src_vazio/TVecNum.cpp.o:
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestMatrix.dir/build.make mainprograms/CMakeFiles/TestMatrix.dir/__/src_vazio/TVecNum.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/FemSC.dir/build.make mainprograms/CMakeFiles/FemSC.dir/__/src_vazio/TVecNum.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestIntegrate.dir/build.make mainprograms/CMakeFiles/TestIntegrate.dir/__/src_vazio/TVecNum.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestOneDProblem.dir/build.make mainprograms/CMakeFiles/TestOneDProblem.dir/__/src_vazio/TVecNum.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestTwoDProblem.dir/build.make mainprograms/CMakeFiles/TestTwoDProblem.dir/__/src_vazio/TVecNum.cpp.o
-.PHONY : __/src_vazio/TVecNum.cpp.o
-
-__/src_vazio/TVecNum.i: __/src_vazio/TVecNum.cpp.i
-
-.PHONY : __/src_vazio/TVecNum.i
-
-# target to preprocess a source file
-__/src_vazio/TVecNum.cpp.i:
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestMatrix.dir/build.make mainprograms/CMakeFiles/TestMatrix.dir/__/src_vazio/TVecNum.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/FemSC.dir/build.make mainprograms/CMakeFiles/FemSC.dir/__/src_vazio/TVecNum.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestIntegrate.dir/build.make mainprograms/CMakeFiles/TestIntegrate.dir/__/src_vazio/TVecNum.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestOneDProblem.dir/build.make mainprograms/CMakeFiles/TestOneDProblem.dir/__/src_vazio/TVecNum.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestTwoDProblem.dir/build.make mainprograms/CMakeFiles/TestTwoDProblem.dir/__/src_vazio/TVecNum.cpp.i
-.PHONY : __/src_vazio/TVecNum.cpp.i
-
-__/src_vazio/TVecNum.s: __/src_vazio/TVecNum.cpp.s
-
-.PHONY : __/src_vazio/TVecNum.s
-
-# target to generate assembly for a file
-__/src_vazio/TVecNum.cpp.s:
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestMatrix.dir/build.make mainprograms/CMakeFiles/TestMatrix.dir/__/src_vazio/TVecNum.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/FemSC.dir/build.make mainprograms/CMakeFiles/FemSC.dir/__/src_vazio/TVecNum.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestIntegrate.dir/build.make mainprograms/CMakeFiles/TestIntegrate.dir/__/src_vazio/TVecNum.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestOneDProblem.dir/build.make mainprograms/CMakeFiles/TestOneDProblem.dir/__/src_vazio/TVecNum.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestTwoDProblem.dir/build.make mainprograms/CMakeFiles/TestTwoDProblem.dir/__/src_vazio/TVecNum.cpp.s
-.PHONY : __/src_vazio/TVecNum.cpp.s
-
-__/src_vazio/fem_sc.o: __/src_vazio/fem_sc.cpp.o
-
-.PHONY : __/src_vazio/fem_sc.o
-
-# target to build an object file
-__/src_vazio/fem_sc.cpp.o:
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestMatrix.dir/build.make mainprograms/CMakeFiles/TestMatrix.dir/__/src_vazio/fem_sc.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/FemSC.dir/build.make mainprograms/CMakeFiles/FemSC.dir/__/src_vazio/fem_sc.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestIntegrate.dir/build.make mainprograms/CMakeFiles/TestIntegrate.dir/__/src_vazio/fem_sc.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestOneDProblem.dir/build.make mainprograms/CMakeFiles/TestOneDProblem.dir/__/src_vazio/fem_sc.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestTwoDProblem.dir/build.make mainprograms/CMakeFiles/TestTwoDProblem.dir/__/src_vazio/fem_sc.cpp.o
-.PHONY : __/src_vazio/fem_sc.cpp.o
-
-__/src_vazio/fem_sc.i: __/src_vazio/fem_sc.cpp.i
-
-.PHONY : __/src_vazio/fem_sc.i
-
-# target to preprocess a source file
-__/src_vazio/fem_sc.cpp.i:
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestMatrix.dir/build.make mainprograms/CMakeFiles/TestMatrix.dir/__/src_vazio/fem_sc.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/FemSC.dir/build.make mainprograms/CMakeFiles/FemSC.dir/__/src_vazio/fem_sc.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestIntegrate.dir/build.make mainprograms/CMakeFiles/TestIntegrate.dir/__/src_vazio/fem_sc.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestOneDProblem.dir/build.make mainprograms/CMakeFiles/TestOneDProblem.dir/__/src_vazio/fem_sc.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestTwoDProblem.dir/build.make mainprograms/CMakeFiles/TestTwoDProblem.dir/__/src_vazio/fem_sc.cpp.i
-.PHONY : __/src_vazio/fem_sc.cpp.i
-
-__/src_vazio/fem_sc.s: __/src_vazio/fem_sc.cpp.s
-
-.PHONY : __/src_vazio/fem_sc.s
-
-# target to generate assembly for a file
-__/src_vazio/fem_sc.cpp.s:
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestMatrix.dir/build.make mainprograms/CMakeFiles/TestMatrix.dir/__/src_vazio/fem_sc.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/FemSC.dir/build.make mainprograms/CMakeFiles/FemSC.dir/__/src_vazio/fem_sc.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestIntegrate.dir/build.make mainprograms/CMakeFiles/TestIntegrate.dir/__/src_vazio/fem_sc.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestOneDProblem.dir/build.make mainprograms/CMakeFiles/TestOneDProblem.dir/__/src_vazio/fem_sc.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestTwoDProblem.dir/build.make mainprograms/CMakeFiles/TestTwoDProblem.dir/__/src_vazio/fem_sc.cpp.s
-.PHONY : __/src_vazio/fem_sc.cpp.s
-
-__/src_vazio/tanalysis.o: __/src_vazio/tanalysis.cpp.o
-
-.PHONY : __/src_vazio/tanalysis.o
-
-# target to build an object file
-__/src_vazio/tanalysis.cpp.o:
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestMatrix.dir/build.make mainprograms/CMakeFiles/TestMatrix.dir/__/src_vazio/tanalysis.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/FemSC.dir/build.make mainprograms/CMakeFiles/FemSC.dir/__/src_vazio/tanalysis.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestIntegrate.dir/build.make mainprograms/CMakeFiles/TestIntegrate.dir/__/src_vazio/tanalysis.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestOneDProblem.dir/build.make mainprograms/CMakeFiles/TestOneDProblem.dir/__/src_vazio/tanalysis.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestTwoDProblem.dir/build.make mainprograms/CMakeFiles/TestTwoDProblem.dir/__/src_vazio/tanalysis.cpp.o
-.PHONY : __/src_vazio/tanalysis.cpp.o
-
-__/src_vazio/tanalysis.i: __/src_vazio/tanalysis.cpp.i
-
-.PHONY : __/src_vazio/tanalysis.i
-
-# target to preprocess a source file
-__/src_vazio/tanalysis.cpp.i:
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestMatrix.dir/build.make mainprograms/CMakeFiles/TestMatrix.dir/__/src_vazio/tanalysis.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/FemSC.dir/build.make mainprograms/CMakeFiles/FemSC.dir/__/src_vazio/tanalysis.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestIntegrate.dir/build.make mainprograms/CMakeFiles/TestIntegrate.dir/__/src_vazio/tanalysis.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestOneDProblem.dir/build.make mainprograms/CMakeFiles/TestOneDProblem.dir/__/src_vazio/tanalysis.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestTwoDProblem.dir/build.make mainprograms/CMakeFiles/TestTwoDProblem.dir/__/src_vazio/tanalysis.cpp.i
-.PHONY : __/src_vazio/tanalysis.cpp.i
-
-__/src_vazio/tanalysis.s: __/src_vazio/tanalysis.cpp.s
-
-.PHONY : __/src_vazio/tanalysis.s
-
-# target to generate assembly for a file
-__/src_vazio/tanalysis.cpp.s:
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestMatrix.dir/build.make mainprograms/CMakeFiles/TestMatrix.dir/__/src_vazio/tanalysis.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/FemSC.dir/build.make mainprograms/CMakeFiles/FemSC.dir/__/src_vazio/tanalysis.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestIntegrate.dir/build.make mainprograms/CMakeFiles/TestIntegrate.dir/__/src_vazio/tanalysis.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestOneDProblem.dir/build.make mainprograms/CMakeFiles/TestOneDProblem.dir/__/src_vazio/tanalysis.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestTwoDProblem.dir/build.make mainprograms/CMakeFiles/TestTwoDProblem.dir/__/src_vazio/tanalysis.cpp.s
-.PHONY : __/src_vazio/tanalysis.cpp.s
-
-__/src_vazio/telemento.o: __/src_vazio/telemento.cpp.o
-
-.PHONY : __/src_vazio/telemento.o
-
-# target to build an object file
-__/src_vazio/telemento.cpp.o:
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestMatrix.dir/build.make mainprograms/CMakeFiles/TestMatrix.dir/__/src_vazio/telemento.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/FemSC.dir/build.make mainprograms/CMakeFiles/FemSC.dir/__/src_vazio/telemento.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestIntegrate.dir/build.make mainprograms/CMakeFiles/TestIntegrate.dir/__/src_vazio/telemento.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestOneDProblem.dir/build.make mainprograms/CMakeFiles/TestOneDProblem.dir/__/src_vazio/telemento.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestTwoDProblem.dir/build.make mainprograms/CMakeFiles/TestTwoDProblem.dir/__/src_vazio/telemento.cpp.o
-.PHONY : __/src_vazio/telemento.cpp.o
-
-__/src_vazio/telemento.i: __/src_vazio/telemento.cpp.i
-
-.PHONY : __/src_vazio/telemento.i
-
-# target to preprocess a source file
-__/src_vazio/telemento.cpp.i:
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestMatrix.dir/build.make mainprograms/CMakeFiles/TestMatrix.dir/__/src_vazio/telemento.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/FemSC.dir/build.make mainprograms/CMakeFiles/FemSC.dir/__/src_vazio/telemento.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestIntegrate.dir/build.make mainprograms/CMakeFiles/TestIntegrate.dir/__/src_vazio/telemento.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestOneDProblem.dir/build.make mainprograms/CMakeFiles/TestOneDProblem.dir/__/src_vazio/telemento.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestTwoDProblem.dir/build.make mainprograms/CMakeFiles/TestTwoDProblem.dir/__/src_vazio/telemento.cpp.i
-.PHONY : __/src_vazio/telemento.cpp.i
-
-__/src_vazio/telemento.s: __/src_vazio/telemento.cpp.s
-
-.PHONY : __/src_vazio/telemento.s
-
-# target to generate assembly for a file
-__/src_vazio/telemento.cpp.s:
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestMatrix.dir/build.make mainprograms/CMakeFiles/TestMatrix.dir/__/src_vazio/telemento.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/FemSC.dir/build.make mainprograms/CMakeFiles/FemSC.dir/__/src_vazio/telemento.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestIntegrate.dir/build.make mainprograms/CMakeFiles/TestIntegrate.dir/__/src_vazio/telemento.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestOneDProblem.dir/build.make mainprograms/CMakeFiles/TestOneDProblem.dir/__/src_vazio/telemento.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestTwoDProblem.dir/build.make mainprograms/CMakeFiles/TestTwoDProblem.dir/__/src_vazio/telemento.cpp.s
-.PHONY : __/src_vazio/telemento.cpp.s
-
-__/src_vazio/telemento0d.o: __/src_vazio/telemento0d.cpp.o
-
-.PHONY : __/src_vazio/telemento0d.o
-
-# target to build an object file
-__/src_vazio/telemento0d.cpp.o:
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestMatrix.dir/build.make mainprograms/CMakeFiles/TestMatrix.dir/__/src_vazio/telemento0d.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/FemSC.dir/build.make mainprograms/CMakeFiles/FemSC.dir/__/src_vazio/telemento0d.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestIntegrate.dir/build.make mainprograms/CMakeFiles/TestIntegrate.dir/__/src_vazio/telemento0d.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestOneDProblem.dir/build.make mainprograms/CMakeFiles/TestOneDProblem.dir/__/src_vazio/telemento0d.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestTwoDProblem.dir/build.make mainprograms/CMakeFiles/TestTwoDProblem.dir/__/src_vazio/telemento0d.cpp.o
-.PHONY : __/src_vazio/telemento0d.cpp.o
-
-__/src_vazio/telemento0d.i: __/src_vazio/telemento0d.cpp.i
-
-.PHONY : __/src_vazio/telemento0d.i
-
-# target to preprocess a source file
-__/src_vazio/telemento0d.cpp.i:
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestMatrix.dir/build.make mainprograms/CMakeFiles/TestMatrix.dir/__/src_vazio/telemento0d.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/FemSC.dir/build.make mainprograms/CMakeFiles/FemSC.dir/__/src_vazio/telemento0d.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestIntegrate.dir/build.make mainprograms/CMakeFiles/TestIntegrate.dir/__/src_vazio/telemento0d.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestOneDProblem.dir/build.make mainprograms/CMakeFiles/TestOneDProblem.dir/__/src_vazio/telemento0d.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestTwoDProblem.dir/build.make mainprograms/CMakeFiles/TestTwoDProblem.dir/__/src_vazio/telemento0d.cpp.i
-.PHONY : __/src_vazio/telemento0d.cpp.i
-
-__/src_vazio/telemento0d.s: __/src_vazio/telemento0d.cpp.s
-
-.PHONY : __/src_vazio/telemento0d.s
-
-# target to generate assembly for a file
-__/src_vazio/telemento0d.cpp.s:
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestMatrix.dir/build.make mainprograms/CMakeFiles/TestMatrix.dir/__/src_vazio/telemento0d.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/FemSC.dir/build.make mainprograms/CMakeFiles/FemSC.dir/__/src_vazio/telemento0d.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestIntegrate.dir/build.make mainprograms/CMakeFiles/TestIntegrate.dir/__/src_vazio/telemento0d.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestOneDProblem.dir/build.make mainprograms/CMakeFiles/TestOneDProblem.dir/__/src_vazio/telemento0d.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestTwoDProblem.dir/build.make mainprograms/CMakeFiles/TestTwoDProblem.dir/__/src_vazio/telemento0d.cpp.s
-.PHONY : __/src_vazio/telemento0d.cpp.s
-
-__/src_vazio/telemento1d.o: __/src_vazio/telemento1d.cpp.o
-
-.PHONY : __/src_vazio/telemento1d.o
-
-# target to build an object file
-__/src_vazio/telemento1d.cpp.o:
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestMatrix.dir/build.make mainprograms/CMakeFiles/TestMatrix.dir/__/src_vazio/telemento1d.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/FemSC.dir/build.make mainprograms/CMakeFiles/FemSC.dir/__/src_vazio/telemento1d.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestIntegrate.dir/build.make mainprograms/CMakeFiles/TestIntegrate.dir/__/src_vazio/telemento1d.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestOneDProblem.dir/build.make mainprograms/CMakeFiles/TestOneDProblem.dir/__/src_vazio/telemento1d.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestTwoDProblem.dir/build.make mainprograms/CMakeFiles/TestTwoDProblem.dir/__/src_vazio/telemento1d.cpp.o
-.PHONY : __/src_vazio/telemento1d.cpp.o
-
-__/src_vazio/telemento1d.i: __/src_vazio/telemento1d.cpp.i
-
-.PHONY : __/src_vazio/telemento1d.i
-
-# target to preprocess a source file
-__/src_vazio/telemento1d.cpp.i:
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestMatrix.dir/build.make mainprograms/CMakeFiles/TestMatrix.dir/__/src_vazio/telemento1d.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/FemSC.dir/build.make mainprograms/CMakeFiles/FemSC.dir/__/src_vazio/telemento1d.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestIntegrate.dir/build.make mainprograms/CMakeFiles/TestIntegrate.dir/__/src_vazio/telemento1d.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestOneDProblem.dir/build.make mainprograms/CMakeFiles/TestOneDProblem.dir/__/src_vazio/telemento1d.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestTwoDProblem.dir/build.make mainprograms/CMakeFiles/TestTwoDProblem.dir/__/src_vazio/telemento1d.cpp.i
-.PHONY : __/src_vazio/telemento1d.cpp.i
-
-__/src_vazio/telemento1d.s: __/src_vazio/telemento1d.cpp.s
-
-.PHONY : __/src_vazio/telemento1d.s
-
-# target to generate assembly for a file
-__/src_vazio/telemento1d.cpp.s:
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestMatrix.dir/build.make mainprograms/CMakeFiles/TestMatrix.dir/__/src_vazio/telemento1d.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/FemSC.dir/build.make mainprograms/CMakeFiles/FemSC.dir/__/src_vazio/telemento1d.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestIntegrate.dir/build.make mainprograms/CMakeFiles/TestIntegrate.dir/__/src_vazio/telemento1d.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestOneDProblem.dir/build.make mainprograms/CMakeFiles/TestOneDProblem.dir/__/src_vazio/telemento1d.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestTwoDProblem.dir/build.make mainprograms/CMakeFiles/TestTwoDProblem.dir/__/src_vazio/telemento1d.cpp.s
-.PHONY : __/src_vazio/telemento1d.cpp.s
-
-__/src_vazio/telementoQuad.o: __/src_vazio/telementoQuad.cpp.o
-
-.PHONY : __/src_vazio/telementoQuad.o
-
-# target to build an object file
-__/src_vazio/telementoQuad.cpp.o:
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestMatrix.dir/build.make mainprograms/CMakeFiles/TestMatrix.dir/__/src_vazio/telementoQuad.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/FemSC.dir/build.make mainprograms/CMakeFiles/FemSC.dir/__/src_vazio/telementoQuad.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestIntegrate.dir/build.make mainprograms/CMakeFiles/TestIntegrate.dir/__/src_vazio/telementoQuad.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestOneDProblem.dir/build.make mainprograms/CMakeFiles/TestOneDProblem.dir/__/src_vazio/telementoQuad.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestTwoDProblem.dir/build.make mainprograms/CMakeFiles/TestTwoDProblem.dir/__/src_vazio/telementoQuad.cpp.o
-.PHONY : __/src_vazio/telementoQuad.cpp.o
-
-__/src_vazio/telementoQuad.i: __/src_vazio/telementoQuad.cpp.i
-
-.PHONY : __/src_vazio/telementoQuad.i
-
-# target to preprocess a source file
-__/src_vazio/telementoQuad.cpp.i:
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestMatrix.dir/build.make mainprograms/CMakeFiles/TestMatrix.dir/__/src_vazio/telementoQuad.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/FemSC.dir/build.make mainprograms/CMakeFiles/FemSC.dir/__/src_vazio/telementoQuad.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestIntegrate.dir/build.make mainprograms/CMakeFiles/TestIntegrate.dir/__/src_vazio/telementoQuad.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestOneDProblem.dir/build.make mainprograms/CMakeFiles/TestOneDProblem.dir/__/src_vazio/telementoQuad.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestTwoDProblem.dir/build.make mainprograms/CMakeFiles/TestTwoDProblem.dir/__/src_vazio/telementoQuad.cpp.i
-.PHONY : __/src_vazio/telementoQuad.cpp.i
-
-__/src_vazio/telementoQuad.s: __/src_vazio/telementoQuad.cpp.s
-
-.PHONY : __/src_vazio/telementoQuad.s
-
-# target to generate assembly for a file
-__/src_vazio/telementoQuad.cpp.s:
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestMatrix.dir/build.make mainprograms/CMakeFiles/TestMatrix.dir/__/src_vazio/telementoQuad.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/FemSC.dir/build.make mainprograms/CMakeFiles/FemSC.dir/__/src_vazio/telementoQuad.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestIntegrate.dir/build.make mainprograms/CMakeFiles/TestIntegrate.dir/__/src_vazio/telementoQuad.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestOneDProblem.dir/build.make mainprograms/CMakeFiles/TestOneDProblem.dir/__/src_vazio/telementoQuad.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestTwoDProblem.dir/build.make mainprograms/CMakeFiles/TestTwoDProblem.dir/__/src_vazio/telementoQuad.cpp.s
-.PHONY : __/src_vazio/telementoQuad.cpp.s
-
-__/src_vazio/telementoTriangle.o: __/src_vazio/telementoTriangle.cpp.o
-
-.PHONY : __/src_vazio/telementoTriangle.o
-
-# target to build an object file
-__/src_vazio/telementoTriangle.cpp.o:
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestMatrix.dir/build.make mainprograms/CMakeFiles/TestMatrix.dir/__/src_vazio/telementoTriangle.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/FemSC.dir/build.make mainprograms/CMakeFiles/FemSC.dir/__/src_vazio/telementoTriangle.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestIntegrate.dir/build.make mainprograms/CMakeFiles/TestIntegrate.dir/__/src_vazio/telementoTriangle.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestOneDProblem.dir/build.make mainprograms/CMakeFiles/TestOneDProblem.dir/__/src_vazio/telementoTriangle.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestTwoDProblem.dir/build.make mainprograms/CMakeFiles/TestTwoDProblem.dir/__/src_vazio/telementoTriangle.cpp.o
-.PHONY : __/src_vazio/telementoTriangle.cpp.o
-
-__/src_vazio/telementoTriangle.i: __/src_vazio/telementoTriangle.cpp.i
-
-.PHONY : __/src_vazio/telementoTriangle.i
-
-# target to preprocess a source file
-__/src_vazio/telementoTriangle.cpp.i:
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestMatrix.dir/build.make mainprograms/CMakeFiles/TestMatrix.dir/__/src_vazio/telementoTriangle.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/FemSC.dir/build.make mainprograms/CMakeFiles/FemSC.dir/__/src_vazio/telementoTriangle.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestIntegrate.dir/build.make mainprograms/CMakeFiles/TestIntegrate.dir/__/src_vazio/telementoTriangle.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestOneDProblem.dir/build.make mainprograms/CMakeFiles/TestOneDProblem.dir/__/src_vazio/telementoTriangle.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestTwoDProblem.dir/build.make mainprograms/CMakeFiles/TestTwoDProblem.dir/__/src_vazio/telementoTriangle.cpp.i
-.PHONY : __/src_vazio/telementoTriangle.cpp.i
-
-__/src_vazio/telementoTriangle.s: __/src_vazio/telementoTriangle.cpp.s
-
-.PHONY : __/src_vazio/telementoTriangle.s
-
-# target to generate assembly for a file
-__/src_vazio/telementoTriangle.cpp.s:
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestMatrix.dir/build.make mainprograms/CMakeFiles/TestMatrix.dir/__/src_vazio/telementoTriangle.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/FemSC.dir/build.make mainprograms/CMakeFiles/FemSC.dir/__/src_vazio/telementoTriangle.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestIntegrate.dir/build.make mainprograms/CMakeFiles/TestIntegrate.dir/__/src_vazio/telementoTriangle.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestOneDProblem.dir/build.make mainprograms/CMakeFiles/TestOneDProblem.dir/__/src_vazio/telementoTriangle.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestTwoDProblem.dir/build.make mainprograms/CMakeFiles/TestTwoDProblem.dir/__/src_vazio/telementoTriangle.cpp.s
-.PHONY : __/src_vazio/telementoTriangle.cpp.s
-
-__/src_vazio/tmalha.o: __/src_vazio/tmalha.cpp.o
-
-.PHONY : __/src_vazio/tmalha.o
-
-# target to build an object file
-__/src_vazio/tmalha.cpp.o:
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestMatrix.dir/build.make mainprograms/CMakeFiles/TestMatrix.dir/__/src_vazio/tmalha.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/FemSC.dir/build.make mainprograms/CMakeFiles/FemSC.dir/__/src_vazio/tmalha.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestIntegrate.dir/build.make mainprograms/CMakeFiles/TestIntegrate.dir/__/src_vazio/tmalha.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestOneDProblem.dir/build.make mainprograms/CMakeFiles/TestOneDProblem.dir/__/src_vazio/tmalha.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestTwoDProblem.dir/build.make mainprograms/CMakeFiles/TestTwoDProblem.dir/__/src_vazio/tmalha.cpp.o
-.PHONY : __/src_vazio/tmalha.cpp.o
-
-__/src_vazio/tmalha.i: __/src_vazio/tmalha.cpp.i
-
-.PHONY : __/src_vazio/tmalha.i
-
-# target to preprocess a source file
-__/src_vazio/tmalha.cpp.i:
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestMatrix.dir/build.make mainprograms/CMakeFiles/TestMatrix.dir/__/src_vazio/tmalha.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/FemSC.dir/build.make mainprograms/CMakeFiles/FemSC.dir/__/src_vazio/tmalha.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestIntegrate.dir/build.make mainprograms/CMakeFiles/TestIntegrate.dir/__/src_vazio/tmalha.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestOneDProblem.dir/build.make mainprograms/CMakeFiles/TestOneDProblem.dir/__/src_vazio/tmalha.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestTwoDProblem.dir/build.make mainprograms/CMakeFiles/TestTwoDProblem.dir/__/src_vazio/tmalha.cpp.i
-.PHONY : __/src_vazio/tmalha.cpp.i
-
-__/src_vazio/tmalha.s: __/src_vazio/tmalha.cpp.s
-
-.PHONY : __/src_vazio/tmalha.s
-
-# target to generate assembly for a file
-__/src_vazio/tmalha.cpp.s:
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestMatrix.dir/build.make mainprograms/CMakeFiles/TestMatrix.dir/__/src_vazio/tmalha.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/FemSC.dir/build.make mainprograms/CMakeFiles/FemSC.dir/__/src_vazio/tmalha.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestIntegrate.dir/build.make mainprograms/CMakeFiles/TestIntegrate.dir/__/src_vazio/tmalha.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestOneDProblem.dir/build.make mainprograms/CMakeFiles/TestOneDProblem.dir/__/src_vazio/tmalha.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestTwoDProblem.dir/build.make mainprograms/CMakeFiles/TestTwoDProblem.dir/__/src_vazio/tmalha.cpp.s
-.PHONY : __/src_vazio/tmalha.cpp.s
-
-__/src_vazio/tmaterial.o: __/src_vazio/tmaterial.cpp.o
-
-.PHONY : __/src_vazio/tmaterial.o
-
-# target to build an object file
-__/src_vazio/tmaterial.cpp.o:
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestMatrix.dir/build.make mainprograms/CMakeFiles/TestMatrix.dir/__/src_vazio/tmaterial.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/FemSC.dir/build.make mainprograms/CMakeFiles/FemSC.dir/__/src_vazio/tmaterial.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestIntegrate.dir/build.make mainprograms/CMakeFiles/TestIntegrate.dir/__/src_vazio/tmaterial.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestOneDProblem.dir/build.make mainprograms/CMakeFiles/TestOneDProblem.dir/__/src_vazio/tmaterial.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestTwoDProblem.dir/build.make mainprograms/CMakeFiles/TestTwoDProblem.dir/__/src_vazio/tmaterial.cpp.o
-.PHONY : __/src_vazio/tmaterial.cpp.o
-
-__/src_vazio/tmaterial.i: __/src_vazio/tmaterial.cpp.i
-
-.PHONY : __/src_vazio/tmaterial.i
-
-# target to preprocess a source file
-__/src_vazio/tmaterial.cpp.i:
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestMatrix.dir/build.make mainprograms/CMakeFiles/TestMatrix.dir/__/src_vazio/tmaterial.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/FemSC.dir/build.make mainprograms/CMakeFiles/FemSC.dir/__/src_vazio/tmaterial.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestIntegrate.dir/build.make mainprograms/CMakeFiles/TestIntegrate.dir/__/src_vazio/tmaterial.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestOneDProblem.dir/build.make mainprograms/CMakeFiles/TestOneDProblem.dir/__/src_vazio/tmaterial.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestTwoDProblem.dir/build.make mainprograms/CMakeFiles/TestTwoDProblem.dir/__/src_vazio/tmaterial.cpp.i
-.PHONY : __/src_vazio/tmaterial.cpp.i
-
-__/src_vazio/tmaterial.s: __/src_vazio/tmaterial.cpp.s
-
-.PHONY : __/src_vazio/tmaterial.s
-
-# target to generate assembly for a file
-__/src_vazio/tmaterial.cpp.s:
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestMatrix.dir/build.make mainprograms/CMakeFiles/TestMatrix.dir/__/src_vazio/tmaterial.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/FemSC.dir/build.make mainprograms/CMakeFiles/FemSC.dir/__/src_vazio/tmaterial.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestIntegrate.dir/build.make mainprograms/CMakeFiles/TestIntegrate.dir/__/src_vazio/tmaterial.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestOneDProblem.dir/build.make mainprograms/CMakeFiles/TestOneDProblem.dir/__/src_vazio/tmaterial.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestTwoDProblem.dir/build.make mainprograms/CMakeFiles/TestTwoDProblem.dir/__/src_vazio/tmaterial.cpp.s
-.PHONY : __/src_vazio/tmaterial.cpp.s
-
-__/src_vazio/tmaterial1d.o: __/src_vazio/tmaterial1d.cpp.o
-
-.PHONY : __/src_vazio/tmaterial1d.o
-
-# target to build an object file
-__/src_vazio/tmaterial1d.cpp.o:
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestMatrix.dir/build.make mainprograms/CMakeFiles/TestMatrix.dir/__/src_vazio/tmaterial1d.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/FemSC.dir/build.make mainprograms/CMakeFiles/FemSC.dir/__/src_vazio/tmaterial1d.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestIntegrate.dir/build.make mainprograms/CMakeFiles/TestIntegrate.dir/__/src_vazio/tmaterial1d.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestOneDProblem.dir/build.make mainprograms/CMakeFiles/TestOneDProblem.dir/__/src_vazio/tmaterial1d.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestTwoDProblem.dir/build.make mainprograms/CMakeFiles/TestTwoDProblem.dir/__/src_vazio/tmaterial1d.cpp.o
-.PHONY : __/src_vazio/tmaterial1d.cpp.o
-
-__/src_vazio/tmaterial1d.i: __/src_vazio/tmaterial1d.cpp.i
-
-.PHONY : __/src_vazio/tmaterial1d.i
-
-# target to preprocess a source file
-__/src_vazio/tmaterial1d.cpp.i:
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestMatrix.dir/build.make mainprograms/CMakeFiles/TestMatrix.dir/__/src_vazio/tmaterial1d.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/FemSC.dir/build.make mainprograms/CMakeFiles/FemSC.dir/__/src_vazio/tmaterial1d.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestIntegrate.dir/build.make mainprograms/CMakeFiles/TestIntegrate.dir/__/src_vazio/tmaterial1d.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestOneDProblem.dir/build.make mainprograms/CMakeFiles/TestOneDProblem.dir/__/src_vazio/tmaterial1d.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestTwoDProblem.dir/build.make mainprograms/CMakeFiles/TestTwoDProblem.dir/__/src_vazio/tmaterial1d.cpp.i
-.PHONY : __/src_vazio/tmaterial1d.cpp.i
-
-__/src_vazio/tmaterial1d.s: __/src_vazio/tmaterial1d.cpp.s
-
-.PHONY : __/src_vazio/tmaterial1d.s
-
-# target to generate assembly for a file
-__/src_vazio/tmaterial1d.cpp.s:
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestMatrix.dir/build.make mainprograms/CMakeFiles/TestMatrix.dir/__/src_vazio/tmaterial1d.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/FemSC.dir/build.make mainprograms/CMakeFiles/FemSC.dir/__/src_vazio/tmaterial1d.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestIntegrate.dir/build.make mainprograms/CMakeFiles/TestIntegrate.dir/__/src_vazio/tmaterial1d.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestOneDProblem.dir/build.make mainprograms/CMakeFiles/TestOneDProblem.dir/__/src_vazio/tmaterial1d.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestTwoDProblem.dir/build.make mainprograms/CMakeFiles/TestTwoDProblem.dir/__/src_vazio/tmaterial1d.cpp.s
-.PHONY : __/src_vazio/tmaterial1d.cpp.s
-
-__/src_vazio/tmaterial2d.o: __/src_vazio/tmaterial2d.cpp.o
-
-.PHONY : __/src_vazio/tmaterial2d.o
-
-# target to build an object file
-__/src_vazio/tmaterial2d.cpp.o:
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestMatrix.dir/build.make mainprograms/CMakeFiles/TestMatrix.dir/__/src_vazio/tmaterial2d.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/FemSC.dir/build.make mainprograms/CMakeFiles/FemSC.dir/__/src_vazio/tmaterial2d.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestIntegrate.dir/build.make mainprograms/CMakeFiles/TestIntegrate.dir/__/src_vazio/tmaterial2d.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestOneDProblem.dir/build.make mainprograms/CMakeFiles/TestOneDProblem.dir/__/src_vazio/tmaterial2d.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestTwoDProblem.dir/build.make mainprograms/CMakeFiles/TestTwoDProblem.dir/__/src_vazio/tmaterial2d.cpp.o
-.PHONY : __/src_vazio/tmaterial2d.cpp.o
-
-__/src_vazio/tmaterial2d.i: __/src_vazio/tmaterial2d.cpp.i
-
-.PHONY : __/src_vazio/tmaterial2d.i
-
-# target to preprocess a source file
-__/src_vazio/tmaterial2d.cpp.i:
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestMatrix.dir/build.make mainprograms/CMakeFiles/TestMatrix.dir/__/src_vazio/tmaterial2d.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/FemSC.dir/build.make mainprograms/CMakeFiles/FemSC.dir/__/src_vazio/tmaterial2d.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestIntegrate.dir/build.make mainprograms/CMakeFiles/TestIntegrate.dir/__/src_vazio/tmaterial2d.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestOneDProblem.dir/build.make mainprograms/CMakeFiles/TestOneDProblem.dir/__/src_vazio/tmaterial2d.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestTwoDProblem.dir/build.make mainprograms/CMakeFiles/TestTwoDProblem.dir/__/src_vazio/tmaterial2d.cpp.i
-.PHONY : __/src_vazio/tmaterial2d.cpp.i
-
-__/src_vazio/tmaterial2d.s: __/src_vazio/tmaterial2d.cpp.s
-
-.PHONY : __/src_vazio/tmaterial2d.s
-
-# target to generate assembly for a file
-__/src_vazio/tmaterial2d.cpp.s:
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestMatrix.dir/build.make mainprograms/CMakeFiles/TestMatrix.dir/__/src_vazio/tmaterial2d.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/FemSC.dir/build.make mainprograms/CMakeFiles/FemSC.dir/__/src_vazio/tmaterial2d.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestIntegrate.dir/build.make mainprograms/CMakeFiles/TestIntegrate.dir/__/src_vazio/tmaterial2d.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestOneDProblem.dir/build.make mainprograms/CMakeFiles/TestOneDProblem.dir/__/src_vazio/tmaterial2d.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestTwoDProblem.dir/build.make mainprograms/CMakeFiles/TestTwoDProblem.dir/__/src_vazio/tmaterial2d.cpp.s
-.PHONY : __/src_vazio/tmaterial2d.cpp.s
-
-__/src_vazio/tmaterialbc.o: __/src_vazio/tmaterialbc.cpp.o
-
-.PHONY : __/src_vazio/tmaterialbc.o
-
-# target to build an object file
-__/src_vazio/tmaterialbc.cpp.o:
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestMatrix.dir/build.make mainprograms/CMakeFiles/TestMatrix.dir/__/src_vazio/tmaterialbc.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/FemSC.dir/build.make mainprograms/CMakeFiles/FemSC.dir/__/src_vazio/tmaterialbc.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestIntegrate.dir/build.make mainprograms/CMakeFiles/TestIntegrate.dir/__/src_vazio/tmaterialbc.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestOneDProblem.dir/build.make mainprograms/CMakeFiles/TestOneDProblem.dir/__/src_vazio/tmaterialbc.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestTwoDProblem.dir/build.make mainprograms/CMakeFiles/TestTwoDProblem.dir/__/src_vazio/tmaterialbc.cpp.o
-.PHONY : __/src_vazio/tmaterialbc.cpp.o
-
-__/src_vazio/tmaterialbc.i: __/src_vazio/tmaterialbc.cpp.i
-
-.PHONY : __/src_vazio/tmaterialbc.i
-
-# target to preprocess a source file
-__/src_vazio/tmaterialbc.cpp.i:
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestMatrix.dir/build.make mainprograms/CMakeFiles/TestMatrix.dir/__/src_vazio/tmaterialbc.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/FemSC.dir/build.make mainprograms/CMakeFiles/FemSC.dir/__/src_vazio/tmaterialbc.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestIntegrate.dir/build.make mainprograms/CMakeFiles/TestIntegrate.dir/__/src_vazio/tmaterialbc.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestOneDProblem.dir/build.make mainprograms/CMakeFiles/TestOneDProblem.dir/__/src_vazio/tmaterialbc.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestTwoDProblem.dir/build.make mainprograms/CMakeFiles/TestTwoDProblem.dir/__/src_vazio/tmaterialbc.cpp.i
-.PHONY : __/src_vazio/tmaterialbc.cpp.i
-
-__/src_vazio/tmaterialbc.s: __/src_vazio/tmaterialbc.cpp.s
-
-.PHONY : __/src_vazio/tmaterialbc.s
-
-# target to generate assembly for a file
-__/src_vazio/tmaterialbc.cpp.s:
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestMatrix.dir/build.make mainprograms/CMakeFiles/TestMatrix.dir/__/src_vazio/tmaterialbc.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/FemSC.dir/build.make mainprograms/CMakeFiles/FemSC.dir/__/src_vazio/tmaterialbc.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestIntegrate.dir/build.make mainprograms/CMakeFiles/TestIntegrate.dir/__/src_vazio/tmaterialbc.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestOneDProblem.dir/build.make mainprograms/CMakeFiles/TestOneDProblem.dir/__/src_vazio/tmaterialbc.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestTwoDProblem.dir/build.make mainprograms/CMakeFiles/TestTwoDProblem.dir/__/src_vazio/tmaterialbc.cpp.s
-.PHONY : __/src_vazio/tmaterialbc.cpp.s
-
-__/src_vazio/tno.o: __/src_vazio/tno.cpp.o
-
-.PHONY : __/src_vazio/tno.o
-
-# target to build an object file
-__/src_vazio/tno.cpp.o:
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestMatrix.dir/build.make mainprograms/CMakeFiles/TestMatrix.dir/__/src_vazio/tno.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/FemSC.dir/build.make mainprograms/CMakeFiles/FemSC.dir/__/src_vazio/tno.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestIntegrate.dir/build.make mainprograms/CMakeFiles/TestIntegrate.dir/__/src_vazio/tno.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestOneDProblem.dir/build.make mainprograms/CMakeFiles/TestOneDProblem.dir/__/src_vazio/tno.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestTwoDProblem.dir/build.make mainprograms/CMakeFiles/TestTwoDProblem.dir/__/src_vazio/tno.cpp.o
-.PHONY : __/src_vazio/tno.cpp.o
-
-__/src_vazio/tno.i: __/src_vazio/tno.cpp.i
-
-.PHONY : __/src_vazio/tno.i
-
-# target to preprocess a source file
-__/src_vazio/tno.cpp.i:
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestMatrix.dir/build.make mainprograms/CMakeFiles/TestMatrix.dir/__/src_vazio/tno.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/FemSC.dir/build.make mainprograms/CMakeFiles/FemSC.dir/__/src_vazio/tno.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestIntegrate.dir/build.make mainprograms/CMakeFiles/TestIntegrate.dir/__/src_vazio/tno.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestOneDProblem.dir/build.make mainprograms/CMakeFiles/TestOneDProblem.dir/__/src_vazio/tno.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestTwoDProblem.dir/build.make mainprograms/CMakeFiles/TestTwoDProblem.dir/__/src_vazio/tno.cpp.i
-.PHONY : __/src_vazio/tno.cpp.i
-
-__/src_vazio/tno.s: __/src_vazio/tno.cpp.s
-
-.PHONY : __/src_vazio/tno.s
-
-# target to generate assembly for a file
-__/src_vazio/tno.cpp.s:
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestMatrix.dir/build.make mainprograms/CMakeFiles/TestMatrix.dir/__/src_vazio/tno.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/FemSC.dir/build.make mainprograms/CMakeFiles/FemSC.dir/__/src_vazio/tno.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestIntegrate.dir/build.make mainprograms/CMakeFiles/TestIntegrate.dir/__/src_vazio/tno.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestOneDProblem.dir/build.make mainprograms/CMakeFiles/TestOneDProblem.dir/__/src_vazio/tno.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestTwoDProblem.dir/build.make mainprograms/CMakeFiles/TestTwoDProblem.dir/__/src_vazio/tno.cpp.s
-.PHONY : __/src_vazio/tno.cpp.s
 
 __/tinyxml/tinyxml.o: __/tinyxml/tinyxml.cpp.o
 
@@ -1977,11 +1077,6 @@ __/tinyxml/tinyxml.o: __/tinyxml/tinyxml.cpp.o
 # target to build an object file
 __/tinyxml/tinyxml.cpp.o:
 	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/Fem2018.dir/build.make mainprograms/CMakeFiles/Fem2018.dir/__/tinyxml/tinyxml.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestMatrix.dir/build.make mainprograms/CMakeFiles/TestMatrix.dir/__/tinyxml/tinyxml.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/FemSC.dir/build.make mainprograms/CMakeFiles/FemSC.dir/__/tinyxml/tinyxml.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestIntegrate.dir/build.make mainprograms/CMakeFiles/TestIntegrate.dir/__/tinyxml/tinyxml.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestOneDProblem.dir/build.make mainprograms/CMakeFiles/TestOneDProblem.dir/__/tinyxml/tinyxml.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestTwoDProblem.dir/build.make mainprograms/CMakeFiles/TestTwoDProblem.dir/__/tinyxml/tinyxml.cpp.o
 .PHONY : __/tinyxml/tinyxml.cpp.o
 
 __/tinyxml/tinyxml.i: __/tinyxml/tinyxml.cpp.i
@@ -1991,11 +1086,6 @@ __/tinyxml/tinyxml.i: __/tinyxml/tinyxml.cpp.i
 # target to preprocess a source file
 __/tinyxml/tinyxml.cpp.i:
 	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/Fem2018.dir/build.make mainprograms/CMakeFiles/Fem2018.dir/__/tinyxml/tinyxml.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestMatrix.dir/build.make mainprograms/CMakeFiles/TestMatrix.dir/__/tinyxml/tinyxml.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/FemSC.dir/build.make mainprograms/CMakeFiles/FemSC.dir/__/tinyxml/tinyxml.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestIntegrate.dir/build.make mainprograms/CMakeFiles/TestIntegrate.dir/__/tinyxml/tinyxml.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestOneDProblem.dir/build.make mainprograms/CMakeFiles/TestOneDProblem.dir/__/tinyxml/tinyxml.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestTwoDProblem.dir/build.make mainprograms/CMakeFiles/TestTwoDProblem.dir/__/tinyxml/tinyxml.cpp.i
 .PHONY : __/tinyxml/tinyxml.cpp.i
 
 __/tinyxml/tinyxml.s: __/tinyxml/tinyxml.cpp.s
@@ -2005,11 +1095,6 @@ __/tinyxml/tinyxml.s: __/tinyxml/tinyxml.cpp.s
 # target to generate assembly for a file
 __/tinyxml/tinyxml.cpp.s:
 	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/Fem2018.dir/build.make mainprograms/CMakeFiles/Fem2018.dir/__/tinyxml/tinyxml.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestMatrix.dir/build.make mainprograms/CMakeFiles/TestMatrix.dir/__/tinyxml/tinyxml.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/FemSC.dir/build.make mainprograms/CMakeFiles/FemSC.dir/__/tinyxml/tinyxml.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestIntegrate.dir/build.make mainprograms/CMakeFiles/TestIntegrate.dir/__/tinyxml/tinyxml.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestOneDProblem.dir/build.make mainprograms/CMakeFiles/TestOneDProblem.dir/__/tinyxml/tinyxml.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestTwoDProblem.dir/build.make mainprograms/CMakeFiles/TestTwoDProblem.dir/__/tinyxml/tinyxml.cpp.s
 .PHONY : __/tinyxml/tinyxml.cpp.s
 
 __/tinyxml/tinyxmlerror.o: __/tinyxml/tinyxmlerror.cpp.o
@@ -2019,11 +1104,6 @@ __/tinyxml/tinyxmlerror.o: __/tinyxml/tinyxmlerror.cpp.o
 # target to build an object file
 __/tinyxml/tinyxmlerror.cpp.o:
 	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/Fem2018.dir/build.make mainprograms/CMakeFiles/Fem2018.dir/__/tinyxml/tinyxmlerror.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestMatrix.dir/build.make mainprograms/CMakeFiles/TestMatrix.dir/__/tinyxml/tinyxmlerror.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/FemSC.dir/build.make mainprograms/CMakeFiles/FemSC.dir/__/tinyxml/tinyxmlerror.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestIntegrate.dir/build.make mainprograms/CMakeFiles/TestIntegrate.dir/__/tinyxml/tinyxmlerror.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestOneDProblem.dir/build.make mainprograms/CMakeFiles/TestOneDProblem.dir/__/tinyxml/tinyxmlerror.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestTwoDProblem.dir/build.make mainprograms/CMakeFiles/TestTwoDProblem.dir/__/tinyxml/tinyxmlerror.cpp.o
 .PHONY : __/tinyxml/tinyxmlerror.cpp.o
 
 __/tinyxml/tinyxmlerror.i: __/tinyxml/tinyxmlerror.cpp.i
@@ -2033,11 +1113,6 @@ __/tinyxml/tinyxmlerror.i: __/tinyxml/tinyxmlerror.cpp.i
 # target to preprocess a source file
 __/tinyxml/tinyxmlerror.cpp.i:
 	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/Fem2018.dir/build.make mainprograms/CMakeFiles/Fem2018.dir/__/tinyxml/tinyxmlerror.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestMatrix.dir/build.make mainprograms/CMakeFiles/TestMatrix.dir/__/tinyxml/tinyxmlerror.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/FemSC.dir/build.make mainprograms/CMakeFiles/FemSC.dir/__/tinyxml/tinyxmlerror.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestIntegrate.dir/build.make mainprograms/CMakeFiles/TestIntegrate.dir/__/tinyxml/tinyxmlerror.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestOneDProblem.dir/build.make mainprograms/CMakeFiles/TestOneDProblem.dir/__/tinyxml/tinyxmlerror.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestTwoDProblem.dir/build.make mainprograms/CMakeFiles/TestTwoDProblem.dir/__/tinyxml/tinyxmlerror.cpp.i
 .PHONY : __/tinyxml/tinyxmlerror.cpp.i
 
 __/tinyxml/tinyxmlerror.s: __/tinyxml/tinyxmlerror.cpp.s
@@ -2047,11 +1122,6 @@ __/tinyxml/tinyxmlerror.s: __/tinyxml/tinyxmlerror.cpp.s
 # target to generate assembly for a file
 __/tinyxml/tinyxmlerror.cpp.s:
 	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/Fem2018.dir/build.make mainprograms/CMakeFiles/Fem2018.dir/__/tinyxml/tinyxmlerror.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestMatrix.dir/build.make mainprograms/CMakeFiles/TestMatrix.dir/__/tinyxml/tinyxmlerror.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/FemSC.dir/build.make mainprograms/CMakeFiles/FemSC.dir/__/tinyxml/tinyxmlerror.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestIntegrate.dir/build.make mainprograms/CMakeFiles/TestIntegrate.dir/__/tinyxml/tinyxmlerror.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestOneDProblem.dir/build.make mainprograms/CMakeFiles/TestOneDProblem.dir/__/tinyxml/tinyxmlerror.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestTwoDProblem.dir/build.make mainprograms/CMakeFiles/TestTwoDProblem.dir/__/tinyxml/tinyxmlerror.cpp.s
 .PHONY : __/tinyxml/tinyxmlerror.cpp.s
 
 __/tinyxml/tinyxmlparser.o: __/tinyxml/tinyxmlparser.cpp.o
@@ -2061,11 +1131,6 @@ __/tinyxml/tinyxmlparser.o: __/tinyxml/tinyxmlparser.cpp.o
 # target to build an object file
 __/tinyxml/tinyxmlparser.cpp.o:
 	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/Fem2018.dir/build.make mainprograms/CMakeFiles/Fem2018.dir/__/tinyxml/tinyxmlparser.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestMatrix.dir/build.make mainprograms/CMakeFiles/TestMatrix.dir/__/tinyxml/tinyxmlparser.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/FemSC.dir/build.make mainprograms/CMakeFiles/FemSC.dir/__/tinyxml/tinyxmlparser.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestIntegrate.dir/build.make mainprograms/CMakeFiles/TestIntegrate.dir/__/tinyxml/tinyxmlparser.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestOneDProblem.dir/build.make mainprograms/CMakeFiles/TestOneDProblem.dir/__/tinyxml/tinyxmlparser.cpp.o
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestTwoDProblem.dir/build.make mainprograms/CMakeFiles/TestTwoDProblem.dir/__/tinyxml/tinyxmlparser.cpp.o
 .PHONY : __/tinyxml/tinyxmlparser.cpp.o
 
 __/tinyxml/tinyxmlparser.i: __/tinyxml/tinyxmlparser.cpp.i
@@ -2075,11 +1140,6 @@ __/tinyxml/tinyxmlparser.i: __/tinyxml/tinyxmlparser.cpp.i
 # target to preprocess a source file
 __/tinyxml/tinyxmlparser.cpp.i:
 	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/Fem2018.dir/build.make mainprograms/CMakeFiles/Fem2018.dir/__/tinyxml/tinyxmlparser.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestMatrix.dir/build.make mainprograms/CMakeFiles/TestMatrix.dir/__/tinyxml/tinyxmlparser.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/FemSC.dir/build.make mainprograms/CMakeFiles/FemSC.dir/__/tinyxml/tinyxmlparser.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestIntegrate.dir/build.make mainprograms/CMakeFiles/TestIntegrate.dir/__/tinyxml/tinyxmlparser.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestOneDProblem.dir/build.make mainprograms/CMakeFiles/TestOneDProblem.dir/__/tinyxml/tinyxmlparser.cpp.i
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestTwoDProblem.dir/build.make mainprograms/CMakeFiles/TestTwoDProblem.dir/__/tinyxml/tinyxmlparser.cpp.i
 .PHONY : __/tinyxml/tinyxmlparser.cpp.i
 
 __/tinyxml/tinyxmlparser.s: __/tinyxml/tinyxmlparser.cpp.s
@@ -2089,39 +1149,7 @@ __/tinyxml/tinyxmlparser.s: __/tinyxml/tinyxmlparser.cpp.s
 # target to generate assembly for a file
 __/tinyxml/tinyxmlparser.cpp.s:
 	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/Fem2018.dir/build.make mainprograms/CMakeFiles/Fem2018.dir/__/tinyxml/tinyxmlparser.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestMatrix.dir/build.make mainprograms/CMakeFiles/TestMatrix.dir/__/tinyxml/tinyxmlparser.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/FemSC.dir/build.make mainprograms/CMakeFiles/FemSC.dir/__/tinyxml/tinyxmlparser.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestIntegrate.dir/build.make mainprograms/CMakeFiles/TestIntegrate.dir/__/tinyxml/tinyxmlparser.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestOneDProblem.dir/build.make mainprograms/CMakeFiles/TestOneDProblem.dir/__/tinyxml/tinyxmlparser.cpp.s
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/TestTwoDProblem.dir/build.make mainprograms/CMakeFiles/TestTwoDProblem.dir/__/tinyxml/tinyxmlparser.cpp.s
 .PHONY : __/tinyxml/tinyxmlparser.cpp.s
-
-main.o: main.cpp.o
-
-.PHONY : main.o
-
-# target to build an object file
-main.cpp.o:
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/FemSC.dir/build.make mainprograms/CMakeFiles/FemSC.dir/main.cpp.o
-.PHONY : main.cpp.o
-
-main.i: main.cpp.i
-
-.PHONY : main.i
-
-# target to preprocess a source file
-main.cpp.i:
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/FemSC.dir/build.make mainprograms/CMakeFiles/FemSC.dir/main.cpp.i
-.PHONY : main.cpp.i
-
-main.s: main.cpp.s
-
-.PHONY : main.s
-
-# target to generate assembly for a file
-main.cpp.s:
-	cd /home/natalia/Documents/GitHub/FEMCourse && $(MAKE) -f mainprograms/CMakeFiles/FemSC.dir/build.make mainprograms/CMakeFiles/FemSC.dir/main.cpp.s
-.PHONY : main.cpp.s
 
 main2018.o: main2018.cpp.o
 
@@ -2156,26 +1184,9 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... rebuild_cache"
 	@echo "... Fem2018"
-	@echo "... TestMatrix"
-	@echo "... FemSC"
-	@echo "... TestIntegrate"
-	@echo "... TestOneDProblem"
-	@echo "... TestTwoDProblem"
-	@echo "... TestIntegrate.o"
-	@echo "... TestIntegrate.i"
-	@echo "... TestIntegrate.s"
-	@echo "... TestOneDProblem.o"
-	@echo "... TestOneDProblem.i"
-	@echo "... TestOneDProblem.s"
-	@echo "... TestTwoDProblem.o"
-	@echo "... TestTwoDProblem.i"
-	@echo "... TestTwoDProblem.s"
-	@echo "... Testmatrix.o"
-	@echo "... Testmatrix.i"
-	@echo "... Testmatrix.s"
 	@echo "... __/src_2018/Analysis.o"
 	@echo "... __/src_2018/Analysis.i"
 	@echo "... __/src_2018/Analysis.s"
@@ -2278,63 +1289,9 @@ help:
 	@echo "... __/src_2018/VTKGeoMesh.o"
 	@echo "... __/src_2018/VTKGeoMesh.i"
 	@echo "... __/src_2018/VTKGeoMesh.s"
-	@echo "... __/src_vazio/TIntRule1d.o"
-	@echo "... __/src_vazio/TIntRule1d.i"
-	@echo "... __/src_vazio/TIntRule1d.s"
-	@echo "... __/src_vazio/TIntRuleQuad.o"
-	@echo "... __/src_vazio/TIntRuleQuad.i"
-	@echo "... __/src_vazio/TIntRuleQuad.s"
-	@echo "... __/src_vazio/TIntRuleTriangle.o"
-	@echo "... __/src_vazio/TIntRuleTriangle.i"
-	@echo "... __/src_vazio/TIntRuleTriangle.s"
 	@echo "... __/src_vazio/TMatrix.o"
 	@echo "... __/src_vazio/TMatrix.i"
 	@echo "... __/src_vazio/TMatrix.s"
-	@echo "... __/src_vazio/TVec.o"
-	@echo "... __/src_vazio/TVec.i"
-	@echo "... __/src_vazio/TVec.s"
-	@echo "... __/src_vazio/TVecNum.o"
-	@echo "... __/src_vazio/TVecNum.i"
-	@echo "... __/src_vazio/TVecNum.s"
-	@echo "... __/src_vazio/fem_sc.o"
-	@echo "... __/src_vazio/fem_sc.i"
-	@echo "... __/src_vazio/fem_sc.s"
-	@echo "... __/src_vazio/tanalysis.o"
-	@echo "... __/src_vazio/tanalysis.i"
-	@echo "... __/src_vazio/tanalysis.s"
-	@echo "... __/src_vazio/telemento.o"
-	@echo "... __/src_vazio/telemento.i"
-	@echo "... __/src_vazio/telemento.s"
-	@echo "... __/src_vazio/telemento0d.o"
-	@echo "... __/src_vazio/telemento0d.i"
-	@echo "... __/src_vazio/telemento0d.s"
-	@echo "... __/src_vazio/telemento1d.o"
-	@echo "... __/src_vazio/telemento1d.i"
-	@echo "... __/src_vazio/telemento1d.s"
-	@echo "... __/src_vazio/telementoQuad.o"
-	@echo "... __/src_vazio/telementoQuad.i"
-	@echo "... __/src_vazio/telementoQuad.s"
-	@echo "... __/src_vazio/telementoTriangle.o"
-	@echo "... __/src_vazio/telementoTriangle.i"
-	@echo "... __/src_vazio/telementoTriangle.s"
-	@echo "... __/src_vazio/tmalha.o"
-	@echo "... __/src_vazio/tmalha.i"
-	@echo "... __/src_vazio/tmalha.s"
-	@echo "... __/src_vazio/tmaterial.o"
-	@echo "... __/src_vazio/tmaterial.i"
-	@echo "... __/src_vazio/tmaterial.s"
-	@echo "... __/src_vazio/tmaterial1d.o"
-	@echo "... __/src_vazio/tmaterial1d.i"
-	@echo "... __/src_vazio/tmaterial1d.s"
-	@echo "... __/src_vazio/tmaterial2d.o"
-	@echo "... __/src_vazio/tmaterial2d.i"
-	@echo "... __/src_vazio/tmaterial2d.s"
-	@echo "... __/src_vazio/tmaterialbc.o"
-	@echo "... __/src_vazio/tmaterialbc.i"
-	@echo "... __/src_vazio/tmaterialbc.s"
-	@echo "... __/src_vazio/tno.o"
-	@echo "... __/src_vazio/tno.i"
-	@echo "... __/src_vazio/tno.s"
 	@echo "... __/tinyxml/tinyxml.o"
 	@echo "... __/tinyxml/tinyxml.i"
 	@echo "... __/tinyxml/tinyxml.s"
@@ -2344,9 +1301,6 @@ help:
 	@echo "... __/tinyxml/tinyxmlparser.o"
 	@echo "... __/tinyxml/tinyxmlparser.i"
 	@echo "... __/tinyxml/tinyxmlparser.s"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
 	@echo "... main2018.o"
 	@echo "... main2018.i"
 	@echo "... main2018.s"

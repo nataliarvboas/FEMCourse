@@ -48,4 +48,3 @@ void MathStatement::Axes2XYZ(const Matrix &dudaxes, Matrix &dudx, const Matrix &
         dudaxes.Multiply(axes, dudx, 0);
     }
 }
-

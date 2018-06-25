@@ -501,4 +501,3 @@ void VTKGeoMesh::PrintSolVTK(CompMesh *cmesh, PostProcess &defPostProc, const st
     file.close();
 }
 
-

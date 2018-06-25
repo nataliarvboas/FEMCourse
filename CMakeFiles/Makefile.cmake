@@ -54,9 +54,4 @@ set(CMAKE_MAKEFILE_PRODUCTS
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "mainprograms/CMakeFiles/Fem2018.dir/DependInfo.cmake"
-  "mainprograms/CMakeFiles/TestMatrix.dir/DependInfo.cmake"
-  "mainprograms/CMakeFiles/FemSC.dir/DependInfo.cmake"
-  "mainprograms/CMakeFiles/TestIntegrate.dir/DependInfo.cmake"
-  "mainprograms/CMakeFiles/TestOneDProblem.dir/DependInfo.cmake"
-  "mainprograms/CMakeFiles/TestTwoDProblem.dir/DependInfo.cmake"
   )

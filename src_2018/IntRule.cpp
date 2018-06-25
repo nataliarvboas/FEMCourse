@@ -73,4 +73,3 @@ void IntRule::Point(int p, VecDouble& co, double& w) const {
     }
     w = fWeights[p];
 }
-
