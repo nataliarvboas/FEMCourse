@@ -31,105 +31,34 @@ using namespace std;
 const double Pi = M_PI;
 
 void ComputeConvergenceRates(std::ostream &out, VecDouble &error0, VecDouble &error, int ndiv, double l);
-GeoMesh *QuadGeoMesh(int nnode, double l);
-GeoMesh *TriangleGeoMesh(int nnode, double l);
-GeoMesh *TetrahedronGeoMesh(int nnode, double l);
-GeoMesh *CreateGeoMesh(ElementType eltype, int nnode, double l);
+GeoMesh *QuadGeoMesh(int nnodes_x, int nnodes_y, double l);
+GeoMesh *TriangleGeoMesh(int nnodes_x, int nnodes_y, double l);
+GeoMesh *TetrahedronGeoMesh(int nnodes_x, int nnodes_y, int nnodes_z, double l);
 CompMesh *CreateCompMesh(GeoMesh *gmesh, int pOrder);
 void ForceFunction(const VecDouble &co, VecDouble &result);
 void Sol_exact(const VecDouble &x, VecDouble &sol, Matrix &dsol);
+
+void QuadrilateralLinearTest();
+void QuadrilateralQuadraticTest();
+void TriangleLinearTest();
+void TriangleQuadraticTest();
 void TetrahedronLinearTest();
 void TetrahedronQuadraticTest();
 
-
 int main() {
-    
-    TetrahedronLinearTest();
-    TetrahedronQuadraticTest();
+//    QuadrilateralLinearTest();
+//    QuadrilateralQuadraticTest();
+
+    TriangleLinearTest();
+    TriangleQuadraticTest();
+
+//    TetrahedronLinearTest();
+//    TetrahedronQuadraticTest();
+
     return 0;
 }
 
-void TetrahedronLinearTest() {
-    VecDouble error0(3, 0);
-    std::ofstream fout("Tetrahedron-Linear.txt");
-    for (int i = 0; i < 5; i++) {
-        int ndiv = pow(2, i);
-        double l = 1;
-        int pOrder = 1;
-
-
-        fout << "-------------------------------------------" << std::endl;
-        fout << "Number of elements: " << ndiv << "x" << ndiv << std::endl;
-        cout << "\nNumber of elements: " << ndiv << "x" << ndiv << std::endl;
-        //------------------------------
-        ElementType eltype = ETetraedro;
-        //------------------------------
-        GeoMesh *gmesh = CreateGeoMesh(eltype, ndiv + 1, l);
-        CompMesh *cmesh = CreateCompMesh(gmesh, pOrder);
-
-        Analysis an(cmesh);
-        PostProcess *pos = new PostProcessTemplate<Poisson>(&an);
-        pos->AppendVariable("Sol");
-        pos->AppendVariable("SolExact");
-        //        pos->AppendVariable("DSol");
-        //        pos->AppendVariable("DSolExact");
-        pos->SetExact(Sol_exact);
-
-        an.RunSimulation();
-        an.PostProcessSolution("Tetrahedron-Linear.vtk", *pos);
-
-        VecDouble error;
-        error = an.PostProcessError(fout, *pos);
-        //
-        ComputeConvergenceRates(fout, error0, error, ndiv, l);
-        fout << "-------------------------------------------" << std::endl;
-
-    }
-
-}
-
-void TetrahedronQuadraticTest() {
-    VecDouble error0(3, 0);
-    std::ofstream fout("Tetrahedron-Quadratic.txt");
-    for (int i = 0; i < 5; i++) {
-        int ndiv = pow(2, i);
-        double l = 1;
-        int pOrder = 2;
-
-
-        fout << "-------------------------------------------" << std::endl;
-        fout << "Number of elements: " << ndiv << "x" << ndiv << std::endl;
-        cout << "\nNumber of elements: " << ndiv << "x" << ndiv << std::endl;
-        //------------------------------
-        ElementType eltype = ETetraedro;
-        //------------------------------
-        GeoMesh *gmesh = CreateGeoMesh(eltype, ndiv + 1, l);
-        //        VTKGeoMesh::PrintGMeshVTK(gmesh, "Gmesh.vtk");
-        CompMesh *cmesh = CreateCompMesh(gmesh, pOrder);
-
-        Analysis an(cmesh);
-        PostProcess *pos = new PostProcessTemplate<Poisson>(&an);
-        pos->AppendVariable("Sol");
-        pos->AppendVariable("SolExact");
-        //        pos->AppendVariable("DSol");
-        //        pos->AppendVariable("DSolExact");
-        pos->SetExact(Sol_exact);
-
-        an.RunSimulation();
-        an.PostProcessSolution("Tetrahedron-Quadratic.vtk", *pos);
-
-        VecDouble error;
-        error = an.PostProcessError(fout, *pos);
-        //
-        ComputeConvergenceRates(fout, error0, error, ndiv, l);
-        fout << "-------------------------------------------" << std::endl;
-
-    }
-
-}
-
 void ComputeConvergenceRates(std::ostream &out, VecDouble &error0, VecDouble &error, int ndiv, double l) {
-
     if (ndiv == 1) {
         error0 = error;
     }
@@ -146,21 +75,7 @@ void ComputeConvergenceRates(std::ostream &out, VecDouble &error0, VecDouble &er
     }
 }
 
-GeoMesh *CreateGeoMesh(ElementType eltype, int nnode, double l) {
-    if (eltype == EQuadrilateral) {
-        return QuadGeoMesh(nnode, l);
-    }
-    if (eltype == ETriangle) {
-        return TriangleGeoMesh(nnode, l);
-    }
-    if (eltype == ETetraedro) {
-        return TetrahedronGeoMesh(nnode, l);
-    }
-}
-
-GeoMesh *QuadGeoMesh(int nnode, double l) {
-    int nnodes_x = nnode;
-    int nnodes_y = nnode;
+GeoMesh *QuadGeoMesh(int nnodes_x, int nnodes_y, double l) {
     int64_t nnodes = nnodes_x*nnodes_y;
     int64_t nelem = (nnodes_x - 1) * (nnodes_y - 1);
 
@@ -256,9 +171,7 @@ GeoMesh *QuadGeoMesh(int nnode, double l) {
     return gmesh;
 }
 
-GeoMesh *TriangleGeoMesh(int nnode, double l) {
-    int nnodes_x = nnode;
-    int nnodes_y = nnode;
+GeoMesh *TriangleGeoMesh(int nnodes_x, int nnodes_y, double l) {
     int64_t nnodes = nnodes_x*nnodes_y;
     int64_t nelem = 2 * (nnodes_x - 1) * (nnodes_y - 1);
 
@@ -337,22 +250,22 @@ GeoMesh *TriangleGeoMesh(int nnode, double l) {
         }
         // Condicao de contorno da direita
         if (co(0, 1) == l && co(0, 2) == l) {
-            topolLine[0] = TopolTriangle[0];
-            topolLine[1] = TopolTriangle[1];
+            topolLine[0] = TopolTriangle[1];
+            topolLine[1] = TopolTriangle[2];
             GeoElement *gel = new GeoElementTemplate<Geom1d> (topolLine, bc1, gmesh, id);
             id++;
         }
         // Condicao de contorno superior
         if (co(1, 0) == l && co(1, 1) == l) {
-            topolLine[0] = TopolTriangle[1];
-            topolLine[1] = TopolTriangle[2];
+            topolLine[0] = TopolTriangle[0];
+            topolLine[1] = TopolTriangle[1];
             GeoElement *gel = new GeoElementTemplate<Geom1d> (topolLine, bc2, gmesh, id);
             id++;
         }
 
         // Condicao de contorno da esquerda
         if (co(0, 1) == 0 && co(0, 2) == 0) {
-            topolLine[0] = TopolTriangle[0];
+            topolLine[0] = TopolTriangle[1];
             topolLine[1] = TopolTriangle[2];
             GeoElement *gel = new GeoElementTemplate<Geom1d> (topolLine, bc3, gmesh, id);
             id++;
@@ -363,10 +276,7 @@ GeoMesh *TriangleGeoMesh(int nnode, double l) {
     return gmesh;
 }
 
-GeoMesh *TetrahedronGeoMesh(int nnode, double l) {
-    int nnodes_x = nnode;
-    int nnodes_y = nnode;
-    int nnodes_z = nnode;
+GeoMesh *TetrahedronGeoMesh(int nnodes_x, int nnodes_y, int nnodes_z, double l) {
     int64_t nnodes = nnodes_x * nnodes_y * nnodes_z;
     int64_t nelem = (nnodes_x - 1) * (nnodes_y - 1) * (nnodes_z - 1);
 
@@ -641,4 +551,196 @@ void Sol_exact(const VecDouble &x, VecDouble &sol, Matrix &dsol) {
     dsol(2, 0) = 0;
     dsol(2, 1) = 0;
     dsol(2, 2) = 0;
+}
+
+void QuadrilateralLinearTest() {
+    VecDouble error0(3, 0);
+    std::ofstream fout("Quadrilateral-Linear.txt");
+    for (int i = 0; i < 5; i++) {
+        int ndiv = pow(2, i);
+        double l = 1;
+        int pOrder = 1;
+
+        fout << "-------------------------------------------" << std::endl;
+        fout << "Number of elements: " << ndiv << "x" << ndiv << std::endl;
+        cout << "\nNumber of elements: " << ndiv << "x" << ndiv << std::endl;
+
+        GeoMesh *gmesh = QuadGeoMesh(ndiv + 1, ndiv + 1, l);
+        CompMesh *cmesh = CreateCompMesh(gmesh, pOrder);
+
+        Analysis an(cmesh);
+        PostProcess *pos = new PostProcessTemplate<Poisson>(&an);
+        pos->AppendVariable("Sol");
+        pos->AppendVariable("SolExact");
+        pos->SetExact(Sol_exact);
+
+        an.RunSimulation();
+        an.PostProcessSolution("Quadrilateral-Linear.vtk", *pos);
+
+        VecDouble error;
+        error = an.PostProcessError(fout, *pos);
+
+        ComputeConvergenceRates(fout, error0, error, ndiv, l);
+        fout << "-------------------------------------------" << std::endl;
+    }
+}
+
+void QuadrilateralQuadraticTest() {
+    VecDouble error0(3, 0);
+    std::ofstream fout("Quadrilateral-Quadratic.txt");
+    for (int i = 0; i < 5; i++) {
+        int ndiv = pow(2, i);
+        double l = 1;
+        int pOrder = 2;
+
+        fout << "-------------------------------------------" << std::endl;
+        fout << "Number of elements: " << ndiv << "x" << ndiv << std::endl;
+        cout << "\nNumber of elements: " << ndiv << "x" << ndiv << std::endl;
+
+        GeoMesh *gmesh = QuadGeoMesh(ndiv + 1, ndiv + 1, l);
+        CompMesh *cmesh = CreateCompMesh(gmesh, pOrder);
+
+        Analysis an(cmesh);
+        PostProcess *pos = new PostProcessTemplate<Poisson>(&an);
+        pos->AppendVariable("Sol");
+        pos->AppendVariable("SolExact");
+        pos->SetExact(Sol_exact);
+
+        an.RunSimulation();
+        an.PostProcessSolution("Quadrilateral-Quadratic.vtk", *pos);
+
+        VecDouble error;
+        error = an.PostProcessError(fout, *pos);
+
+        ComputeConvergenceRates(fout, error0, error, ndiv, l);
+        fout << "-------------------------------------------" << std::endl;
+    }
+}
+
+void TriangleLinearTest() {
+    VecDouble error0(3, 0);
+    std::ofstream fout("Triangle-Linear.txt");
+    for (int i = 0; i < 5; i++) {
+        int ndiv = pow(2, i);
+        double l = 1;
+        int pOrder = 1;
+
+        fout << "-------------------------------------------" << std::endl;
+        fout << "Number of elements: " << ndiv << "x" << ndiv << std::endl;
+        cout << "\nNumber of elements: " << ndiv << "x" << ndiv << std::endl;
+
+        GeoMesh *gmesh = TriangleGeoMesh(ndiv + 1, ndiv + 1, l);
+        CompMesh *cmesh = CreateCompMesh(gmesh, pOrder);
+
+        Analysis an(cmesh);
+        PostProcess *pos = new PostProcessTemplate<Poisson>(&an);
+        pos->AppendVariable("Sol");
+        pos->AppendVariable("SolExact");
+        pos->SetExact(Sol_exact);
+
+        an.RunSimulation();
+        an.PostProcessSolution("Triangle-Linear.vtk", *pos);
+
+        VecDouble error;
+        error = an.PostProcessError(fout, *pos);
+
+        ComputeConvergenceRates(fout, error0, error, ndiv, l);
+        fout << "-------------------------------------------" << std::endl;
+    }
+}
+
+void TriangleQuadraticTest() {
+    VecDouble error0(3, 0);
+    std::ofstream fout("Triangle-Quadratic.txt");
+    for (int i = 0; i < 5; i++) {
+        int ndiv = pow(2, i);
+        double l = 1;
+        int pOrder = 2;
+
+        fout << "-------------------------------------------" << std::endl;
+        fout << "Number of elements: " << ndiv << "x" << ndiv << std::endl;
+        cout << "\nNumber of elements: " << ndiv << "x" << ndiv << std::endl;
+
+        GeoMesh *gmesh = TriangleGeoMesh(ndiv + 1, ndiv + 1, l);
+        CompMesh *cmesh = CreateCompMesh(gmesh, pOrder);
+
+        Analysis an(cmesh);
+        PostProcess *pos = new PostProcessTemplate<Poisson>(&an);
+        pos->AppendVariable("Sol");
+        pos->AppendVariable("SolExact");
+        pos->SetExact(Sol_exact);
+
+        an.RunSimulation();
+        an.PostProcessSolution("Triangle-Quadratic.vtk", *pos);
+
+        VecDouble error;
+        error = an.PostProcessError(fout, *pos);
+
+        ComputeConvergenceRates(fout, error0, error, ndiv, l);
+        fout << "-------------------------------------------" << std::endl;
+    }
+}
+
+void TetrahedronLinearTest() {
+    VecDouble error0(3, 0);
+    std::ofstream fout("Tetrahedron-Linear.txt");
+    for (int i = 0; i < 5; i++) {
+        int ndiv = pow(2, i);
+        double l = 1;
+        int pOrder = 1;
+
+        fout << "-------------------------------------------" << std::endl;
+        fout << "Number of elements: " << ndiv << "x" << ndiv << std::endl;
+        cout << "\nNumber of elements: " << ndiv << "x" << ndiv << std::endl;
+
+        GeoMesh *gmesh = TetrahedronGeoMesh(ndiv + 1, ndiv + 1, ndiv + 1, l);
+        CompMesh *cmesh = CreateCompMesh(gmesh, pOrder);
+
+        Analysis an(cmesh);
+        PostProcess *pos = new PostProcessTemplate<Poisson>(&an);
+        pos->AppendVariable("Sol");
+        pos->AppendVariable("SolExact");
+        pos->SetExact(Sol_exact);
+
+        an.RunSimulation();
+        an.PostProcessSolution("Tetrahedron-Linear.vtk", *pos);
+
+        VecDouble error;
+        error = an.PostProcessError(fout, *pos);
+
+        ComputeConvergenceRates(fout, error0, error, ndiv, l);
+        fout << "-------------------------------------------" << std::endl;
+    }
+}
+
+void TetrahedronQuadraticTest() {
+    VecDouble error0(3, 0);
+    std::ofstream fout("Tetrahedron-Linear.txt");
+    for (int i = 0; i < 5; i++) {
+        int ndiv = pow(2, i);
+        double l = 1;
+        int pOrder = 2;
+
+        fout << "-------------------------------------------" << std::endl;
+        fout << "Number of elements: " << ndiv << "x" << ndiv << std::endl;
+        cout << "\nNumber of elements: " << ndiv << "x" << ndiv << std::endl;
+
+        GeoMesh *gmesh = TetrahedronGeoMesh(ndiv + 1, ndiv + 1, ndiv + 1, l);
+        CompMesh *cmesh = CreateCompMesh(gmesh, pOrder);
+
+        Analysis an(cmesh);
+        PostProcess *pos = new PostProcessTemplate<Poisson>(&an);
+        pos->AppendVariable("Sol");
+        pos->AppendVariable("SolExact");
+        pos->SetExact(Sol_exact);
+
+        an.RunSimulation();
+        an.PostProcessSolution("Tetrahedron-Linear.vtk", *pos);
+
+        VecDouble error;
+        error = an.PostProcessError(fout, *pos);
+        //
+        ComputeConvergenceRates(fout, error0, error, ndiv, l);
+        fout << "-------------------------------------------" << std::endl;
+    }
 }

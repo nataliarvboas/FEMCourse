@@ -58,6 +58,8 @@ void Analysis::RunSimulation() {
     Assemble assemb(cmesh);
     assemb.Compute(GlobalSystem, RightHandSide);
     std::cout << "Assemble done!" << std::endl;
+    
+//    GlobalSystem.Print();
 
     int nrows = RightHandSide.Rows();
     int ncols = RightHandSide.Cols();

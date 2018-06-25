@@ -126,6 +126,8 @@ void CompElement::ComputeRequiredData(IntPointData &data, VecDouble &intpoint) c
 void CompElement::Convert2Axes(const Matrix &dphi, const Matrix &jacinv, Matrix &dphidx) const {
     int nshape = this->NShapeFunctions();
     int dim = this->Dimension();
+    
+ 
 
     int ieq;
     switch (dim) {

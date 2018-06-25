@@ -16,7 +16,7 @@ GeomQuad::GeomQuad(const GeomQuad &copy) {
     fNodeIndices = copy.fNodeIndices;
 }
 
-GeomQuad& GeomQuad::operator=(const GeomQuad& copy){
+GeomQuad& GeomQuad::operator=(const GeomQuad& copy) {
     fNodeIndices = copy.fNodeIndices;
     return *this;
 }
@@ -41,13 +41,13 @@ void GeomQuad::Shape(const VecDouble &xi, VecDouble &phi, Matrix &dphi) {
 
     dphi(0, 3) = -0.25 * (1. + eta);
     dphi(1, 3) = 0.25 * (1. - qsi);
-    
+
 }
 
 void GeomQuad::X(const VecDouble &xi, Matrix &NodeCo, VecDouble &x) {
     VecDouble phi(4);
     Matrix dphi(2, 4);
-    
+
     Shape(xi, phi, dphi);
     int space = NodeCo.Rows();
 
@@ -99,5 +99,5 @@ GeoElementSide GeomQuad::Neighbour(int side) {
 }
 
 void GeomQuad::SetNeighbour(int side, const GeoElementSide &neighbour) {
-    fNeighbours[side]=neighbour;
+    fNeighbours[side] = neighbour;
 }

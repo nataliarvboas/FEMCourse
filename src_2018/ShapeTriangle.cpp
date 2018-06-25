@@ -10,7 +10,6 @@
 void ShapeTriangle::Shape(const VecDouble &xi, VecInt &orders, VecDouble &phi, Matrix &dphi) {
 
     int nshape = NShapeFunctions(orders);
-    int nsides = orders.size();
 
     phi.resize(nshape);
     dphi.Resize(2, nshape);
@@ -46,7 +45,7 @@ void ShapeTriangle::Shape(const VecDouble &xi, VecInt &orders, VecDouble &phi, M
 
         // Make the generating shape functions linear and unitary
         double mult[] = {1., 1., 1., 4., 4., 4., 27.};
-        for (is = 3; is < nsides; is++) {
+        for (is = 3; is < nshape; is++) {
             phi[is] *= mult[is];
             dphi(0, is) *= mult[is];
             dphi(1, is) *= mult[is];

@@ -64,15 +64,7 @@ void GeomTriangle::GradX(const VecDouble &xi, Matrix &NodeCo, VecDouble &x, Matr
     gradx.Resize(space, 2);
     gradx.Zero();
 
-#ifdef PZDEBUG
-    if (/* nrow != 3 || */ ncol != 3) {
-        std::cout << "Objects of incompatible lengths, gradient cannot be computed." << std::endl;
-        std::cout << "nodes matrix must be 3x3." << std::endl;
-        DebugStop();
-    }
-
-#endif
-    VecDouble phi(3);
+    VecDouble phi(3,0.);
     Matrix dphi(2, 3);
     Shape(xi, phi, dphi);
     for (int i = 0; i < 3; i++) {

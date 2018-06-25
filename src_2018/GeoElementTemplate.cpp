@@ -20,7 +20,7 @@ using namespace std;
 
 template<class TGeom>
 GeoElementTemplate<TGeom>::GeoElementTemplate(const VecInt &nodeindices, int materialid, GeoMesh *gmesh, int index) : GeoElement(materialid, gmesh, index) {
-    gmesh->SetNumElements(index+1);
+    gmesh->SetNumElements(index + 1);
     Geom.SetNodes(nodeindices);
     for (int side = 0; side < TGeom::nSides; side++) {
         Geom.SetNeighbour(side, GeoElementSide(this, side));
@@ -81,7 +81,11 @@ void GeoElementTemplate<TGeom>::Jacobian(const Matrix &gradx, Matrix &jac, Matri
     int nrows = gradx.Rows();
     int ncols = gradx.Cols();
     int dim = jac.Rows();
-    
+    jac.Resize(dim,dim);
+    axes.Resize(dim, 3);
+    jacinv.Resize(dim,dim);
+    jac.Zero();
+
     switch (dim) {
         case 1:
         {
@@ -111,7 +115,6 @@ void GeoElementTemplate<TGeom>::Jacobian(const Matrix &gradx, Matrix &jac, Matri
             break;
         case 2:
         {
-            axes.Resize(dim, 3);
             std::vector<double> v_1(3, 0.), v_2(3, 0.);
             std::vector<double> v_1_til(3, 0.), v_2_til(3, 0.);
 

@@ -120,6 +120,9 @@ void Poisson::Contribute(IntPointData &data, double weight, Matrix &EK, Matrix &
     VecDouble phi = data.phi;
     Matrix dphi = data.dphidx;
     Matrix axes = data.axes;
+    Matrix dphi2;
+
+    this->Axes2XYZ(dphi, dphi2, axes);
 
     int nshape = phi.size();
     int dim = dphi.Rows();
@@ -129,39 +132,41 @@ void Poisson::Contribute(IntPointData &data, double weight, Matrix &EK, Matrix &
     std::function<void(const VecDouble &co, VecDouble & result) > force;
 
     perm = this->GetPermeability();
+    perm.Resize(dim, dim);
     force = this->GetForceFunction();
 
     VecDouble res(data.x.size());
     force(data.x, res);
 
-    Matrix dphi_(dim, 1);
-    std::vector<Matrix> grad(nshape);
-    int i, j, k;
-    for (i = 0; i < nshape; i++) {
-        for (j = 0; j < dim; j++) {
-            dphi_(j, 0) = dphi(j, i);
-        }
-        grad[i] = dphi_;
-    }
 
-    int ivi = 0;
-    for (i = 0; i < nshape; i++) {
-        for (ivi = 0; ivi < nstate; ivi++) {
-            int posI = nstate * i + ivi;
-            EF(posI, 0) += phi[i] * res[ivi] * weight;
+        Matrix dphi_(dim, 1);
+        std::vector<Matrix> grad(nshape);
+        int i, j, k;
+        for (i = 0; i < nshape; i++) {
+            for (j = 0; j < dim; j++) {
+                dphi_(j, 0) = dphi2(j, i);
+            }
+            grad[i] = dphi_;
         }
-        for (j = 0; j < nshape; j++) {
+
+        int ivi = 0;
+        for (i = 0; i < nshape; i++) {
             for (ivi = 0; ivi < nstate; ivi++) {
-                for (int ivj = 0; ivj < nstate; ivj++) {
-                    int posI = nstate * i + ivi;
-                    int posJ = nstate * j + ivj;
-                    Matrix gradi_T;
-                    grad[i].Transpose(gradi_T);
-                    EK(posI, posJ) += (gradi_T * grad[j])(0, 0) * perm(ivi, ivj) * weight;
+                int posI = nstate * i + ivi;
+                EF(posI, 0) += phi[i] * res[ivi] * weight;
+            }
+            for (j = 0; j < nshape; j++) {
+                for (ivi = 0; ivi < nstate; ivi++) {
+                    for (int ivj = 0; ivj < nstate; ivj++) {
+                        int posI = nstate * i + ivi;
+                        int posJ = nstate * j + ivj;
+                        Matrix gradi_T;
+                        grad[i].Transpose(gradi_T);
+                        EK(posI, posJ) += (gradi_T * grad[j])(0, 0) * perm(ivi, ivj) * weight;
+                    }
                 }
             }
         }
-    }
 }
 
 std::vector<double> Poisson::PostProcessSolution(const IntPointData &data, const int var) const {
@@ -196,7 +201,7 @@ std::vector<double> Poisson::PostProcessSolution(const IntPointData &data, const
             Solout.resize(rows * cols);
             for (int i = 0; i < rows; i++) {
                 for (int j = 0; j < cols; j++) {
-                    Solout[i*cols + j] = gradu(i, j);
+                    Solout[i * cols + j] = gradu(i, j);
                 }
             }
 
