@@ -52,3 +52,6 @@ int DOF::GetNState() const {
 int DOF::GetOrder() const {
     return order;
 }
+
+void DOF::Print(const CompMesh &mesh, std::ostream & out) {
+}

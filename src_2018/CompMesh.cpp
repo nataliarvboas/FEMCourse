@@ -161,3 +161,6 @@ void CompMesh::LoadSolution(std::vector<double> &Sol) {
         solution[i] = Sol[i];
     }
 }
+
+void CompMesh::Print(std::ostream & out){
+}

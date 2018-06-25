@@ -121,6 +121,8 @@ public:
         return Index;
     }
     
+    virtual int SideIsUndefined(int side) = 0;
+    
     virtual int WhichSide(VecInt &SideNodeIds) = 0;
     
     // Compute x mapping from local parametric coordinates

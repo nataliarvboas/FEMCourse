@@ -291,6 +291,12 @@ void GeoElementTemplate<TGeom>::Print(std::ostream &out) {
     }
 }
 
+template<class TGeom>
+int GeoElementTemplate<TGeom>::SideIsUndefined(int side) {
+
+}
+
+
 template class GeoElementTemplate<Geom1d>;
 template class GeoElementTemplate<GeomQuad>;
 template class GeoElementTemplate<GeomTriangle>;

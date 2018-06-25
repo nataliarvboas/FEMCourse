@@ -431,7 +431,7 @@ void VTKGeoMesh::PrintSolVTK(CompMesh *cmesh, PostProcess &defPostProc, const st
                     VecDouble sol(1);
                     TMatrix dsol(2,1);
                     
-                    cel->Solution(xi, var, sol, dsol);
+                    cel->Solution(xi, var, sol);
                     
                     scalsol[ivar] << sol[0] << " " << std::endl;
                     
@@ -478,7 +478,7 @@ void VTKGeoMesh::PrintSolVTK(CompMesh *cmesh, PostProcess &defPostProc, const st
 
                     VecDouble sol(2);
                     TMatrix dsol(2,1);
-                    cel->Solution(xi, var, sol, dsol);
+                    cel->Solution(xi, var, sol);
                     
                     int is;
                     for (is=0; is<2; is++) {

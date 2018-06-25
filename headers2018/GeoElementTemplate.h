@@ -103,6 +103,8 @@ public:
     /** @brief Compute a QR facotrization of the gradient of the mapping function, Q = Jacobian and R = axes  */
     virtual void Jacobian(const Matrix &gradx, Matrix &jac,Matrix &axes, double &detjac, Matrix &jacinv);
     
+    virtual int SideIsUndefined(int side);
+    
     virtual int WhichSide(VecInt &SideNodeIds);
     
     // Function to print results

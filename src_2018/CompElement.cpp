@@ -250,7 +250,7 @@ void CompElement::EvaluateError(std::function<void(const VecDouble &loc, VecDoub
 
 }
 
-void CompElement::Solution(VecDouble &intpoint, int var, VecDouble &sol, TMatrix &dsol) const {
+void CompElement::Solution(VecDouble &intpoint, int var, VecDouble &sol) const {
     MathStatement * material = this->GetStatement();
     if (!material) {
         std::cout << "No material for this element\n";
@@ -264,5 +264,4 @@ void CompElement::Solution(VecDouble &intpoint, int var, VecDouble &sol, TMatrix
     data.ComputeSolution();
 
     sol = material->PostProcessSolution(data, var);
-    dsol = data.dsoldx;
 }

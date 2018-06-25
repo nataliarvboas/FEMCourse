@@ -74,5 +74,6 @@ public:
         return Shape::Dimension;
     }
     
+    virtual void Print(std::ostream &out);
 };
 #endif /* CompElementTemplate_h */

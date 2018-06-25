@@ -160,6 +160,13 @@ int CompElementTemplate<Shape>::ComputeNShapeFunctions(int doflocindex, int orde
 
 }
 
+template<class Shape>
+void CompElementTemplate<Shape>::Print(std::ostream &out) {
+
+}
+
+
+
 template class CompElementTemplate<Shape1d>;
 template class CompElementTemplate<ShapeQuad>;
 template class CompElementTemplate<ShapeTriangle>;

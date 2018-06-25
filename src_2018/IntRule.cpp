@@ -47,7 +47,7 @@ int IntRule::NPoints() const {
     return fWeights.size();
 }
 
-void IntRule::Print(std::ostream &out) const {
+void IntRule::Print(std::ostream &out) {
     VecDouble co(fPoints.Cols());
     double w;
 

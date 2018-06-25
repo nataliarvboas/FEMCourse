@@ -41,7 +41,7 @@ public:
         return fElement == other.fElement && fSide == other.fSide;
     }
     int operator!=(const GeoElementSide &other) const {
-        return fElement != other.fElement || fSide != other.fSide;
+        return ! operator==(other);
     }
     
     // Return the associated element
@@ -58,6 +58,10 @@ public:
 
     // Return neighbour element of a given side
     GeoElementSide Neighbour() const;
+    
+    bool DataConsistency(GeoElementSide &candidate);
+    
+    int Exists() const {return (fElement != 0 && fSide > -1);}
     
     // Fill in the data structure for the neighbouring information
     void SetNeighbour(const GeoElementSide &neighbour);

@@ -19,6 +19,8 @@ class MathStatement;
 
 class GeoMesh;
 
+class DOF;
+
 class CompMesh
 {
     /// pointer to the geometric mesh
@@ -130,6 +132,9 @@ public:
     std::vector<double> &Solution();
     
     void LoadSolution(std::vector<double> &Sol);
+    
+    // Method to print computational mesh
+    virtual void Print(std::ostream & out = std::cout);
     
 };
 
