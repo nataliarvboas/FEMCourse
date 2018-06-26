@@ -55,10 +55,6 @@ void L2Projection::SetProjectionMatrix(const Matrix &proj) {
     projection = proj;
 }
 
-int L2Projection::NState() const {
-    return 2;
-}
-
 void L2Projection::Contribute(IntPointData &data, double weight, Matrix &EK, Matrix &EF) const {
     int nstate = this->NState();
     int nshape = data.phi.size();
@@ -124,7 +120,6 @@ int L2Projection::NSolutionVariables(const PostProcVar var) {
 
 }
 
-std::vector<double> L2Projection::PostProcessSolution(const IntPointData &integrationpointdata, const int var) const {
-    VecDouble vec(2, 0);
-    return vec;
+void L2Projection::PostProcessSolution(const IntPointData &integrationpointdata, const int var, VecDouble &sol) const {
+  sol.resize(this->NState(), 0);
 }

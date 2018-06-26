@@ -46,8 +46,8 @@ void TetrahedronLinearTest();
 void TetrahedronQuadraticTest();
 
 int main() {
-    QuadrilateralLinearTest();
-//    QuadrilateralQuadraticTest();
+//    QuadrilateralLinearTest();
+    QuadrilateralQuadraticTest();
 
 //    TriangleLinearTest();
 //    TriangleQuadraticTest();
@@ -576,7 +576,7 @@ void QuadrilateralLinearTest() {
         pos->SetExact(Sol_exact);
 
         an.RunSimulation();
-        an.PostProcessSolution("Quadrilateral-Linear.vtk", *pos);
+//        an.PostProcessSolution("Quadrilateral-Linear.vtk", *pos);
 
         VecDouble error;
         error = an.PostProcessError(fout, *pos);

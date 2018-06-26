@@ -663,6 +663,8 @@ MathStatement.h
 headers2018/MathStatement.h
 Poisson.h
 headers2018/Poisson.h
+Analysis.h
+headers2018/Analysis.h
 L2Projection.h
 headers2018/L2Projection.h
 IntPointData.h

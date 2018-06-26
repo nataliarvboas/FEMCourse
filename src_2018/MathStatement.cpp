@@ -13,12 +13,10 @@ MathStatement::MathStatement() {
 
 MathStatement::MathStatement(const MathStatement &copy) {
     matid = copy.matid;
-    nstate = copy.nstate;
 }
 
 MathStatement &MathStatement::operator=(const MathStatement &copy) {
     matid = copy.matid;
-    nstate = copy.nstate;
     return *this;
 }
 
@@ -47,4 +45,7 @@ void MathStatement::Axes2XYZ(const Matrix &dudaxes, Matrix &dudx, const Matrix &
         dudx.Zero();
         dudaxes.Multiply(axes, dudx, 0);
     }
+}
+
+void MathStatement::Print(std::ostream &out){
 }

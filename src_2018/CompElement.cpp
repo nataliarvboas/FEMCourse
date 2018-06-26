@@ -263,5 +263,5 @@ void CompElement::Solution(VecDouble &intpoint, int var, VecDouble &sol) const {
     this->GetMultiplyingCoeficients(data.coefs);
     data.ComputeSolution();
 
-    sol = material->PostProcessSolution(data, var);
+    material->PostProcessSolution(data, var, sol);
 }

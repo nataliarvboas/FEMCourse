@@ -48,9 +48,6 @@ int Poisson::NEvalErrors() const {
     return 3;
 }
 
-int Poisson::NState() const {
-    return 2;
-}
 
 int Poisson::VariableIndex(const PostProcVar var) const {
     if (var == ENone) return ENone;
@@ -169,7 +166,7 @@ void Poisson::Contribute(IntPointData &data, double weight, Matrix &EK, Matrix &
         }
 }
 
-std::vector<double> Poisson::PostProcessSolution(const IntPointData &data, const int var) const {
+void Poisson::PostProcessSolution(const IntPointData &data, const int var, VecDouble &Solout) const {
     VecDouble sol = data.solution;
     int solsize = sol.size();
     int rows = data.dsoldx.Rows();
@@ -178,7 +175,6 @@ std::vector<double> Poisson::PostProcessSolution(const IntPointData &data, const
     gradu = data.dsoldx;
 
     int nstate = this->NState();
-    VecDouble Solout;
 
     switch (var) {
         case 0: //None
@@ -258,8 +254,6 @@ std::vector<double> Poisson::PostProcessSolution(const IntPointData &data, const
             DebugStop();
         }
     }
-    return Solout;
-
 }
 
 double Poisson::Inner(Matrix &S, Matrix & T) const {
