@@ -47,10 +47,10 @@ void TetrahedronQuadraticTest();
 
 int main() {
 //    QuadrilateralLinearTest();
-    QuadrilateralQuadraticTest();
+//    QuadrilateralQuadraticTest();
 
-//    TriangleLinearTest();
-//    TriangleQuadraticTest();
+    TriangleLinearTest();
+    TriangleQuadraticTest();
 
 //    TetrahedronLinearTest();
 //    TetrahedronQuadraticTest();
@@ -466,23 +466,16 @@ GeoMesh *TetrahedronGeoMesh(int nnodes_x, int nnodes_y, int nnodes_z, double l) 
     return gmesh;
 }
 
-CompMesh *CreateCompMesh(GeoMesh *gmesh, int pOrder) {
+CompMesh *CreateCompMesh(GeoMesh *gmesh, int pOrder, int dim) {
     CompMesh *cmesh = new CompMesh(gmesh);
     cmesh->SetDefaultOrder(pOrder);
     int nelem = cmesh->GetElementVec().size();
 
-    Matrix perm(3, 3);
-    perm(0, 0) = 1;
-    perm(0, 1) = 0;
-    perm(0, 2) = 0;
-
-    perm(1, 0) = 0;
-    perm(1, 1) = 1;
-    perm(1, 2) = 0;
-
-    perm(2, 0) = 0;
-    perm(2, 1) = 0;
-    perm(2, 2) = 1;
+    Matrix perm(dim, dim);
+    perm.Zero();
+    for (int i = 0; i < dim; i++) {
+        perm(i,i) = 1;
+    }
 
     for (int i = 0; i < nelem; i++) {
         int matid = gmesh->Element(i)->Material();
@@ -491,6 +484,7 @@ CompMesh *CreateCompMesh(GeoMesh *gmesh, int pOrder) {
             Poisson *p = new Poisson(matid, perm);
             p->SetForceFunction(ForceFunction);
             p->SetExactSolution(Sol_exact);
+            p->SetDimension(dim);
             cmesh->SetMathStatement(i, p);
         } else {
             cmesh->SetNumberMath(i + 1);
@@ -567,7 +561,7 @@ void QuadrilateralLinearTest() {
 
         GeoMesh *gmesh = QuadGeoMesh(ndiv + 1, ndiv + 1, l);
 //        VTKGeoMesh::PrintGMeshVTK(gmesh, "gmesh.vtk");
-        CompMesh *cmesh = CreateCompMesh(gmesh, pOrder);
+        CompMesh *cmesh = CreateCompMesh(gmesh, pOrder, 2);
 
         Analysis an(cmesh);
         PostProcess *pos = new PostProcessTemplate<Poisson>(&an);
@@ -599,7 +593,7 @@ void QuadrilateralQuadraticTest() {
         cout << "\nNumber of elements: " << ndiv << "x" << ndiv << std::endl;
 
         GeoMesh *gmesh = QuadGeoMesh(ndiv + 1, ndiv + 1, l);
-        CompMesh *cmesh = CreateCompMesh(gmesh, pOrder);
+        CompMesh *cmesh = CreateCompMesh(gmesh, pOrder, 2);
 
         Analysis an(cmesh);
         PostProcess *pos = new PostProcessTemplate<Poisson>(&an);
@@ -631,7 +625,7 @@ void TriangleLinearTest() {
         cout << "\nNumber of elements: " << ndiv << "x" << ndiv << std::endl;
 
         GeoMesh *gmesh = TriangleGeoMesh(ndiv + 1, ndiv + 1, l);
-        CompMesh *cmesh = CreateCompMesh(gmesh, pOrder);
+        CompMesh *cmesh = CreateCompMesh(gmesh, pOrder, 2);
 
         Analysis an(cmesh);
         PostProcess *pos = new PostProcessTemplate<Poisson>(&an);
@@ -663,7 +657,7 @@ void TriangleQuadraticTest() {
         cout << "\nNumber of elements: " << ndiv << "x" << ndiv << std::endl;
 
         GeoMesh *gmesh = TriangleGeoMesh(ndiv + 1, ndiv + 1, l);
-        CompMesh *cmesh = CreateCompMesh(gmesh, pOrder);
+        CompMesh *cmesh = CreateCompMesh(gmesh, pOrder, 2);
 
         Analysis an(cmesh);
         PostProcess *pos = new PostProcessTemplate<Poisson>(&an);
@@ -695,7 +689,7 @@ void TetrahedronLinearTest() {
         cout << "\nNumber of elements: " << ndiv << "x" << ndiv << std::endl;
 
         GeoMesh *gmesh = TetrahedronGeoMesh(ndiv + 1, ndiv + 1, ndiv + 1, l);
-        CompMesh *cmesh = CreateCompMesh(gmesh, pOrder);
+        CompMesh *cmesh = CreateCompMesh(gmesh, pOrder, 3);
 
         Analysis an(cmesh);
         PostProcess *pos = new PostProcessTemplate<Poisson>(&an);
@@ -727,7 +721,7 @@ void TetrahedronQuadraticTest() {
         cout << "\nNumber of elements: " << ndiv << "x" << ndiv << std::endl;
 
         GeoMesh *gmesh = TetrahedronGeoMesh(ndiv + 1, ndiv + 1, ndiv + 1, l);
-        CompMesh *cmesh = CreateCompMesh(gmesh, pOrder);
+        CompMesh *cmesh = CreateCompMesh(gmesh, pOrder, 3);
 
         Analysis an(cmesh);
         PostProcess *pos = new PostProcessTemplate<Poisson>(&an);
