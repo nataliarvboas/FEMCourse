@@ -81,9 +81,9 @@ void GeoElementTemplate<TGeom>::Jacobian(const Matrix &gradx, Matrix &jac, Matri
     int nrows = gradx.Rows();
     int ncols = gradx.Cols();
     int dim = jac.Rows();
-    jac.Resize(dim,dim);
+    jac.Resize(dim, dim);
     axes.Resize(dim, 3);
-    jacinv.Resize(dim,dim);
+    jacinv.Resize(dim, dim);
     jac.Zero();
 
     switch (dim) {
@@ -293,7 +293,11 @@ void GeoElementTemplate<TGeom>::Print(std::ostream &out) {
 
 template<class TGeom>
 int GeoElementTemplate<TGeom>::SideIsUndefined(int side) {
-
+    if (side < 0 || side > NSides()) {
+        std::cout << "GeoElementTemplate<TGeom>::SideIsUndefined - bad side: " << side << std::endl;
+        DebugStop();
+    }
+    return (Geom.Neighbour(side).Side() == -1);
 }
 
 

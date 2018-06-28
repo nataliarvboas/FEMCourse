@@ -47,5 +47,8 @@ void MathStatement::Axes2XYZ(const Matrix &dudaxes, Matrix &dudx, const Matrix &
     }
 }
 
-void MathStatement::Print(std::ostream &out){
+void MathStatement::Print(std::ostream &out) {
+    out << "Material: " << this->GetMatID() << std::endl;
+    out << "Big number: " << gBigNumber << std::endl << std::endl;
+
 }

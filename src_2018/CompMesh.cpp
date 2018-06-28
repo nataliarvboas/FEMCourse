@@ -7,6 +7,7 @@
 #include "CompMesh.h"
 //#include "MathStatement.h"
 #include "GeoMesh.h"
+#include "MathStatement.h"
 
 CompMesh::CompMesh() : geomesh(0), compelements(0), dofs(0), mathstatements(0), solution(0) {
 
@@ -162,5 +163,40 @@ void CompMesh::LoadSolution(std::vector<double> &Sol) {
     }
 }
 
-void CompMesh::Print(std::ostream & out){
+void CompMesh::Print(std::ostream & out) {
+    out << "\n\t\tCOMPUTATIONAL MESH INFORMATION\n\n";
+
+    out << "Number of DOFs:\t\t" << this->GetNumberDOF() << std::endl;
+    out << "Number of elements:\t" << this->GetElementVec().size() << std::endl;
+    out << "Number of materials:\t" << this->GetMathVec().size() << std::endl;
+    out << "Dimension of the mesh:\t" << this->GetElementVec()[0]->Dimension() << std::endl;
+
+    int64_t i;
+
+    out << "\n\tDOFs Information" << std::endl;
+    int64_t ndof = this->GetNumberDOF();
+    for (i = 0; i < ndof; i++) {
+        out << "DOF index: " << i << "\t\t";
+        this->GetDOF(i).Print(*this,out);
+    }
+    
+    out << "\n\tComputable Element Information" << std::endl;
+    int64_t nelem = this->GetElementVec().size();
+    for (i = 0; i < nelem; i++) {
+        if (!this->GetElement(i)) continue;
+        CompElement *cel = this->GetElement(i);
+        out << "Element index: " << i << std::endl;
+        cel->Print(out);
+    }
+    
+    out << "\n\tMaterial Information" << std::endl;
+    int64_t nummat = this->GetMathVec().size();
+    for (i = 0; i < nummat; i++) {
+        MathStatement *mat = this->GetMath(i);
+        out << "Material index: " << i << std::endl;
+        if (!mat) {
+            DebugStop();
+        }
+        mat->Print(out);
+    }
 }

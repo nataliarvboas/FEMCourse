@@ -139,6 +139,8 @@ CompMesh.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/CompMesh.h
 GeoMesh.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/GeoMesh.h
+MathStatement.h
+/home/natalia/Documents/GitHub/FEMCourse/src_2018/MathStatement.h
 
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/DOF.cpp
 DOF.h

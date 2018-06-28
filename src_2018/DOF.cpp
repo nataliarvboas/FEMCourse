@@ -54,4 +54,8 @@ int DOF::GetOrder() const {
 }
 
 void DOF::Print(const CompMesh &mesh, std::ostream & out) {
+    int order = this->GetOrder();
+    int nstate = this->GetNState();
+    int nshape = this->GetNShape();
+    out << "Order: " << order << "  NState: " << nstate << "  NShape: " << nshape << std::endl;
 }

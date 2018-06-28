@@ -118,17 +118,17 @@ void GeoMesh::BuildConnectivity() {
 }
 
 void GeoMesh::Print(std::ostream &out) {
-    out << "\n------------Mesh Information------------" << std::endl;
-    out << "Number of nodes: " << this->NumNodes() << std::endl;
-    out << "Number of elements: " << this->NumElements() << std::endl;
+    out << "\n\t\tGEOMETRIC MESH INFORMATION\n\n";
+    out << "Number of nodes:\t" << this->NumNodes() << std::endl;
+    out << "Number of elements:\t" << this->NumElements() << std::endl;
 
-    out << "\n-------Geometric Node Information-------" << std::endl;
+    out << "\n\tNode Information" << std::endl;
     for (int i = 0; i < this->NumNodes(); i++) {
         out << "Node index: " << i << "\t\t";
         this->Node(i).Print(out);
     }
 
-    out << "\n------Geometric Element Information------" << std::endl;
+    out << "\n\tElement Information" << std::endl;
     for (int i = 0; i < this->NumElements(); i++) {
         out << "Element index:\t\t" << i << std::endl;
         this->Element(i)->Print(out);

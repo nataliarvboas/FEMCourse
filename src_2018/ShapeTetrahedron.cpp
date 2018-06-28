@@ -32,6 +32,7 @@ void ShapeTetrahedron::Shape(const VecDouble &xi, VecInt &orders, VecDouble &phi
     dphi(2, 1) = 0.0;
     dphi(2, 2) = 0.0;
     dphi(2, 3) = 1.0;
+    
     int is = 0;
     if (nshape == 10) {
         for (is = 4; is < nshape; is++) {
@@ -88,6 +89,7 @@ void ShapeTetrahedron::Shape(const VecDouble &xi, VecInt &orders, VecDouble &phi
 
 int ShapeTetrahedron::NShapeFunctions(int side, int order) {
     if (side < 4) return 1;
+    else return order -1;
     if (side < 10) return order - 1;
     if (side < 14) {
         int sum = 0;

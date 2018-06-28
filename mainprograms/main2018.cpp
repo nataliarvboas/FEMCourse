@@ -49,11 +49,11 @@ int main() {
 //    QuadrilateralLinearTest();
 //    QuadrilateralQuadraticTest();
 
-    TriangleLinearTest();
-    TriangleQuadraticTest();
+//    TriangleLinearTest();
+//    TriangleQuadraticTest();
 
 //    TetrahedronLinearTest();
-//    TetrahedronQuadraticTest();
+    TetrahedronQuadraticTest();
 
     return 0;
 }
@@ -710,7 +710,7 @@ void TetrahedronLinearTest() {
 
 void TetrahedronQuadraticTest() {
     VecDouble error0(3, 0);
-    std::ofstream fout("Tetrahedron-Linear.txt");
+    std::ofstream fout("Tetrahedron-Quadratic2.txt");
     for (int i = 0; i < 5; i++) {
         int ndiv = pow(2, i);
         double l = 1;
@@ -721,7 +721,10 @@ void TetrahedronQuadraticTest() {
         cout << "\nNumber of elements: " << ndiv << "x" << ndiv << std::endl;
 
         GeoMesh *gmesh = TetrahedronGeoMesh(ndiv + 1, ndiv + 1, ndiv + 1, l);
+//        gmesh->Print(cout);
+//        VTKGeoMesh::PrintGMeshVTK(gmesh,"gmeshtetra.vtk");
         CompMesh *cmesh = CreateCompMesh(gmesh, pOrder, 3);
+        cmesh->Print(cout);
 
         Analysis an(cmesh);
         PostProcess *pos = new PostProcessTemplate<Poisson>(&an);
@@ -730,7 +733,7 @@ void TetrahedronQuadraticTest() {
         pos->SetExact(Sol_exact);
 
         an.RunSimulation();
-        an.PostProcessSolution("Tetrahedron-Linear.vtk", *pos);
+        an.PostProcessSolution("Tetrahedron-Quadratic2.vtk", *pos);
 
         VecDouble error;
         error = an.PostProcessError(fout, *pos);

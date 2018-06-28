@@ -50,7 +50,7 @@ CompElementTemplate<Shape>::CompElementTemplate(int64_t ind, CompMesh *cmesh, Ge
         } else {
             DOF dof;
             int order = cmesh->GetDefaultOrder();
-            int nshape = this->ComputeNShapeFunctions(i, order);
+            int nshape = ComputeNShapeFunctions(i, order);
             int nstate = mat->NState();
             dof.SetNShapeStateOrder(nshape, nstate, order);
 
@@ -162,7 +162,20 @@ int CompElementTemplate<Shape>::ComputeNShapeFunctions(int doflocindex, int orde
 
 template<class Shape>
 void CompElementTemplate<Shape>::Print(std::ostream &out) {
+    out << "fReference index: " << this->GetGeoElement()->GetIndex() << std::endl;
+    if (this->GetStatement()) {
+        out << "Material index: " << this->GetStatement()->GetMatID() << std::endl;
+    } else {
+        out << "No material\n";
+    }
 
+    out << "Number of DOFs: " << this->NDOF() << std::endl;
+    out << "DOFs indexes : ";
+    int nod;
+    for (nod = 0; nod < this->NDOF(); nod++) {
+        out << this->GetDOFIndex(nod) << ' ';
+    }
+    out << std::endl << std::endl;
 }
 
 
