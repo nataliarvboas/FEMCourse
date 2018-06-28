@@ -6,9 +6,6 @@
 
 #include "CompElement.h"
 #include "GeoElement.h"
-//#include "MathStatement.h"
-//#include "CompElementTemplate.h"
-//#include "IntPointData.h"
 #include "MathStatement.h"
 #include "tpanic.h"
 #include <math.h> 

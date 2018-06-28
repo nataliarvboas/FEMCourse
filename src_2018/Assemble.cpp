@@ -4,10 +4,8 @@
  * and open the template in the editor.
  */
 #include "Assemble.h"
-//#include "GeoElement.h"
 #include "CompMesh.h"
 #include "GeoMesh.h"
-//#include <algorithm> 
 
 Assemble::Assemble() {
 }

@@ -5,7 +5,6 @@
  */
 
 #include "CompMesh.h"
-//#include "MathStatement.h"
 #include "GeoMesh.h"
 #include "MathStatement.h"
 

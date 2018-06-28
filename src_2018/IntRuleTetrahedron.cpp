@@ -5,8 +5,6 @@
  */
 
 #include <iostream> 
-//#include "IntRule.h"
-//#include "IntRule1d.h"
 #include "IntRuleTetrahedron.h"
 #include "tpanic.h"
 

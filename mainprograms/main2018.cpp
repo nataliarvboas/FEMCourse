@@ -46,14 +46,14 @@ void TetrahedronLinearTest();
 void TetrahedronQuadraticTest();
 
 int main() {
-//    QuadrilateralLinearTest();
+    QuadrilateralLinearTest();
 //    QuadrilateralQuadraticTest();
 
 //    TriangleLinearTest();
 //    TriangleQuadraticTest();
 
 //    TetrahedronLinearTest();
-    TetrahedronQuadraticTest();
+//    TetrahedronQuadraticTest();
 
     return 0;
 }

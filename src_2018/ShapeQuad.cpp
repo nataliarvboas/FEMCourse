@@ -5,7 +5,7 @@
  */
 #include "Shape1d.h"
 #include "ShapeQuad.h"
-#include "TMatrix.h"
+
 
 void ShapeQuad::Shape(const VecDouble &xi, VecInt &orders, VecDouble &phi, Matrix &dphi) {
 

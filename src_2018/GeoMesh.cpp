@@ -6,7 +6,6 @@
 
 #include <stdio.h>
 #include "GeoMesh.h"
-//#include "GeoNode.h"
 #include "GeoElementSide.h"
 #include <vector>
 #include "tpanic.h"

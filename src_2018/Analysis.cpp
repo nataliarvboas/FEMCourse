@@ -9,7 +9,6 @@
 #include "GeoMesh.h"
 #include "PostProcess.h"
 #include "tpanic.h"
-#include "MathStatement.h"
 #include "VTKGeoMesh.h"
 #include "PostProcessTemplate.h"
 

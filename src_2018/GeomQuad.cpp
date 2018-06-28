@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 #include "GeomQuad.h"
-//#include "GeoElementSide.h"
 
 GeomQuad::GeomQuad() {
 }

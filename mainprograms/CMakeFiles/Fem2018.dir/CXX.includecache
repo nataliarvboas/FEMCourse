@@ -81,8 +81,6 @@ PostProcess.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/PostProcess.h
 tpanic.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/tpanic.h
-MathStatement.h
-/home/natalia/Documents/GitHub/FEMCourse/src_2018/MathStatement.h
 VTKGeoMesh.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/VTKGeoMesh.h
 PostProcessTemplate.h
@@ -181,6 +179,8 @@ GeoElementSide.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/GeoElementSide.h
 algorithm
 -
+tpanic.h
+/home/natalia/Documents/GitHub/FEMCourse/src_2018/tpanic.h
 
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/GeoElementTemplate.cpp
 stdio.h
@@ -339,30 +339,22 @@ GeomTriangle.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/Shape1d.cpp
 Shape1d.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/Shape1d.h
-TMatrix.h
-/home/natalia/Documents/GitHub/FEMCourse/src_2018/TMatrix.h
 
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/ShapeQuad.cpp
 Shape1d.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/Shape1d.h
 ShapeQuad.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/ShapeQuad.h
-TMatrix.h
-/home/natalia/Documents/GitHub/FEMCourse/src_2018/TMatrix.h
 
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/ShapeTetrahedron.cpp
 ShapeTetrahedron.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/ShapeTetrahedron.h
-TMatrix.h
-/home/natalia/Documents/GitHub/FEMCourse/src_2018/TMatrix.h
 tpanic.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/tpanic.h
 
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/ShapeTriangle.cpp
 ShapeTriangle.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/ShapeTriangle.h
-TMatrix.h
-/home/natalia/Documents/GitHub/FEMCourse/src_2018/TMatrix.h
 
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/Topology1d.cpp
 Topology1d.h

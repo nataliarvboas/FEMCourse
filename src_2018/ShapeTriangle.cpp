@@ -5,7 +5,6 @@
  */
 
 #include "ShapeTriangle.h"
-#include "TMatrix.h"
 
 void ShapeTriangle::Shape(const VecDouble &xi, VecInt &orders, VecDouble &phi, Matrix &dphi) {
 

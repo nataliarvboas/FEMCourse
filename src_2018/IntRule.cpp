@@ -7,10 +7,6 @@
 #include <iostream> 
 #include <vector> 
 #include "IntRule.h"
-//#include "IntRule1d.h"
-//#include "IntRuleQuad.h"
-//#include "IntRuleTriangle.h"
-//#include "IntRuleTetrahedron.h"
 #include <cmath>
 #include <iomanip>
 

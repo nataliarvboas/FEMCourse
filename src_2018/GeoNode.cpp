@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 
-//#include "DataTypes.h"
 #include "GeoNode.h"
 
 void GeoNode::Print(std::ostream &out) {

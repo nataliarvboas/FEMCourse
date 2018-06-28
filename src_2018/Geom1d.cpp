@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 #include "Geom1d.h"
-//#include "GeoElementSide.h"
 
 Geom1d::Geom1d() {
 }

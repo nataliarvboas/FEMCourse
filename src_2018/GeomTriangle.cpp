@@ -5,7 +5,6 @@
  */
 
 #include "GeomTriangle.h"
-//#include "GeoElementSide.h"
 
 GeomTriangle::GeomTriangle() {
 }
