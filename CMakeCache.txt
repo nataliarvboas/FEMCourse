@@ -166,6 +166,12 @@ CMAKE_STRIP:FILEPATH=/usr/bin/strip
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
 //Value Computed by CMake
+FemCourse_BINARY_DIR:STATIC=/home/natalia/Documents/GitHub/FEMCourse
+
+//Value Computed by CMake
+FemCourse_SOURCE_DIR:STATIC=/home/natalia/Documents/GitHub/FEMCourse
+
+//Value Computed by CMake
 FemSC_BINARY_DIR:STATIC=/home/natalia/Documents/GitHub/FEMCourse
 
 //Value Computed by CMake

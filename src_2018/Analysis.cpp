@@ -53,20 +53,22 @@ CompMesh *Analysis::Mesh() const {
 }
 
 void Analysis::RunSimulation() {
-    Matrix F;
     Assemble assemb(cmesh);
-    assemb.Compute(GlobalSystem, RightHandSide);
+    
+    int64_t ne = assemb.NEquations();
+    Matrix K(ne,ne);
+    Matrix F(ne,1);
+    
+    K.Zero();
+    F.Zero();    
+    assemb.Compute(K, F);    
     std::cout << "Assemble done!" << std::endl;
     
-//    GlobalSystem.Print();
-
-    int nrows = RightHandSide.Rows();
-    int ncols = RightHandSide.Cols();
-    F.Resize(nrows, ncols);
-    F = RightHandSide;
+    GlobalSystem = K;
+    RightHandSide = F;
 
     std::cout << "Computing solution..." << std::endl;
-    GlobalSystem.Solve_LU(F);
+    K.Solve_LU(F);
     std::cout << "Solution computed!" << std::endl;
     Solution = F;
 

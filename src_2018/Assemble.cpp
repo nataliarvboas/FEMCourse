@@ -32,7 +32,7 @@ int64_t Assemble::NEquations() {
     int64_t i, ncon = cmesh->GetDOFVec().size();
     for (i = 0; i < ncon; i++) {
         DOF dof = cmesh->GetDOF(i);
-        int dofsize = dof.GetNShape() * dof.GetNState();
+        int64_t dofsize = dof.GetNShape() * dof.GetNState();
         neq += dofsize;
     }
     return neq;
@@ -42,15 +42,9 @@ void Assemble::OptimizeBandwidth() {
 }
 
 void Assemble::Compute(Matrix &globmat, Matrix &rhs) {
-    int64_t nelem = cmesh->GetGeoMesh()->NumElements();
-    int64_t ne = this->NEquations();
-
-    globmat.Resize(ne, ne);
-    rhs.Resize(ne, 1);
-
-    globmat.Zero();
-    rhs.Zero();
-
+    int nelem = cmesh->GetGeoMesh()->NumElements();
+    int ne = this->NEquations();
+ 
     for (int64_t el = 0; el < nelem; el++) {
         CompElement *cel = cmesh->GetElement(el);
 

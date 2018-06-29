@@ -31,30 +31,29 @@ using namespace std;
 const double Pi = M_PI;
 
 void ComputeConvergenceRates(std::ostream &out, VecDouble &error0, VecDouble &error, int ndiv, double l);
+
 GeoMesh *QuadGeoMesh(int nnodes_x, int nnodes_y, double l);
 GeoMesh *TriangleGeoMesh(int nnodes_x, int nnodes_y, double l);
 GeoMesh *TetrahedronGeoMesh(int nnodes_x, int nnodes_y, int nnodes_z, double l);
+
 CompMesh *CreateCompMesh(GeoMesh *gmesh, int pOrder);
+
 void ForceFunction(const VecDouble &co, VecDouble &result);
 void Sol_exact(const VecDouble &x, VecDouble &sol, Matrix &dsol);
 
-void QuadrilateralLinearTest();
-void QuadrilateralQuadraticTest();
-void TriangleLinearTest();
-void TriangleQuadraticTest();
-void TetrahedronLinearTest();
-void TetrahedronQuadraticTest();
+void QuadrilateralTest(int pOrder);
+void TriangleTest(int pOrder);
+void TetrahedronTest(int pOrder);
 
 int main() {
-    QuadrilateralLinearTest();
-//    QuadrilateralQuadraticTest();
+    QuadrilateralTest(1);
+//    QuadrilateralTest(2);
 
-//    TriangleLinearTest();
-//    TriangleQuadraticTest();
-
-//    TetrahedronLinearTest();
-//    TetrahedronQuadraticTest();
-
+//    TriangleTest(1);
+//    TriangleTest(2);
+//
+//    TetrahedronTest(1);
+//    TetrahedronTest(2);
     return 0;
 }
 
@@ -474,7 +473,7 @@ CompMesh *CreateCompMesh(GeoMesh *gmesh, int pOrder, int dim) {
     Matrix perm(dim, dim);
     perm.Zero();
     for (int i = 0; i < dim; i++) {
-        perm(i,i) = 1;
+        perm(i, i) = 1;
     }
 
     for (int i = 0; i < nelem; i++) {
@@ -547,46 +546,24 @@ void Sol_exact(const VecDouble &x, VecDouble &sol, Matrix &dsol) {
     dsol(2, 2) = 0;
 }
 
-void QuadrilateralLinearTest() {
+void QuadrilateralTest(int pOrder) {
     VecDouble error0(3, 0);
-    std::ofstream fout("Quadrilateral-Linear.txt");
-    for (int i = 0; i < 5; i++) {
-        int ndiv = pow(2, i);
-        double l = 1;
-        int pOrder = 1;
-
-        fout << "-------------------------------------------" << std::endl;
-        fout << "Number of elements: " << ndiv << "x" << ndiv << std::endl;
-        cout << "\nNumber of elements: " << ndiv << "x" << ndiv << std::endl;
-
-        GeoMesh *gmesh = QuadGeoMesh(ndiv + 1, ndiv + 1, l);
-//        VTKGeoMesh::PrintGMeshVTK(gmesh, "gmesh.vtk");
-        CompMesh *cmesh = CreateCompMesh(gmesh, pOrder, 2);
-
-        Analysis an(cmesh);
-        PostProcess *pos = new PostProcessTemplate<Poisson>(&an);
-        pos->AppendVariable("Sol");
-        pos->AppendVariable("SolExact");
-        pos->SetExact(Sol_exact);
-
-        an.RunSimulation();
-//        an.PostProcessSolution("Quadrilateral-Linear.vtk", *pos);
-
-        VecDouble error;
-        error = an.PostProcessError(fout, *pos);
-
-        ComputeConvergenceRates(fout, error0, error, ndiv, l);
-        fout << "-------------------------------------------" << std::endl;
+    string filename;
+    ofstream fout;
+    if (pOrder == 1) {
+        fout.open("Quadrilateral-Linear.txt");
+        filename = "Quadrilateral-Linear.vtk";
+    } else if (pOrder == 2) {
+        fout.open("Quadrilateral-Quadratic.txt");
+        filename = "Quadrilateral-Quadratic.vtk";
+    } else {
+        cout << "Not implemented for this order!" << endl;
+        DebugStop();
     }
-}
 
-void QuadrilateralQuadraticTest() {
-    VecDouble error0(3, 0);
-    std::ofstream fout("Quadrilateral-Quadratic.txt");
     for (int i = 0; i < 5; i++) {
         int ndiv = pow(2, i);
         double l = 1;
-        int pOrder = 2;
 
         fout << "-------------------------------------------" << std::endl;
         fout << "Number of elements: " << ndiv << "x" << ndiv << std::endl;
@@ -602,7 +579,7 @@ void QuadrilateralQuadraticTest() {
         pos->SetExact(Sol_exact);
 
         an.RunSimulation();
-        an.PostProcessSolution("Quadrilateral-Quadratic.vtk", *pos);
+        an.PostProcessSolution(filename, *pos);
 
         VecDouble error;
         error = an.PostProcessError(fout, *pos);
@@ -612,13 +589,24 @@ void QuadrilateralQuadraticTest() {
     }
 }
 
-void TriangleLinearTest() {
+void TriangleTest(int pOrder) {
     VecDouble error0(3, 0);
-    std::ofstream fout("Triangle-Linear.txt");
+    string filename;
+    ofstream fout;
+    if (pOrder == 1) {
+        fout.open("Triangle-Linear.txt");
+        filename = "Triangle-Linear.vtk";
+    } else if (pOrder == 2) {
+        fout.open("Triangle-Quadratic.txt");
+        filename = "Triangle-Quadratic.vtk";
+    } else {
+        cout << "Not implemented for this order!" << endl;
+        DebugStop();
+    }
+
     for (int i = 0; i < 5; i++) {
         int ndiv = pow(2, i);
         double l = 1;
-        int pOrder = 1;
 
         fout << "-------------------------------------------" << std::endl;
         fout << "Number of elements: " << ndiv << "x" << ndiv << std::endl;
@@ -634,7 +622,7 @@ void TriangleLinearTest() {
         pos->SetExact(Sol_exact);
 
         an.RunSimulation();
-        an.PostProcessSolution("Triangle-Linear.vtk", *pos);
+        an.PostProcessSolution(filename, *pos);
 
         VecDouble error;
         error = an.PostProcessError(fout, *pos);
@@ -644,45 +632,24 @@ void TriangleLinearTest() {
     }
 }
 
-void TriangleQuadraticTest() {
+void TetrahedronTest(int pOrder) {
     VecDouble error0(3, 0);
-    std::ofstream fout("Triangle-Quadratic.txt");
-    for (int i = 0; i < 5; i++) {
-        int ndiv = pow(2, i);
-        double l = 1;
-        int pOrder = 2;
-
-        fout << "-------------------------------------------" << std::endl;
-        fout << "Number of elements: " << ndiv << "x" << ndiv << std::endl;
-        cout << "\nNumber of elements: " << ndiv << "x" << ndiv << std::endl;
-
-        GeoMesh *gmesh = TriangleGeoMesh(ndiv + 1, ndiv + 1, l);
-        CompMesh *cmesh = CreateCompMesh(gmesh, pOrder, 2);
-
-        Analysis an(cmesh);
-        PostProcess *pos = new PostProcessTemplate<Poisson>(&an);
-        pos->AppendVariable("Sol");
-        pos->AppendVariable("SolExact");
-        pos->SetExact(Sol_exact);
-
-        an.RunSimulation();
-        an.PostProcessSolution("Triangle-Quadratic.vtk", *pos);
-
-        VecDouble error;
-        error = an.PostProcessError(fout, *pos);
-
-        ComputeConvergenceRates(fout, error0, error, ndiv, l);
-        fout << "-------------------------------------------" << std::endl;
+    string filename;
+    ofstream fout;
+    if (pOrder == 1) {
+        fout.open("Tetrahedron-Linear.txt");
+        filename = "Tetrahedron-Linear.vtk";
+    } else if (pOrder == 2) {
+        fout.open("Tetrahedron-Quadratic.txt");
+        filename = "Tetrahedron-Quadratic.vtk";
+    } else {
+        cout << "Not implemented for this order!" << endl;
+        DebugStop();
     }
-}
 
-void TetrahedronLinearTest() {
-    VecDouble error0(3, 0);
-    std::ofstream fout("Tetrahedron-Linear.txt");
     for (int i = 0; i < 5; i++) {
         int ndiv = pow(2, i);
         double l = 1;
-        int pOrder = 1;
 
         fout << "-------------------------------------------" << std::endl;
         fout << "Number of elements: " << ndiv << "x" << ndiv << std::endl;
@@ -708,37 +675,4 @@ void TetrahedronLinearTest() {
     }
 }
 
-void TetrahedronQuadraticTest() {
-    VecDouble error0(3, 0);
-    std::ofstream fout("Tetrahedron-Quadratic2.txt");
-    for (int i = 0; i < 5; i++) {
-        int ndiv = pow(2, i);
-        double l = 1;
-        int pOrder = 2;
 
-        fout << "-------------------------------------------" << std::endl;
-        fout << "Number of elements: " << ndiv << "x" << ndiv << std::endl;
-        cout << "\nNumber of elements: " << ndiv << "x" << ndiv << std::endl;
-
-        GeoMesh *gmesh = TetrahedronGeoMesh(ndiv + 1, ndiv + 1, ndiv + 1, l);
-//        gmesh->Print(cout);
-//        VTKGeoMesh::PrintGMeshVTK(gmesh,"gmeshtetra.vtk");
-        CompMesh *cmesh = CreateCompMesh(gmesh, pOrder, 3);
-        cmesh->Print(cout);
-
-        Analysis an(cmesh);
-        PostProcess *pos = new PostProcessTemplate<Poisson>(&an);
-        pos->AppendVariable("Sol");
-        pos->AppendVariable("SolExact");
-        pos->SetExact(Sol_exact);
-
-        an.RunSimulation();
-        an.PostProcessSolution("Tetrahedron-Quadratic2.vtk", *pos);
-
-        VecDouble error;
-        error = an.PostProcessError(fout, *pos);
-        //
-        ComputeConvergenceRates(fout, error0, error, ndiv, l);
-        fout << "-------------------------------------------" << std::endl;
-    }
-}

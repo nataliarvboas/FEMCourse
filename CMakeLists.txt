@@ -5,7 +5,32 @@ cmake_minimum_required (VERSION 2.8.0)
 
 project (FemSC)
 
-set (CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+option(USING_PZ "Whether the neoPZ package will be linked with the library" OFF)
+
+if(USING_PZ)
+
+	IF (WIN32)
+		# Prevents timespec redefinition problem with Visual Studio 2015
+		set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DHAVE_STRUCT_TIMESPEC")
+	ELSE (WIN32)
+		set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC")
+		set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-narrowing")#this flag is for preventing errors when casting from double to float
+	ENDIF()
+
+	IF (WIN32)
+		find_package( PZ PATHS "C:/Arquivos de Programas/PZ" REQUIRED NO_DEFAULT_PATH)
+	ELSE()
+		find_package( PZ REQUIRED )
+	ENDIF (WIN32)
+
+
+	include_directories(${PZ_INCLUDE_DIRS})
+
+endif(USING_PZ)
+
 
 add_subdirectory(headers)
 add_subdirectory(headers2018)
@@ -75,31 +100,3 @@ option(USING_FAD "Whether the FAD package will be linked with the library" OFF)
 if(USING_FAD)
 	add_subdirectory("Fad")
 endif(USING_FAD)
-
-option(USING_PZ "Whether the neoPZ package will be linked with the library" OFF)
-
-if(USING_PZ)
-
-	IF (WIN32)
-		# Prevents timespec redefinition problem with Visual Studio 2015
-		set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DHAVE_STRUCT_TIMESPEC")
-	ELSE (WIN32)
-		set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC")
-		set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-narrowing")#this flag is for preventing errors when casting from double to float
-	ENDIF()
-
-
-	set(CMAKE_CXX_STANDARD 11)
-	set(CMAKE_CXX_STANDARD_REQUIRED ON)
-
-	IF (WIN32)
-		find_package( PZ PATHS "C:/Arquivos de Programas/PZ" REQUIRED NO_DEFAULT_PATH)
-	ELSE()
-		find_package( PZ REQUIRED )
-	ENDIF (WIN32)
-
-
-	include_directories(${PZ_INCLUDE_DIRS})
- 	link_libraries(pz) 
-
-endif(USING_PZ)

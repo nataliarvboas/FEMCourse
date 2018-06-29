@@ -11,3 +11,7 @@
 
 add_executable(Fem2018 main2018.cpp ${FemSOURCE2018} ${SOURCES2018})
 
+if(USING_PZ)
+ target_link_libraries(Fem2018 pz)
+
+endif(USING_PZ)
