@@ -6,6 +6,7 @@
 #include "Assemble.h"
 #include "CompMesh.h"
 #include "GeoMesh.h"
+#include "MathStatement.h"
 
 Assemble::Assemble() {
 }
@@ -44,14 +45,24 @@ void Assemble::OptimizeBandwidth() {
 void Assemble::Compute(Matrix &globmat, Matrix &rhs) {
     int nelem = cmesh->GetGeoMesh()->NumElements();
     int ne = this->NEquations();
- 
+
+    globmat.Zero();
+    rhs.Zero();
+
+    int64_t IG = 0, JG = 0;
+
     for (int64_t el = 0; el < nelem; el++) {
         CompElement *cel = cmesh->GetElement(el);
 
-        Matrix ek, ef;
-        ek.Zero();
-        ef.Zero();
+        int nshape = cel->NShapeFunctions();
+        int nstate = cel->GetStatement()->NState();
+        Matrix ek(nstate * nshape, nstate * nshape, 0);
+        Matrix ef(nstate * nshape, 1, 0);
+
         cel->CalcStiff(ek, ef);
+
+                ek.Print();
+        //        ef.Print();
 
         int ndof = cel->NDOF();
         VecInt iglob(0);
@@ -67,11 +78,11 @@ void Assemble::Compute(Matrix &globmat, Matrix &rhs) {
         }
 
         for (int64_t i = 0; i < ek.Rows(); i++) {
-            int64_t IG = iglob[i];
+            IG = iglob[i];
             rhs(IG, 0) += ef(i, 0);
 
             for (int64_t j = 0; j < ek.Rows(); j++) {
-                int64_t JG = iglob[j];
+                JG = iglob[j];
                 globmat(IG, JG) += ek(i, j);
             }
         }

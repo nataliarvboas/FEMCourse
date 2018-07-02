@@ -12,7 +12,7 @@
 
 using namespace std;
 
-IntRule::IntRule() : fPoints(), fWeights(){
+IntRule::IntRule() : fPoints(), fWeights(0){
         fOrder = 0;
 
 

@@ -93,6 +93,8 @@ CompMesh.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/CompMesh.h
 GeoMesh.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/GeoMesh.h
+MathStatement.h
+/home/natalia/Documents/GitHub/FEMCourse/src_2018/MathStatement.h
 
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/CompElement.cpp
 CompElement.h
@@ -271,8 +273,12 @@ tpanic.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/tpanic.h
 
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/IntRuleTetrahedron.cpp
-iostream
+stdio.h
 -
+TVec.h
+/home/natalia/Documents/GitHub/FEMCourse/src_2018/TVec.h
+TMatrix.h
+/home/natalia/Documents/GitHub/FEMCourse/src_2018/TMatrix.h
 IntRuleTetrahedron.h
 /home/natalia/Documents/GitHub/FEMCourse/src_2018/IntRuleTetrahedron.h
 tpanic.h

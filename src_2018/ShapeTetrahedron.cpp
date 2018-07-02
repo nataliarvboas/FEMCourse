@@ -9,8 +9,6 @@
 
 void ShapeTetrahedron::Shape(const VecDouble &xi, VecInt &orders, VecDouble &phi, Matrix &dphi) {
     int nshape = NShapeFunctions(orders);
-    phi.resize(nshape);
-    dphi.Resize(3, nshape);
 
     phi[0] = 1 - xi[0] - xi[1] - xi[2];
     phi[1] = xi[0];
@@ -31,9 +29,9 @@ void ShapeTetrahedron::Shape(const VecDouble &xi, VecInt &orders, VecDouble &phi
     dphi(2, 1) = 0.0;
     dphi(2, 2) = 0.0;
     dphi(2, 3) = 1.0;
-    
-    int is = 0;
+
     if (nshape == 10) {
+        int is;
         for (is = 4; is < nshape; is++) {
             int nsnodes = NSideNodes(is);
             switch (nsnodes) {

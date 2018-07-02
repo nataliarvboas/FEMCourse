@@ -123,8 +123,6 @@ void CompElement::ComputeRequiredData(IntPointData &data, VecDouble &intpoint) c
 void CompElement::Convert2Axes(const Matrix &dphi, const Matrix &jacinv, Matrix &dphidx) const {
     int nshape = this->NShapeFunctions();
     int dim = this->Dimension();
-    
- 
 
     int ieq;
     switch (dim) {
@@ -172,7 +170,6 @@ void CompElement::CalcStiff(Matrix &ek, Matrix &ef) const {
 
     int dim = this->Dimension();
     int nstate = this->GetStatement()->NState();
-    std::vector<double> intpoint(dim, 0.);
     double weight = 0.;
 
     IntRule *intrule = this->GetIntRule();
@@ -180,8 +177,8 @@ void CompElement::CalcStiff(Matrix &ek, Matrix &ef) const {
     int intrulepoints = intrule->NPoints();
     int nshape = this->NShapeFunctions();
 
-    ek.Resize(nshape * nstate, nshape * nstate);
-    ef.Resize(nshape * nstate, 1);
+//    ek.Resize(nshape * nstate, nshape * nstate);
+//    ef.Resize(nshape * nstate, 1);
 
     ek.Zero();
     ef.Zero();
@@ -215,7 +212,7 @@ void CompElement::EvaluateError(std::function<void(const VecDouble &loc, VecDoub
     int dim = Dimension();
     int nstate = material->NState();
 
-    VecDouble intpoint(dim, 0.), values(NErrors, 1);
+    VecDouble values(NErrors, 1);
     double weight = 0.;
 
     IntPointData data;
