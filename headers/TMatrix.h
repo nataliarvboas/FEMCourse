@@ -130,9 +130,9 @@ private:
   double *fmatrix;
   
   ///numero de linhas da matriz
-  int frow;
-  int fcol;
-  int fdecompose;
+  int frow=0;
+  int fcol=0;
+  int fdecompose=0;
 };
 
 std::ostream &operator<<(std::ostream &out, const TMatrix &mat);

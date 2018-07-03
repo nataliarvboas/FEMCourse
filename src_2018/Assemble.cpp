@@ -61,7 +61,7 @@ void Assemble::Compute(Matrix &globmat, Matrix &rhs) {
 
         cel->CalcStiff(ek, ef);
 
-                ek.Print();
+//                ek.Print();
         //        ef.Print();
 
         int ndof = cel->NDOF();

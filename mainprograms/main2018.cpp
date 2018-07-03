@@ -47,13 +47,13 @@ void TetrahedronTest(int pOrder);
 
 int main() {
     //    QuadrilateralTest(1);
-//        QuadrilateralTest(2);
+        QuadrilateralTest(2);
     //
 //        TriangleTest(1);
 //        TriangleTest(2);
 
 //    TetrahedronTest(1);
-    TetrahedronTest(2);
+//    TetrahedronTest(2);
     return 0;
 }
 
@@ -335,9 +335,9 @@ GeoMesh *TetrahedronGeoMesh(int nnodes_x, int nnodes_y, int nnodes_z, double l) 
                 GeoElement *gel_3 = new GeoElementTemplate<GeomTetrahedron>(TopolTetra_3, matid, gmesh, index);
                 index++;
 
-                TopolTetra_4[0] = TopolTetra_3[2];
+                TopolTetra_4[0] = TopolTetra_3[3];
                 TopolTetra_4[1] = TopolTetra_3[3] + nnodes_x*nnodes_y;
-                TopolTetra_4[2] = TopolTetra_3[3];
+                TopolTetra_4[2] = TopolTetra_3[2];
                 TopolTetra_4[3] = TopolTetra_3[1];
                 matid = 1;
                 GeoElement *gel_4 = new GeoElementTemplate<GeomTetrahedron>(TopolTetra_4, matid, gmesh, index);
@@ -346,7 +346,7 @@ GeoMesh *TetrahedronGeoMesh(int nnodes_x, int nnodes_y, int nnodes_z, double l) 
                 TopolTetra_5[0] = TopolTetra_4[1];
                 TopolTetra_5[1] = TopolTetra_4[1] + 1;
                 TopolTetra_5[2] = TopolTetra_4[3];
-                TopolTetra_5[3] = TopolTetra_4[2];
+                TopolTetra_5[3] = TopolTetra_4[0];
                 matid = 1;
                 GeoElement *gel_5 = new GeoElementTemplate<GeomTetrahedron>(TopolTetra_5, matid, gmesh, index);
                 index++;
@@ -634,8 +634,8 @@ void TriangleTest(int pOrder) {
 
 void TetrahedronTest(int pOrder) {
     VecDouble error0(3, 0);
-    string filename;
     ofstream fout;
+    string filename;
     if (pOrder == 1) {
         fout.open("Tetrahedron-Linear.txt");
         filename = "Tetrahedron-Linear.vtk";
@@ -648,7 +648,7 @@ void TetrahedronTest(int pOrder) {
     }
 
     for (int i = 0; i < 1; i++) {
-        int ndiv = pow(2, 0);
+        int ndiv = pow(2, i);
         double l = 1;
 
         fout << "-------------------------------------------" << std::endl;
@@ -656,10 +656,9 @@ void TetrahedronTest(int pOrder) {
         cout << "\nNumber of elements: " << ndiv << "x" << ndiv << std::endl;
 
         GeoMesh *gmesh = TetrahedronGeoMesh(ndiv + 1, ndiv + 1, ndiv + 1, l);
+//        gmesh->Print(cout);
 //        VTKGeoMesh::PrintGMeshVTK(gmesh,"gmeshtet.vtk");
         CompMesh *cmesh = CreateCompMesh(gmesh, pOrder, 3);
-//        gmesh->Print(cout);
-//        cmesh->Print(cout);
 
         Analysis an(cmesh);
         PostProcess *pos = new PostProcessTemplate<Poisson>(&an);
@@ -668,7 +667,7 @@ void TetrahedronTest(int pOrder) {
         pos->SetExact(Sol_exact);
 
         an.RunSimulation();
-        an.PostProcessSolution("Tetrahedron-Linear.vtk", *pos);
+        an.PostProcessSolution(filename, *pos);
 
         VecDouble error;
         error = an.PostProcessError(fout, *pos);

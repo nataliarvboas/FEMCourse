@@ -129,6 +129,16 @@
           </incDir>
         </ccTool>
       </folder>
+      <folder path="0/src_2018">
+        <ccTool>
+          <incDir>
+            <pElem>headers2018</pElem>
+            <pElem>headers</pElem>
+            <pElem>tinyxml</pElem>
+            <pElem>mainprograms</pElem>
+          </incDir>
+        </ccTool>
+      </folder>
       <folder path="0/tinyxml">
         <ccTool>
           <incDir>
@@ -218,11 +228,11 @@
         </ccTool>
       </item>
       <item path="src vazio/TMatrix.cpp" ex="false" tool="1" flavor2="8">
-        <ccTool flags="0">
+        <ccTool flags="1">
           <incDir>
             <pElem>headers2018</pElem>
-            <pElem>src vazio</pElem>
             <pElem>headers</pElem>
+            <pElem>tinyxml</pElem>
             <pElem>mainprograms</pElem>
           </incDir>
         </ccTool>
@@ -374,334 +384,138 @@
       </item>
       <item path="src_2018/Analysis.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="1">
-          <incDir>
-            <pElem>headers2018</pElem>
-            <pElem>headers</pElem>
-            <pElem>tinyxml</pElem>
-            <pElem>mainprograms</pElem>
-          </incDir>
         </ccTool>
       </item>
       <item path="src_2018/Assemble.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="1">
-          <incDir>
-            <pElem>headers2018</pElem>
-            <pElem>headers</pElem>
-            <pElem>tinyxml</pElem>
-            <pElem>mainprograms</pElem>
-          </incDir>
         </ccTool>
       </item>
       <item path="src_2018/CompElement.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="1">
-          <incDir>
-            <pElem>headers2018</pElem>
-            <pElem>headers</pElem>
-            <pElem>tinyxml</pElem>
-            <pElem>mainprograms</pElem>
-          </incDir>
         </ccTool>
       </item>
       <item path="src_2018/CompElementTemplate.cpp" ex="false" tool="1" flavor2="8">
-        <ccTool flags="0">
-          <incDir>
-            <pElem>headers2018</pElem>
-            <pElem>src_2018</pElem>
-            <pElem>headers</pElem>
-            <pElem>mainprograms</pElem>
-          </incDir>
+        <ccTool flags="1">
         </ccTool>
       </item>
       <item path="src_2018/CompMesh.cpp" ex="false" tool="1" flavor2="8">
-        <ccTool flags="0">
-          <incDir>
-            <pElem>headers2018</pElem>
-            <pElem>src_2018</pElem>
-            <pElem>headers</pElem>
-            <pElem>mainprograms</pElem>
-          </incDir>
+        <ccTool flags="1">
         </ccTool>
       </item>
       <item path="src_2018/DOF.cpp" ex="false" tool="1" flavor2="8">
-        <ccTool flags="0">
-          <incDir>
-            <pElem>src_2018</pElem>
-            <pElem>headers2018</pElem>
-            <pElem>mainprograms</pElem>
-          </incDir>
+        <ccTool flags="1">
         </ccTool>
       </item>
       <item path="src_2018/GeoElement.cpp" ex="false" tool="1" flavor2="8">
-        <ccTool flags="0">
-          <incDir>
-            <pElem>headers2018</pElem>
-            <pElem>src_2018</pElem>
-            <pElem>headers</pElem>
-            <pElem>mainprograms</pElem>
-          </incDir>
+        <ccTool flags="1">
         </ccTool>
       </item>
       <item path="src_2018/GeoElementSide.cpp" ex="false" tool="1" flavor2="8">
-        <ccTool flags="0">
-          <incDir>
-            <pElem>headers2018</pElem>
-            <pElem>src_2018</pElem>
-            <pElem>headers</pElem>
-            <pElem>mainprograms</pElem>
-          </incDir>
+        <ccTool flags="1">
         </ccTool>
       </item>
       <item path="src_2018/GeoElementTemplate.cpp" ex="false" tool="1" flavor2="8">
-        <ccTool flags="0">
-          <incDir>
-            <pElem>headers2018</pElem>
-            <pElem>src_2018</pElem>
-            <pElem>headers</pElem>
-            <pElem>mainprograms</pElem>
-          </incDir>
+        <ccTool flags="1">
         </ccTool>
       </item>
       <item path="src_2018/GeoMesh.cpp" ex="false" tool="1" flavor2="8">
-        <ccTool flags="0">
-          <incDir>
-            <pElem>headers2018</pElem>
-            <pElem>src_2018</pElem>
-            <pElem>headers</pElem>
-            <pElem>mainprograms</pElem>
-          </incDir>
+        <ccTool flags="1">
         </ccTool>
       </item>
       <item path="src_2018/GeoNode.cpp" ex="false" tool="1" flavor2="8">
-        <ccTool flags="0">
-          <incDir>
-            <pElem>src_2018</pElem>
-            <pElem>headers</pElem>
-            <pElem>headers2018</pElem>
-            <pElem>mainprograms</pElem>
-          </incDir>
+        <ccTool flags="1">
         </ccTool>
       </item>
       <item path="src_2018/Geom1d.cpp" ex="false" tool="1" flavor2="8">
-        <ccTool flags="0">
-          <incDir>
-            <pElem>headers2018</pElem>
-            <pElem>src_2018</pElem>
-            <pElem>headers</pElem>
-            <pElem>mainprograms</pElem>
-          </incDir>
+        <ccTool flags="1">
         </ccTool>
       </item>
       <item path="src_2018/GeomQuad.cpp" ex="false" tool="1" flavor2="8">
-        <ccTool flags="0">
-          <incDir>
-            <pElem>headers2018</pElem>
-            <pElem>src_2018</pElem>
-            <pElem>headers</pElem>
-            <pElem>mainprograms</pElem>
-          </incDir>
+        <ccTool flags="1">
         </ccTool>
       </item>
       <item path="src_2018/GeomTetrahedron.cpp" ex="false" tool="1" flavor2="8">
-        <ccTool flags="0">
-          <incDir>
-            <pElem>headers2018</pElem>
-            <pElem>src_2018</pElem>
-            <pElem>headers</pElem>
-            <pElem>mainprograms</pElem>
-          </incDir>
+        <ccTool flags="1">
         </ccTool>
       </item>
       <item path="src_2018/GeomTriangle.cpp" ex="false" tool="1" flavor2="8">
-        <ccTool flags="0">
-          <incDir>
-            <pElem>headers2018</pElem>
-            <pElem>src_2018</pElem>
-            <pElem>headers</pElem>
-            <pElem>mainprograms</pElem>
-          </incDir>
+        <ccTool flags="1">
         </ccTool>
       </item>
       <item path="src_2018/IntRule.cpp" ex="false" tool="1" flavor2="8">
-        <ccTool flags="0">
-          <incDir>
-            <pElem>headers2018</pElem>
-            <pElem>src_2018</pElem>
-            <pElem>headers</pElem>
-            <pElem>mainprograms</pElem>
-          </incDir>
+        <ccTool flags="1">
         </ccTool>
       </item>
       <item path="src_2018/IntRule1d.cpp" ex="false" tool="1" flavor2="8">
-        <ccTool flags="0">
-          <incDir>
-            <pElem>headers2018</pElem>
-            <pElem>src_2018</pElem>
-            <pElem>headers</pElem>
-            <pElem>mainprograms</pElem>
-          </incDir>
+        <ccTool flags="1">
         </ccTool>
       </item>
       <item path="src_2018/IntRuleQuad.cpp" ex="false" tool="1" flavor2="8">
-        <ccTool flags="0">
-          <incDir>
-            <pElem>headers2018</pElem>
-            <pElem>src_2018</pElem>
-            <pElem>headers</pElem>
-            <pElem>mainprograms</pElem>
-          </incDir>
+        <ccTool flags="1">
         </ccTool>
       </item>
       <item path="src_2018/IntRuleTetrahedron.cpp" ex="false" tool="1" flavor2="8">
-        <ccTool flags="0">
-          <incDir>
-            <pElem>headers2018</pElem>
-            <pElem>src_2018</pElem>
-            <pElem>headers</pElem>
-            <pElem>mainprograms</pElem>
-          </incDir>
+        <ccTool flags="1">
         </ccTool>
       </item>
       <item path="src_2018/IntRuleTriangle.cpp" ex="false" tool="1" flavor2="8">
-        <ccTool flags="0">
-          <incDir>
-            <pElem>headers2018</pElem>
-            <pElem>src_2018</pElem>
-            <pElem>mainprograms</pElem>
-          </incDir>
+        <ccTool flags="1">
         </ccTool>
       </item>
       <item path="src_2018/L2Projection.cpp" ex="false" tool="1" flavor2="8">
-        <ccTool flags="0">
-          <incDir>
-            <pElem>headers2018</pElem>
-            <pElem>src_2018</pElem>
-            <pElem>headers</pElem>
-            <pElem>mainprograms</pElem>
-          </incDir>
+        <ccTool flags="1">
         </ccTool>
       </item>
       <item path="src_2018/MathStatement.cpp" ex="false" tool="1" flavor2="8">
-        <ccTool flags="0">
-          <incDir>
-            <pElem>headers2018</pElem>
-            <pElem>src_2018</pElem>
-            <pElem>headers</pElem>
-            <pElem>mainprograms</pElem>
-          </incDir>
+        <ccTool flags="1">
         </ccTool>
       </item>
       <item path="src_2018/Poisson.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="1">
-          <incDir>
-            <pElem>headers2018</pElem>
-            <pElem>headers</pElem>
-            <pElem>tinyxml</pElem>
-            <pElem>mainprograms</pElem>
-          </incDir>
         </ccTool>
       </item>
       <item path="src_2018/PostProcess.cpp" ex="false" tool="1" flavor2="8">
-        <ccTool flags="0">
-          <incDir>
-            <pElem>headers2018</pElem>
-            <pElem>mainprograms</pElem>
-          </incDir>
+        <ccTool flags="1">
         </ccTool>
       </item>
       <item path="src_2018/ReadGmsh.cpp" ex="false" tool="1" flavor2="8">
-        <ccTool flags="0">
-          <incDir>
-            <pElem>headers2018</pElem>
-            <pElem>src_2018</pElem>
-            <pElem>headers</pElem>
-            <pElem>mainprograms</pElem>
-          </incDir>
+        <ccTool flags="1">
         </ccTool>
       </item>
       <item path="src_2018/Shape1d.cpp" ex="false" tool="1" flavor2="8">
-        <ccTool flags="0">
-          <incDir>
-            <pElem>src_2018</pElem>
-            <pElem>headers</pElem>
-            <pElem>headers2018</pElem>
-            <pElem>mainprograms</pElem>
-          </incDir>
+        <ccTool flags="1">
         </ccTool>
       </item>
       <item path="src_2018/ShapeQuad.cpp" ex="false" tool="1" flavor2="8">
-        <ccTool flags="0">
-          <incDir>
-            <pElem>src_2018</pElem>
-            <pElem>headers</pElem>
-            <pElem>headers2018</pElem>
-            <pElem>mainprograms</pElem>
-          </incDir>
+        <ccTool flags="1">
         </ccTool>
       </item>
       <item path="src_2018/ShapeTetrahedron.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="1">
-          <incDir>
-            <pElem>headers2018</pElem>
-            <pElem>headers</pElem>
-            <pElem>tinyxml</pElem>
-            <pElem>mainprograms</pElem>
-          </incDir>
         </ccTool>
       </item>
       <item path="src_2018/ShapeTriangle.cpp" ex="false" tool="1" flavor2="8">
-        <ccTool flags="0">
-          <incDir>
-            <pElem>src_2018</pElem>
-            <pElem>headers</pElem>
-            <pElem>headers2018</pElem>
-            <pElem>mainprograms</pElem>
-          </incDir>
+        <ccTool flags="1">
         </ccTool>
       </item>
       <item path="src_2018/Topology1d.cpp" ex="false" tool="1" flavor2="8">
-        <ccTool flags="0">
-          <incDir>
-            <pElem>src_2018</pElem>
-            <pElem>headers2018</pElem>
-            <pElem>mainprograms</pElem>
-          </incDir>
+        <ccTool flags="1">
         </ccTool>
       </item>
       <item path="src_2018/TopologyQuad.cpp" ex="false" tool="1" flavor2="8">
-        <ccTool flags="0">
-          <incDir>
-            <pElem>src_2018</pElem>
-            <pElem>headers2018</pElem>
-            <pElem>mainprograms</pElem>
-          </incDir>
+        <ccTool flags="1">
         </ccTool>
       </item>
       <item path="src_2018/TopologyTetrahedron.cpp" ex="false" tool="1" flavor2="8">
-        <ccTool flags="0">
-          <incDir>
-            <pElem>headers2018</pElem>
-            <pElem>src_2018</pElem>
-            <pElem>mainprograms</pElem>
-          </incDir>
+        <ccTool flags="1">
         </ccTool>
       </item>
       <item path="src_2018/TopologyTriangle.cpp" ex="false" tool="1" flavor2="8">
-        <ccTool flags="0">
-          <incDir>
-            <pElem>src_2018</pElem>
-            <pElem>headers2018</pElem>
-            <pElem>mainprograms</pElem>
-          </incDir>
+        <ccTool flags="1">
         </ccTool>
       </item>
       <item path="src_2018/VTKGeoMesh.cpp" ex="false" tool="1" flavor2="8">
-        <ccTool flags="0">
-          <incDir>
-            <pElem>headers2018</pElem>
-            <pElem>src_2018</pElem>
-            <pElem>headers</pElem>
-            <pElem>mainprograms</pElem>
-          </incDir>
+        <ccTool flags="1">
         </ccTool>
       </item>
       <item path="tinyxml/tinyxml.cpp" ex="false" tool="1" flavor2="8">
