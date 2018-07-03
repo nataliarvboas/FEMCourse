@@ -164,24 +164,16 @@ void CompElement::CalcStiff(Matrix &ek, Matrix &ef) const {
         std::cout << "Error at CompElement::CalcStiff" << std::endl;
         return;
     }
+    
+    ek.Zero();
+    ef.Zero();
 
     IntPointData data;
     this->InitializeIntPointData(data);
-
-    int dim = this->Dimension();
-    int nstate = this->GetStatement()->NState();
     double weight = 0.;
 
     IntRule *intrule = this->GetIntRule();
-
-    int intrulepoints = intrule->NPoints();
-    int nshape = this->NShapeFunctions();
-
-//    ek.Resize(nshape * nstate, nshape * nstate);
-//    ef.Resize(nshape * nstate, 1);
-
-    ek.Zero();
-    ef.Zero();
+    int intrulepoints = intrule->NPoints();    
 
     for (int int_ind = 0; int_ind < intrulepoints; ++int_ind) {
         intrule->Point(int_ind, data.ksi, weight);

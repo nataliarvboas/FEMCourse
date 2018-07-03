@@ -12,9 +12,9 @@
 #include <cmath>
 #include <stdio.h>
 #include <vector>
-//#include "TVecNum.h"
 #include "TMatrix.h"
-//#include "pzfmatrix.h"
+#include "TPZSSpStructMatrix.h"
+
 
 typedef TMatrix Matrix;
 typedef std::vector<int> VecInt;
@@ -22,14 +22,14 @@ typedef std::vector<double> VecDouble;
 
 enum ElementType
 {
-    /*0*/    EPoint,
-    /*1*/    EOned,
-    /*2*/    ETriangle,
-    /*3*/    EQuadrilateral,
-    /*4*/    ETetraedro,
-    /*5*/    EPiramide,
-    /*6*/    EPrisma,
-    /*7*/    ECube
+    /*0*/    fEPoint,
+    /*1*/    fEOned,
+    /*2*/    fETriangle,
+    /*3*/    fEQuadrilateral,
+    /*4*/    fETetraedro,
+    /*5*/    fEPiramide,
+    /*6*/    fEPrisma,
+    /*7*/    fECube
 };
 
 #endif /* defined(__FemSC__DATATYPES__) */

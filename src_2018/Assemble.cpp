@@ -43,8 +43,7 @@ void Assemble::OptimizeBandwidth() {
 }
 
 void Assemble::Compute(Matrix &globmat, Matrix &rhs) {
-    int nelem = cmesh->GetGeoMesh()->NumElements();
-    int ne = this->NEquations();
+    int64_t nelem = cmesh->GetGeoMesh()->NumElements();
 
     globmat.Zero();
     rhs.Zero();
@@ -64,11 +63,11 @@ void Assemble::Compute(Matrix &globmat, Matrix &rhs) {
 //                ek.Print();
         //        ef.Print();
 
-        int ndof = cel->NDOF();
+        int64_t ndof = cel->NDOF();
         VecInt iglob(0);
         int ni = 0;
-        for (int i = 0; i < ndof; i++) {
-            int dofindex = cel->GetDOFIndex(i);
+        for (int64_t i = 0; i < ndof; i++) {
+            int64_t dofindex = cel->GetDOFIndex(i);
             DOF dof = cmesh->GetDOF(dofindex);
             for (int j = 0; j < dof.GetNShape() * dof.GetNState(); j++) {
                 iglob.resize(ni + 1);

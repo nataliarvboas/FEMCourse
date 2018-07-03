@@ -26,24 +26,24 @@ static int GetVTK_ElType(ElementType ElType)
             elType = 1;
             break;
         }
-        case(EOned):
+        case(fEOned):
         {
             elType = 21;
             break;
         }
-        case (ETriangle):
+        case (fETriangle):
         {
             // quadratic triangle
             elType = 22;
             break;
         }
-        case (EQuadrilateral):
+        case (fEQuadrilateral):
         {
             // quadratic quad
             elType = 23;
             break;
         }
-        case (ETetraedro):
+        case (fETetraedro):
         {
             // quadratic tetrahedra
             elType = 24;
@@ -115,27 +115,27 @@ static TMatrix NodeCoordinates(ElementType eltype)
     };
     TMatrix result;
     switch (eltype) {
-        case EOned:
+        case fEOned:
             result.Resize(3, 1);
             result(0,0) = -1.;
             result(1,0) = 1.;
             result(2,0) = 0.;
             break;
-        case EQuadrilateral:
+        case fEQuadrilateral:
             result.Resize(8, 2);
             for (int i=0; i<8; i++) {
                 result(i,0) = quadco[i][0];
                 result(i,1) = quadco[i][1];
             }
             break;
-        case ETriangle:
+        case fETriangle:
             result.Resize(6, 2);
             for (int i=0; i<6; i++) {
                 result(i,0) = triangle[i][0];
                 result(i,1) = triangle[i][1];
             }
             break;
-        case ETetraedro:
+        case fETetraedro:
             result.Resize(10, 3);
             for (int i=0; i<10; i++) {
                 result(i,0) = tetra[i][0];

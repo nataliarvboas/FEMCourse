@@ -12,6 +12,10 @@
 #include <iostream>
 #include <exception>
 
+#ifdef USING_MKL
+#include "pzerror.h"
+#else
+
 static void DebugStop()
 {
     std::cout << "Your chance to put a breakpoint here\n";
@@ -19,4 +23,5 @@ static void DebugStop()
     throw myex;
 
 }
+#endif
 #endif

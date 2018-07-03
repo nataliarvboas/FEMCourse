@@ -1,17 +1,1842 @@
 Scanning dependencies of target Fem2018
-[  0%] Building CXX object mainprograms/CMakeFiles/Fem2018.dir/main2018.cpp.o
-[  1%] Building CXX object mainprograms/CMakeFiles/Fem2018.dir/__/src_vazio/TMatrix.cpp.o
-[  2%] Building CXX object mainprograms/CMakeFiles/Fem2018.dir/__/tinyxml/tinyxmlerror.cpp.o
-[  2%] Building CXX object mainprograms/CMakeFiles/Fem2018.dir/__/tinyxml/tinyxmlparser.cpp.o
-[  3%] Building CXX object mainprograms/CMakeFiles/Fem2018.dir/__/tinyxml/tinyxml.cpp.o
-[  4%] Building CXX object mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/IntRuleTriangle.cpp.o
-/home/natalia/Documents/GitHub/FEMCourse/src_2018/IntRuleTriangle.cpp: In constructor ‘IntRuleTriangle::IntRuleTriangle(int)’:
-/home/natalia/Documents/GitHub/FEMCourse/src_2018/IntRuleTriangle.cpp:22:5: error: ‘fIntegtype’ was not declared in this scope
-     fIntegtype = 2;
+[  2%] Building CXX object mainprograms/CMakeFiles/Fem2018.dir/main2018.cpp.o
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzchunk.h:9:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzadmchunk.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzmanvector.h:30:35: error: expected template-name before ‘<’ token
+ class TPZManVector : public TPZVec< T > {
+                                   ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzmanvector.h:30:35: error: expected ‘{’ before ‘<’ token
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzmanvector.h:30:35: error: expected unqualified-id before ‘<’ token
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzmanvector.h:139:64: error: invalid use of incomplete type ‘class TPZManVector<T, NumExtAlloc>’
+ TPZManVector< T, NumExtAlloc >::TPZManVector(const int64_t size) :
+                                                                ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzmanvector.h:30:7: note: declaration of ‘class TPZManVector<T, NumExtAlloc>’
+ class TPZManVector : public TPZVec< T > {
+       ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzmanvector.h:162:79: error: invalid use of incomplete type ‘class TPZManVector<T, NumExtAlloc>’
+ TPZManVector< T, NumExtAlloc >::TPZManVector(const int64_t size, const T& copy) :
+                                                                               ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzmanvector.h:30:7: note: declaration of ‘class TPZManVector<T, NumExtAlloc>’
+ class TPZManVector : public TPZVec< T > {
+       ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzmanvector.h:190:95: error: invalid use of incomplete type ‘class TPZManVector<T, NumExtAlloc>’
+ inline TPZManVector< T, NumExtAlloc >::TPZManVector(const TPZManVector< T, NumExtAlloc >& copy) {
+                                                                                               ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzmanvector.h:30:7: note: declaration of ‘class TPZManVector<T, NumExtAlloc>’
+ class TPZManVector : public TPZVec< T > {
+       ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzmanvector.h:218:15: error: ‘TPZVec’ does not name a type
+         const TPZVec<T> & copy) {
+               ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzmanvector.h:218:21: error: expected ‘,’ or ‘...’ before ‘<’ token
+         const TPZVec<T> & copy) {
+                     ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzmanvector.h:218:31: error: invalid use of incomplete type ‘class TPZManVector<T, NumExtAlloc>’
+         const TPZVec<T> & copy) {
+                               ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzmanvector.h:30:7: note: declaration of ‘class TPZManVector<T, NumExtAlloc>’
+ class TPZManVector : public TPZVec< T > {
+       ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzmanvector.h:245:117: error: invalid use of incomplete type ‘class TPZManVector<T, NumExtAlloc>’
+ TPZManVector< T, NumExtAlloc >& TPZManVector< T, NumExtAlloc >::operator=(const TPZManVector< T, NumExtAlloc >& copy) {
+                                                                                                                     ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzmanvector.h:30:7: note: declaration of ‘class TPZManVector<T, NumExtAlloc>’
+ class TPZManVector : public TPZVec< T > {
+       ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzmanvector.h:282:47: error: invalid use of incomplete type ‘class TPZManVector<T, NumExtAlloc>’
+ TPZManVector< T, NumExtAlloc >::~TPZManVector() {
+                                               ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzmanvector.h:30:7: note: declaration of ‘class TPZManVector<T, NumExtAlloc>’
+ class TPZManVector : public TPZVec< T > {
+       ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzmanvector.h:292:66: error: invalid use of incomplete type ‘class TPZManVector<T, NumExtAlloc>’
+ void TPZManVector< T, NumExtAlloc >::Expand(const int64_t newsize) {
+                                                                  ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzmanvector.h:30:7: note: declaration of ‘class TPZManVector<T, NumExtAlloc>’
+ class TPZManVector : public TPZVec< T > {
+       ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzmanvector.h:313:45: error: invalid use of incomplete type ‘class TPZManVector<T, NumExtAlloc>’
+ void TPZManVector< T, NumExtAlloc >::Shrink() {
+                                             ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzmanvector.h:30:7: note: declaration of ‘class TPZManVector<T, NumExtAlloc>’
+ class TPZManVector : public TPZVec< T > {
+       ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzmanvector.h:351:83: error: invalid use of incomplete type ‘class TPZManVector<T, NumExtAlloc>’
+ void TPZManVector< T, NumExtAlloc >::Resize(const int64_t newsize, const T& object) {
+                                                                                   ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzmanvector.h:30:7: note: declaration of ‘class TPZManVector<T, NumExtAlloc>’
+ class TPZManVector : public TPZVec< T > {
+       ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzmanvector.h:407:66: error: invalid use of incomplete type ‘class TPZManVector<T, NumExtAlloc>’
+ void TPZManVector< T, NumExtAlloc >::Resize(const int64_t newsize) {
+                                                                  ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzmanvector.h:30:7: note: declaration of ‘class TPZManVector<T, NumExtAlloc>’
+ class TPZManVector : public TPZVec< T > {
+       ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzmanvector.h:452:77: error: invalid use of incomplete type ‘class TPZManVector<T, NumExtAlloc>’
+ int64_t TPZManVector < T, NumExtAlloc >::ExpandSize(const int64_t proposed) const {
+                                                                             ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzmanvector.h:30:7: note: declaration of ‘class TPZManVector<T, NumExtAlloc>’
+ class TPZManVector : public TPZVec< T > {
+       ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:14:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzadmchunk.h:126:50: error: field ‘fNFree’ has incomplete type ‘TPZManVector<long int, 100>’
+     TPZManVector<int64_t, DEFAULTNUMBEROFCHUNKS> fNFree;
+                                                  ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzchunk.h:9:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzadmchunk.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzmanvector.h:30:7: note: declaration of ‘class TPZManVector<long int, 100>’
+ class TPZManVector : public TPZVec< T > {
+       ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzadmchunk.h:10:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzstack.h: In instantiation of ‘class TPZStack<long int>’:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzadmchunk.h:129:23:   required from here
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzstack.h:24:7: error: invalid use of incomplete type ‘class TPZManVector<long int, 200>’
+ class TPZStack : public TPZManVector< T, NumExtAlloc >
+       ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzchunk.h:9:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzadmchunk.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzmanvector.h:30:7: note: declaration of ‘class TPZManVector<long int, 200>’
+ class TPZManVector : public TPZVec< T > {
+       ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:14:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzadmchunk.h: In member function ‘int64_t TPZAdmChunkVector<T, EXP>::NFreeElements()’:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzadmchunk.h:88:22: error: ‘class TPZStack<long int>’ has no member named ‘NElements’
+         return fFree.NElements();
+                      ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzadmchunk.h: In member function ‘int64_t TPZAdmChunkVector<T, EXP>::AllocateNewElement()’:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzadmchunk.h:155:15: error: ‘class TPZStack<long int>’ has no member named ‘NElements’
+     if (fFree.NElements() > 0) {
+               ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzadmchunk.h: In member function ‘void TPZAdmChunkVector<T, EXP>::CompactDataStructure(TPZAdmChunkVector<T, EXP>::CompactScheme)’:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzadmchunk.h:217:19: error: ‘class TPZStack<long int>’ has no member named ‘Shrink’
+             fFree.Shrink();
+                   ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzadmchunk.h: In member function ‘void TPZAdmChunkVector<T, EXP>::Resize(int64_t)’:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzadmchunk.h:276:10: error: ‘class TPZStack<long int>’ has no member named ‘Resize’
+     temp.Resize(0);
+          ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzadmchunk.h:278:18: error: ‘class TPZStack<long int>’ has no member named ‘NElements’
+     while (fFree.NElements() > 0) {
+                  ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Save/TPZPersistenceManager.h:6:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Save/TPZStream.h:26,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzmatrix.h:10,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzblock.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:15,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Save/TPZRestoredInstance.h: At global scope:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Save/TPZRestoredInstance.h:20:5: error: ‘TPZVec’ does not name a type
+     TPZVec<int> &MyPointersVec();
      ^
-mainprograms/CMakeFiles/Fem2018.dir/build.make:182: recipe for target 'mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/IntRuleTriangle.cpp.o' failed
-make[2]: *** [mainprograms/CMakeFiles/Fem2018.dir/__/src_2018/IntRuleTriangle.cpp.o] Error 1
-CMakeFiles/Makefile2:185: recipe for target 'mainprograms/CMakeFiles/Fem2018.dir/all' failed
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Save/TPZRestoredInstance.h:30:26: error: field ‘mPointersVec’ has incomplete type ‘TPZManVector<int, 1>’
+     TPZManVector<int, 1> mPointersVec;
+                          ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzchunk.h:9:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzadmchunk.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzmanvector.h:30:7: note: declaration of ‘class TPZManVector<int, 1>’
+ class TPZManVector : public TPZVec< T > {
+       ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Save/TPZStream.h:26:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzmatrix.h:10,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzblock.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:15,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Save/TPZPersistenceManager.h:33:12: error: ‘TPZVec’ does not name a type
+     static TPZVec<TPZRestoredInstance> mObjVec; 
+            ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Save/TPZPersistenceManager.h:34:12: error: ‘TPZVec’ does not name a type
+     static TPZVec<TPZAutoPointer<TPZChunkInTranslation>> mChunksVec; 
+            ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Save/TPZPersistenceManager.h:35:12: error: ‘TPZVec’ does not name a type
+     static TPZVec<int64_t> mMainObjIds;
+            ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Save/TPZPersistenceManager.h:42:12: error: ‘TPZVec’ does not name a type
+     static TPZVec<const TPZSavable *> mPointersToSave;
+            ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzmatrix.h:10:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzblock.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:15,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Save/TPZStream.h:180:22: error: ‘TPZVec’ does not name a type
+     void Write(const TPZVec<T> &vec) {
+                      ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Save/TPZStream.h:180:28: error: expected ‘,’ or ‘...’ before ‘<’ token
+     void Write(const TPZVec<T> &vec) {
+                            ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Save/TPZStream.h:188:22: error: ‘TPZVec’ does not name a type
+     void Write(const TPZVec<T> &vec) {
+                      ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Save/TPZStream.h:188:28: error: expected ‘,’ or ‘...’ before ‘<’ token
+     void Write(const TPZVec<T> &vec) {
+                            ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Save/TPZStream.h:197:30: error: ‘TPZVec’ does not name a type
+     void WritePointers(const TPZVec<TPZAutoPointer<T>> &vec) {
+                              ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Save/TPZStream.h:197:36: error: expected ‘,’ or ‘...’ before ‘<’ token
+     void WritePointers(const TPZVec<TPZAutoPointer<T>> &vec) {
+                                    ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Save/TPZStream.h:222:22: error: ‘TPZVec’ does not name a type
+     void Write(const TPZVec<TPZFlopCounter> &vec) {
+                      ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Save/TPZStream.h:222:28: error: expected ‘,’ or ‘...’ before ‘<’ token
+     void Write(const TPZVec<TPZFlopCounter> &vec) {
+                            ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Save/TPZStream.h:292:15: error: ‘TPZVec’ has not been declared
+     void Read(TPZVec<T> &vec) {
+               ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Save/TPZStream.h:292:21: error: expected ‘,’ or ‘...’ before ‘<’ token
+     void Read(TPZVec<T> &vec) {
+                     ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Save/TPZStream.h:298:15: error: ‘TPZVec’ has not been declared
+     void Read(TPZVec<T> &vec, void *context) {
+               ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Save/TPZStream.h:298:21: error: expected ‘,’ or ‘...’ before ‘<’ token
+     void Read(TPZVec<T> &vec, void *context) {
+                     ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Save/TPZStream.h:309:15: error: ‘TPZVec’ has not been declared
+     void Read(TPZVec<T> &vec, void *context) {
+               ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Save/TPZStream.h:309:21: error: expected ‘,’ or ‘...’ before ‘<’ token
+     void Read(TPZVec<T> &vec, void *context) {
+                     ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Save/TPZStream.h:318:23: error: ‘TPZVec’ has not been declared
+     void ReadPointers(TPZVec<TPZAutoPointer<T>> &vec) {
+                       ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Save/TPZStream.h:318:29: error: expected ‘,’ or ‘...’ before ‘<’ token
+     void ReadPointers(TPZVec<TPZAutoPointer<T>> &vec) {
+                             ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Save/TPZStream.h:327:15: error: ‘TPZVec’ has not been declared
+     void Read(TPZVec<TPZFlopCounter> &vec) {
+               ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Save/TPZStream.h:327:21: error: expected ‘,’ or ‘...’ before ‘<’ token
+     void Read(TPZVec<TPZFlopCounter> &vec) {
+                     ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Save/TPZStream.h:425:30: error: ‘TPZVec’ does not name a type
+     void WritePointers(const TPZVec<T *> &vec);
+                              ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Save/TPZStream.h:425:36: error: expected ‘,’ or ‘...’ before ‘<’ token
+     void WritePointers(const TPZVec<T *> &vec);
+                                    ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Save/TPZStream.h:425:10: error: ‘template<class T> void TPZStream::WritePointers(int)’ cannot be overloaded
+     void WritePointers(const TPZVec<T *> &vec);
+          ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Save/TPZStream.h:197:10: error: with ‘template<class T> void TPZStream::WritePointers(int)’
+     void WritePointers(const TPZVec<TPZAutoPointer<T>> &vec) {
+          ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Save/TPZStream.h:428:23: error: ‘TPZVec’ has not been declared
+     void ReadPointers(TPZVec<T *> &vec);
+                       ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Save/TPZStream.h:428:29: error: expected ‘,’ or ‘...’ before ‘<’ token
+     void ReadPointers(TPZVec<T *> &vec);
+                             ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Save/TPZStream.h:428:10: error: ‘template<class T> void TPZStream::ReadPointers(int)’ cannot be overloaded
+     void ReadPointers(TPZVec<T *> &vec);
+          ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Save/TPZStream.h:318:10: error: with ‘template<class T> void TPZStream::ReadPointers(int)’
+     void ReadPointers(TPZVec<TPZAutoPointer<T>> &vec) {
+          ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Save/TPZStream.h: In member function ‘void TPZStream::Write(int)’:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Save/TPZStream.h:181:23: error: ‘vec’ was not declared in this scope
+         int64_t nel = vec.NElements();
+                       ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Save/TPZStream.h: In member function ‘void TPZStream::Write(int)’:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Save/TPZStream.h:189:25: error: ‘vec’ was not declared in this scope
+         int64_t c, nc = vec.NElements();
+                         ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Save/TPZStream.h: In member function ‘void TPZStream::WritePointers(int)’:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Save/TPZStream.h:198:25: error: ‘vec’ was not declared in this scope
+         uint64_t size = vec.NElements();
+                         ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Save/TPZStream.h: In member function ‘void TPZStream::Write(int)’:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Save/TPZStream.h:223:23: error: ‘vec’ was not declared in this scope
+         int64_t nel = vec.NElements();
+                       ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Save/TPZStream.h:225:9: error: ‘TPZVec’ was not declared in this scope
+         TPZVec<REAL> temp(nel);
+         ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Save/TPZStream.h:225:20: error: expected primary-expression before ‘>’ token
+         TPZVec<REAL> temp(nel);
+                    ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Save/TPZStream.h:225:30: error: ‘temp’ was not declared in this scope
+         TPZVec<REAL> temp(nel);
+                              ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Save/TPZStream.h: In member function ‘void TPZStream::Read(int)’:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Save/TPZStream.h:293:14: error: ‘vec’ was not declared in this scope
+         Read(vec, NULL);
+              ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Save/TPZStream.h: In member function ‘void TPZStream::Read(int)’:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Save/TPZStream.h:301:9: error: ‘vec’ was not declared in this scope
+         vec.Resize(nc);
+         ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Save/TPZStream.h:303:32: error: ‘context’ was not declared in this scope
+             vec[c].Read(*this, context);
+                                ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Save/TPZStream.h: In member function ‘void TPZStream::Read(int)’:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Save/TPZStream.h:312:9: error: ‘vec’ was not declared in this scope
+         vec.Resize(nc);
+         ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Save/TPZStream.h: In member function ‘void TPZStream::ReadPointers(int)’:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Save/TPZStream.h:321:9: error: ‘vec’ was not declared in this scope
+         vec.resize(size);
+         ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Save/TPZStream.h: In member function ‘void TPZStream::Read(int)’:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Save/TPZStream.h:330:9: error: ‘vec’ was not declared in this scope
+         vec.Resize(nc);
+         ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Save/TPZStream.h:331:9: error: ‘TPZVec’ was not declared in this scope
+         TPZVec<REAL> temp(nc);
+         ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Save/TPZStream.h:331:20: error: expected primary-expression before ‘>’ token
+         TPZVec<REAL> temp(nc);
+                    ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Save/TPZStream.h:331:29: error: ‘temp’ was not declared in this scope
+         TPZVec<REAL> temp(nc);
+                             ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Save/TPZStream.h: At global scope:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Save/TPZStream.h:465:56: error: ‘TPZVec’ does not name a type
+ template <class T> void TPZStream::WritePointers(const TPZVec<T *> &vec) {
+                                                        ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Save/TPZStream.h:465:62: error: expected ‘,’ or ‘...’ before ‘<’ token
+ template <class T> void TPZStream::WritePointers(const TPZVec<T *> &vec) {
+                                                              ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Save/TPZStream.h:465:25: error: redefinition of ‘void TPZStream::WritePointers(int)’
+ template <class T> void TPZStream::WritePointers(const TPZVec<T *> &vec) {
+                         ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Save/TPZStream.h:197:10: note: ‘void TPZStream::WritePointers(int)’ previously declared here
+     void WritePointers(const TPZVec<TPZAutoPointer<T>> &vec) {
+          ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Save/TPZStream.h:473:49: error: variable or field ‘ReadPointers’ declared void
+ template <class T> void TPZStream::ReadPointers(TPZVec<T *> &vec) {
+                                                 ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Save/TPZStream.h:473:49: error: ‘TPZVec’ was not declared in this scope
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Save/TPZStream.h:473:58: error: expected primary-expression before ‘*’ token
+ template <class T> void TPZStream::ReadPointers(TPZVec<T *> &vec) {
+                                                          ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Save/TPZStream.h:473:59: error: expected primary-expression before ‘>’ token
+ template <class T> void TPZStream::ReadPointers(TPZVec<T *> &vec) {
+                                                           ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Save/TPZStream.h:473:62: error: ‘vec’ was not declared in this scope
+ template <class T> void TPZStream::ReadPointers(TPZVec<T *> &vec) {
+                                                              ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzblock.h:9:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:15,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzmatrix.h:368:47: error: ‘TPZVec’ has not been declared
+  virtual  void AddKel(TPZFMatrix<TVar>&elmat, TPZVec<int64_t> &destinationindex);
+                                               ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzmatrix.h:368:53: error: expected ‘,’ or ‘...’ before ‘<’ token
+  virtual  void AddKel(TPZFMatrix<TVar>&elmat, TPZVec<int64_t> &destinationindex);
+                                                     ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzmatrix.h:376:47: error: ‘TPZVec’ has not been declared
+  virtual  void AddKel(TPZFMatrix<TVar>&elmat, TPZVec<int64_t> &sourceindex,  TPZVec<int64_t> &destinationindex);
+                                               ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzmatrix.h:376:53: error: expected ‘,’ or ‘...’ before ‘<’ token
+  virtual  void AddKel(TPZFMatrix<TVar>&elmat, TPZVec<int64_t> &sourceindex,  TPZVec<int64_t> &destinationindex);
+                                                     ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzmatrix.h:376:16: error: ‘virtual void TPZMatrix<TVar>::AddKel(TPZFMatrix<TVar>&, int)’ cannot be overloaded
+  virtual  void AddKel(TPZFMatrix<TVar>&elmat, TPZVec<int64_t> &sourceindex,  TPZVec<int64_t> &destinationindex);
+                ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzmatrix.h:368:16: error: with ‘virtual void TPZMatrix<TVar>::AddKel(TPZFMatrix<TVar>&, int)’
+  virtual  void AddKel(TPZFMatrix<TVar>&elmat, TPZVec<int64_t> &destinationindex);
+                ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzmatrix.h:543:73: error: ‘TPZVec’ has not been declared
+  virtual bool SolveEigenvaluesJacobi(int64_t &numiterations, REAL &tol, TPZVec<TVar> * Sort = 0);
+                                                                         ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzmatrix.h:543:79: error: expected ‘,’ or ‘...’ before ‘<’ token
+  virtual bool SolveEigenvaluesJacobi(int64_t &numiterations, REAL &tol, TPZVec<TVar> * Sort = 0);
+                                                                               ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzmatrix.h:553:74: error: ‘TPZVec’ has not been declared
+  virtual bool SolveEigensystemJacobi(int64_t &numiterations, REAL & tol, TPZVec<TVar> & Eigenvalues, TPZFMatrix<TVar>& Eigenvectors) const;
+                                                                          ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzmatrix.h:553:80: error: expected ‘,’ or ‘...’ before ‘<’ token
+  virtual bool SolveEigensystemJacobi(int64_t &numiterations, REAL & tol, TPZVec<TVar> & Eigenvalues, TPZFMatrix<TVar>& Eigenvectors) const;
+                                                                                ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzmatrix.h:589:43: error: ‘TPZVec’ has not been declared
+  static TVar ReturnNearestValue(TVar val, TPZVec<TVar> &Vec, TVar tol);
+                                           ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzmatrix.h:589:49: error: expected ‘,’ or ‘...’ before ‘<’ token
+  static TVar ReturnNearestValue(TVar val, TPZVec<TVar> &Vec, TVar tol);
+                                                 ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzmatrix.h:741:28: error: ‘TPZVec’ does not name a type
+  virtual void GetSub(const TPZVec<int64_t> &indices,TPZFMatrix<TVar>&block) const;
+                            ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzmatrix.h:741:34: error: expected ‘,’ or ‘...’ before ‘<’ token
+  virtual void GetSub(const TPZVec<int64_t> &indices,TPZFMatrix<TVar>&block) const;
+                                  ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzmatrix.h:959:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzblock.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:15,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzfmatrix.h:420:25: error: field ‘fPivot’ has incomplete type ‘TPZManVector<int, 5>’
+     TPZManVector<int,5> fPivot;
+                         ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzchunk.h:9:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzadmchunk.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzmanvector.h:30:7: note: declaration of ‘class TPZManVector<int, 5>’
+ class TPZManVector : public TPZVec< T > {
+       ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzmatrix.h:959:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzblock.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:15,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzfmatrix.h: In instantiation of ‘class TPZFMatrix<long int>’:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzfmatrix.h:596:39:   required from here
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzfmatrix.h:422:18: error: ‘TPZFMatrix<TVar>::fWork’ has incomplete type
+     TPZVec<TVar> fWork;
+                  ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzmatrix.h:959:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzblock.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:15,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzfmatrix.h:36:7: note: declaration of ‘class TPZVec<long int>’
+ class TPZVec;
+       ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzmatrix.h:959:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzblock.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:15,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzfmatrix.h: In instantiation of ‘class TPZFMatrix<int>’:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzfmatrix.h:600:35:   required from here
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzfmatrix.h:422:18: error: ‘TPZFMatrix<TVar>::fWork’ has incomplete type
+     TPZVec<TVar> fWork;
+                  ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzmatrix.h:959:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzblock.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:15,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzfmatrix.h:36:7: note: declaration of ‘class TPZVec<int>’
+ class TPZVec;
+       ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzmatrix.h:959:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzblock.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:15,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzfmatrix.h: In instantiation of ‘class TPZFMatrix<float>’:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzfmatrix.h:604:24:   required from here
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzfmatrix.h:422:18: error: ‘TPZFMatrix<TVar>::fWork’ has incomplete type
+     TPZVec<TVar> fWork;
+                  ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzmatrix.h:959:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzblock.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:15,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzfmatrix.h:36:7: note: declaration of ‘class TPZVec<float>’
+ class TPZVec;
+       ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzmatrix.h:959:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzblock.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:15,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzfmatrix.h: In instantiation of ‘class TPZFMatrix<double>’:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzfmatrix.h:608:24:   required from here
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzfmatrix.h:422:18: error: ‘TPZFMatrix<TVar>::fWork’ has incomplete type
+     TPZVec<TVar> fWork;
+                  ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzmatrix.h:959:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzblock.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:15,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzfmatrix.h:36:7: note: declaration of ‘class TPZVec<double>’
+ class TPZVec;
+       ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzmatrix.h:959:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzblock.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:15,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzfmatrix.h: In instantiation of ‘class TPZFMatrix<long double>’:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzfmatrix.h:612:24:   required from here
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzfmatrix.h:422:18: error: ‘TPZFMatrix<TVar>::fWork’ has incomplete type
+     TPZVec<TVar> fWork;
+                  ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzmatrix.h:959:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzblock.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:15,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzfmatrix.h:36:7: note: declaration of ‘class TPZVec<long double>’
+ class TPZVec;
+       ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzmatrix.h:959:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzblock.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:15,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzfmatrix.h: In instantiation of ‘class TPZFMatrix<std::complex<float> >’:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzfmatrix.h:616:24:   required from here
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzfmatrix.h:422:18: error: ‘TPZFMatrix<TVar>::fWork’ has incomplete type
+     TPZVec<TVar> fWork;
+                  ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzmatrix.h:959:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzblock.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:15,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzfmatrix.h:36:7: note: declaration of ‘class TPZVec<std::complex<float> >’
+ class TPZVec;
+       ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzmatrix.h:959:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzblock.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:15,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzfmatrix.h: In instantiation of ‘class TPZFMatrix<std::complex<double> >’:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzfmatrix.h:620:24:   required from here
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzfmatrix.h:422:18: error: ‘TPZFMatrix<TVar>::fWork’ has incomplete type
+     TPZVec<TVar> fWork;
+                  ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzmatrix.h:959:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzblock.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:15,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzfmatrix.h:36:7: note: declaration of ‘class TPZVec<std::complex<double> >’
+ class TPZVec;
+       ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzmatrix.h:959:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzblock.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:15,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzfmatrix.h: In instantiation of ‘class TPZFMatrix<std::complex<long double> >’:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzfmatrix.h:624:24:   required from here
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzfmatrix.h:422:18: error: ‘TPZFMatrix<TVar>::fWork’ has incomplete type
+     TPZVec<TVar> fWork;
+                  ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzmatrix.h:959:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzblock.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:15,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzfmatrix.h:36:7: note: declaration of ‘class TPZVec<std::complex<long double> >’
+ class TPZVec;
+       ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzmatrix.h:959:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzblock.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:15,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzfmatrix.h: In instantiation of ‘class TPZFMatrix<TPZFlopCounter>’:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzfmatrix.h:643:25:   required from here
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzfmatrix.h:422:18: error: ‘TPZFMatrix<TVar>::fWork’ has incomplete type
+     TPZVec<TVar> fWork;
+                  ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzmatrix.h:959:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzblock.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:15,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzfmatrix.h:36:7: note: declaration of ‘class TPZVec<TPZFlopCounter>’
+ class TPZVec;
+       ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzadmchunk.h:9:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzchunk.h: In instantiation of ‘class TPZChunkVector<TPZGeoEl*, 10>’:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzadmchunk.h:26:7:   required from ‘class TPZAdmChunkVector<TPZGeoEl*>’
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzgmesh.h:58:32:   required from here
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzchunk.h:228:22: error: ‘TPZChunkVector<T, EXP>::fVec’ has incomplete type
+     TPZManVector<T*> fVec;
+                      ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzchunk.h:9:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzadmchunk.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzmanvector.h:30:7: note: declaration of ‘class TPZManVector<TPZGeoEl**, 200>’
+ class TPZManVector : public TPZVec< T > {
+       ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzadmchunk.h:9:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzchunk.h: In instantiation of ‘class TPZChunkVector<TPZGeoNode, 10>’:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzadmchunk.h:26:7:   required from ‘class TPZAdmChunkVector<TPZGeoNode>’
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzgmesh.h:61:32:   required from here
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzchunk.h:228:22: error: ‘TPZChunkVector<T, EXP>::fVec’ has incomplete type
+     TPZManVector<T*> fVec;
+                      ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzchunk.h:9:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzadmchunk.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzmanvector.h:30:7: note: declaration of ‘class TPZManVector<TPZGeoNode*, 200>’
+ class TPZManVector : public TPZVec< T > {
+       ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzadmchunk.h:10:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzstack.h: In instantiation of ‘class TPZStack<TPZGeoElSide>’:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzgeoelside.h:324:11:   required from here
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzstack.h:24:7: error: invalid use of incomplete type ‘class TPZManVector<TPZGeoElSide, 200>’
+ class TPZStack : public TPZManVector< T, NumExtAlloc >
+       ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzchunk.h:9:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzadmchunk.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzmanvector.h:30:7: note: declaration of ‘class TPZManVector<TPZGeoElSide, 200>’
+ class TPZManVector : public TPZVec< T > {
+       ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzadmchunk.h:9:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzchunk.h: In instantiation of ‘class TPZChunkVector<TPZCompEl*, 10>’:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzadmchunk.h:26:7:   required from ‘class TPZAdmChunkVector<TPZCompEl*>’
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:60:34:   required from here
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzchunk.h:228:22: error: ‘TPZChunkVector<T, EXP>::fVec’ has incomplete type
+     TPZManVector<T*> fVec;
+                      ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzchunk.h:9:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzadmchunk.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzmanvector.h:30:7: note: declaration of ‘class TPZManVector<TPZCompEl**, 200>’
+ class TPZManVector : public TPZVec< T > {
+       ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzadmchunk.h:9:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzchunk.h: In instantiation of ‘class TPZChunkVector<TPZConnect, 10>’:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzadmchunk.h:26:7:   required from ‘class TPZAdmChunkVector<TPZConnect>’
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:62:34:   required from here
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzchunk.h:228:22: error: ‘TPZChunkVector<T, EXP>::fVec’ has incomplete type
+     TPZManVector<T*> fVec;
+                      ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzchunk.h:9:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzadmchunk.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzmanvector.h:30:7: note: declaration of ‘class TPZManVector<TPZConnect*, 200>’
+ class TPZManVector : public TPZVec< T > {
+       ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:15:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzblock.h: In instantiation of ‘class TPZBlock<double>’:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:68:19:   required from here
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzblock.h:218:25: error: ‘TPZBlock<TVar>::fBlock’ has incomplete type
+  TPZManVector<TNode>    fBlock;
+                         ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzchunk.h:9:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzadmchunk.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzmanvector.h:30:7: note: declaration of ‘class TPZManVector<TPZBlock<double>::TNode, 200>’
+ class TPZManVector : public TPZVec< T > {
+       ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzelmat.h:16:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:15,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/TPZOneShapeRestraint.h:24:44: error: field ‘fFaces’ has incomplete type ‘TPZManVector<std::pair<long int, int>, 4>’
+     TPZManVector<std::pair<int64_t,int>,4> fFaces;
+                                            ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzchunk.h:9:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzadmchunk.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzmanvector.h:30:7: note: declaration of ‘class TPZManVector<std::pair<long int, int>, 4>’
+ class TPZManVector : public TPZVec< T > {
+       ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzelmat.h:16:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:15,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/TPZOneShapeRestraint.h:27:25: error: field ‘fOrient’ has incomplete type ‘TPZManVector<int, 4>’
+     TPZManVector<int,4> fOrient;
+                         ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzchunk.h:9:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzadmchunk.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzmanvector.h:30:7: note: declaration of ‘class TPZManVector<int, 4>’
+ class TPZManVector : public TPZVec< T > {
+       ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzelmat.h:16:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:15,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/TPZOneShapeRestraint.h: In member function ‘void TPZOneShapeRestraint::Write(TPZStream&) const’:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/TPZOneShapeRestraint.h:64:40: error: variable ‘TPZManVector<long int, 4> seqnums’ has initializer but incomplete type
+         TPZManVector<int64_t,4> seqnums(4);
+                                        ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/TPZOneShapeRestraint.h:65:34: error: variable ‘TPZManVector<int, 4> faces’ has initializer but incomplete type
+         TPZManVector<int,4> faces(4);
+                                  ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/TPZOneShapeRestraint.h: In member function ‘void TPZOneShapeRestraint::Read(TPZStream&)’:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/TPZOneShapeRestraint.h:77:40: error: variable ‘TPZManVector<long int, 4> seqnums’ has initializer but incomplete type
+         TPZManVector<int64_t,4> seqnums(4);
+                                        ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/TPZOneShapeRestraint.h:78:34: error: variable ‘TPZManVector<int, 4> faces’ has initializer but incomplete type
+         TPZManVector<int,4> faces(4);
+                                  ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:15:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzelmat.h: At global scope:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzelmat.h:53:24: error: field ‘fDestinationIndex’ has incomplete type ‘TPZManVector<long int, 200>’
+  TPZManVector<int64_t> fDestinationIndex, fSourceIndex;
+                        ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzchunk.h:9:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzadmchunk.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzmanvector.h:30:7: note: declaration of ‘class TPZManVector<long int, 200>’
+ class TPZManVector : public TPZVec< T > {
+       ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:15:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzelmat.h:53:43: error: field ‘fSourceIndex’ has incomplete type ‘TPZManVector<long int, 200>’
+  TPZManVector<int64_t> fDestinationIndex, fSourceIndex;
+                                           ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzchunk.h:9:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzadmchunk.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzmanvector.h:30:7: note: declaration of ‘class TPZManVector<long int, 200>’
+ class TPZManVector : public TPZVec< T > {
+       ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:15:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzelmat.h: In member function ‘void TPZElementMatrix::Reset(TPZCompMesh*, TPZElementMatrix::MType)’:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzelmat.h:65:16: error: ‘class TPZStack<long int>’ has no member named ‘Resize’
+       fConnect.Resize(0);
+                ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzelmat.h:68:22: error: ‘class TPZStack<long int>’ has no member named ‘Resize’
+       fConstrConnect.Resize(0);
+                      ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzelmat.h: In member function ‘int TPZElementMatrix::NConnects()’:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzelmat.h:90:19: error: ‘class TPZStack<long int>’ has no member named ‘NElements’
+   return fConnect.NElements();
+                   ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:17:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZEquationFilter.h: At global scope:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZEquationFilter.h:287:21: error: field ‘fActiveEqs’ has incomplete type ‘TPZVec<long int>’
+     TPZVec<int64_t> fActiveEqs;
+                     ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzmatrix.h:959:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzblock.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:15,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzfmatrix.h:36:7: note: declaration of ‘class TPZVec<long int>’
+ class TPZVec;
+       ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:17:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZEquationFilter.h:290:21: error: field ‘fDestIndices’ has incomplete type ‘TPZVec<long int>’
+     TPZVec<int64_t> fDestIndices;
+                     ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzmatrix.h:959:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzblock.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:15,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzfmatrix.h:36:7: note: declaration of ‘class TPZVec<long int>’
+ class TPZVec;
+       ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:17:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZEquationFilter.h: In member function ‘void TPZEquationFilter::SetMinMaxEq(int64_t, int64_t)’:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZEquationFilter.h:67:40: error: variable ‘TPZVec<long int> activeEquations’ has initializer but incomplete type
+       TPZVec<int64_t> activeEquations(n);
+                                        ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZEquationFilter.h: In member function ‘void TPZEquationFilter::SetActiveEquations(TPZVec<long int>&)’:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZEquationFilter.h:82:29: error: invalid use of incomplete type ‘class TPZVec<long int>’
+         int64_t neq = active.size();
+                             ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzmatrix.h:959:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzblock.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:15,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzfmatrix.h:36:7: note: declaration of ‘class TPZVec<long int>’
+ class TPZVec;
+       ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:17:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZEquationFilter.h:84:37: error: no match for ‘operator[]’ (operand types are ‘TPZVec<long int>’ and ‘int’)
+             activeset.insert(&active[0], &active[neq-1]+1);
+                                     ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZEquationFilter.h:84:49: error: no match for ‘operator[]’ (operand types are ‘TPZVec<long int>’ and ‘int64_t {aka long int}’)
+             activeset.insert(&active[0], &active[neq-1]+1);
+                                                 ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZEquationFilter.h: In member function ‘void TPZEquationFilter::Filter(TPZVec<long int>&, TPZVec<long int>&) const’:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZEquationFilter.h:116:33: error: invalid use of incomplete type ‘class TPZVec<long int>’
+             int64_t numeq = dest.size();
+                                 ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzmatrix.h:959:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzblock.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:15,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzfmatrix.h:36:7: note: declaration of ‘class TPZVec<long int>’
+ class TPZVec;
+       ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:17:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZEquationFilter.h:118:38: error: no match for ‘operator[]’ (operand types are ‘TPZVec<long int>’ and ‘int64_t {aka long int}’)
+                 if (fDestIndices[dest[i]] != -1) {
+                                      ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZEquationFilter.h:119:25: error: no match for ‘operator[]’ (operand types are ‘TPZVec<long int>’ and ‘int64_t {aka long int}’)
+                     orig[count] = orig[i];
+                         ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZEquationFilter.h:119:39: error: no match for ‘operator[]’ (operand types are ‘TPZVec<long int>’ and ‘int64_t {aka long int}’)
+                     orig[count] = orig[i];
+                                       ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZEquationFilter.h:120:25: error: no match for ‘operator[]’ (operand types are ‘TPZVec<long int>’ and ‘int64_t {aka long int}’)
+                     dest[count] = fDestIndices[dest[i]];
+                         ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZEquationFilter.h:120:52: error: no match for ‘operator[]’ (operand types are ‘TPZVec<long int>’ and ‘int64_t {aka long int}’)
+                     dest[count] = fDestIndices[dest[i]];
+                                                    ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZEquationFilter.h:124:17: error: invalid use of incomplete type ‘class TPZVec<long int>’
+             orig.Resize(count);
+                 ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzmatrix.h:959:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzblock.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:15,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzfmatrix.h:36:7: note: declaration of ‘class TPZVec<long int>’
+ class TPZVec;
+       ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:17:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZEquationFilter.h:125:17: error: invalid use of incomplete type ‘class TPZVec<long int>’
+             dest.Resize(count);
+                 ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzmatrix.h:959:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzblock.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:15,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzfmatrix.h:36:7: note: declaration of ‘class TPZVec<long int>’
+ class TPZVec;
+       ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:17:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZEquationFilter.h: In member function ‘void TPZEquationFilter::Filter(TPZVec<long int>&) const’:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZEquationFilter.h:139:33: error: invalid use of incomplete type ‘class TPZVec<long int>’
+             int64_t numeq = dest.size();
+                                 ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzmatrix.h:959:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzblock.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:15,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzfmatrix.h:36:7: note: declaration of ‘class TPZVec<long int>’
+ class TPZVec;
+       ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:17:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZEquationFilter.h:141:38: error: no match for ‘operator[]’ (operand types are ‘TPZVec<long int>’ and ‘int64_t {aka long int}’)
+                 if (fDestIndices[dest[i]] != -1) {
+                                      ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZEquationFilter.h:142:25: error: no match for ‘operator[]’ (operand types are ‘TPZVec<long int>’ and ‘int64_t {aka long int}’)
+                     dest[count] = fDestIndices[dest[i]];
+                         ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZEquationFilter.h:142:52: error: no match for ‘operator[]’ (operand types are ‘TPZVec<long int>’ and ‘int64_t {aka long int}’)
+                     dest[count] = fDestIndices[dest[i]];
+                                                    ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZEquationFilter.h:146:17: error: invalid use of incomplete type ‘class TPZVec<long int>’
+             dest.Resize(count);
+                 ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzmatrix.h:959:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzblock.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:15,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzfmatrix.h:36:7: note: declaration of ‘class TPZVec<long int>’
+ class TPZVec;
+       ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:17:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZEquationFilter.h: In member function ‘void TPZEquationFilter::FilterSkyline(TPZVec<long int>&) const’:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZEquationFilter.h:268:20: error: no match for ‘operator[]’ (operand types are ‘TPZVec<long int>’ and ‘int64_t {aka long int}’)
+             skyline[ieq] = fDestIndices[skyl];
+                    ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZEquationFilter.h:270:16: error: invalid use of incomplete type ‘class TPZVec<long int>’
+         skyline.Resize(fActiveEqs.size());
+                ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzmatrix.h:959:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzblock.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:15,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzfmatrix.h:36:7: note: declaration of ‘class TPZVec<long int>’
+ class TPZVec;
+       ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzysmp.h:34:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:10,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/TPZPardisoControl.h: At global scope:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/TPZPardisoControl.h:94:33: error: field ‘fParam’ has incomplete type ‘TPZManVector<long long int, 64>’
+     TPZManVector<long long, 64> fParam;
+                                 ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzchunk.h:9:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzadmchunk.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzmanvector.h:30:7: note: declaration of ‘class TPZManVector<long long int, 64>’
+ class TPZManVector : public TPZVec< T > {
+       ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzysmp.h:34:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:10,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/TPZPardisoControl.h:109:23: error: field ‘fPermutation’ has incomplete type ‘TPZVec<long long int>’
+     TPZVec<long long> fPermutation;
+                       ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzmatrix.h:959:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzblock.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:15,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzfmatrix.h:36:7: note: declaration of ‘class TPZVec<long long int>’
+ class TPZVec;
+       ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:10:0,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzysmp.h:202:19: error: field ‘fIA’ has incomplete type ‘TPZVec<long int>’
+  TPZVec<int64_t>  fIA;
+                   ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzmatrix.h:959:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzblock.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:15,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzfmatrix.h:36:7: note: declaration of ‘class TPZVec<long int>’
+ class TPZVec;
+       ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:10:0,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzysmp.h:203:19: error: field ‘fJA’ has incomplete type ‘TPZVec<long int>’
+  TPZVec<int64_t>  fJA;
+                   ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzmatrix.h:959:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzblock.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:15,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzfmatrix.h:36:7: note: declaration of ‘class TPZVec<long int>’
+ class TPZVec;
+       ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:10:0,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzysmp.h: In member function ‘virtual void TPZFYsmpMatrix<TVar>::SetData(TPZVec<long int>&, TPZVec<long int>&, TPZVec<TVar>&)’:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzysmp.h:247:11: error: invalid use of incomplete type ‘class TPZVec<long int>’
+     if (IA.size() != this->Rows() + 1 ) {
+           ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzmatrix.h:959:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzblock.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:15,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzfmatrix.h:36:7: note: declaration of ‘class TPZVec<long int>’
+ class TPZVec;
+       ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:10:0,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzysmp.h:251:11: error: invalid use of incomplete type ‘class TPZVec<long int>’
+     if (JA.size() != IA[this->Rows()]) {
+           ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzmatrix.h:959:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzblock.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:15,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzfmatrix.h:36:7: note: declaration of ‘class TPZVec<long int>’
+ class TPZVec;
+       ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcompel.h:19:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzsubcmesh.h:15,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:13,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzblockdiag.h: At global scope:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzblockdiag.h:140:18: error: field ‘fBlockPos’ has incomplete type ‘TPZVec<long int>’
+  TPZVec<int64_t> fBlockPos;
+                  ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzmatrix.h:959:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzblock.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:15,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzfmatrix.h:36:7: note: declaration of ‘class TPZVec<long int>’
+ class TPZVec;
+       ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcompel.h:19:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzsubcmesh.h:15,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:13,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzblockdiag.h:142:14: error: field ‘fBlockSize’ has incomplete type ‘TPZVec<int>’
+  TPZVec<int> fBlockSize;
+              ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzmatrix.h:959:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzblock.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:15,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzfmatrix.h:36:7: note: declaration of ‘class TPZVec<int>’
+ class TPZVec;
+       ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcompel.h:21:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzsubcmesh.h:15,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:13,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Material/pzmaterialdata.h:61:26: error: field ‘normal’ has incomplete type ‘TPZManVector<double, 3>’
+     TPZManVector<REAL,3> normal;
+                          ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzchunk.h:9:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzadmchunk.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzmanvector.h:30:7: note: declaration of ‘class TPZManVector<double, 3>’
+ class TPZManVector : public TPZVec< T > {
+       ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcompel.h:21:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzsubcmesh.h:15,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:13,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Material/pzmaterialdata.h:63:26: error: field ‘x’ has incomplete type ‘TPZManVector<double, 3>’
+     TPZManVector<REAL,3> x;
+                          ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzchunk.h:9:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzadmchunk.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzmanvector.h:30:7: note: declaration of ‘class TPZManVector<double, 3>’
+ class TPZManVector : public TPZVec< T > {
+       ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcompel.h:21:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzsubcmesh.h:15,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:13,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Material/pzmaterialdata.h:65:26: error: field ‘xParametric’ has incomplete type ‘TPZManVector<double, 3>’
+     TPZManVector<REAL,3> xParametric;
+                          ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzchunk.h:9:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzadmchunk.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzmanvector.h:30:7: note: declaration of ‘class TPZManVector<double, 3>’
+ class TPZManVector : public TPZVec< T > {
+       ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcompel.h:21:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzsubcmesh.h:15,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:13,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Material/pzmaterialdata.h:69:15: error: field ‘sol’ has incomplete type ‘TPZSolVec {aka TPZManVector<TPZManVector<double, 10>, 20>}’
+     TPZSolVec sol;
+               ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzchunk.h:9:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzadmchunk.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzmanvector.h:30:7: note: declaration of ‘TPZSolVec {aka class TPZManVector<TPZManVector<double, 10>, 20>}’
+ class TPZManVector : public TPZVec< T > {
+       ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcompel.h:21:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzsubcmesh.h:15,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:13,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Material/pzmaterialdata.h:71:19: error: field ‘dsol’ has incomplete type ‘TPZGradSolVec {aka TPZManVector<TPZFNMatrix<15, double>, 20>}’
+     TPZGradSolVec dsol;
+                   ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzchunk.h:9:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzadmchunk.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzmanvector.h:30:7: note: declaration of ‘TPZGradSolVec {aka class TPZManVector<TPZFNMatrix<15, double>, 20>}’
+ class TPZManVector : public TPZVec< T > {
+       ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcompel.h:21:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzsubcmesh.h:15,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:13,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Material/pzmaterialdata.h:77:26: error: field ‘XCenter’ has incomplete type ‘TPZManVector<double, 3>’
+     TPZManVector<REAL,3> XCenter;
+                          ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzchunk.h:9:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzadmchunk.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzmanvector.h:30:7: note: declaration of ‘class TPZManVector<double, 3>’
+ class TPZManVector : public TPZVec< T > {
+       ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcompel.h:21:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzsubcmesh.h:15,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:13,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Material/pzmaterialdata.h:86:43: error: field ‘fVecShapeIndex’ has incomplete type ‘TPZManVector<std::pair<int, long int> >’
+     TPZManVector<std::pair<int,int64_t> > fVecShapeIndex;
+                                           ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzchunk.h:9:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzadmchunk.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzmanvector.h:30:7: note: declaration of ‘class TPZManVector<std::pair<int, long int> >’
+ class TPZManVector : public TPZVec< T > {
+       ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcompel.h:23:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzsubcmesh.h:15,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:13,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Multigrid/pztransfer.h:114:14: error: field ‘fColPosition’ has incomplete type ‘TPZVec<int>’
+  TPZVec<int> fColPosition;
+              ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzmatrix.h:959:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzblock.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:15,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzfmatrix.h:36:7: note: declaration of ‘class TPZVec<int>’
+ class TPZVec;
+       ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcompel.h:23:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzsubcmesh.h:15,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:13,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Multigrid/pztransfer.h:116:14: error: field ‘fNumberofColumnBlocks’ has incomplete type ‘TPZVec<int>’
+  TPZVec<int> fNumberofColumnBlocks;
+              ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzmatrix.h:959:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzblock.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:15,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzfmatrix.h:36:7: note: declaration of ‘class TPZVec<int>’
+ class TPZVec;
+       ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcompel.h:23:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzsubcmesh.h:15,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:13,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Multigrid/pztransfer.h:118:20: error: field ‘fColumnBlockPosition’ has incomplete type ‘TPZManVector<int>’
+  TPZManVector<int> fColumnBlockPosition;
+                    ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzchunk.h:9:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzadmchunk.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzmanvector.h:30:7: note: declaration of ‘class TPZManVector<int>’
+ class TPZManVector : public TPZVec< T > {
+       ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcompel.h:23:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzsubcmesh.h:15,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:13,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Multigrid/pztransfer.h:120:20: error: field ‘fColumnBlockNumber’ has incomplete type ‘TPZManVector<int>’
+  TPZManVector<int> fColumnBlockNumber;
+                    ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzchunk.h:9:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzadmchunk.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzmanvector.h:30:7: note: declaration of ‘class TPZManVector<int>’
+ class TPZManVector : public TPZVec< T > {
+       ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzsubcmesh.h:15:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:13,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcompel.h: In member function ‘virtual void TPZCompEl::Integrate(int, TPZVec<double>&)’:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcompel.h:366:8: error: invalid use of incomplete type ‘class TPZVec<double>’
+   value.Fill(0.);
+        ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzmatrix.h:959:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzblock.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:15,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzfmatrix.h:36:7: note: declaration of ‘class TPZVec<double>’
+ class TPZVec;
+       ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzsubcmesh.h:15:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:13,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcompel.h: In member function ‘virtual void TPZCompEl::GetMemoryIndices(TPZVec<long int>&) const’:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcompel.h:377:16: error: invalid use of incomplete type ‘class TPZVec<long int>’
+         indices.resize(0);
+                ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzmatrix.h:959:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzblock.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:15,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzfmatrix.h:36:7: note: declaration of ‘class TPZVec<long int>’
+ class TPZVec;
+       ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzsubcmesh.h:15:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:13,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcompel.h: In member function ‘virtual void TPZCompEl::SetMemoryIndices(TPZVec<long int>&) const’:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcompel.h:387:16: error: invalid use of incomplete type ‘class TPZVec<long int>’
+         indices.resize(0);
+                ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzmatrix.h:959:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzblock.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:15,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzfmatrix.h:36:7: note: declaration of ‘class TPZVec<long int>’
+ class TPZVec;
+       ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Analysis/pzanalysis.h:15:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzsubcmesh.h:19,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:13,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/External/pzrenumbering.h: At global scope:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/External/pzrenumbering.h:108:14: error: field ‘fNodeWeights’ has incomplete type ‘TPZVec<int>’
+  TPZVec<int> fNodeWeights;
+              ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzmatrix.h:959:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzblock.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:15,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzfmatrix.h:36:7: note: declaration of ‘class TPZVec<int>’
+ class TPZVec;
+       ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Analysis/pzanalysis.h:15:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzsubcmesh.h:19,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:13,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/External/pzrenumbering.h:111:18: error: field ‘fElementGraph’ has incomplete type ‘TPZVec<long int>’
+  TPZVec<int64_t> fElementGraph;
+                  ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzmatrix.h:959:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzblock.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:15,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzfmatrix.h:36:7: note: declaration of ‘class TPZVec<long int>’
+ class TPZVec;
+       ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Analysis/pzanalysis.h:15:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzsubcmesh.h:19,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:13,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/External/pzrenumbering.h:118:18: error: field ‘fElementGraphIndex’ has incomplete type ‘TPZVec<long int>’
+  TPZVec<int64_t> fElementGraphIndex;
+                  ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzmatrix.h:959:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzblock.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:15,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzfmatrix.h:36:7: note: declaration of ‘class TPZVec<long int>’
+ class TPZVec;
+       ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzsubcmesh.h:19:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:13,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Analysis/pzanalysis.h:54:36: error: field ‘fScalarNames’ has incomplete type ‘TPZVec<std::__cxx11::basic_string<char> > [3]’
+  TPZVec<std::string> fScalarNames[3];
+                                    ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzmatrix.h:959:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzblock.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:15,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzfmatrix.h:36:7: note: declaration of ‘class TPZVec<std::__cxx11::basic_string<char> >’
+ class TPZVec;
+       ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzsubcmesh.h:19:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:13,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Analysis/pzanalysis.h:56:36: error: field ‘fVectorNames’ has incomplete type ‘TPZVec<std::__cxx11::basic_string<char> > [3]’
+  TPZVec<std::string> fVectorNames[3];
+                                    ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzmatrix.h:959:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzblock.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:15,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzfmatrix.h:36:7: note: declaration of ‘class TPZVec<std::__cxx11::basic_string<char> >’
+ class TPZVec;
+       ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzsubcmesh.h:19:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:13,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Analysis/pzanalysis.h:77:19: error: field ‘fGeoElId’ has incomplete type ‘TPZVec<long int>’
+   TPZVec<int64_t> fGeoElId;
+                   ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzmatrix.h:959:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzblock.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:15,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzfmatrix.h:36:7: note: declaration of ‘class TPZVec<long int>’
+ class TPZVec;
+       ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzsubcmesh.h:19:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:13,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Analysis/pzanalysis.h:78:23: error: field ‘fCompElPtr’ has incomplete type ‘TPZVec<TPZCompEl*>’
+   TPZVec<TPZCompEl *> fCompElPtr;
+                       ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzmatrix.h:959:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzblock.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:15,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzfmatrix.h:36:7: note: declaration of ‘class TPZVec<TPZCompEl*>’
+ class TPZVec;
+       ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzsubcmesh.h:19:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:13,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Analysis/pzanalysis.h:80:16: error: field ‘fLocations’ has incomplete type ‘TPZVec<double>’
+   TPZVec<REAL> fLocations;
+                ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzmatrix.h:959:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzblock.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:15,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzfmatrix.h:36:7: note: declaration of ‘class TPZVec<double>’
+ class TPZVec;
+       ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzsubcmesh.h:19:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:13,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Analysis/pzanalysis.h:81:23: error: field ‘fVariableNames’ has incomplete type ‘TPZVec<std::__cxx11::basic_string<char> >’
+   TPZVec<std::string> fVariableNames;
+                       ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzmatrix.h:959:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzblock.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:15,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix/pzfmatrix.h:36:7: note: declaration of ‘class TPZVec<std::__cxx11::basic_string<char> >’
+ class TPZVec;
+       ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzsubcmesh.h:19:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:13,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Analysis/pzanalysis.h:328:45: error: field ‘fvalues’ has incomplete type ‘TPZManVector<TPZManVector<double, 10>, 100>’
+     TPZManVector<TPZManVector<REAL,10>,100> fvalues;
+                                             ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzchunk.h:9:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzadmchunk.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzmanvector.h:30:7: note: declaration of ‘class TPZManVector<TPZManVector<double, 10>, 100>’
+ class TPZManVector : public TPZVec< T > {
+       ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:13:0,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzsubcmesh.h:46:24: error: field ‘fConnectIndex’ has incomplete type ‘TPZManVector<long int, 200>’
+  TPZManVector<int64_t> fConnectIndex;
+                        ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzchunk.h:9:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzadmchunk.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzmanvector.h:30:7: note: declaration of ‘class TPZManVector<long int, 200>’
+ class TPZManVector : public TPZVec< T > {
+       ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:13:0,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzsubcmesh.h:50:24: error: field ‘fExternalLocIndex’ has incomplete type ‘TPZManVector<long int, 200>’
+  TPZManVector<int64_t> fExternalLocIndex;
+                        ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzchunk.h:9:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzadmchunk.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzmanvector.h:30:7: note: declaration of ‘class TPZManVector<long int, 200>’
+ class TPZManVector : public TPZVec< T > {
+       ^
+In file included from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:0:
+/home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:28:14: error: redeclaration of ‘EPoint’
+     /*0*/    EPoint,
+              ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzgmesh.h:12:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:19,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Common/pzeltype.h:54:8: note: previous declaration ‘MElementType EPoint’
+  /*0*/ EPoint,
+        ^
+In file included from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:0:
+/home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:29:14: error: redeclaration of ‘EOned’
+     /*1*/    EOned,
+              ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzgmesh.h:12:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:19,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Common/pzeltype.h:55:8: note: previous declaration ‘MElementType EOned’
+  /*1*/ EOned,
+        ^
+In file included from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:0:
+/home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:30:14: error: redeclaration of ‘ETriangle’
+     /*2*/    ETriangle,
+              ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzgmesh.h:12:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:19,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Common/pzeltype.h:56:8: note: previous declaration ‘MElementType ETriangle’
+  /*2*/ ETriangle,
+        ^
+In file included from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:0:
+/home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:31:14: error: redeclaration of ‘EQuadrilateral’
+     /*3*/    EQuadrilateral,
+              ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzgmesh.h:12:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:19,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Common/pzeltype.h:57:8: note: previous declaration ‘MElementType EQuadrilateral’
+  /*3*/ EQuadrilateral,
+        ^
+In file included from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:0:
+/home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:32:14: error: redeclaration of ‘ETetraedro’
+     /*4*/    ETetraedro,
+              ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzgmesh.h:12:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:19,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Common/pzeltype.h:58:8: note: previous declaration ‘MElementType ETetraedro’
+  /*4*/ ETetraedro,
+        ^
+In file included from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:0:
+/home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:33:14: error: redeclaration of ‘EPiramide’
+     /*5*/    EPiramide,
+              ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzgmesh.h:12:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:19,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Common/pzeltype.h:59:8: note: previous declaration ‘MElementType EPiramide’
+  /*5*/ EPiramide,
+        ^
+In file included from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:0:
+/home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:34:14: error: redeclaration of ‘EPrisma’
+     /*6*/    EPrisma,
+              ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzgmesh.h:12:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:19,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Common/pzeltype.h:60:8: note: previous declaration ‘MElementType EPrisma’
+  /*6*/ EPrisma,
+        ^
+In file included from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:0:
+/home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:35:14: error: redeclaration of ‘ECube’
+     /*7*/    ECube
+              ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzgmesh.h:12:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:19,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Common/pzeltype.h:61:8: note: previous declaration ‘MElementType ECube’
+  /*7*/ ECube,
+        ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzmanvector.h:9:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzchunk.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzadmchunk.h:9,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Common/pzerror.h:20:34: error: variable or field ‘DebugStopImpl’ declared void
+ #define DebugStop() DebugStopImpl(__FILE__, __LINE__)
+                                  ^
+/home/natalia/Documents/GitHub/FEMCourse/headers2018/tpanic.h:15:13: note: in expansion of macro ‘DebugStop’
+ static void DebugStop()
+             ^
+In file included from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzadmchunk.h:10:0,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/pzstrmatrix.h:14,
+                 from /home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix/TPZSSpStructMatrix.h:9,
+                 from /home/natalia/Documents/GitHub/FEMCourse/headers2018/DataTypes.h:18,
+                 from /home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp:9:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzstack.h: In instantiation of ‘void TPZStack<T, NumExtAlloc>::Push(T) [with T = TPZGeoElSide; int NumExtAlloc = 200]’:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzgeoelside.h:324:22:   required from here
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzstack.h:81:2: error: ‘class TPZStack<TPZGeoElSide>’ has no member named ‘Resize’
+  this->Resize(this->NElements()+1);
+  ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzstack.h:81:32: error: ‘class TPZStack<TPZGeoElSide>’ has no member named ‘NElements’
+  this->Resize(this->NElements()+1);
+                                ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzstack.h:82:40: error: ‘class TPZStack<TPZGeoElSide>’ has no member named ‘operator[]’
+  this->operator[](this->NElements()-1) = object;
+                                        ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzstack.h:82:36: error: ‘class TPZStack<TPZGeoElSide>’ has no member named ‘NElements’
+  this->operator[](this->NElements()-1) = object;
+                                    ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzstack.h: In instantiation of ‘TPZStack<T, NumExtAlloc>::TPZStack() [with T = long int; int NumExtAlloc = 200]’:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzelmat.h:73:178:   required from here
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzstack.h:74:70: error: type ‘TPZManVector<long int, 200>’ is not a direct base of ‘TPZStack<long int>’
+ TPZStack<T, NumExtAlloc>::TPZStack() : TPZManVector<T, NumExtAlloc>(0) {
+                                                                      ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzstack.h:75:2: error: ‘class TPZStack<long int>’ has no member named ‘Expand’
+  this->Expand(NumExtAlloc);
+  ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzstack.h: In instantiation of ‘TPZStack<T, NumExtAlloc>::operator T*() const [with T = long int; int NumExtAlloc = 200]’:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzelmat.h:95:20:   required from here
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzstack.h:68:37: error: ‘const class TPZStack<long int>’ has no member named ‘fStore’
+  operator T*() const { return this->fStore; }
+                                     ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzstack.h: In instantiation of ‘T TPZStack<T, NumExtAlloc>::Pop() [with T = long int; int NumExtAlloc = 200]’:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzadmchunk.h:156:34:   required from ‘int64_t TPZAdmChunkVector<T, EXP>::AllocateNewElement() [with T = TPZConnect; int EXP = 10; int64_t = long int]’
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:668:56:   required from here
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzstack.h:88:18: error: ‘class TPZStack<long int>’ has no member named ‘fNElements’
+  this->fNElements--;
+                  ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzstack.h:89:22: error: ‘class TPZStack<long int>’ has no member named ‘fNElements’
+  if(this->fNElements <0){
+                      ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzstack.h:90:20: error: ‘class TPZStack<long int>’ has no member named ‘fNElements’
+   this->fNElements = 0;
+                    ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzstack.h:96:21: error: ‘class TPZStack<long int>’ has no member named ‘fStore’
+  return this->fStore[this->fNElements];
+                     ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzstack.h:96:21: error: ‘class TPZStack<long int>’ has no member named ‘fNElements’
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzstack.h: In instantiation of ‘void TPZStack<T, NumExtAlloc>::Push(T) [with T = long int; int NumExtAlloc = 200]’:
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzadmchunk.h:281:22:   required from ‘void TPZAdmChunkVector<T, EXP>::Resize(int64_t) [with T = TPZConnect; int EXP = 10; int64_t = long int]’
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzadmchunk.h:162:11:   required from ‘int64_t TPZAdmChunkVector<T, EXP>::AllocateNewElement() [with T = TPZConnect; int EXP = 10; int64_t = long int]’
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh/pzcmesh.h:668:56:   required from here
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzstack.h:81:2: error: ‘class TPZStack<long int>’ has no member named ‘Resize’
+  this->Resize(this->NElements()+1);
+  ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzstack.h:81:32: error: ‘class TPZStack<long int>’ has no member named ‘NElements’
+  this->Resize(this->NElements()+1);
+                                ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzstack.h:82:40: error: ‘class TPZStack<long int>’ has no member named ‘operator[]’
+  this->operator[](this->NElements()-1) = object;
+                                        ^
+/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util/pzstack.h:82:36: error: ‘class TPZStack<long int>’ has no member named ‘NElements’
+  this->operator[](this->NElements()-1) = object;
+                                    ^
+mainprograms/CMakeFiles/Fem2018.dir/build.make:62: recipe for target 'mainprograms/CMakeFiles/Fem2018.dir/main2018.cpp.o' failed
+make[2]: *** [mainprograms/CMakeFiles/Fem2018.dir/main2018.cpp.o] Error 1
+CMakeFiles/Makefile2:175: recipe for target 'mainprograms/CMakeFiles/Fem2018.dir/all' failed
 make[1]: *** [mainprograms/CMakeFiles/Fem2018.dir/all] Error 2
 Makefile:83: recipe for target 'all' failed
 make: *** [all] Error 2

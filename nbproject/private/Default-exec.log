@@ -1,66 +1,51 @@
 called: /usr/bin/c++
-	/home/natalia/Documents/GitHub/FEMCourse/mainprograms
+	/home/natalia/Documents/GitHub/FEMCourse-build/mainprograms
 	/usr/bin/c++
+	-I/home/natalia/Documents/neopz/install/CMake/../pzlib/include
+	-I/../pzlib/include/Python
+	-I/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Util
+	-I/home/natalia/Documents/neopz/install/CMake/../pzlib/include/PerfUtil
+	-I/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Common
+	-I/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Save
+	-I/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Matrix
+	-I/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Topology
+	-I/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Geom
+	-I/home/natalia/Documents/neopz/install/CMake/../pzlib/include/SpecialMaps
+	-I/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Refine
+	-I/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Shape
+	-I/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Material
+	-I/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Material/REAL
+	-I/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Material/REAL/Plasticity
+	-I/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Material/Complex
+	-I/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Multigrid
+	-I/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Mesh
+	-I/home/natalia/Documents/neopz/install/CMake/../pzlib/include/StrMatrix
+	-I/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Integral
+	-I/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Frontal
+	-I/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Pre
+	-I/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Post
+	-I/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Random
+	-I/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Optimization
+	-I/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Analysis
+	-I/home/natalia/Documents/neopz/install/CMake/../pzlib/include/SubStruct
+	-I/home/natalia/Documents/neopz/install/CMake/../pzlib/include/LinearSolvers
+	-I/home/natalia/Documents/neopz/install/CMake/../pzlib/include/External
+	-I/home/natalia/Documents/neopz/install/CMake/../pzlib/include/External/sloan
+	-I/home/natalia/Documents/neopz/install/CMake/../pzlib/include/Publications
 	-I/home/natalia/Documents/GitHub/FEMCourse/headers2018
 	-I/home/natalia/Documents/GitHub/FEMCourse/headers
 	-I/home/natalia/Documents/GitHub/FEMCourse/tinyxml
+	-isystem
+	/opt/intel/mkl/include
+	-isystem
+	/home/natalia/Documents/neopz/install/.
+	-fPIC
+	-Wno-narrowing
+	-g
+	-DPZDEBUG
+	-std=gnu++11
 	-o
 	CMakeFiles/Fem2018.dir/main2018.cpp.o
 	-c
 	/home/natalia/Documents/GitHub/FEMCourse/mainprograms/main2018.cpp
-
-called: /usr/bin/c++
-	/home/natalia/Documents/GitHub/FEMCourse/mainprograms
-	/usr/bin/c++
-	-I/home/natalia/Documents/GitHub/FEMCourse/headers2018
-	-I/home/natalia/Documents/GitHub/FEMCourse/headers
-	-I/home/natalia/Documents/GitHub/FEMCourse/tinyxml
-	-o
-	CMakeFiles/Fem2018.dir/__/src_vazio/TMatrix.cpp.o
-	-c
-	/home/natalia/Documents/GitHub/FEMCourse/src vazio/TMatrix.cpp
-
-called: /usr/bin/c++
-	/home/natalia/Documents/GitHub/FEMCourse/mainprograms
-	/usr/bin/c++
-	-I/home/natalia/Documents/GitHub/FEMCourse/headers2018
-	-I/home/natalia/Documents/GitHub/FEMCourse/headers
-	-I/home/natalia/Documents/GitHub/FEMCourse/tinyxml
-	-o
-	CMakeFiles/Fem2018.dir/__/tinyxml/tinyxmlerror.cpp.o
-	-c
-	/home/natalia/Documents/GitHub/FEMCourse/tinyxml/tinyxmlerror.cpp
-
-called: /usr/bin/c++
-	/home/natalia/Documents/GitHub/FEMCourse/mainprograms
-	/usr/bin/c++
-	-I/home/natalia/Documents/GitHub/FEMCourse/headers2018
-	-I/home/natalia/Documents/GitHub/FEMCourse/headers
-	-I/home/natalia/Documents/GitHub/FEMCourse/tinyxml
-	-o
-	CMakeFiles/Fem2018.dir/__/tinyxml/tinyxmlparser.cpp.o
-	-c
-	/home/natalia/Documents/GitHub/FEMCourse/tinyxml/tinyxmlparser.cpp
-
-called: /usr/bin/c++
-	/home/natalia/Documents/GitHub/FEMCourse/mainprograms
-	/usr/bin/c++
-	-I/home/natalia/Documents/GitHub/FEMCourse/headers2018
-	-I/home/natalia/Documents/GitHub/FEMCourse/headers
-	-I/home/natalia/Documents/GitHub/FEMCourse/tinyxml
-	-o
-	CMakeFiles/Fem2018.dir/__/tinyxml/tinyxml.cpp.o
-	-c
-	/home/natalia/Documents/GitHub/FEMCourse/tinyxml/tinyxml.cpp
-
-called: /usr/bin/c++
-	/home/natalia/Documents/GitHub/FEMCourse/mainprograms
-	/usr/bin/c++
-	-I/home/natalia/Documents/GitHub/FEMCourse/headers2018
-	-I/home/natalia/Documents/GitHub/FEMCourse/headers
-	-I/home/natalia/Documents/GitHub/FEMCourse/tinyxml
-	-o
-	CMakeFiles/Fem2018.dir/__/src_2018/IntRuleTriangle.cpp.o
-	-c
-	/home/natalia/Documents/GitHub/FEMCourse/src_2018/IntRuleTriangle.cpp
 

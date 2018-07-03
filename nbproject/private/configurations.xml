@@ -2,20 +2,6 @@
 <configurationDescriptor version="100">
   <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
     <df root="." name="0">
-      <df name="CMakeFiles">
-        <df name="3.5.1">
-          <df name="CompilerIdC">
-            <in>CMakeCCompilerId.c</in>
-          </df>
-          <df name="CompilerIdCXX">
-            <in>CMakeCXXCompilerId.cpp</in>
-          </df>
-        </df>
-        <df name="CMakeTmp">
-        </df>
-        <in>feature_tests.c</in>
-        <in>feature_tests.cxx</in>
-      </df>
       <df name="Fad">
         <in>fad.h</in>
         <in>fadfunc.h</in>
@@ -91,58 +77,6 @@
         <in>tpanic.h</in>
       </df>
       <df name="mainprograms">
-        <df name="CMakeFiles">
-          <df name="Fem2018.dir">
-            <df name="__">
-              <df name="src_2018">
-              </df>
-              <df name="src_vazio">
-              </df>
-              <df name="tinyxml">
-              </df>
-            </df>
-          </df>
-          <df name="FemSC.dir">
-            <df name="__">
-              <df name="src_vazio">
-              </df>
-              <df name="tinyxml">
-              </df>
-            </df>
-          </df>
-          <df name="TestIntegrate.dir">
-            <df name="__">
-              <df name="src_vazio">
-              </df>
-              <df name="tinyxml">
-              </df>
-            </df>
-          </df>
-          <df name="TestMatrix.dir">
-            <df name="__">
-              <df name="src_vazio">
-              </df>
-              <df name="tinyxml">
-              </df>
-            </df>
-          </df>
-          <df name="TestOneDProblem.dir">
-            <df name="__">
-              <df name="src_vazio">
-              </df>
-              <df name="tinyxml">
-              </df>
-            </df>
-          </df>
-          <df name="TestTwoDProblem.dir">
-            <df name="__">
-              <df name="src_vazio">
-              </df>
-              <df name="tinyxml">
-              </df>
-            </df>
-          </df>
-        </df>
         <in>TestIntegrate.cpp</in>
         <in>TestOneDProblem.cpp</in>
         <in>TestTwoDProblem.cpp</in>
@@ -221,7 +155,7 @@
       </df>
     </df>
   </logicalFolder>
-  <projectmakefile>Makefile</projectmakefile>
+  <projectmakefile>../FEMCourse-build/Makefile</projectmakefile>
   <confs>
     <conf name="Default" type="0">
       <toolsSet>
@@ -246,8 +180,6 @@
         <gdb_interceptlist>
           <gdbinterceptoptions gdb_all="false" gdb_unhandled="true" gdb_unexpected="true"/>
         </gdb_interceptlist>
-        <gdb_signals>
-        </gdb_signals>
         <gdb_options>
           <DebugOptions>
           </DebugOptions>
@@ -262,7 +194,7 @@
           <runcommandpicklistitem>"${OUTPUT_PATH}"</runcommandpicklistitem>
         </runcommandpicklist>
         <runcommand>"${OUTPUT_PATH}"</runcommand>
-        <rundir>.</rundir>
+        <rundir>../FEMCourse-build</rundir>
         <buildfirst>false</buildfirst>
         <terminal-type>0</terminal-type>
         <remove-instrumentation>0</remove-instrumentation>

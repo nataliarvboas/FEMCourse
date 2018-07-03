@@ -42,16 +42,16 @@ CompElement *GeoElement::CreateCompEl(CompMesh *mesh, int64_t index) {
     GeoElement *gel = this;
 
     switch (gel->Type()) {
-        case EOned:
+        case fEOned:
             return new CompElementTemplate<Shape1d> (index, mesh, gel);
             break;
-        case EQuadrilateral:
+        case fEQuadrilateral:
             return new CompElementTemplate<ShapeQuad> (index, mesh, gel);
             break;
-        case ETriangle:
+        case fETriangle:
             return new CompElementTemplate<ShapeTriangle> (index, mesh, gel);
             break;
-        case ETetraedro:
+        case fETetraedro:
             return new CompElementTemplate<ShapeTetrahedron> (index, mesh, gel);
             break;
 

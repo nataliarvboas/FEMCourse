@@ -82,64 +82,65 @@ Perm0111((1.0L-(a)-(b)-(c)),a,b,c)
 Dup4(w),Dup4(w),Dup4(w),Dup4(w),Dup4(w),Dup4(w),Dup4(w),Dup4(w), \
 Dup4(w),Dup4(w),Dup4(w),Dup4(w),Dup4(w),Dup4(w),Dup4(w),Dup4(w)
 
-long double QUAD_TETRAH_P1_wts[] = {
+
+long double QUAD_TETRA_P1_wts[] = {
     Dup4(1.L)
 };
-long double QUAD_TETRAH_P1_pts[Length(QUAD_TETRAH_P1_wts) * 4] = {
+long double QUAD_TETRA_P1_pts[Length(QUAD_TETRA_P1_wts) * 4] = {
     Perm4(.25L)
 };
 
-long double QUAD_TETRAH_P2_wts[] = {
+long double QUAD_TETRA_P2_wts[] = {
     Dup31(.25L)
 };
-long double QUAD_TETRAH_P2_pts[Length(QUAD_TETRAH_P2_wts) * 4] = {
+long double QUAD_TETRA_P2_pts[Length(QUAD_TETRA_P2_wts) * 4] = {
     /* (5. - sqrt(5.)) / 20, (5. + 3 * sqrt(5.)) / 20 */
     Perm31(.13819660112501051517954131656343619L)
 };
 
-long double QUAD_TETRAH_P3_wts[] = {
+long double QUAD_TETRA_P3_wts[] = {
     /* 1 / 8 + sqrt((1715161837 - 406006699 * sqrt(17)) / 23101) / 3120 */
     Dup31(.13852796651186214232361769837564129L),
     /* 1 / 8 - sqrt((1715161837 - 406006699 * sqrt(17)) / 23101) / 3120 */
     Dup31(.11147203348813785767638230162435871L)
 };
-long double QUAD_TETRAH_P3_pts[Length(QUAD_TETRAH_P3_wts) * 4] = {
+long double QUAD_TETRA_P3_pts[Length(QUAD_TETRA_P3_wts) * 4] = {
     /* (55 - 3 * sqrt(17) + sqrt(1022 - 134 * sqrt(17))) / 196 */
     Perm31(.32805469671142664733580581998119743L),
     /* (55 - 3 * sqrt(17) - sqrt(1022 - 134 * sqrt(17))) / 196 */
     Perm31(.10695227393293068277170204157061650L)
 };
 
-long double QUAD_TETRAH_P4_wts[] = {
+long double QUAD_TETRA_P4_wts[] = {
     Dup31(.07349304311636194934358694586367885L),
     Dup31(.11268792571801585036501492847638892L),
     Dup22(.04254602077708146686093208377328816L)
 };
-long double QUAD_TETRAH_P4_pts[Length(QUAD_TETRAH_P4_wts) * 4] = {
+long double QUAD_TETRA_P4_pts[Length(QUAD_TETRA_P4_wts) * 4] = {
     Perm31(.09273525031089122628655892066032137L),
     Perm31(.31088591926330060975814749494040332L),
     Perm22(.04550370412564965000000000000000000L)
 };
 
-long double QUAD_TETRAH_P5_wts[] = {
+long double QUAD_TETRA_P5_wts[] = {
     Dup31(.11268792571801585079918565233328633L),
     Dup31(.07349304311636194954371020548632750L),
     Dup22(.04254602077708146643806942812025744L)
 
 };
-long double QUAD_TETRAH_P5_pts[Length(QUAD_TETRAH_P5_wts) * 4] = {
+long double QUAD_TETRA_P5_pts[Length(QUAD_TETRA_P5_wts) * 4] = {
     Perm31(.31088591926330060979734573376345783L),
     Perm31(.09273525031089122640232391373703061L),
     Perm22(.04550370412564964949188052627933943L)
 };
 
-long double QUAD_TETRAH_P6_wts[] = {
+long double QUAD_TETRA_P6_wts[] = {
     Dup31(.03992275025816749209969062755747998L),
     Dup31(.01007721105532064294801323744593686L),
     Dup31(.05535718154365472209515327785372602L),
     Dup211(27. / 560.L)
 };
-long double QUAD_TETRAH_P6_pts[Length(QUAD_TETRAH_P6_wts) * 4] = {
+long double QUAD_TETRA_P6_pts[Length(QUAD_TETRA_P6_wts) * 4] = {
     Perm31(.21460287125915202928883921938628499L),
     Perm31(.04067395853461135311557944895641006L),
     Perm31(.32233789014227551034399447076249213L),
@@ -148,14 +149,14 @@ long double QUAD_TETRAH_P6_pts[Length(QUAD_TETRAH_P6_wts) * 4] = {
     .60300566479164914136743113906093969L)
 };
 
-long double QUAD_TETRAH_P7_wts[35] = {
+long double QUAD_TETRA_P7_wts[35] = {
     Dup4(.09548528946413084886057843611722638L),
     Dup31(.04232958120996702907628617079854674L),
     Dup22(.03189692783285757993427482408294246L),
     Dup211(.03720713072833462136961556119148112L),
     Dup211(.00811077082990334156610343349109654L)
 };
-long double QUAD_TETRAH_P7_pts[Length(QUAD_TETRAH_P7_wts) * 4] = {
+long double QUAD_TETRA_P7_pts[Length(QUAD_TETRA_P7_wts) * 4] = {
     Perm4(.25),
     Perm31(.31570114977820279942342999959331149L),
     Perm22(.05048982259839636876305382298656247L),
@@ -165,7 +166,7 @@ long double QUAD_TETRAH_P7_pts[Length(QUAD_TETRAH_P7_wts) * 4] = {
     .81083024109854856111810537984823239L)
 };
 
-long double QUAD_TETRAH_P8_wts[] = {
+long double QUAD_TETRA_P8_wts[] = {
     Dup31(.00639714777990232132145142033517302L),
     Dup31(.04019044802096617248816115847981783L),
     Dup31(.02430797550477032117486910877192260L),
@@ -174,7 +175,7 @@ long double QUAD_TETRAH_P8_wts[] = {
     Dup211(.00718319069785253940945110521980376L),
     Dup211(.01637218194531911754093813975611913L)
 };
-long double QUAD_TETRAH_P8_pts[Length(QUAD_TETRAH_P8_wts) * 4] = {
+long double QUAD_TETRA_P8_pts[Length(QUAD_TETRA_P8_wts) * 4] = {
     Perm31(.03967542307038990126507132953938949L),
     Perm31(.31448780069809631378416056269714830L),
     Perm31(.10198669306270330000000000000000000L),
@@ -186,7 +187,7 @@ long double QUAD_TETRAH_P8_pts[Length(QUAD_TETRAH_P8_wts) * 4] = {
     .58057719012880922417539817139062041L)
 };
 
-long double QUAD_TETRAH_P9_wts[] = {
+long double QUAD_TETRA_P9_wts[] = {
     Dup4(.05642669317950620658871504327612541L),
     Dup31(.00334109507471348040299974430471765L),
     Dup31(.03011375476877376390731423843157491L),
@@ -196,7 +197,7 @@ long double QUAD_TETRAH_P9_wts[] = {
     Dup211(.00789458690833150076834149200960885L),
     Dup211(.01949281204723999671697219448924602L)
 };
-long double QUAD_TETRAH_P9_pts[Length(QUAD_TETRAH_P9_wts) * 4] = {
+long double QUAD_TETRA_P9_pts[Length(QUAD_TETRA_P9_wts) * 4] = {
     Perm4(.25),
     Perm31(.03402217700104486646540370887876764L),
     Perm31(.32277033353380052539137668325496398L),
@@ -211,7 +212,7 @@ long double QUAD_TETRAH_P9_pts[Length(QUAD_TETRAH_P9_wts) * 4] = {
     .61668257178125640457068309097954073L)
 };
 
-long double QUAD_TETRAH_P10_wts[] = {
+long double QUAD_TETRA_P10_wts[] = {
     Dup4(.04739977355602073838473882117805110L),
     Dup31(.02693705999226869980276416100488208L),
     Dup31(.00986915971679338323455773543017308L),
@@ -222,7 +223,7 @@ long double QUAD_TETRAH_P10_wts[] = {
     Dup211(.02573973198045607127903601225965471L),
     Dup211(.01290703579886199063929543024949899L)
 };
-long double QUAD_TETRAH_P10_pts[Length(QUAD_TETRAH_P10_wts) * 4] = {
+long double QUAD_TETRA_P10_pts[Length(QUAD_TETRA_P10_wts) * 4] = {
     Perm4(.25),
     Perm31(.31225006869518864772980831868682746L),
     Perm31(.11430965385734615058737119765365045L),
@@ -240,7 +241,7 @@ long double QUAD_TETRAH_P10_pts[Length(QUAD_TETRAH_P10_wts) * 4] = {
     .62807184547536601069327607221790967L)
 };
 
-long double QUAD_TETRAH_P11_wts[] = {
+long double QUAD_TETRA_P11_wts[] = {
     Dup4(.03943210802865886350733033449120443L),
     Dup31(.01566212622727911315008856276876506L),
     Dup31(.00333217237490140814440923615401491L),
@@ -253,7 +254,7 @@ long double QUAD_TETRAH_P11_wts[] = {
     Dup211(.01142954846718404041077055259859402L),
     Dup1111(.00618564017121781141281925508389534L)
 };
-long double QUAD_TETRAH_P11_pts[Length(QUAD_TETRAH_P11_wts) * 4] = {
+long double QUAD_TETRA_P11_pts[Length(QUAD_TETRA_P11_wts) * 4] = {
     Perm4(.25L),
     Perm31(.12149136777653379449770230990807224L),
     Perm31(.03231625915107289635395445208958103L),
@@ -275,7 +276,7 @@ long double QUAD_TETRAH_P11_pts[Length(QUAD_TETRAH_P11_wts) * 4] = {
     .00976243819645261550829228038997777L)
 };
 
-long double QUAD_TETRAH_P12_wts[] = {
+long double QUAD_TETRA_P12_wts[] = {
     Dup31(.01276763770097074150203778596512505L),
     Dup31(.01612110423790926821858154489575762L),
     Dup31(.00037161269857844220004255818986081L),
@@ -291,7 +292,7 @@ long double QUAD_TETRAH_P12_wts[] = {
     Dup1111(.01151017784832330697333644123403294L),
     Dup1111(.00520387865288561360396792421252454L)
 };
-long double QUAD_TETRAH_P12_pts[Length(QUAD_TETRAH_P12_wts) * 4] = {
+long double QUAD_TETRA_P12_pts[Length(QUAD_TETRA_P12_wts) * 4] = {
     Perm31(.11529974435148014530455720738915911L),
     Perm31(.20233628224059090000000000000001000L),
     Perm31(.01171759795761995151247906754831398L),
@@ -317,7 +318,7 @@ long double QUAD_TETRAH_P12_pts[Length(QUAD_TETRAH_P12_wts) * 4] = {
     .02056541065587613830062489762710900L)
 };
 
-long double QUAD_TETRAH_P13_wts[] = {
+long double QUAD_TETRA_P13_wts[] = {
     Dup4(.01501368777308314675062970631615983L),
     Dup31(.01822520928017342532379068941490097L),
     Dup31(.00700610921774146424038518693926311L),
@@ -334,7 +335,7 @@ long double QUAD_TETRAH_P13_wts[] = {
     Dup1111(.00197950480552671190531894675510740L),
     Dup1111(.00544631918142579120943187040108667L)
 };
-long double QUAD_TETRAH_P13_pts[Length(QUAD_TETRAH_P13_wts) * 4] = {
+long double QUAD_TETRA_P13_pts[Length(QUAD_TETRA_P13_wts) * 4] = {
     Perm4(.25),
     Perm31(.15521609351908950314115784335704739L),
     Perm31(.33012266333967360024433192595196779L),
@@ -364,7 +365,7 @@ long double QUAD_TETRAH_P13_pts[Length(QUAD_TETRAH_P13_wts) * 4] = {
     .13818283491762872996955080907912355L)
 };
 
-long double QUAD_TETRAH_P14_wts[] = {
+long double QUAD_TETRA_P14_wts[] = {
     Dup31(.00406511366527076704362088368356360L),
     Dup31(.00221453853344557814375995695000715L),
     Dup31(.00581343826788845054953733388214554L),
@@ -382,7 +383,7 @@ long double QUAD_TETRAH_P14_wts[] = {
     Dup1111(.00072823892045727243561364297456536L),
     Dup1111(.00543265007699582482162423406519264L)
 };
-long double QUAD_TETRAH_P14_pts[Length(QUAD_TETRAH_P14_wts) * 4] = {
+long double QUAD_TETRA_P14_pts[Length(QUAD_TETRA_P14_wts) * 4] = {
     Perm31(.32725336252384856390930966926852893L),
     Perm31(.04476130446668508088379420964788419L),
     Perm31(.08614033110243635365372087402988575L),
@@ -430,46 +431,46 @@ int ComputingSymmetricCubatureRule(int order, Matrix &Points, VecDouble &Weights
     switch (order) {
         case 0:
         case 1:
-            TransformBarycentricCoordInCartesianCoord(QUAD_TETRAH_P1_pts, QUAD_TETRAH_P1_wts, Points, Weights);
+            TransformBarycentricCoordInCartesianCoord(QUAD_TETRA_P1_pts, QUAD_TETRA_P1_wts, Points, Weights);
             break;
         case 2:
-            TransformBarycentricCoordInCartesianCoord(QUAD_TETRAH_P2_pts, QUAD_TETRAH_P2_wts, Points, Weights);
+            TransformBarycentricCoordInCartesianCoord(QUAD_TETRA_P2_pts, QUAD_TETRA_P2_wts, Points, Weights);
             break;
         case 3:
-            TransformBarycentricCoordInCartesianCoord(QUAD_TETRAH_P3_pts, QUAD_TETRAH_P3_wts, Points, Weights);
+            TransformBarycentricCoordInCartesianCoord(QUAD_TETRA_P3_pts, QUAD_TETRA_P3_wts, Points, Weights);
             break;
         case 4:
-            TransformBarycentricCoordInCartesianCoord(QUAD_TETRAH_P4_pts, QUAD_TETRAH_P4_wts, Points, Weights);
+            TransformBarycentricCoordInCartesianCoord(QUAD_TETRA_P4_pts, QUAD_TETRA_P4_wts, Points, Weights);
             break;
         case 5:
-            TransformBarycentricCoordInCartesianCoord(QUAD_TETRAH_P5_pts, QUAD_TETRAH_P5_wts, Points, Weights);
+            TransformBarycentricCoordInCartesianCoord(QUAD_TETRA_P5_pts, QUAD_TETRA_P5_wts, Points, Weights);
             break;
         case 6:
-            TransformBarycentricCoordInCartesianCoord(QUAD_TETRAH_P6_pts, QUAD_TETRAH_P6_wts, Points, Weights);
+            TransformBarycentricCoordInCartesianCoord(QUAD_TETRA_P6_pts, QUAD_TETRA_P6_wts, Points, Weights);
             break;
         case 7:
-            TransformBarycentricCoordInCartesianCoord(QUAD_TETRAH_P7_pts, QUAD_TETRAH_P7_wts, Points, Weights);
+            TransformBarycentricCoordInCartesianCoord(QUAD_TETRA_P7_pts, QUAD_TETRA_P7_wts, Points, Weights);
             break;
         case 8:
-            TransformBarycentricCoordInCartesianCoord(QUAD_TETRAH_P8_pts, QUAD_TETRAH_P8_wts, Points, Weights);
+            TransformBarycentricCoordInCartesianCoord(QUAD_TETRA_P8_pts, QUAD_TETRA_P8_wts, Points, Weights);
             break;
         case 9:
-            TransformBarycentricCoordInCartesianCoord(QUAD_TETRAH_P9_pts, QUAD_TETRAH_P9_wts, Points, Weights);
+            TransformBarycentricCoordInCartesianCoord(QUAD_TETRA_P9_pts, QUAD_TETRA_P9_wts, Points, Weights);
             break;
         case 10:
-            TransformBarycentricCoordInCartesianCoord(QUAD_TETRAH_P10_pts, QUAD_TETRAH_P10_wts, Points, Weights);
+            TransformBarycentricCoordInCartesianCoord(QUAD_TETRA_P10_pts, QUAD_TETRA_P10_wts, Points, Weights);
             break;
         case 11:
-            TransformBarycentricCoordInCartesianCoord(QUAD_TETRAH_P11_pts, QUAD_TETRAH_P11_wts, Points, Weights);
+            TransformBarycentricCoordInCartesianCoord(QUAD_TETRA_P11_pts, QUAD_TETRA_P11_wts, Points, Weights);
             break;
         case 12:
-            TransformBarycentricCoordInCartesianCoord(QUAD_TETRAH_P12_pts, QUAD_TETRAH_P12_wts, Points, Weights);
+            TransformBarycentricCoordInCartesianCoord(QUAD_TETRA_P12_pts, QUAD_TETRA_P12_wts, Points, Weights);
             break;
         case 13:
-            TransformBarycentricCoordInCartesianCoord(QUAD_TETRAH_P13_pts, QUAD_TETRAH_P13_wts, Points, Weights);
+            TransformBarycentricCoordInCartesianCoord(QUAD_TETRA_P13_pts, QUAD_TETRA_P13_wts, Points, Weights);
             break;
         case 14:
-            TransformBarycentricCoordInCartesianCoord(QUAD_TETRAH_P14_pts, QUAD_TETRAH_P14_wts, Points, Weights);
+            TransformBarycentricCoordInCartesianCoord(QUAD_TETRA_P14_pts, QUAD_TETRA_P14_wts, Points, Weights);
             break;
         default:
             std::cout << "TPZIntRuleT3D not implemented by order " << order << std::endl;

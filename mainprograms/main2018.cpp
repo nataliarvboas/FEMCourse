@@ -6,6 +6,11 @@
 #include <functional> 
 #include <string.h>
 
+//#include "TVec.h"
+//#include "pzvec.h"
+//#include "pzerror.h"
+//#include "pzmanvector.h"
+
 #include "DataTypes.h"
 #include "ReadGmsh.h"
 #include "VTKGeoMesh.h"
@@ -46,13 +51,13 @@ void TriangleTest(int pOrder);
 void TetrahedronTest(int pOrder);
 
 int main() {
-    //    QuadrilateralTest(1);
-        QuadrilateralTest(2);
+            QuadrilateralTest(1);
+    //        QuadrilateralTest(2);
     //
-//        TriangleTest(1);
-//        TriangleTest(2);
+    //        TriangleTest(1);
+    //        TriangleTest(2);
 
-//    TetrahedronTest(1);
+    //    TetrahedronTest(1);
 //    TetrahedronTest(2);
     return 0;
 }
@@ -401,12 +406,14 @@ GeoMesh *TetrahedronGeoMesh(int nnodes_x, int nnodes_y, int nnodes_z, double l) 
         }
 
         // Condicao de contorno xy-superior
-        if ((co(2, 0) == l && co(2, 1) == l && co(2, 2) == l) || (co(2, 0) == l && co(2, 1) == l && co(2, 3) == l)) {
-            TopolTriangle[0] = TopolTetra[0];
-            TopolTriangle[1] = TopolTetra[1];
-            if (co(2, 2) == l) {
+        if ((co(2, 0) == l && co(2, 1) == l && co(2, 2) == l) || (co(2, 1) == l && co(2, 2) == l && co(2, 3) == l)) {
+            if (co(2, 0) == l && co(2, 1) == l && co(2, 2) == l) {
+                TopolTriangle[0] = TopolTetra[0];
+                TopolTriangle[1] = TopolTetra[1];
                 TopolTriangle[2] = TopolTetra[2];
-            } else if (co(2, 3) == l) {
+            } else if (co(2, 1) == l && co(2, 2) == l && co(2, 3) == l) {
+                TopolTriangle[0] = TopolTetra[1];
+                TopolTriangle[1] = TopolTetra[2];
                 TopolTriangle[2] = TopolTetra[3];
             }
 
@@ -416,11 +423,12 @@ GeoMesh *TetrahedronGeoMesh(int nnodes_x, int nnodes_y, int nnodes_z, double l) 
 
         // Condicao de contorno yz-esquerda
         if ((co(0, 0) == 0 && co(0, 1) == 0 && co(0, 2) == 0) || (co(0, 0) == 0 && co(0, 2) == 0 && co(0, 3) == 0)) {
-            TopolTriangle[0] = TopolTetra[0];
-            if (co(0, 1) == 0 && co(0, 2) == 0) {
+            if (co(0, 0) == 0 && co(0, 1) == 0 && co(0, 2) == 0) {
+                TopolTriangle[0] = TopolTetra[0];
                 TopolTriangle[1] = TopolTetra[1];
                 TopolTriangle[2] = TopolTetra[2];
-            } else if (co(0, 2) == 0 && co(0, 3) == 0) {
+            } else if (co(0, 0) == 0 && co(0, 2) == 0 && co(0, 3) == 0) {
+                TopolTriangle[0] = TopolTetra[0];
                 TopolTriangle[1] = TopolTetra[2];
                 TopolTriangle[2] = TopolTetra[3];
             }
@@ -438,11 +446,13 @@ GeoMesh *TetrahedronGeoMesh(int nnodes_x, int nnodes_y, int nnodes_z, double l) 
 
         // Condicao de contorno xz-frente
         if ((co(1, 0) == 0 && co(1, 1) == 0 && co(1, 2) == 0) || (co(1, 0) == 0 && co(1, 1) == 0 && co(1, 3) == 0)) {
-            TopolTriangle[0] = TopolTetra[0];
-            TopolTriangle[1] = TopolTetra[1];
-            if (co(1, 2) == 0) {
+            if (co(1, 0) == 0 && co(1, 1) == 0 && co(1, 2) == 0) {
+                TopolTriangle[0] = TopolTetra[0];
+                TopolTriangle[1] = TopolTetra[1];
                 TopolTriangle[2] = TopolTetra[2];
-            } else if (co(1, 3) == 0) {
+            } else if (co(1, 0) == 0 && co(1, 1) == 0 && co(1, 3) == 0) {
+                TopolTriangle[0] = TopolTetra[0];
+                TopolTriangle[1] = TopolTetra[1];
                 TopolTriangle[2] = TopolTetra[3];
             }
             GeoElement *gel = new GeoElementTemplate<GeomTriangle> (TopolTriangle, bc4, gmesh, id);
@@ -450,11 +460,13 @@ GeoMesh *TetrahedronGeoMesh(int nnodes_x, int nnodes_y, int nnodes_z, double l) 
         }
         // Condicao de contorno xz-tras
         if ((co(1, 0) == l && co(1, 1) == l && co(1, 2) == l) || (co(1, 0) == l && co(1, 1) == l && co(1, 3) == l)) {
-            TopolTriangle[0] = TopolTetra[0];
-            TopolTriangle[1] = TopolTetra[1];
-            if (co(1, 2) == l) {
+            if (co(1, 0) == l && co(1, 1) == l && co(1, 2) == l) {
+                TopolTriangle[0] = TopolTetra[0];
+                TopolTriangle[1] = TopolTetra[1];
                 TopolTriangle[2] = TopolTetra[2];
-            } else if (co(1, 3) == l) {
+            } else if (co(1, 0) == l && co(1, 1) == l && co(1, 3) == l) {
+                TopolTriangle[0] = TopolTetra[0];
+                TopolTriangle[1] = TopolTetra[1];
                 TopolTriangle[2] = TopolTetra[3];
             }
             GeoElement *gel = new GeoElementTemplate<GeomTriangle> (TopolTriangle, bc5, gmesh, id);
@@ -561,7 +573,7 @@ void QuadrilateralTest(int pOrder) {
         DebugStop();
     }
 
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < 4; i++) {
         int ndiv = pow(2, i);
         double l = 1;
 
@@ -656,8 +668,8 @@ void TetrahedronTest(int pOrder) {
         cout << "\nNumber of elements: " << ndiv << "x" << ndiv << std::endl;
 
         GeoMesh *gmesh = TetrahedronGeoMesh(ndiv + 1, ndiv + 1, ndiv + 1, l);
-//        gmesh->Print(cout);
-//        VTKGeoMesh::PrintGMeshVTK(gmesh,"gmeshtet.vtk");
+//                gmesh->Print(cout);
+        VTKGeoMesh::PrintGMeshVTK(gmesh, "gmeshtet.vtk");
         CompMesh *cmesh = CreateCompMesh(gmesh, pOrder, 3);
 
         Analysis an(cmesh);
