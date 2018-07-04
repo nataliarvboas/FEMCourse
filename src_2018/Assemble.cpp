@@ -60,7 +60,7 @@ void Assemble::Compute(Matrix &globmat, Matrix &rhs) {
 
         cel->CalcStiff(ek, ef);
 
-//                ek.Print();
+        //                ek.Print();
         //        ef.Print();
 
         int64_t ndof = cel->NDOF();
@@ -72,17 +72,26 @@ void Assemble::Compute(Matrix &globmat, Matrix &rhs) {
             for (int j = 0; j < dof.GetNShape() * dof.GetNState(); j++) {
                 iglob.resize(ni + 1);
                 iglob[ni] = dof.GetFirstEquation() + j;
+                //                std::cout << iglob[ni] << std::endl;
                 ni++;
             }
         }
 
         for (int64_t i = 0; i < ek.Rows(); i++) {
             IG = iglob[i];
-            rhs(IG, 0) += ef(i, 0);
+            if (IG >= rhs.Rows()) {
+                std::cout << "parou1" << std::endl;
+                DebugStop();
+            }
+            rhs(IG, 0) += ef(i, 0); //ERRO           
 
             for (int64_t j = 0; j < ek.Rows(); j++) {
                 JG = iglob[j];
-                globmat(IG, JG) += ek(i, j);
+                if (JG >= globmat.Cols()) {
+                    std::cout << "parou2" << std::endl;
+                    DebugStop();
+                }
+                globmat(IG, JG) += ek(i, j); //ERRO
             }
         }
     }

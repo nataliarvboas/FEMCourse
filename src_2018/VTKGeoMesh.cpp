@@ -17,7 +17,7 @@
 static int GetVTK_ElType(ElementType ElType)
 {    
     int elType = -1;
-#ifdef USING_MKL
+
     switch (ElType)
     {
         case(fEPoint):
@@ -70,60 +70,7 @@ static int GetVTK_ElType(ElementType ElType)
             break;
         }
     }
-#else
-    switch (ElType)
-    {
-        case(EPoint):
-        {
-            elType = 1;
-            break;
-        }
-        case(EOned):
-        {
-            elType = 21;
-            break;
-        }
-        case (ETriangle):
-        {
-            // quadratic triangle
-            elType = 22;
-            break;
-        }
-        case (EQuadrilateral):
-        {
-            // quadratic quad
-            elType = 23;
-            break;
-        }
-        case (ETetraedro):
-        {
-            // quadratic tetrahedra
-            elType = 24;
-            break;
-        }
-        case (EPiramide):
-        {
-            elType = 14;
-            break;
-        }
-        case (EPrisma):
-        {
-            elType = 13;
-            break;
-        }
-        case (ECube):
-        {
-            elType = 12;
-            break;
-        }
-        default:
-        {
-            std::cout << "Element type not found on " << __PRETTY_FUNCTION__ << std::endl;
-            DebugStop();
-            break;
-        }
-    }
-#endif
+
     if(elType == -1)
     {
         std::cout << "Element type not found on " << __PRETTY_FUNCTION__ << std::endl;
@@ -168,7 +115,7 @@ static TMatrix NodeCoordinates(ElementType eltype)
     };
     TMatrix result;
     
-#ifdef USING_MKL
+
     switch (eltype) {
         case fEOned:
             result.Resize(3, 1);
@@ -201,40 +148,6 @@ static TMatrix NodeCoordinates(ElementType eltype)
         default:
             break;
     }
-#else
-        switch (eltype) {
-        case EOned:
-            result.Resize(3, 1);
-            result(0,0) = -1.;
-            result(1,0) = 1.;
-            result(2,0) = 0.;
-            break;
-        case EQuadrilateral:
-            result.Resize(8, 2);
-            for (int i=0; i<8; i++) {
-                result(i,0) = quadco[i][0];
-                result(i,1) = quadco[i][1];
-            }
-            break;
-        case ETriangle:
-            result.Resize(6, 2);
-            for (int i=0; i<6; i++) {
-                result(i,0) = triangle[i][0];
-                result(i,1) = triangle[i][1];
-            }
-            break;
-        case ETetraedro:
-            result.Resize(10, 3);
-            for (int i=0; i<10; i++) {
-                result(i,0) = tetra[i][0];
-                result(i,1) = tetra[i][1];
-                result(i,2) = tetra[i][2];
-            }
-            break;
-        default:
-            break;
-    }
-#endif
     return result;
 }
 /**

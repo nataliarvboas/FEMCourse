@@ -13,16 +13,20 @@
 #include <stdio.h>
 #include <vector>
 #include "TMatrix.h"
-#include "TPZSSpStructMatrix.h"
+//#include "TPZSSpStructMatrix.h"
+
+
+
 
 
 typedef TMatrix Matrix;
 typedef std::vector<int> VecInt;
 typedef std::vector<double> VecDouble;
 
-#ifdef USING_MKL
+
 enum ElementType
 {
+
     /*0*/    fEPoint,
     /*1*/    fEOned,
     /*2*/    fETriangle,
@@ -31,19 +35,9 @@ enum ElementType
     /*5*/    fEPiramide,
     /*6*/    fEPrisma,
     /*7*/    fECube
+
+         
 };
-#else
-enum ElementType
-{
-    /*0*/    EPoint,
-    /*1*/    EOned,
-    /*2*/    ETriangle,
-    /*3*/    EQuadrilateral,
-    /*4*/    ETetraedro,
-    /*5*/    EPiramide,
-    /*6*/    EPrisma,
-    /*7*/    ECube
-};
-#endif
+
 
 #endif /* defined(__FemSC__DATATYPES__) */

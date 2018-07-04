@@ -40,7 +40,7 @@ GeoElement::~GeoElement() {
 
 CompElement *GeoElement::CreateCompEl(CompMesh *mesh, int64_t index) {
     GeoElement *gel = this;
-#ifdef USING_MKL
+
     switch (gel->Type()) {
         case fEOned:
             return new CompElementTemplate<Shape1d> (index, mesh, gel);
@@ -54,21 +54,7 @@ CompElement *GeoElement::CreateCompEl(CompMesh *mesh, int64_t index) {
         case fETetraedro:
             return new CompElementTemplate<ShapeTetrahedron> (index, mesh, gel);
     }
-#else
-    switch (gel->Type()) {
-        case EOned:
-            return new CompElementTemplate<Shape1d> (index, mesh, gel);
-            break;
-        case EQuadrilateral:
-            return new CompElementTemplate<ShapeQuad> (index, mesh, gel);
-            break;
-        case ETriangle:
-            return new CompElementTemplate<ShapeTriangle> (index, mesh, gel);
-            break;
-        case ETetraedro:
-            return new CompElementTemplate<ShapeTetrahedron> (index, mesh, gel);
-    }
-#endif
+
 }
 
 void GeoElement::Print(std::ostream &out) {

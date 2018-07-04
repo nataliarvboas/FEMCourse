@@ -21,9 +21,7 @@ int TopologyQuad::SideNodeIndex(int side, int node) {
 }
 
 ElementType TopologyQuad::Type() {
-#ifdef USING_MKL
+
     return fEQuadrilateral;
-#else
-    return EQuadrilateral;
-#endif
+
 }

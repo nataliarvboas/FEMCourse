@@ -51,14 +51,16 @@ void TriangleTest(int pOrder);
 void TetrahedronTest(int pOrder);
 
 int main() {
-            QuadrilateralTest(1);
+    //            QuadrilateralTest(1);
     //        QuadrilateralTest(2);
     //
     //        TriangleTest(1);
     //        TriangleTest(2);
 
     //    TetrahedronTest(1);
-//    TetrahedronTest(2);
+    TetrahedronTest(2);
+
+
     return 0;
 }
 
@@ -475,6 +477,7 @@ GeoMesh *TetrahedronGeoMesh(int nnodes_x, int nnodes_y, int nnodes_z, double l) 
     }
     gmesh->BuildConnectivity();
     return gmesh;
+    
 }
 
 CompMesh *CreateCompMesh(GeoMesh *gmesh, int pOrder, int dim) {
@@ -598,6 +601,7 @@ void QuadrilateralTest(int pOrder) {
 
         ComputeConvergenceRates(fout, error0, error, ndiv, l);
         fout << "-------------------------------------------" << std::endl;
+        delete pos;
     }
 }
 
@@ -641,6 +645,7 @@ void TriangleTest(int pOrder) {
 
         ComputeConvergenceRates(fout, error0, error, ndiv, l);
         fout << "-------------------------------------------" << std::endl;
+        delete pos;
     }
 }
 
@@ -660,7 +665,7 @@ void TetrahedronTest(int pOrder) {
     }
 
     for (int i = 0; i < 1; i++) {
-        int ndiv = pow(2, i);
+        int ndiv = pow(2, 0);
         double l = 1;
 
         fout << "-------------------------------------------" << std::endl;
@@ -668,8 +673,6 @@ void TetrahedronTest(int pOrder) {
         cout << "\nNumber of elements: " << ndiv << "x" << ndiv << std::endl;
 
         GeoMesh *gmesh = TetrahedronGeoMesh(ndiv + 1, ndiv + 1, ndiv + 1, l);
-//                gmesh->Print(cout);
-        VTKGeoMesh::PrintGMeshVTK(gmesh, "gmeshtet.vtk");
         CompMesh *cmesh = CreateCompMesh(gmesh, pOrder, 3);
 
         Analysis an(cmesh);
@@ -686,6 +689,9 @@ void TetrahedronTest(int pOrder) {
 
         ComputeConvergenceRates(fout, error0, error, ndiv, l);
         fout << "-------------------------------------------" << std::endl;
+        delete pos;
+        delete gmesh;
+        delete cmesh;       
     }
 }
 

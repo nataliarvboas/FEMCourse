@@ -21,9 +21,6 @@ int TopologyTriangle::SideNodeIndex(int side, int node) {
 }
 
 ElementType TopologyTriangle::Type() {
-#ifdef USING_MKL
     return fETriangle;
-#else
-    return ETriangle;
-#endif
+
 }

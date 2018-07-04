@@ -20,9 +20,7 @@ int Topology1d::SideNodeIndex(int side, int node) {
 }
 
 ElementType Topology1d::Type() {
-#ifdef USING_MKL
+
     return fEOned;
-#else
-    return EOned;
-#endif
+
 }

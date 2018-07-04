@@ -39,9 +39,7 @@ int TopologyTetrahedron::SideNodeIndex(int side, int node) {
 }
 
 ElementType TopologyTetrahedron::Type() {
-#ifdef USING_MKL
+
     return fETetraedro;
-#else
-    return ETetraedro;
-#endif
+
 }
