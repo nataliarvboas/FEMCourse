@@ -128,6 +128,20 @@
           <preBuildCommand>cmake .</preBuildCommand>
         </preBuild>
       </makefileType>
+      <folder path="0/mainprograms">
+        <ccTool>
+          <preprocessorList>
+            <Elem>PZDEBUG</Elem>
+          </preprocessorList>
+        </ccTool>
+      </folder>
+      <folder path="0/src_2018">
+        <ccTool>
+          <preprocessorList>
+            <Elem>PZDEBUG</Elem>
+          </preprocessorList>
+        </ccTool>
+      </folder>
       <folder path="0/tinyxml">
         <ccTool>
           <preprocessorList>
@@ -217,9 +231,6 @@
       </item>
       <item path="src_2018/IntRuleTetrahedron.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
-          <preprocessorList>
-            <Elem>PZDEBUG</Elem>
-          </preprocessorList>
         </ccTool>
       </item>
       <item path="src_2018/IntRuleTriangle.cpp" ex="false" tool="1" flavor2="8">

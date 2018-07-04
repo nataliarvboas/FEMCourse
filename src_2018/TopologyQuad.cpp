@@ -6,8 +6,8 @@
 
 #include "TopologyQuad.h"
 
-int TopologyQuad::NSideNodes(int side){
-    static int nsidenodes[9] = {1,1,1,1,2,2,2,2,4};
+int TopologyQuad::NSideNodes(int side) {
+    static int nsidenodes[9] = {1, 1, 1, 1, 2, 2, 2, 2, 4};
     return nsidenodes[side];
 }
 
@@ -20,7 +20,10 @@ int TopologyQuad::SideNodeIndex(int side, int node) {
     return -1;
 }
 
-
-ElementType TopologyQuad::Type(){
+ElementType TopologyQuad::Type() {
+#ifdef USING_MKL
     return fEQuadrilateral;
+#else
+    return EQuadrilateral;
+#endif
 }

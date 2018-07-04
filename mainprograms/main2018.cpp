@@ -573,7 +573,7 @@ void QuadrilateralTest(int pOrder) {
         DebugStop();
     }
 
-    for (int i = 0; i < 4; i++) {
+    for (int i = 0; i < 5; i++) {
         int ndiv = pow(2, i);
         double l = 1;
 

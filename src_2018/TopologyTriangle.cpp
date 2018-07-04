@@ -7,7 +7,7 @@
 #include "TopologyTriangle.h"
 
 int TopologyTriangle::NSideNodes(int side) {
-    int nsidenodes[7] = {1,1,1,2,2,2,3};
+    int nsidenodes[7] = {1, 1, 1, 2, 2, 2, 3};
     return nsidenodes[side];
 }
 
@@ -21,5 +21,9 @@ int TopologyTriangle::SideNodeIndex(int side, int node) {
 }
 
 ElementType TopologyTriangle::Type() {
+#ifdef USING_MKL
     return fETriangle;
+#else
+    return ETriangle;
+#endif
 }
