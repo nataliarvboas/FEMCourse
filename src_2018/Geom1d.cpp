@@ -52,6 +52,7 @@ void Geom1d::GradX(const VecDouble &xi, Matrix &NodeCo, VecDouble &x, Matrix &gr
             gradx(j, 0) += NodeCo.GetVal(j, i) * dphi(0, i);
         }
     }
+    phi.clear();
 }
 
 void Geom1d::SetNodes(const VecInt &nodes) {

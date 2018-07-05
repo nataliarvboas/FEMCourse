@@ -15,3 +15,8 @@ if(USING_PZ)
  target_link_libraries(Fem2018 pz)
 
 endif(USING_PZ)
+
+if(USING_ARMADILLO)
+ target_link_libraries(Fem2018 ${ARMADILLO_LIBRARIES})
+
+endif(USING_ARMADILLO)

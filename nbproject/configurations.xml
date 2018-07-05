@@ -71,7 +71,7 @@
         <rebuildPropChanged>false</rebuildPropChanged>
       </toolsSet>
       <flagsDictionary>
-        <element flagsID="0" commonFlags="-fPIC -std=gnu++11"/>
+        <element flagsID="0" commonFlags="-std=gnu++11"/>
       </flagsDictionary>
       <codeAssistance>
       </codeAssistance>
@@ -83,47 +83,11 @@
           <executablePath>../FEMCourse-build/mainprograms/Fem2018</executablePath>
           <ccTool>
             <incDir>
-              <pElem>../../neopz/install/pzlib/include</pElem>
-              <pElem>/pzlib/include/Python</pElem>
-              <pElem>../../neopz/install/pzlib/include/Util</pElem>
-              <pElem>../../neopz/install/pzlib/include/PerfUtil</pElem>
-              <pElem>../../neopz/install/pzlib/include/Common</pElem>
-              <pElem>../../neopz/install/pzlib/include/Save</pElem>
-              <pElem>../../neopz/install/pzlib/include/Matrix</pElem>
-              <pElem>../../neopz/install/pzlib/include/Topology</pElem>
-              <pElem>../../neopz/install/pzlib/include/Geom</pElem>
-              <pElem>../../neopz/install/pzlib/include/SpecialMaps</pElem>
-              <pElem>../../neopz/install/pzlib/include/Refine</pElem>
-              <pElem>../../neopz/install/pzlib/include/Shape</pElem>
-              <pElem>../../neopz/install/pzlib/include/Material</pElem>
-              <pElem>../../neopz/install/pzlib/include/Material/REAL</pElem>
-              <pElem>../../neopz/install/pzlib/include/Material/REAL/Plasticity</pElem>
-              <pElem>../../neopz/install/pzlib/include/Material/Complex</pElem>
-              <pElem>../../neopz/install/pzlib/include/Multigrid</pElem>
-              <pElem>../../neopz/install/pzlib/include/Mesh</pElem>
-              <pElem>../../neopz/install/pzlib/include/StrMatrix</pElem>
-              <pElem>../../neopz/install/pzlib/include/Integral</pElem>
-              <pElem>../../neopz/install/pzlib/include/Frontal</pElem>
-              <pElem>../../neopz/install/pzlib/include/Pre</pElem>
-              <pElem>../../neopz/install/pzlib/include/Post</pElem>
-              <pElem>../../neopz/install/pzlib/include/Random</pElem>
-              <pElem>../../neopz/install/pzlib/include/Optimization</pElem>
-              <pElem>../../neopz/install/pzlib/include/Analysis</pElem>
-              <pElem>../../neopz/install/pzlib/include/SubStruct</pElem>
-              <pElem>../../neopz/install/pzlib/include/LinearSolvers</pElem>
-              <pElem>../../neopz/install/pzlib/include/External</pElem>
-              <pElem>../../neopz/install/pzlib/include/External/sloan</pElem>
-              <pElem>../../neopz/install/pzlib/include/Publications</pElem>
               <pElem>headers2018</pElem>
               <pElem>headers</pElem>
               <pElem>tinyxml</pElem>
-              <pElem>/opt/intel/mkl/include</pElem>
-              <pElem>../../neopz/install</pElem>
               <pElem>../FEMCourse-build/mainprograms</pElem>
             </incDir>
-            <preprocessorList>
-              <Elem>PZDEBUG</Elem>
-            </preprocessorList>
           </ccTool>
         </makeTool>
         <preBuild>

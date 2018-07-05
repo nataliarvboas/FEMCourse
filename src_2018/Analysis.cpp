@@ -17,24 +17,24 @@ using namespace std;
 
 Analysis::Analysis() {
     cmesh = 0;
-    Solution.Resize(0, 0);
-    GlobalSystem.Resize(0, 0);
-    RightHandSide.Resize(0, 0);
+//    Solution.resize(0, 0);
+//    GlobalSystem.resize(0, 0);
+//    RightHandSide.resize(0, 0);
 
 }
 
 Analysis::Analysis(const Analysis &cp) {
     cmesh = cp.cmesh;
-    Solution = cp.Solution;
-    GlobalSystem = cp.GlobalSystem;
-    RightHandSide = cp.RightHandSide;
+//    Solution = cp.Solution;
+//    GlobalSystem = cp.GlobalSystem;
+//    RightHandSide = cp.RightHandSide;
 }
 
 Analysis &Analysis::operator=(const Analysis &cp) {
     cmesh = cp.cmesh;
-    Solution = cp.Solution;
-    GlobalSystem = cp.GlobalSystem;
-    RightHandSide = cp.RightHandSide;
+//    Solution = cp.Solution;
+//    GlobalSystem = cp.GlobalSystem;
+//    RightHandSide = cp.RightHandSide;
     return *this;
 }
 
@@ -55,22 +55,24 @@ CompMesh *Analysis::Mesh() const {
 
 void Analysis::RunSimulation() {
     Assemble assemb(cmesh);
-    
-    int64_t ne = assemb.NEquations();
-    Matrix K(ne,ne);
-    Matrix F(ne,1);
-    
+
+    int ne = assemb.NEquations();
+    Matrix K(ne, ne);
+    Matrix F(ne, 1);
+
     K.Zero();
-    F.Zero();    
-    assemb.Compute(K, F);    
+    F.Zero();
+
+    assemb.Compute(K, F);
     std::cout << "Assemble done!" << std::endl;
-    
+
     GlobalSystem = K;
     RightHandSide = F;
 
     std::cout << "Computing solution..." << std::endl;
     K.Solve_LU(F);
     std::cout << "Solution computed!" << std::endl;
+    
     Solution = F;
 
     int solsize = Solution.Rows();
@@ -80,6 +82,7 @@ void Analysis::RunSimulation() {
         sol[i] = Solution(i, 0);
     }
     cmesh->LoadSolution(sol);
+    sol.clear();
 }
 
 void Analysis::PostProcessSolution(const std::string &filename, PostProcess &defPostProc) const {
@@ -130,6 +133,10 @@ VecDouble Analysis::PostProcessError(std::ostream &out, PostProcess &defPostProc
     for (int i = 0; i < nerrors; i++) {
         ervec[i] = sqrt(values[i]);
     }
+
+    errors.clear();
+    values.clear();
+
     return ervec;
 }
 

@@ -87,7 +87,7 @@ void GeoElementTemplate<TGeom>::Jacobian(const Matrix &gradx, Matrix &jac, Matri
         case 1:
         {
             axes.Resize(dim, 3);
-            std::vector<double> v_1(3, 0.);
+            VecDouble v_1(3, 0.);
 
             for (int i = 0; i < nrows; i++) {
                 v_1[i] = gradx.GetVal(i, 0);
@@ -108,12 +108,13 @@ void GeoElementTemplate<TGeom>::Jacobian(const Matrix &gradx, Matrix &jac, Matri
             for (int i = 0; i < 3; i++) {
                 axes(0, i) = v_1[i] / norm_v_1;
             }
+            v_1.clear();
         }
             break;
         case 2:
         {
-            std::vector<double> v_1(3, 0.), v_2(3, 0.);
-            std::vector<double> v_1_til(3, 0.), v_2_til(3, 0.);
+            VecDouble v_1(3, 0.), v_2(3, 0.);
+            VecDouble v_1_til(3, 0.), v_2_til(3, 0.);
 
             for (int i = 0; i < nrows; i++) {
                 v_1[i] = gradx.GetVal(i, 0);
@@ -156,6 +157,10 @@ void GeoElementTemplate<TGeom>::Jacobian(const Matrix &gradx, Matrix &jac, Matri
                 axes(0, i) = v_1_til[i];
                 axes(1, i) = v_2_til[i];
             }
+            v_1.clear();
+            v_2.clear();
+            v_1_til.clear();
+            v_2_til.clear();
         }
             break;
         case 3:

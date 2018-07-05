@@ -114,6 +114,8 @@ void GeoMesh::BuildConnectivity() {
             }
         }
     }
+    sides.clear();
+    vetor.clear();
 }
 
 void GeoMesh::Print(std::ostream &out) {

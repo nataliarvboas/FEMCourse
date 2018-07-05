@@ -31,6 +31,10 @@ if(USING_PZ)
 
 endif(USING_PZ)
 
+if(USING_ARMADILLO)
+find_package( Armadillo REQUIRED NO_MODULE)
+include_directories(${ARMADILLO_INCLUDE_DIRS})
+endif(USING_ARMADILLO)
 
 add_subdirectory(headers)
 add_subdirectory(headers2018)
@@ -72,13 +76,6 @@ endif()
 #define se biblioteca Armadillo deve ser usada
 option(USING_ARMADILLO "Biblioteca Armadillo deve ser usada neste projeto" OFF)
 
-if(USING_ARMADILLO)
-	find_package( Armadillo REQUIRED NO_MODULE)
-	include_directories(${ARMADILLO_INCLUDE_DIRS})
-	add_definitions(-DARMADILLO)
-endif(USING_ARMADILLO)
-
-
 #define se biblioteca Eigen3 deve ser usada
 option(USING_EIGEN3 "Biblioteca Eigen3 deve ser usada neste projeto" OFF)
 
@@ -87,12 +84,6 @@ if(USING_EIGEN3)
 	include_directories(${EIGEN3_INCLUDE_DIR})
 	add_definitions(-DEIGEN3)
 endif(USING_EIGEN3)
-
-
-if(USING_ARMADILLO)
-	link_libraries(${ARMADILLO_LIBRARIES}) 
-endif(USING_ARMADILLO)
-
 
 
 option(USING_FAD "Whether the FAD package will be linked with the library" OFF)

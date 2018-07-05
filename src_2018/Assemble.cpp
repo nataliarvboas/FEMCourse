@@ -8,6 +8,8 @@
 #include "GeoMesh.h"
 #include "MathStatement.h"
 
+
+
 Assemble::Assemble() {
 }
 
@@ -39,18 +41,16 @@ int64_t Assemble::NEquations() {
     return neq;
 }
 
-void Assemble::OptimizeBandwidth() {
+void Assemble::OptimizeBandwidth() {    
 }
 
 void Assemble::Compute(Matrix &globmat, Matrix &rhs) {
-    int64_t nelem = cmesh->GetGeoMesh()->NumElements();
+    int nelem = cmesh->GetGeoMesh()->NumElements();
+    int ne = this->NEquations();
 
-    globmat.Zero();
-    rhs.Zero();
+    int IG = 0, JG = 0;
 
-    int64_t IG = 0, JG = 0;
-
-    for (int64_t el = 0; el < nelem; el++) {
+    for (int el = 0; el < nelem; el++) {
         CompElement *cel = cmesh->GetElement(el);
 
         int nshape = cel->NShapeFunctions();
@@ -59,38 +59,27 @@ void Assemble::Compute(Matrix &globmat, Matrix &rhs) {
         Matrix ef(nstate * nshape, 1, 0);
 
         cel->CalcStiff(ek, ef);
+        
+//        ek.Print();
 
-        //                ek.Print();
-        //        ef.Print();
-
-        int64_t ndof = cel->NDOF();
-        VecInt iglob(0);
+        int ndof = cel->NDOF();
+        VecInt iglob(ne, 0);
         int ni = 0;
-        for (int64_t i = 0; i < ndof; i++) {
-            int64_t dofindex = cel->GetDOFIndex(i);
+        for (int i = 0; i < ndof; i++) {
+            int dofindex = cel->GetDOFIndex(i);
             DOF dof = cmesh->GetDOF(dofindex);
             for (int j = 0; j < dof.GetNShape() * dof.GetNState(); j++) {
-                iglob.resize(ni + 1);
                 iglob[ni] = dof.GetFirstEquation() + j;
-                //                std::cout << iglob[ni] << std::endl;
                 ni++;
             }
         }
 
-        for (int64_t i = 0; i < ek.Rows(); i++) {
+        for (int i = 0; i < ek.Rows(); i++) {
             IG = iglob[i];
-            if (IG >= rhs.Rows()) {
-                std::cout << "parou1" << std::endl;
-                DebugStop();
-            }
             rhs(IG, 0) += ef(i, 0); //ERRO           
 
-            for (int64_t j = 0; j < ek.Rows(); j++) {
+            for (int j = 0; j < ek.Rows(); j++) {
                 JG = iglob[j];
-                if (JG >= globmat.Cols()) {
-                    std::cout << "parou2" << std::endl;
-                    DebugStop();
-                }
                 globmat(IG, JG) += ek(i, j); //ERRO
             }
         }

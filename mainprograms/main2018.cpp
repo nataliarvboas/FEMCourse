@@ -6,6 +6,8 @@
 #include <functional> 
 #include <string.h>
 
+//#define ARMA_USE_SUPERLU
+
 //#include "TVec.h"
 //#include "pzvec.h"
 //#include "pzerror.h"
@@ -57,7 +59,7 @@ int main() {
     //        TriangleTest(1);
     //        TriangleTest(2);
 
-    //    TetrahedronTest(1);
+//            TetrahedronTest(1);
     TetrahedronTest(2);
 
 
@@ -174,6 +176,11 @@ GeoMesh *QuadGeoMesh(int nnodes_x, int nnodes_y, double l) {
         }
     }
     gmesh->BuildConnectivity();
+
+    coord.clear();
+    TopolQuad.clear();
+    topolLine.clear();
+
     return gmesh;
 }
 
@@ -279,6 +286,13 @@ GeoMesh *TriangleGeoMesh(int nnodes_x, int nnodes_y, double l) {
     }
 
     gmesh->BuildConnectivity();
+
+    coord.clear();
+    TopolTriangle_1.clear();
+    TopolTriangle_2.clear();
+    topolLine.clear();
+    TopolTriangle.clear();
+
     return gmesh;
 }
 
@@ -476,8 +490,19 @@ GeoMesh *TetrahedronGeoMesh(int nnodes_x, int nnodes_y, int nnodes_z, double l) 
         }
     }
     gmesh->BuildConnectivity();
+
+    coord.clear();
+    TopolTetra_1.clear();
+    TopolTetra_2.clear();
+    TopolTetra_3.clear();
+    TopolTetra_4.clear();
+    TopolTetra_5.clear();
+    TopolTetra_6.clear();
+    TopolTetra.clear();
+    TopolTriangle.clear();
+
     return gmesh;
-    
+
 }
 
 CompMesh *CreateCompMesh(GeoMesh *gmesh, int pOrder, int dim) {
@@ -602,7 +627,11 @@ void QuadrilateralTest(int pOrder) {
         ComputeConvergenceRates(fout, error0, error, ndiv, l);
         fout << "-------------------------------------------" << std::endl;
         delete pos;
+        delete gmesh;
+        delete cmesh;
+        error.clear();
     }
+    error0.clear();
 }
 
 void TriangleTest(int pOrder) {
@@ -646,7 +675,11 @@ void TriangleTest(int pOrder) {
         ComputeConvergenceRates(fout, error0, error, ndiv, l);
         fout << "-------------------------------------------" << std::endl;
         delete pos;
+        delete gmesh;
+        delete cmesh;
+        error.clear();
     }
+    error0.clear();
 }
 
 void TetrahedronTest(int pOrder) {
@@ -664,8 +697,8 @@ void TetrahedronTest(int pOrder) {
         DebugStop();
     }
 
-    for (int i = 0; i < 1; i++) {
-        int ndiv = pow(2, 0);
+    for (int i = 0; i < 5; i++) {
+        int ndiv = pow(2, i);
         double l = 1;
 
         fout << "-------------------------------------------" << std::endl;
@@ -691,8 +724,10 @@ void TetrahedronTest(int pOrder) {
         fout << "-------------------------------------------" << std::endl;
         delete pos;
         delete gmesh;
-        delete cmesh;       
+        delete cmesh;
+        error.clear();
     }
+    error0.clear();
 }
 
 

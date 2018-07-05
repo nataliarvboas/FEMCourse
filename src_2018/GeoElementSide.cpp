@@ -10,7 +10,6 @@
 #include <algorithm>
 #include "tpanic.h"
 
-
 GeoElementSide::GeoElementSide() {
 
 }
@@ -86,8 +85,8 @@ void GeoElementSide::ComputeNeighbours(std::vector<GeoElementSide> &compneigh) {
         }
         std::sort(GeoElSet[in].begin(), GeoElSet[in].end());
     }
-    std::vector<int> result;
-    std::vector<int> result_aux;
+    VecInt result;
+    VecInt result_aux;
     switch (nsnodes) {
         case 1:
         {
@@ -104,23 +103,27 @@ void GeoElementSide::ComputeNeighbours(std::vector<GeoElementSide> &compneigh) {
             break;
         case 4:
         {
-            std::vector<int> inter1, inter2;
+            VecInt inter1, inter2;
             std::set_intersection(GeoElSet[0].begin(), GeoElSet[0].end(), GeoElSet[2].begin(), GeoElSet[2].end(), std::back_inserter(inter1));
             if (inter1.size() == 0) break;
             std::set_intersection(GeoElSet[1].begin(), GeoElSet[1].end(), GeoElSet[3].begin(), GeoElSet[3].end(), std::back_inserter(inter2));
             if (inter2.size() == 0) break;
             std::set_intersection(inter1.begin(), inter1.end(), inter2.begin(), inter2.end(), std::back_inserter(result));
+            inter1.clear();
+            inter2.clear();
         }
             break;
         default:
         {
-            std::vector<int> inter1, inter2;
+            VecInt inter1, inter2;
             inter1 = GeoElSet[0];
             for (in = 0; in < nsnodes - 1; in++) {
                 std::set_intersection(inter1.begin(), inter1.end(), GeoElSet[in + 1].begin(), GeoElSet[in + 1].end(), std::back_inserter(inter2));
                 if (inter2.size() == 0) break;
                 inter1 = inter2;
             }
+            inter1.clear();
+            inter2.clear();
             result = inter2;
         }
     }
@@ -133,6 +136,12 @@ void GeoElementSide::ComputeNeighbours(std::vector<GeoElementSide> &compneigh) {
             compneigh.push_back(GeoElementSide(gelResult, whichSd));
         }
     }
+    GeoElSideSet.clear();
+    GeoElSet.clear();
+    nodeindexes.clear();
+    result.clear();
+    result_aux.clear();
+
 
 }
 

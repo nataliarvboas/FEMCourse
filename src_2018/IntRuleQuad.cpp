@@ -62,6 +62,7 @@ void IntRuleQuad::SetOrder(int order) {
                 fWeights[j + i * npoints] = weightX*weight;
             }
         }
+        co.clear();
     }
 
     if (order > 19) {
@@ -78,6 +79,8 @@ void IntRuleQuad::SetOrder(int order) {
             fWeights[j + i * npoints] = w[i];
             }
         }
+        co.clear();
+        w.clear();        
     }   
 }
 
@@ -106,4 +109,8 @@ void IntRuleQuad::gaulegQuad(const double x1, const double x2, VecDouble &co, Ve
             w[n * i + j] = wx[i] * wy[j];
         }
     }
+    cox.clear();
+    coy.clear();
+    wx.clear();
+    wy.clear();    
 }

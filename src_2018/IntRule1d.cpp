@@ -163,5 +163,7 @@ void IntRule1d::SetOrder(int order) {
             fPoints(i, 0) = co[i];
             fWeights[i] = w[i];
         }
+        co.clear();
+        w.clear();
     }
 }

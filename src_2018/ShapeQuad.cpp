@@ -6,7 +6,6 @@
 #include "Shape1d.h"
 #include "ShapeQuad.h"
 
-
 void ShapeQuad::Shape(const VecDouble &xi, VecInt &orders, VecDouble &phi, Matrix &dphi) {
 
     int nshape = NShapeFunctions(orders);
@@ -75,7 +74,11 @@ void ShapeQuad::Shape(const VecDouble &xi, VecInt &orders, VecDouble &phi, Matri
         dphi(0, 8) *= 16.;
         dphi(1, 8) *= 16.;
     }
-
+    phixi.clear();
+    phieta.clear();
+    cxi.clear();
+    ceta.clear();
+    order_1d.clear();
 }
 
 int ShapeQuad::NShapeFunctions(int side, int order) {

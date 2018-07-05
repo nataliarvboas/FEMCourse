@@ -109,6 +109,7 @@ void Poisson::ContributeError(IntPointData &data, VecDouble &u_exact, Matrix &du
 
     }
     errors[2] = errors[0] + errors[1];
+    u.clear();
 }
 
 void Poisson::Contribute(IntPointData &data, double weight, Matrix &EK, Matrix &EF) const {
@@ -160,6 +161,9 @@ void Poisson::Contribute(IntPointData &data, double weight, Matrix &EK, Matrix &
             }
         }
     }
+    phi.clear();
+    res.clear();
+    grad.clear();
 }
 
 void Poisson::PostProcessSolution(const IntPointData &data, const int var, VecDouble &Solout) const {
@@ -213,6 +217,7 @@ void Poisson::PostProcessSolution(const IntPointData &data, const int var, VecDo
             for (int i = 0; i < nstate; i++) {
                 Solout[i] = result[i];
             }
+            result.clear();
         }
             break;
 
@@ -225,6 +230,7 @@ void Poisson::PostProcessSolution(const IntPointData &data, const int var, VecDo
             for (int i = 0; i < nstate; i++) {
                 Solout[i] = sol[i];
             }
+            sol.clear();
 
         }
             break;
@@ -240,6 +246,7 @@ void Poisson::PostProcessSolution(const IntPointData &data, const int var, VecDo
                     Solout[i * cols + j] = dsol(i, j);
                 }
             }
+            sol.clear();
         }
             break;
 
@@ -250,6 +257,7 @@ void Poisson::PostProcessSolution(const IntPointData &data, const int var, VecDo
             DebugStop();
         }
     }
+    sol.clear();
 }
 
 double Poisson::Inner(Matrix &S, Matrix & T) const {

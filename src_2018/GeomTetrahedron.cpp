@@ -62,6 +62,7 @@ void GeomTetrahedron::X(const VecDouble &xi, Matrix &NodeCo, VecDouble &x) {
             x[i] += phi[j] * NodeCo.GetVal(i, j);
         }
     }
+    phi.clear();
 }
 
 
@@ -71,14 +72,6 @@ void GeomTetrahedron::GradX(const VecDouble &xi, Matrix &NodeCo, VecDouble &x, M
     int nrow = NodeCo.Rows();
     int ncol = NodeCo.Cols();
 
-#ifdef PZDEBUG
-    if (nrow != 3 || ncol != 4) {
-        std::cout << "Objects of incompatible lengths, gradient cannot be computed." << std::endl;
-        std::cout << "nodes matrix must be 3x4." << std::endl;
-        DebugStop();
-    }
-
-#endif
     VecDouble phi(4);
     Matrix dphi(3, 4);
     Shape(xi, phi, dphi);
@@ -89,6 +82,7 @@ void GeomTetrahedron::GradX(const VecDouble &xi, Matrix &NodeCo, VecDouble &x, M
             gradx(j, 2) += NodeCo.GetVal(j, i) * dphi(2, i);
         }
     }
+    phi.clear();
 }
 
 

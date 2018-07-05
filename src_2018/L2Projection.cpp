@@ -94,6 +94,7 @@ void L2Projection::Contribute(IntPointData &data, double weight, Matrix &EK, Mat
             std::cout << __PRETTY_FUNCTION__ << " at line " << __LINE__ << " not implemented\n";
         }
     }
+    result.clear();
 }
 
 int L2Projection::NEvalErrors() const {

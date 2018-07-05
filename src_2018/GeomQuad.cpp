@@ -56,6 +56,7 @@ void GeomQuad::X(const VecDouble &xi, Matrix &NodeCo, VecDouble &x) {
             x[i] += phi[j] * NodeCo.GetVal(i, j);
         }
     }
+    phi.clear();
 }
 
 void GeomQuad::GradX(const VecDouble &xi, Matrix &NodeCo, VecDouble &x, Matrix &gradx) {
@@ -75,6 +76,7 @@ void GeomQuad::GradX(const VecDouble &xi, Matrix &NodeCo, VecDouble &x, Matrix &
             gradx(j, 1) += NodeCo.GetVal(j, i) * dphi(1, i);
         }
     }
+    phi.clear();
 }
 
 void GeomQuad::SetNodes(const VecInt &nodes) {

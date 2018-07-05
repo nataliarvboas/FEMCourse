@@ -54,6 +54,7 @@ void GeomTriangle::X(const VecDouble &xi, Matrix &NodeCo, VecDouble &x) {
             x[i] += phi[j] * NodeCo.GetVal(i, j);
         }
     }
+    phi.clear();
 }
 
 void GeomTriangle::GradX(const VecDouble &xi, Matrix &NodeCo, VecDouble &x, Matrix &gradx) {
@@ -72,6 +73,7 @@ void GeomTriangle::GradX(const VecDouble &xi, Matrix &NodeCo, VecDouble &x, Matr
             gradx(j, 1) += NodeCo.GetVal(j, i) * dphi(1, i);
         }
     }
+    phi.clear();
 }
 
 void GeomTriangle::SetNodes(const VecInt &nodes) {

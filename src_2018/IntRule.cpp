@@ -59,6 +59,7 @@ void IntRule::Print(std::ostream &out) {
         }
         out << "peso: " << setprecision(10) << w << endl << endl;
     }
+    co.clear();
 }
 
 void IntRule::Point(int p, VecDouble& co, double& w) const {
