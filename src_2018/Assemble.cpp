@@ -59,8 +59,9 @@ void Assemble::Compute(Matrix &globmat, Matrix &rhs) {
         Matrix ef(nstate * nshape, 1, 0);
 
         cel->CalcStiff(ek, ef);
-        
+//        
 //        ek.Print();
+//        ef.Print();
 
         int ndof = cel->NDOF();
         VecInt iglob(ne, 0);
@@ -76,11 +77,11 @@ void Assemble::Compute(Matrix &globmat, Matrix &rhs) {
 
         for (int i = 0; i < ek.Rows(); i++) {
             IG = iglob[i];
-            rhs(IG, 0) += ef(i, 0); //ERRO           
+            rhs(IG, 0) += ef(i, 0);           
 
             for (int j = 0; j < ek.Rows(); j++) {
                 JG = iglob[j];
-                globmat(IG, JG) += ek(i, j); //ERRO
+                globmat(IG, JG) += ek(i, j);
             }
         }
     }

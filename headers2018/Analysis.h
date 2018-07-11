@@ -12,9 +12,8 @@
 #include "DataTypes.h"
 #include <string>
 #include <iostream>
+
 //#include <armadillo>
-
-
 //using namespace arma;
 
 class CompMesh;

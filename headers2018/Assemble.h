@@ -10,10 +10,7 @@
 
 #include "DataTypes.h"
 #include "PostProcess.h"
-#include <iostream>
-//#include <armadillo>
-//
-//using namespace arma;
+#include <iostream>\
 
 class CompMesh;
 

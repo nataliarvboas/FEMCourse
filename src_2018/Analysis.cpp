@@ -12,29 +12,28 @@
 #include "VTKGeoMesh.h"
 #include "PostProcessTemplate.h"
 
-
 using namespace std;
 
 Analysis::Analysis() {
     cmesh = 0;
-//    Solution.resize(0, 0);
-//    GlobalSystem.resize(0, 0);
-//    RightHandSide.resize(0, 0);
+    Solution.Resize(0, 0);
+    GlobalSystem.Resize(0, 0);
+    RightHandSide.Resize(0, 0);
 
 }
 
 Analysis::Analysis(const Analysis &cp) {
     cmesh = cp.cmesh;
-//    Solution = cp.Solution;
-//    GlobalSystem = cp.GlobalSystem;
-//    RightHandSide = cp.RightHandSide;
+    Solution = cp.Solution;
+    GlobalSystem = cp.GlobalSystem;
+    RightHandSide = cp.RightHandSide;
 }
 
 Analysis &Analysis::operator=(const Analysis &cp) {
     cmesh = cp.cmesh;
-//    Solution = cp.Solution;
-//    GlobalSystem = cp.GlobalSystem;
-//    RightHandSide = cp.RightHandSide;
+    Solution = cp.Solution;
+    GlobalSystem = cp.GlobalSystem;
+    RightHandSide = cp.RightHandSide;
     return *this;
 }
 
@@ -77,7 +76,7 @@ void Analysis::RunSimulation() {
 
     int solsize = Solution.Rows();
     VecDouble sol(solsize);
-
+    
     for (int i = 0; i < solsize; i++) {
         sol[i] = Solution(i, 0);
     }

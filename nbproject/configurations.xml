@@ -83,6 +83,7 @@
           <executablePath>../FEMCourse-build/mainprograms/Fem2018</executablePath>
           <ccTool>
             <incDir>
+              <pElem>/usr/include/eigen3</pElem>
               <pElem>headers2018</pElem>
               <pElem>headers</pElem>
               <pElem>tinyxml</pElem>

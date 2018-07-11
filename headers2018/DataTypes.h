@@ -15,10 +15,6 @@
 #include "TMatrix.h"
 //#include "TPZSSpStructMatrix.h"
 
-
-
-
-
 typedef TMatrix Matrix;
 typedef std::vector<int> VecInt;
 typedef std::vector<double> VecDouble;

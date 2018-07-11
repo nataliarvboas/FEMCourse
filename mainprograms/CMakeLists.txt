@@ -20,3 +20,8 @@ if(USING_ARMADILLO)
  target_link_libraries(Fem2018 ${ARMADILLO_LIBRARIES})
 
 endif(USING_ARMADILLO)
+
+if(USING_EIGEN3)
+ target_link_libraries(Fem2018 ${EIGEN_LIBRARIES})
+
+endif(USING_EIGEN3)
