@@ -1,10 +1,8 @@
 #include <iostream>
 #include <fstream>
-#include <math.h>
 #include <cmath>
 #include <functional> 
 #include <string.h>
-#define ARMA_USE_SUPERLU
 
 
 //#include "TVec.h"
