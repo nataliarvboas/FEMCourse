@@ -52,14 +52,14 @@ void TriangleTest(int pOrder);
 void TetrahedronTest(int pOrder);
 
 int main() {
-    //            QuadrilateralTest(1);
+                QuadrilateralTest(1);
     //        QuadrilateralTest(2);
     //
     //        TriangleTest(1);
     //        TriangleTest(2);
 
     //            TetrahedronTest(1);
-    TetrahedronTest(2);
+//    TetrahedronTest(2);
 
 
     return 0;
@@ -526,7 +526,7 @@ CompMesh *CreateCompMesh(GeoMesh *gmesh, int pOrder, int dim) {
             cmesh->SetMathStatement(i, p);
         } else {
             cmesh->SetNumberMath(i + 1);
-            Matrix Val1(1, 1, 0.), Val2(1, 1, 0.);
+            Matrix Val1(dim, dim, 0.), Val2(dim, dim, 0.);
             L2Projection *bc = new L2Projection(0, matid, perm, Val1, Val2);
             bc->SetForceFunction(ForceFunction);
             bc->SetExactSolution(Sol_exact);
