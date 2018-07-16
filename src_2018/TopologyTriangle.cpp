@@ -21,6 +21,6 @@ int TopologyTriangle::SideNodeIndex(int side, int node) {
 }
 
 ElementType TopologyTriangle::Type() {
-    return fETriangle;
+    return ETriangle;
 
 }

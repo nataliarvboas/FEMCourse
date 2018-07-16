@@ -21,6 +21,6 @@ int Topology1d::SideNodeIndex(int side, int node) {
 
 ElementType Topology1d::Type() {
 
-    return fEOned;
+    return EOned;
 
 }

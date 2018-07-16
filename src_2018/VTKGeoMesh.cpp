@@ -20,45 +20,45 @@ static int GetVTK_ElType(ElementType ElType)
 
     switch (ElType)
     {
-        case(fEPoint):
+        case(EPoint):
         {
             elType = 1;
             break;
         }
-        case(fEOned):
+        case(EOned):
         {
             elType = 21;
             break;
         }
-        case (fETriangle):
+        case (ETriangle):
         {
             // quadratic triangle
             elType = 22;
             break;
         }
-        case (fEQuadrilateral):
+        case (EQuadrilateral):
         {
             // quadratic quad
             elType = 23;
             break;
         }
-        case (fETetraedro):
+        case (ETetraedro):
         {
             // quadratic tetrahedra
             elType = 24;
             break;
         }
-        case (fEPiramide):
+        case (EPiramide):
         {
             elType = 14;
             break;
         }
-        case (fEPrisma):
+        case (EPrisma):
         {
             elType = 13;
             break;
         }
-        case (fECube):
+        case (ECube):
         {
             elType = 12;
             break;
@@ -117,27 +117,27 @@ static TMatrix NodeCoordinates(ElementType eltype)
     
 
     switch (eltype) {
-        case fEOned:
+        case EOned:
             result.Resize(3, 1);
             result(0,0) = -1.;
             result(1,0) = 1.;
             result(2,0) = 0.;
             break;
-        case fEQuadrilateral:
+        case EQuadrilateral:
             result.Resize(8, 2);
             for (int i=0; i<8; i++) {
                 result(i,0) = quadco[i][0];
                 result(i,1) = quadco[i][1];
             }
             break;
-        case fETriangle:
+        case ETriangle:
             result.Resize(6, 2);
             for (int i=0; i<6; i++) {
                 result(i,0) = triangle[i][0];
                 result(i,1) = triangle[i][1];
             }
             break;
-        case fETetraedro:
+        case ETetraedro:
             result.Resize(10, 3);
             for (int i=0; i<10; i++) {
                 result(i,0) = tetra[i][0];

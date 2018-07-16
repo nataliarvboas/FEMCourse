@@ -22,6 +22,6 @@ int TopologyQuad::SideNodeIndex(int side, int node) {
 
 ElementType TopologyQuad::Type() {
 
-    return fEQuadrilateral;
+    return EQuadrilateral;
 
 }
